@@ -88,6 +88,14 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
    quand le hero passe sous le header (un `IntersectionObserver`, rien par frame). Pages secondaires : toujours
    visible ; mobile : masqué, le hero garde son bouton.
 
+8. **Réalisations en pile** (`components/sections/Work.tsx`, `.pcard`) : chaque projet est une carte `position: sticky`
+   sous le header ; quand la suivante entre, la précédente recule (`scale`) et s'assombrit (voile en `opacity`),
+   piloté par la view timeline de la carte suivante (`timeline-scope` sur la pile), sans JavaScript. Firefox sans
+   `animation-timeline` garde la pile sans le recul, et perd l'ombre portée des cartes (une ombre floutée sur un
+   élément sticky est re-rasterisée à chaque frame). Les règles Firefox (`@supports (-moz-appearance: none)`) sont
+   hors couche : dans `@layer components` elles perdaient contre l'utilitaire `glass`. Mesure headless après la
+   pile : 28 à 34 frames > 33 ms sur ~210 (25 à 32 avant). Sous 1081 px les cartes sont statiques, l'une sous l'autre.
+
 ## Pourquoi le score mobile plafonne à 92–95
 
 Le LCP mobile **simulé** (3,0–3,2 s) ne dépend presque pas des polices : Lighthouse estime le LCP d'un texte en

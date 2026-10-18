@@ -442,15 +442,6 @@
   .hero-lead {
     text-shadow: 0 1px 12px rgb(10 10 12 / 0.9);
   }
-  /* Firefox re-blurs backdrops on every scroll frame: use opaque-ish fills instead. */
-  @supports (-moz-appearance: none) {
-    .glass,
-    .btn-glass {
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      background: rgb(20 20 24 / 0.9);
-    }
-  }
   /* Layout grids --------------------------------------------------- */
   .split {
     display: grid;
@@ -479,6 +470,104 @@
   }
   .proj-row-rev > :first-child {
     order: 2;
+  }
+  /* Project cards: a pile of folders. Each card is a surface with a lit top edge, the
+     project's accent glowing from one corner and its index as a watermark. */
+  .stack {
+    display: grid;
+    gap: clamp(24px, 3vw, 40px);
+  }
+  .pcard {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    padding: clamp(22px, 3vw, 44px);
+    border: 1px solid var(--color-line-2);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.07),
+      0 40px 80px -40px rgb(0 0 0 / 0.75);
+    transform-origin: 50% 0;
+  }
+  .pcard::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 46% 52% at 0% 0%,
+      color-mix(in srgb, var(--accent) 16%, transparent),
+      transparent 70%
+    );
+  }
+  .pcard-rev::before {
+    background: radial-gradient(
+      ellipse 46% 52% at 100% 0%,
+      color-mix(in srgb, var(--accent) 16%, transparent),
+      transparent 70%
+    );
+  }
+  .pcard-num {
+    position: absolute;
+    right: clamp(8px, 1.6vw, 24px);
+    bottom: -0.18em;
+    z-index: -1;
+    font-size: clamp(150px, 22vw, 320px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    color: var(--color-paper);
+    opacity: 0.04;
+    pointer-events: none;
+    user-select: none;
+  }
+  .pcard-rev .pcard-num {
+    right: auto;
+    left: clamp(8px, 1.6vw, 24px);
+  }
+  .pcard-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    margin-bottom: clamp(22px, 2.6vw, 36px);
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .pcard-rule {
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .pcard-body-link {
+    display: none;
+  }
+  /* A veil that darkens the card once the next one has landed on it. */
+  .pcard-veil {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    background: var(--color-ink);
+    opacity: 0;
+  }
+  /* The pile (wide screens, every browser): cards stick under the header, each one
+     18px lower than the previous so the edges of the cards below show. */
+  @media (min-width: 1081px) {
+    /* Room for the last card to settle: a grid item (not padding) so it counts in
+       the sticky containing block. */
+    .stack::after {
+      content: '';
+      height: clamp(48px, 8vw, 120px);
+    }
+    .pcard {
+      position: sticky;
+      top: calc(108px + var(--i) * 18px);
+    }
   }
   .team-grid {
     display: grid;
@@ -1105,6 +1194,16 @@
     scale: 1;
   }
 }
+@keyframes pcard-back {
+  to {
+    transform: scale(0.94) translateY(-14px);
+  }
+}
+@keyframes pcard-veil {
+  to {
+    opacity: 0.55;
+  }
+}
 @keyframes pj-stage {
   0% {
     opacity: 0;
@@ -1327,6 +1426,26 @@
       animation-timeline: --vn;
       animation-range: entry 230px entry 410px;
     }
+    /* The recede: while the next card enters, the one below shrinks and dims. Driven
+       by the next card's view timeline (timeline-scope on .stack), so a sticky card's
+       own timeline is never needed. The sticky pile itself is set outside this
+       @supports block (it must work in Firefox and Safari too). */
+    @media (min-width: 1081px) {
+      .pcard {
+        view-timeline-name: var(--self);
+      }
+      /* From the next card entering the viewport until it lands on its sticky top. */
+      .pcard[style*='--next'] {
+        animation: pcard-back linear both;
+        animation-timeline: var(--next);
+        animation-range: entry 10% entry calc(100vh - 126px - var(--i) * 18px);
+      }
+      .pcard[style*='--next'] .pcard-veil {
+        animation: pcard-veil linear both;
+        animation-timeline: var(--next);
+        animation-range: entry 10% entry calc(100vh - 126px - var(--i) * 18px);
+      }
+    }
     .pj-stage {
       view-timeline-name: --stg;
       animation: pj-stage var(--ease-out-soft) both;
@@ -1386,7 +1505,21 @@
     flex-basis: 300px !important;
   }
 }
+@media (max-width: 720px) {
+  .pcard-rule {
+    display: none;
+  }
+}
 @media (max-width: 1080px) {
+  .pcard-top-link {
+    display: none;
+  }
+  .pcard-body-link {
+    display: inline-flex;
+  }
+  .pcard-num {
+    font-size: clamp(120px, 30vw, 200px);
+  }
   .proj-row,
   .proj-row-rev {
     grid-template-columns: minmax(0, 1fr);
@@ -1595,6 +1728,20 @@
 /* Infinite animations only run while their block is on screen (LoopGuard),
    and never while the page scrolls in browsers without scroll-driven
    animations (software compositing territory). */
+/* Firefox (software compositing on many machines): no backdrop blur, which is
+   re-blurred on every scroll frame, and no blurred shadow on the sticky project
+   cards, re-rasterised the same way. Unlayered so it beats the `glass` utility. */
+@supports (-moz-appearance: none) {
+  .glass,
+  .btn-glass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgb(20 20 24 / 0.9);
+  }
+  .pcard {
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.07);
+  }
+}
 html.no-sda.is-scrolling .jk-scroll,
 html.no-sda.is-scrolling .rx-a,
 html.no-sda.is-scrolling .rx-b,
