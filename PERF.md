@@ -8,7 +8,7 @@ Mesures prises sur `pnpm build && pnpm start` en local (Node 22, Chromium 141 he
 
 | Page                    | Perf | A11y | Best practices | SEO | FCP   | LCP   | CLS | TBT   |
 | ----------------------- | ---- | ---- | -------------- | --- | ----- | ----- | --- | ----- |
-| Accueil `/fr` — mobile  | 93   | 100  | 100            | 100 | 1,1 s | 3,2 s | 0   | 70 ms |
+| Accueil `/fr` — mobile  | 95   | 100  | 100            | 100 | 1,1 s | 2,9 s | 0   | 50 ms |
 | Accueil `/fr` — desktop | 100  | 100  | 100            | 100 | 0,3 s | 0,7 s | 0   | 0 ms  |
 | Étude de cas — mobile   | 92   | 100  | 100            | 100 | 1,1 s | 3,3 s | 0   | 50 ms |
 | Étude de cas — desktop  | 100  | 100  | 100            | 100 | 0,3 s | 0,8 s | 0   | 0 ms  |
@@ -22,21 +22,17 @@ polices, pas d'un défaut de rendu. Mesure directe avec CPU ×4 sans bridage ré
 
 ## Budget JavaScript (page d'accueil, gzip)
 
-| Fichier (chunk)                  | gzip        | Contenu                                         |
-| -------------------------------- | ----------- | ----------------------------------------------- |
-| `react-dom` + `react`            | 71,9 kB     | exclu du budget                                 |
-| runtime App Router Next.js       | 46,5 kB     | routeur, hydratation, `next/image`, `next/link` |
-| polyfills (`noModule`)           | 39,5 kB     | jamais exécuté par un navigateur moderne        |
-| app + Lenis + Vercel analytics   | 11,2 kB     | layout client (MotionGuards, smooth scroll)     |
-| header (menu, langue, FlyingCta) | 10,7 kB     | pilules verre, CTA volant                       |
-| app (Magnetic, Next 404/erreurs) | ~13,4 kB    | petits chunks                                   |
-| ChromaCurrent (hero WebGL)       | 3,8 kB      | shaders + boucle, aucune dépendance             |
-| runtime Turbopack + webpack glue | ~4 kB       |                                                 |
-| **Total exécuté hors React**     | **90,3 kB** | cible < 90 kB : dépassée de 0,3 kB (CTA volant) |
-
-Le CTA volant (`FlyingCta`, 1,2 kB gzip) est la seule addition depuis la refonte ; les trois gardes de mouvement ont
-été fusionnés en un composant (`MotionGuards`) et les attributs redondants retirés, sans regagner les 0,3 kB.
-Prochain candidat si le budget doit être tenu strictement : le compilateur React (cache mémo par composant).
+| Fichier (chunk)                  | gzip        | Contenu                                          |
+| -------------------------------- | ----------- | ------------------------------------------------ |
+| `react-dom` + `react`            | 71,9 kB     | exclu du budget                                  |
+| runtime App Router Next.js       | 46,5 kB     | routeur, hydratation, `next/image`, `next/link`  |
+| polyfills (`noModule`)           | 39,5 kB     | jamais exécuté par un navigateur moderne         |
+| app + Lenis + Vercel analytics   | 11,2 kB     | layout client (MotionGuards, smooth scroll)      |
+| header (menu, langue, HeaderCta) | ~10 kB      | pilules verre, CTA du header                     |
+| app (Magnetic, Next 404/erreurs) | ~13,4 kB    | petits chunks                                    |
+| ChromaCurrent (hero WebGL)       | 3,8 kB      | shaders + boucle, aucune dépendance              |
+| runtime Turbopack + webpack glue | ~4 kB       |                                                  |
+| **Total exécuté hors React**     | **89,8 kB** | cible < 90 kB ✔ (marge faible : ne rien ajouter) |
 
 GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il est importé dynamiquement seulement si
 `CSS.supports('animation-timeline: view()')` est faux. CSS : 13 kB gzip (un seul fichier). HTML : 29 kB gzip.
@@ -87,12 +83,10 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
    la reconstruit. Un repli CSS « grille de points statique » a été essayé et retiré : en Firefox logiciel
    il coûtait autant que l'ancien logo flottant (36–40 frames > 33 ms contre 25–32 sans). Mesure Firefox headless
    après le changement : 25 à 32 frames > 33 ms sur ~210 (35 à 39 avec l'ancien hero).
-7. **CTA volant** (`components/motion/FlyingCta.tsx`) : le bouton principal du hero et celui du header sont un seul
-   lien. Sur l'accueil desktop il part du hero et rejoint le header au scroll (un `transform` par
-   `requestAnimationFrame` sur l'événement de scroll, aucun layout ni changement de couleur : hero et header
-   partagent la même pilule) ; la prise en main attend la fin de
-   l'animation d'entrée du hero pour mesurer. Mobile, pages secondaires et `prefers-reduced-motion` : pilule fixe
-   dans le header.
+7. **CTA du header** (`components/layout/HeaderCta.tsx`) : sur l'accueil il reste caché tant que le hero, qui porte
+   le même bouton, est à l'écran (état initial en CSS via `:has()`, aucun flash avant l'hydratation) et apparaît
+   quand le hero passe sous le header (un `IntersectionObserver`, rien par frame). Pages secondaires : toujours
+   visible ; mobile : masqué, le hero garde son bouton.
 
 ## Pourquoi le score mobile plafonne à 92–95
 

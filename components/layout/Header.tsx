@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { type SiteContent } from '@/content/types';
 import { type Locale, localePath } from '@/lib/i18n';
-import { FlyingCta } from '@/components/motion/FlyingCta';
 import { LogoMark } from '@/components/ui/LogoMark';
 import { HeaderControls } from './HeaderControls';
+import { HeaderCta } from './HeaderCta';
 import { LangSwitch } from './LangSwitch';
 
 interface HeaderProps {
@@ -11,8 +11,8 @@ interface HeaderProps {
   content: SiteContent;
 }
 
-/** id of the hero's primary CTA, which the header's one replaces while flying. */
-export const HERO_CTA_ID = 'hero-cta';
+/** id of the hero section: the header's CTA stays hidden while it is on screen. */
+export const HERO_ID = 'hero';
 
 export function Header({ locale, content }: HeaderProps) {
   const home = localePath(locale);
@@ -31,9 +31,7 @@ export function Header({ locale, content }: HeaderProps) {
         </Link>
 
         <div className="relative z-10 flex items-center gap-2">
-          {/* The CTA lands first in the row: while it is still down in the hero, the
-              empty slot reads as space between the logo and the pills, not as a hole. */}
-          <FlyingCta href={`${home}#contact`} label={content.nav.cta} heroId={HERO_CTA_ID} />
+          <HeaderCta href={`${home}#contact`} label={content.nav.cta} heroId={HERO_ID} />
           <LangSwitch
             locale={locale}
             label={content.a11y.languageGroup}

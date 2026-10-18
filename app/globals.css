@@ -225,20 +225,28 @@
       transform: translateX(4px);
     }
   }
-  /* The header CTA: fills its slot, or, while it flies from the hero, is fixed and
-     moved by FlyingCta. Positioned here, not with utilities, so the flying state wins. */
-  .fly-cta.is-flying {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 61;
-    transform-origin: 0 0;
-    will-change: transform;
-    transition: none;
+  /* The header CTA on the home page: hidden while the hero (which has the same
+     button) is on screen, shown once it has scrolled under the header. The hidden
+     state is CSS so nothing flashes before hydration; HeaderCta adds `.is-out`. */
+  .hdr-cta {
+    transition:
+      opacity 0.35s ease,
+      translate 0.45s var(--ease-out-expo),
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      color 0.3s ease,
+      transform 0.35s var(--ease-out-expo),
+      box-shadow 0.35s ease;
   }
-  /* The full-screen menu has its own call to action: hide the flying one under it. */
-  header:has(.menu-overlay) .fly-cta {
+  #top:has(> main .hero) .hdr-cta:not(.is-out) {
+    opacity: 0;
+    translate: 0 -10px;
     visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.25s ease,
+      translate 0.25s ease,
+      visibility 0s 0.25s;
   }
   .link-u {
     background-image: linear-gradient(currentColor, currentColor);

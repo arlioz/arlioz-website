@@ -42,8 +42,8 @@ app/
 components/
   sections/              Hero, StackMarquee (bandeau technologies sous le hero), About, Expertises, Work, Team,
                          Contact, LegalPage (Server Components)
-  layout/                Header (pilules verre : logo, langue, menu, CTA), HeaderControls (menu — client), Footer
-  motion/                SmoothScroll (Lenis), ChromaCurrent (WebGL), FlyingCta (CTA du hero vers le header), MotionGuards, Magnetic
+  layout/                Header (pilules verre : logo, langue, menu, CTA), HeaderCta, HeaderControls (client), Footer
+  motion/                SmoothScroll (Lenis), ChromaCurrent (WebGL), MotionGuards, Magnetic
   ui/                    Button, Eyebrow, LineTitle, Chips, DeviceStage, BrowserBar, Glow, Icons, JsonLd, LogoMark
 content/                 textes FR/EN (fr.ts, en.ts), projets, pages légales, médias — aucun texte en dur dans les composants
 lib/                     i18n.ts (locales, segments d'URL), seo.ts (metadata + JSON-LD), gsap.ts, site.ts

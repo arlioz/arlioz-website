@@ -2,7 +2,7 @@ import { type SiteContent } from '@/content/types';
 import { type Locale, localePath } from '@/lib/i18n';
 import { ChromaCurrent } from '@/components/motion/ChromaCurrent';
 import { ButtonLink } from '@/components/ui/Button';
-import { HERO_CTA_ID } from '@/components/layout/Header';
+import { HERO_ID } from '@/components/layout/Header';
 
 const highlight = ['hero-hl-a', 'hero-hl-b'] as const;
 
@@ -11,7 +11,7 @@ export function Hero({ locale, content }: { locale: Locale; content: SiteContent
   const home = localePath(locale);
 
   return (
-    <section aria-labelledby="hero-title" className="relative overflow-clip">
+    <section id={HERO_ID} aria-labelledby="hero-title" className="relative overflow-clip">
       <div className="hero relative">
         <ChromaCurrent className="hero-chroma" />
         <div aria-hidden="true" className="hero-veil" />
@@ -41,9 +41,7 @@ export function Hero({ locale, content }: { locale: Locale; content: SiteContent
           </h1>
 
           <div className="intro intro-4 hero-ctas flex flex-wrap justify-center gap-3 pt-3">
-            <ButtonLink id={HERO_CTA_ID} href={`${home}#contact`}>
-              {hero.ctaPrimary}
-            </ButtonLink>
+            <ButtonLink href={`${home}#contact`}>{hero.ctaPrimary}</ButtonLink>
             <ButtonLink href={`${home}#realisations`} variant="glass">
               {hero.ctaSecondary}
             </ButtonLink>
