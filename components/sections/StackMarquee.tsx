@@ -24,7 +24,7 @@ export function StackMarquee({ content }: { content: SiteContent }) {
   return (
     <div
       aria-label={stack.label}
-      className="marquee border-y border-line py-[clamp(26px,3vw,40px)]"
+      className="marquee border-t border-line py-[clamp(26px,3vw,40px)]"
     >
       <div className="marquee-track">
         <Track items={stack.items} />

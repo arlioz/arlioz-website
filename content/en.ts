@@ -202,8 +202,8 @@ export const en: SiteContent = {
     close: 'Close',
     sectionLabel: 'Navigation',
     items: [
-      { label: 'Expertise', anchor: 'expertises', dot: 'orange' },
       { label: 'Work', anchor: 'realisations', dot: 'blue' },
+      { label: 'Expertise', anchor: 'expertises', dot: 'orange' },
       { label: 'Team', anchor: 'equipe', dot: 'green' },
       { label: 'Contact', anchor: 'contact', dot: 'yellow' },
     ],
@@ -224,7 +224,7 @@ export const en: SiteContent = {
     ctaSecondary: 'See our work',
   },
   about: {
-    index: '01',
+    index: '02',
     label: 'About',
     year: '2018',
     yearLabel: 'Founded',
@@ -253,7 +253,7 @@ export const en: SiteContent = {
     ],
   },
   expertises: {
-    index: '02',
+    index: '03',
     label: 'Expertise',
     title: ['Two areas of expertise', 'that complement each other.'],
     rgpd: {
@@ -314,7 +314,7 @@ export const en: SiteContent = {
     },
   },
   work: {
-    index: '03',
+    index: '01',
     label: 'Work',
     title: ['Real projects,', 'live online.'],
     clientsLabel: 'In production at',

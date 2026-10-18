@@ -68,9 +68,9 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
 4. **`content-visibility: auto`** sur les sections basses des études de cas. Pas sur l'accueil : ses sections sont des
    cibles d'ancres (`#contact`, `#equipe`…) et la hauteur estimée faussait la position d'arrivée avec Lenis.
 5. **Hero LCP-safe** : les lignes du H1 sont révélées par masque (`overflow: clip` + `translate`), le texte est du
-   vrai HTML, rien ne démarre à `opacity: 0` dans le bloc LCP. Le hero fait 86 % de l'écran ; le titre « À propos »,
-   qui affleure le pli au chargement, entre avec la page (`.intro`) et non au scroll : un reveal scroll-driven à
-   mi-course le laissait quasi transparent au moment de l'audit (contraste 1,16 signalé par axe).
+   vrai HTML, rien ne démarre à `opacity: 0` dans le bloc LCP. Le hero fait 86 % de l'écran et le bandeau le suit :
+   aucun reveal à l'opacité (`.rv`, `.sx-*`) n'affleure le pli au chargement, sinon axe signale un contraste
+   insuffisant à mi-course (vu avec le titre « À propos », contraste 1,16, quand il était juste sous le hero).
 6. **Hero WebGL « courant chromatique »** (`components/motion/ChromaCurrent.tsx`, 3,8 kB gzip, pas de bibliothèque) :
    le champ lumineux est calculé une fois par point de la grille (texture ≈ 160 × 100 texels) puis les points sont
    dessinés dans une seconde passe, soit ~80 × moins de travail qu'un shader par pixel. La boucle ne tourne que sur GPU

@@ -20,14 +20,15 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
       <div className="container-site">
         <div className="mb-[clamp(56px,7vw,96px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
           <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
-            <Eyebrow index={work.index} label={work.label} animated />
+            {/* First section under the band: no opacity reveal near the fold (axe contrast). */}
+            <Eyebrow index={work.index} label={work.label} />
             <LineTitle
               id="work-title"
               lines={work.title}
               className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
             />
           </div>
-          <div className="sx-up sx-late flex flex-wrap items-center gap-x-6 gap-y-2">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <p className="label-mono m-0 text-muted-3">{work.clientsLabel}</p>
             <ul className="m-0 flex list-none flex-wrap items-center gap-x-6 gap-y-1.5 p-0 font-display text-[22px] font-medium tracking-[-0.02em] text-muted-2">
               {work.clients.map((client) => (

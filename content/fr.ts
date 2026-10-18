@@ -226,8 +226,8 @@ export const fr: SiteContent = {
     close: 'Fermer',
     sectionLabel: 'Navigation',
     items: [
-      { label: 'Expertises', anchor: 'expertises', dot: 'orange' },
       { label: 'Réalisations', anchor: 'realisations', dot: 'blue' },
+      { label: 'Expertises', anchor: 'expertises', dot: 'orange' },
       { label: 'Équipe', anchor: 'equipe', dot: 'green' },
       { label: 'Contact', anchor: 'contact', dot: 'yellow' },
     ],
@@ -248,7 +248,7 @@ export const fr: SiteContent = {
     ctaSecondary: 'Voir nos réalisations',
   },
   about: {
-    index: '01',
+    index: '02',
     label: 'À propos',
     year: '2018',
     yearLabel: 'Année de création',
@@ -277,7 +277,7 @@ export const fr: SiteContent = {
     ],
   },
   expertises: {
-    index: '02',
+    index: '03',
     label: 'Expertises',
     title: ['Deux expertises', 'qui se complètent.'],
     rgpd: {
@@ -338,7 +338,7 @@ export const fr: SiteContent = {
     },
   },
   work: {
-    index: '03',
+    index: '01',
     label: 'Réalisations',
     title: ['Des projets', 'concrets, en ligne.'],
     clientsLabel: 'En production chez',
