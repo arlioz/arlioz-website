@@ -214,6 +214,49 @@ export function Expertises({ content }: { content: SiteContent }) {
               </g>
             </svg>
           </article>
+
+          {/* Migration from PCSoft tools */}
+          <article
+            className={`${card} span-c3 hx-orange flex-row flex-wrap items-start justify-between gap-x-12 gap-y-8 overflow-clip p-[clamp(28px,3.4vw,44px)]`}
+          >
+            <Glow
+              color="#FA7F13"
+              opacity={0.18}
+              blur={110}
+              style={{ width: 360, height: 360, right: -120, top: -140 }}
+            />
+            <div className="hx" aria-hidden="true" />
+            <div className="hx-line" aria-hidden="true" />
+            <div className="relative flex min-w-0 max-w-[600px] flex-[1_1_380px] flex-col gap-5">
+              <div className="flex items-center gap-3.5">
+                <span className="ico inline-flex h-[52px] w-[52px] items-center justify-center rounded-tile bg-orange/13 text-orange-light">
+                  <Layers />
+                </span>
+                <span className="hx-tag label-mono-sm rounded-pill border border-orange-light/30 px-3 py-1.5 text-orange-light">
+                  {x.migration.tag}
+                </span>
+              </div>
+              <LineTitle
+                as="h3"
+                lines={[x.migration.title]}
+                className="font-display text-h3 leading-[1.05] font-medium tracking-[-0.035em] text-balance"
+              />
+              <p className="sx-txt m-0 text-base leading-[1.6] text-muted">{x.migration.text}</p>
+            </div>
+            <ul className="relative m-0 flex min-w-0 flex-[1_1_360px] list-none flex-col p-0">
+              {x.migration.items.map((item, i, all) => (
+                <li
+                  key={item}
+                  className={`sx-li flex items-center gap-3 border-t border-line-2 py-[13px] text-[15px] text-paper-2 ${
+                    i === all.length - 1 ? 'border-b' : ''
+                  }`}
+                >
+                  <Check className="ck flex-none text-orange-light" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
         </div>
       </div>
     </section>
