@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { type CSSProperties } from 'react';
 import { type SiteContent } from '@/content/types';
 import { type Locale, localePath } from '@/lib/i18n';
 import { Chips } from '@/components/ui/Chips';
@@ -11,6 +12,7 @@ const glow = { orange: '#FA7F13', blue: '#2065CB', green: '#2BBE8D', yellow: '#F
 
 export function Work({ locale, content }: { locale: Locale; content: SiteContent }) {
   const { work } = content;
+  const total = String(content.projects.length).padStart(2, '0');
   return (
     <section
       id="realisations"
@@ -38,62 +40,100 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
           </div>
         </div>
 
-        <div className="flex flex-col gap-[clamp(72px,9vw,128px)]">
-          {content.projects.map((project) => {
+        {/* Stacked cards: on wide screens each card sticks under the header and the next
+            one lands on top of it while it recedes (CSS scroll-driven, see .pcard). */}
+        <div
+          className="stack"
+          style={
+            {
+              timelineScope: content.projects.map((_, i) => `--c${i + 1}`).join(', '),
+            } as CSSProperties
+          }
+        >
+          {content.projects.map((project, i) => {
             const href = localePath(locale, 'work', project.slug);
+            const last = i === content.projects.length - 1;
+            const vars = {
+              '--i': i,
+              '--self': `--c${i + 1}`,
+              '--accent': glow[project.accent],
+              ...(last ? {} : { '--next': `--c${i + 2}` }),
+            } as CSSProperties;
             return (
               <article
                 key={project.slug}
-                className={`proj-row proj-card ${project.reversed ? 'proj-row-rev' : ''}`}
+                className={`pcard proj-card ${project.reversed ? 'pcard-rev' : ''}`}
+                style={vars}
               >
-                <DeviceStage
-                  devices={project.devices}
-                  reversed={project.reversed}
-                  glow={glow[project.accent]}
-                  glowOpacity={project.accent === 'yellow' ? 0.14 : 0.16}
-                  href={href}
-                  ariaLabel={`${work.caseStudy} : ${project.title}`}
-                />
-                <div className="flex min-w-0 flex-col gap-4">
-                  <p className="sx-txt label-mono m-0 flex flex-wrap items-center gap-x-3.5 gap-y-2 tracking-[0.06em] text-muted-3">
-                    <span className="text-paper">{project.index}</span>
+                <span aria-hidden="true" className="pcard-num font-display">
+                  {project.index}
+                </span>
+
+                <div className="pcard-bar label-mono text-muted-3">
+                  <p className="m-0 flex flex-wrap items-center gap-x-3.5 gap-y-2 tracking-[0.06em]">
+                    <span className="text-paper">
+                      {project.index} / {total}
+                    </span>
+                    <span aria-hidden="true" className="pcard-rule" />
                     <span>{project.type}</span>
                     <span aria-hidden="true">/</span>
                     <span>
                       {work.clientPrefix} {project.client}
                     </span>
                   </p>
-                  <LineTitle
-                    as="h3"
-                    lines={[project.title]}
-                    className="font-display text-h3-work leading-[1.02] font-medium tracking-[-0.035em]"
+                  <Link
+                    href={href}
+                    className="link-u pcard-top-link inline-flex items-center gap-2 font-sans text-[15px] font-medium tracking-normal text-paper normal-case"
+                  >
+                    {work.caseStudy}
+                    <ArrowRight size={16} />
+                  </Link>
+                </div>
+
+                <div className={`proj-row ${project.reversed ? 'proj-row-rev' : ''}`}>
+                  <DeviceStage
+                    devices={project.devices}
+                    reversed={project.reversed}
+                    glow={glow[project.accent]}
+                    glowOpacity={project.accent === 'yellow' ? 0.14 : 0.16}
+                    href={href}
+                    ariaLabel={`${work.caseStudy} : ${project.title}`}
                   />
-                  <p className="sx-txt m-0 max-w-[580px] text-[16.5px] leading-[1.6] text-muted text-pretty">
-                    {project.summary}
-                  </p>
-                  <p className="sx-txt m-0 text-[15px] text-paper-2">{project.highlights}</p>
-                  <Chips items={project.tags} animated className="mt-1" />
-                  <div className="sx-txt mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[15px]">
-                    <Link
-                      href={href}
-                      className="link-u inline-flex items-center gap-2 font-medium text-paper"
-                    >
-                      {work.caseStudy}
-                      <ArrowRight size={16} />
-                    </Link>
-                    {project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener"
-                        className="link-u inline-flex items-center gap-2 text-muted"
+                  <div className="flex min-w-0 flex-col gap-4">
+                    <LineTitle
+                      as="h3"
+                      lines={[project.title]}
+                      className="font-display text-h3-work leading-[1.02] font-medium tracking-[-0.035em]"
+                    />
+                    <p className="sx-txt m-0 max-w-[580px] text-[16.5px] leading-[1.6] text-muted text-pretty">
+                      {project.summary}
+                    </p>
+                    <p className="sx-txt m-0 text-[15px] text-paper-2">{project.highlights}</p>
+                    <Chips items={project.tags} animated className="mt-1" />
+                    <div className="sx-txt mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[15px]">
+                      <Link
+                        href={href}
+                        className="link-u pcard-body-link inline-flex items-center gap-2 font-medium text-paper"
                       >
-                        {project.demoLabel}
-                        <ArrowUpRight size={15} />
-                      </a>
-                    )}
+                        {work.caseStudy}
+                        <ArrowRight size={16} />
+                      </Link>
+                      {project.demoUrl && (
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener"
+                          className="link-u inline-flex items-center gap-2 text-muted"
+                        >
+                          {project.demoLabel}
+                          <ArrowUpRight size={15} />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
+
+                <span aria-hidden="true" className="pcard-veil" />
               </article>
             );
           })}
