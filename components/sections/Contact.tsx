@@ -47,7 +47,7 @@ export function Contact({ locale, content }: { locale: Locale; content: SiteCont
                 <a href={`mailto:${site.email}`} className={row}>
                   <span className="flex min-w-0 flex-col gap-1.5">
                     <span className="label-mono-sm text-muted-3">{contact.emailLabel}</span>
-                    <span className="font-display text-row font-medium tracking-[-0.025em] [overflow-wrap:anywhere]">
+                    <span className="selectable font-display text-row font-medium tracking-[-0.025em] [overflow-wrap:anywhere]">
                       {site.email}
                     </span>
                   </span>
