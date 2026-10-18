@@ -18,8 +18,8 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
       className="border-y border-line bg-ink-2 py-section"
     >
       <div className="container-site">
-        <div className="mb-[clamp(48px,6vw,80px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
-          <div className="flex min-w-0 max-w-[780px] flex-col gap-[22px]">
+        <div className="mb-[clamp(56px,7vw,96px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
+          <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
             <Eyebrow index={work.index} label={work.label} animated />
             <LineTitle
               id="work-title"
@@ -27,9 +27,14 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
               className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
             />
           </div>
-          <p className="sx-up sx-late m-0 max-w-[420px] text-[17px] leading-[1.6] text-muted">
-            {work.intro}
-          </p>
+          <div className="sx-up sx-late flex flex-wrap items-center gap-x-6 gap-y-2">
+            <p className="label-mono m-0 text-muted-3">{work.clientsLabel}</p>
+            <ul className="m-0 flex list-none flex-wrap items-center gap-x-6 gap-y-1.5 p-0 font-display text-[22px] font-medium tracking-[-0.02em] text-muted-2">
+              {work.clients.map((client) => (
+                <li key={client}>{client}</li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="flex flex-col gap-[clamp(72px,9vw,128px)]">

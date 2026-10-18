@@ -2,17 +2,19 @@ import Link from 'next/link';
 import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { ArrowRight } from './Icons';
 
-type Variant = 'primary' | 'ghost';
+type Variant = 'primary' | 'glass';
 type Size = 'md' | 'sm';
 
+/** `md` is the header pill (logo, language, menu): every button shares its geometry. */
 const sizes: Record<Size, string> = {
-  md: 'h-14 gap-[10px] px-7 text-base',
+  md: 'h-[52px] gap-[10px] px-6 text-[15px]',
   sm: 'h-10 gap-2 px-4 text-sm',
 };
 
+/** Both are the header's translucent pill (globals.css); `primary` adds the gradient ring. */
 const variants: Record<Variant, string> = {
-  primary: 'btn-primary bg-paper text-ink font-semibold',
-  ghost: 'btn-ghost border border-line-5 text-paper font-medium',
+  primary: 'btn-glass btn-primary font-medium',
+  glass: 'btn-glass font-medium',
 };
 
 export function buttonClass(variant: Variant, size: Size, className = '') {

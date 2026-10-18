@@ -3,11 +3,16 @@ import { type SiteContent } from '@/content/types';
 import { type Locale, localePath } from '@/lib/i18n';
 import { LogoMark } from '@/components/ui/LogoMark';
 import { HeaderControls } from './HeaderControls';
+import { HeaderCta } from './HeaderCta';
+import { LangSwitch } from './LangSwitch';
 
 interface HeaderProps {
   locale: Locale;
   content: SiteContent;
 }
+
+/** id of the hero section: the header's CTA stays hidden while it is on screen. */
+export const HERO_ID = 'hero';
 
 export function Header({ locale, content }: HeaderProps) {
   const home = localePath(locale);
@@ -24,7 +29,16 @@ export function Header({ locale, content }: HeaderProps) {
             arlioz
           </span>
         </Link>
-        <HeaderControls locale={locale} homeHref={home} nav={content.nav} a11y={content.a11y} />
+
+        <div className="relative z-10 flex items-center gap-2">
+          <HeaderCta href={`${home}#contact`} label={content.nav.cta} heroId={HERO_ID} />
+          <LangSwitch
+            locale={locale}
+            label={content.a11y.languageGroup}
+            className="hdr-lang pill glass pointer-events-auto h-[52px] rounded-pill px-1.5"
+          />
+          <HeaderControls locale={locale} homeHref={home} nav={content.nav} a11y={content.a11y} />
+        </div>
       </div>
     </header>
   );

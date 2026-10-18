@@ -397,7 +397,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <Magnetic>
               <ButtonLink href={`mailto:${site.email}`}>{cs.cta.write}</ButtonLink>
             </Magnetic>
-            <ButtonLink href={home} variant="ghost">
+            <ButtonLink href={home} variant="glass">
               {cs.cta.home}
             </ButtonLink>
           </div>

@@ -61,8 +61,8 @@
 
   --spacing-gutter: clamp(20px, 5.6vw, 80px);
   --spacing-gutter-sm: clamp(16px, 4vw, 56px);
-  --spacing-section: clamp(72px, 10vw, 144px);
-  --spacing-section-sm: clamp(40px, 5vw, 64px);
+  --spacing-section: clamp(84px, 11.5vw, 168px);
+  --spacing-section-sm: clamp(48px, 5.8vw, 76px);
 
   --ease-out-expo: cubic-bezier(0.2, 0.7, 0.2, 1);
   --ease-out-soft: cubic-bezier(0.2, 0.65, 0.25, 1);
@@ -81,7 +81,7 @@
   --text-stat: clamp(72px, 9vw, 132px);
   --text-stat-sm: clamp(64px, 7vw, 104px);
   --text-contact: clamp(38px, 4.8vw, 68px);
-  --text-marquee: clamp(40px, 5.6vw, 80px);
+  --text-marquee: clamp(30px, 4vw, 56px);
   --text-next: clamp(44px, 7vw, 104px);
   --text-member: clamp(28px, 2.6vw, 36px);
   --text-row: clamp(22px, 2.2vw, 30px);
@@ -194,13 +194,59 @@
       background-color 0.3s ease,
       border-color 0.3s ease;
   }
-  .menu-btn {
-    transition: background-color 0.3s ease;
+  @media (hover: hover) {
+    .menu-btn:hover,
+    .btn-glass:hover {
+      background-color: rgb(28 28 34 / 0.78);
+      border-color: rgb(255 255 255 / 0.18);
+    }
+  }
+  .btn-glass {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    color: var(--color-paper);
+    background: rgb(20 20 24 / 0.62);
+    border: 1px solid rgb(255 255 255 / 0.09);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      color 0.3s ease,
+      transform 0.35s var(--ease-out-expo),
+      box-shadow 0.35s ease;
+  }
+  .btn-glass svg {
+    transition: transform 0.4s var(--ease-out-expo);
   }
   @media (hover: hover) {
-    .menu-btn:hover {
-      background-color: rgb(255 255 255 / 0.14);
+    .btn-glass:hover svg {
+      transform: translateX(4px);
     }
+  }
+  /* The header CTA on the home page: hidden while the hero (which has the same
+     button) is on screen, shown once it has scrolled under the header. The hidden
+     state is CSS so nothing flashes before hydration; HeaderCta adds `.is-out`. */
+  .hdr-cta {
+    transition:
+      opacity 0.35s ease,
+      translate 0.45s var(--ease-out-expo),
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      color 0.3s ease,
+      transform 0.35s var(--ease-out-expo),
+      box-shadow 0.35s ease;
+  }
+  #top:has(> main .hero) .hdr-cta:not(.is-out) {
+    opacity: 0;
+    translate: 0 -10px;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.25s ease,
+      translate 0.25s ease,
+      visibility 0s 0.25s;
   }
   .link-u {
     background-image: linear-gradient(currentColor, currentColor);
@@ -216,13 +262,25 @@
       background-size: 100% 1px;
     }
   }
-  .btn-primary {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-    transition:
-      transform 0.35s var(--ease-out-expo),
-      box-shadow 0.35s ease;
+  /* Primary call to action: the glass pill with a thin orange → teal ring (the hero's
+     two currents). On hover the same gradient rises and fills the pill. */
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    z-index: 1;
+    padding: 1.5px;
+    border-radius: inherit;
+    background: linear-gradient(100deg, #ff7c00, #ffb13d 38%, #7df5e0 62%, #00ffcc);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
   .btn-primary::before {
     content: '';
@@ -230,56 +288,24 @@
     inset: 0;
     z-index: -1;
     border-radius: inherit;
-    background: linear-gradient(100deg, #feb613, #fa7f13 55%, #f6601a);
+    background: linear-gradient(100deg, #ff7c00, #00ffcc);
     transform: translateY(102%);
     transition: transform 0.55s var(--ease-out-expo);
   }
   @media (hover: hover) {
     .btn-primary:hover {
+      color: var(--color-ink);
       transform: translateY(-2px);
-      box-shadow: 0 14px 34px -12px rgb(250 127 19 / 0.6);
+      box-shadow: 0 14px 34px -12px rgb(255 124 0 / 0.45);
     }
     .btn-primary:hover::before {
       transform: translateY(0);
-    }
-    .btn-primary:hover svg {
-      transform: translateX(4px);
     }
   }
   .btn-primary:active {
     transform: translateY(0) scale(0.98);
   }
-  .btn-ghost {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-    transition:
-      border-color 0.3s ease,
-      transform 0.35s var(--ease-out-expo);
-  }
-  .btn-ghost::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    border-radius: inherit;
-    background: rgb(255 255 255 / 0.08);
-    transform: scaleX(0);
-    transform-origin: 0 50%;
-    transition: transform 0.55s var(--ease-out-expo);
-  }
-  @media (hover: hover) {
-    .btn-ghost:hover {
-      border-color: rgb(255 255 255 / 0.42);
-      transform: translateY(-2px);
-    }
-    .btn-ghost:hover::before {
-      transform: scaleX(1);
-    }
-  }
   .link-u svg,
-  .btn-primary svg,
-  .btn-ghost svg,
   .row-link svg {
     transition: transform 0.4s var(--ease-out-expo);
   }
@@ -365,9 +391,9 @@
   .hero {
     display: grid;
     place-items: center;
-    min-height: 100svh;
+    min-height: 86svh;
     margin-top: -84px;
-    padding: 132px 0 112px;
+    padding: 164px 0 128px;
   }
   /* The current only flows along the edges: the centre is masked out so the
      text sits on plain ink. The veil darkens the middle a little more. Without a
@@ -416,54 +442,13 @@
   .hero-lead {
     text-shadow: 0 1px 12px rgb(10 10 12 / 0.9);
   }
-  /* Pointer hint: only once the interactive current actually runs. */
-  .hero-hint {
-    position: absolute;
-    left: 50%;
-    bottom: 70px;
-    display: none;
-    transform: translateX(-50%);
-    width: max-content;
-    max-width: calc(100vw - 32px);
-  }
-  .hero[data-live] .hero-hint {
-    display: block;
-  }
-  .hero-scroll {
-    position: absolute;
-    left: 50%;
-    bottom: 24px;
-    transform: translateX(-50%);
-  }
-  .hero-scroll i {
-    display: block;
-    width: 1px;
-    height: 38px;
-    background: linear-gradient(var(--color-paper-3), transparent);
-    animation: arz-drop 1.8s var(--ease-out-expo) infinite;
-  }
-  @media (hover: none) {
-    .hero[data-live] .hero-hint {
-      display: none;
-    }
-  }
-  .hero-chip {
-    display: inline-flex;
-    background: rgb(17 17 20 / 0.72);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
   /* Firefox re-blurs backdrops on every scroll frame: use opaque-ish fills instead. */
   @supports (-moz-appearance: none) {
-    .glass {
+    .glass,
+    .btn-glass {
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
       background: rgb(20 20 24 / 0.9);
-    }
-    .hero-chip {
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      background: rgb(17 17 20 / 0.92);
     }
   }
   /* Layout grids --------------------------------------------------- */
@@ -755,14 +740,8 @@
   .intro-1 {
     animation-delay: 0.05s;
   }
-  .intro-3 {
-    animation-delay: 0.45s;
-  }
   .intro-4 {
     animation-delay: 0.58s;
-  }
-  .intro-5 {
-    animation-delay: 0.75s;
   }
   .ln-wrap {
     display: flex;
@@ -786,18 +765,6 @@
   }
   .intro-media {
     animation: arz-zoom-lcp 1.1s var(--ease-out-expo) 0.2s both;
-  }
-  .chip-pop {
-    animation: arz-pop 0.7s var(--ease-out-expo) both;
-  }
-  .chip-1 {
-    animation-delay: 0.7s;
-  }
-  .chip-2 {
-    animation-delay: 0.82s;
-  }
-  .chip-3 {
-    animation-delay: 0.94s;
   }
 
   /* Marks, bars, line masks ---------------------------------------- */
@@ -884,23 +851,6 @@
   }
   to {
     opacity: 0;
-  }
-}
-@keyframes arz-drop {
-  0% {
-    transform: scaleY(0);
-    transform-origin: top;
-  }
-  50% {
-    transform: scaleY(1);
-    transform-origin: top;
-  }
-  51% {
-    transform-origin: bottom;
-  }
-  100% {
-    transform: scaleY(0);
-    transform-origin: bottom;
   }
 }
 @keyframes arz-marquee {
@@ -1000,18 +950,6 @@
     scale: 0.92;
   }
   to {
-    scale: 1;
-  }
-}
-@keyframes arz-pop {
-  from {
-    opacity: 0;
-    translate: 0 10px;
-    scale: 0.9;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
     scale: 1;
   }
 }
@@ -1503,18 +1441,9 @@
   .sx-d2 {
     --o: 0px;
   }
-  .pill-lang,
-  .pill-sep,
-  .pill-cta {
+  .hdr-lang,
+  .hdr-cta {
     display: none !important;
-  }
-  .pill-group {
-    padding: 0 !important;
-  }
-  .menu-btn {
-    height: 50px !important;
-    padding: 0 18px !important;
-    background-color: transparent !important;
   }
   .menu-grid {
     padding-top: 100px !important;
@@ -1554,11 +1483,8 @@
     background-position: 0 calc(100% - 9px);
   }
   .hero {
-    padding: 120px 0 96px;
-  }
-  .hero-chip {
-    padding: 8px 12px !important;
-    font-size: 11px !important;
+    min-height: 78svh;
+    padding: 140px 0 96px;
   }
   .pillars {
     grid-template-columns: minmax(0, 1fr) !important;
@@ -1736,14 +1662,12 @@ html.sda-light :is(.rv-d2, .rv-bar.b3) {
   }
   .intro,
   .intro-media,
-  .chip-pop,
   .ln-in,
   .menu-item,
   .menu-overlay {
     animation: none;
   }
   .marquee-track,
-  .hero-scroll i,
   .jk-scroll,
   .rx-a,
   .rx-b {

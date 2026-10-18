@@ -80,25 +80,18 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
 
   return (
     <>
-      <div className="pill pill-group glass pointer-events-auto relative z-10 flex h-[52px] items-center gap-1.5 rounded-pill px-1.5">
-        <LangSwitch locale={locale} label={a11y.languageGroup} className="pill-lang pl-0.5" />
-        <span aria-hidden="true" className="pill-sep mx-1 block h-[22px] w-px bg-white/12" />
-        <ButtonLink href={`${homeHref}#contact`} size="sm" className="pill-cta">
-          {nav.ctaShort}
-        </ButtonLink>
-        <button
-          ref={buttonRef}
-          type="button"
-          onClick={toggle}
-          aria-label={open ? a11y.closeMenu : a11y.openMenu}
-          aria-expanded={open}
-          aria-controls={dialogId}
-          className="menu-btn inline-flex h-10 cursor-pointer items-center gap-3 rounded-pill border-0 bg-white/7 px-4 font-sans text-sm font-medium text-paper"
-        >
-          <span>{open ? nav.close : nav.menu}</span>
-          {open ? <Close /> : <Burger />}
-        </button>
-      </div>
+      <button
+        ref={buttonRef}
+        type="button"
+        onClick={toggle}
+        aria-label={open ? a11y.closeMenu : a11y.openMenu}
+        aria-expanded={open}
+        aria-controls={dialogId}
+        className="menu-btn pill glass pointer-events-auto relative z-10 inline-flex h-[52px] cursor-pointer items-center gap-3 rounded-pill px-5 font-sans text-[15px] font-medium text-paper"
+      >
+        <span>{open ? nav.close : nav.menu}</span>
+        {open ? <Close /> : <Burger />}
+      </button>
 
       {(open || closing) && (
         <div
