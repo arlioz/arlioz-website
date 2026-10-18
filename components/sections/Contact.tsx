@@ -79,7 +79,7 @@ export function Contact({ locale, content }: { locale: Locale; content: SiteCont
                     {contact.direct.email}
                   </ButtonLink>
                 </Magnetic>
-                <ButtonLink href={site.linkedin} variant="ghost" target="_blank" rel="noopener">
+                <ButtonLink href={site.linkedin} variant="glass" target="_blank" rel="noopener">
                   {contact.direct.linkedin}
                   <ArrowUpRight size={16} />
                 </ButtonLink>

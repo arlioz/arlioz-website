@@ -44,7 +44,7 @@ export function Hero({ locale, content }: { locale: Locale; content: SiteContent
             <ButtonLink id={HERO_CTA_ID} href={`${home}#contact`}>
               {hero.ctaPrimary}
             </ButtonLink>
-            <ButtonLink href={`${home}#realisations`} variant="ghost">
+            <ButtonLink href={`${home}#realisations`} variant="glass">
               {hero.ctaSecondary}
             </ButtonLink>
           </div>

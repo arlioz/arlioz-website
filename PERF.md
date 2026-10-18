@@ -8,7 +8,7 @@ Mesures prises sur `pnpm build && pnpm start` en local (Node 22, Chromium 141 he
 
 | Page                    | Perf | A11y | Best practices | SEO | FCP   | LCP   | CLS | TBT   |
 | ----------------------- | ---- | ---- | -------------- | --- | ----- | ----- | --- | ----- |
-| Accueil `/fr` — mobile  | 95   | 100  | 100            | 100 | 1,1 s | 2,9 s | 0   | 40 ms |
+| Accueil `/fr` — mobile  | 93   | 100  | 100            | 100 | 1,1 s | 3,2 s | 0   | 70 ms |
 | Accueil `/fr` — desktop | 100  | 100  | 100            | 100 | 0,3 s | 0,7 s | 0   | 0 ms  |
 | Étude de cas — mobile   | 92   | 100  | 100            | 100 | 1,1 s | 3,3 s | 0   | 50 ms |
 | Étude de cas — desktop  | 100  | 100  | 100            | 100 | 0,3 s | 0,8 s | 0   | 0 ms  |
@@ -88,8 +88,9 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
    il coûtait autant que l'ancien logo flottant (36–40 frames > 33 ms contre 25–32 sans). Mesure Firefox headless
    après le changement : 25 à 32 frames > 33 ms sur ~210 (35 à 39 avec l'ancien hero).
 7. **CTA volant** (`components/motion/FlyingCta.tsx`) : le bouton principal du hero et celui du header sont un seul
-   lien. Sur l'accueil desktop il part du hero et rejoint le header au scroll (`transform` + `--fly` en
-   `color-mix`, un `requestAnimationFrame` par événement de scroll, aucun layout) ; la prise en main attend la fin de
+   lien. Sur l'accueil desktop il part du hero et rejoint le header au scroll (un `transform` par
+   `requestAnimationFrame` sur l'événement de scroll, aucun layout ni changement de couleur : hero et header
+   partagent la même pilule) ; la prise en main attend la fin de
    l'animation d'entrée du hero pour mesurer. Mobile, pages secondaires et `prefers-reduced-motion` : pilule fixe
    dans le header.
 

@@ -15,9 +15,9 @@ const easeInOut = (t: number) => (t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
 /**
- * The header's call to action. On the home page it starts in the hero (white button)
- * and flies into its header slot as the page scrolls, turning into a glass pill on
- * the way, so the same link is never shown twice. Elsewhere, on small screens and
+ * The header's call to action. On the home page it starts in the hero and flies into
+ * its header slot as the page scrolls (same pill, only its position changes), so the
+ * same link is never shown twice. Elsewhere, on small screens and
  * under `prefers-reduced-motion`, it simply sits in the header.
  */
 export function FlyingCta({ href, label, heroId }: FlyingCtaProps) {
@@ -65,7 +65,6 @@ export function FlyingCta({ href, label, heroId }: FlyingCtaProps) {
       const y = lerp(heroTop - window.scrollY, slotTop, p);
       const scale = lerp(1, slotH / heroH, p);
       link.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) scale(${scale.toFixed(4)})`;
-      link.style.setProperty('--fly', p.toFixed(4));
     };
     const schedule = () => {
       if (!frame) frame = requestAnimationFrame(render);
@@ -134,7 +133,7 @@ export function FlyingCta({ href, label, heroId }: FlyingCtaProps) {
 
   return (
     <span ref={slotRef} className="hdr-cta pointer-events-auto inline-flex">
-      <a ref={linkRef} href={href} className={`${buttonClass('glass', 'pill')} fly-cta`}>
+      <a ref={linkRef} href={href} className={`${buttonClass('primary', 'md')} fly-cta`}>
         {label}
         <ArrowRight size={18} />
       </a>
