@@ -555,6 +555,20 @@
     background: var(--color-ink);
     opacity: 0;
   }
+  /* The pile (wide screens, every browser): cards stick under the header, each one
+     18px lower than the previous so the edges of the cards below show. */
+  @media (min-width: 1081px) {
+    /* Room for the last card to settle: a grid item (not padding) so it counts in
+       the sticky containing block. */
+    .stack::after {
+      content: '';
+      height: clamp(48px, 8vw, 120px);
+    }
+    .pcard {
+      position: sticky;
+      top: calc(108px + var(--i) * 18px);
+    }
+  }
   .team-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1412,19 +1426,12 @@
       animation-timeline: --vn;
       animation-range: entry 230px entry 410px;
     }
-    /* The pile: cards stick under the header; while the next card enters, the one
-       below recedes and dims. Driven by the next card's view timeline (timeline-scope
-       on .stack), so a sticky card's own timeline is never needed. */
+    /* The recede: while the next card enters, the one below shrinks and dims. Driven
+       by the next card's view timeline (timeline-scope on .stack), so a sticky card's
+       own timeline is never needed. The sticky pile itself is set outside this
+       @supports block (it must work in Firefox and Safari too). */
     @media (min-width: 1081px) {
-      /* Room for the last card to settle: a grid item (not padding) so it counts in
-         the sticky containing block. */
-      .stack::after {
-        content: '';
-        height: clamp(48px, 8vw, 120px);
-      }
       .pcard {
-        position: sticky;
-        top: calc(108px + var(--i) * 18px);
         view-timeline-name: var(--self);
       }
       /* From the next card entering the viewport until it lands on its sticky top. */
