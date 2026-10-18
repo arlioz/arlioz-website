@@ -236,7 +236,6 @@ export const fr: SiteContent = {
     language: 'Langue',
     tagline: 'Développement digital et conformité RGPD, depuis 2018.',
     cta: 'Parlons de votre projet',
-    ctaShort: 'Parlons projet',
     linkedin: 'LinkedIn',
   },
   hero: {

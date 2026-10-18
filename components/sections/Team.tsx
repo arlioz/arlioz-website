@@ -11,7 +11,7 @@ export function Team({ content }: { content: SiteContent }) {
   return (
     <section id="equipe" aria-labelledby="team-title" className="pt-section-sm pb-section">
       <div className="container-site">
-        <div className="rv mb-[clamp(40px,5vw,64px)] flex min-w-0 max-w-[780px] flex-col gap-[22px]">
+        <div className="rv mb-[clamp(48px,6vw,80px)] flex min-w-0 max-w-[780px] flex-col gap-[26px]">
           <Eyebrow index={team.index} label={team.label} />
           <h2
             id="team-title"

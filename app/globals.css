@@ -61,8 +61,8 @@
 
   --spacing-gutter: clamp(20px, 5.6vw, 80px);
   --spacing-gutter-sm: clamp(16px, 4vw, 56px);
-  --spacing-section: clamp(72px, 10vw, 144px);
-  --spacing-section-sm: clamp(40px, 5vw, 64px);
+  --spacing-section: clamp(84px, 11.5vw, 168px);
+  --spacing-section-sm: clamp(48px, 5.8vw, 76px);
 
   --ease-out-expo: cubic-bezier(0.2, 0.7, 0.2, 1);
   --ease-out-soft: cubic-bezier(0.2, 0.65, 0.25, 1);
@@ -194,13 +194,58 @@
       background-color 0.3s ease,
       border-color 0.3s ease;
   }
-  .menu-btn {
-    transition: background-color 0.3s ease;
+  @media (hover: hover) {
+    .menu-btn:hover,
+    .btn-glass:hover {
+      background-color: rgb(28 28 34 / 0.78);
+      border-color: rgb(255 255 255 / 0.18);
+    }
+  }
+  .btn-glass {
+    color: var(--color-paper);
+    background: rgb(20 20 24 / 0.62);
+    border: 1px solid rgb(255 255 255 / 0.09);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      transform 0.35s var(--ease-out-expo);
+  }
+  .btn-glass svg {
+    transition: transform 0.4s var(--ease-out-expo);
   }
   @media (hover: hover) {
-    .menu-btn:hover {
-      background-color: rgb(255 255 255 / 0.14);
+    .btn-glass:hover svg {
+      transform: translateX(4px);
     }
+  }
+  /* The header CTA: fills its slot, or, while it flies from the hero, is fixed and
+     driven by FlyingCta, blending from the hero's white button (--fly 0) to the
+     glass pill (--fly 1). Positioned here, not with utilities, so the flying state wins. */
+  .fly-cta.is-flying {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 61;
+    transform-origin: 0 0;
+    will-change: transform;
+    transition: none;
+    --fly: 0;
+    background-color: color-mix(
+      in srgb,
+      var(--color-paper) calc((1 - var(--fly)) * 100%),
+      rgb(20 20 24 / 0.62)
+    );
+    border-color: color-mix(
+      in srgb,
+      var(--color-paper) calc((1 - var(--fly)) * 100%),
+      rgb(255 255 255 / 0.09)
+    );
+    color: color-mix(in srgb, var(--color-ink) calc((1 - var(--fly)) * 100%), var(--color-paper));
+    font-weight: 600;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
   .link-u {
     background-image: linear-gradient(currentColor, currentColor);
@@ -365,9 +410,9 @@
   .hero {
     display: grid;
     place-items: center;
-    min-height: 72svh;
+    min-height: 86svh;
     margin-top: -84px;
-    padding: 148px 0 96px;
+    padding: 164px 0 128px;
   }
   /* The current only flows along the edges: the centre is masked out so the
      text sits on plain ink. The veil darkens the middle a little more. Without a
@@ -1414,18 +1459,9 @@
   .sx-d2 {
     --o: 0px;
   }
-  .pill-lang,
-  .pill-sep,
-  .pill-cta {
+  .hdr-lang,
+  .hdr-cta {
     display: none !important;
-  }
-  .pill-group {
-    padding: 0 !important;
-  }
-  .menu-btn {
-    height: 50px !important;
-    padding: 0 18px !important;
-    background-color: transparent !important;
   }
   .menu-grid {
     padding-top: 100px !important;
@@ -1465,8 +1501,8 @@
     background-position: 0 calc(100% - 9px);
   }
   .hero {
-    min-height: 0;
-    padding: 128px 0 72px;
+    min-height: 78svh;
+    padding: 140px 0 96px;
   }
   .pillars {
     grid-template-columns: minmax(0, 1fr) !important;

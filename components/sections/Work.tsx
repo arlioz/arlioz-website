@@ -18,8 +18,8 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
       className="border-y border-line bg-ink-2 py-section"
     >
       <div className="container-site">
-        <div className="mb-[clamp(48px,6vw,80px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
-          <div className="flex min-w-0 max-w-[780px] flex-col gap-[22px]">
+        <div className="mb-[clamp(56px,7vw,96px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
+          <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
             <Eyebrow index={work.index} label={work.label} animated />
             <LineTitle
               id="work-title"

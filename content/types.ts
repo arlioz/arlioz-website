@@ -114,7 +114,6 @@ export interface SiteContent {
     language: string;
     tagline: string;
     cta: string;
-    ctaShort: string;
     linkedin: string;
   };
   hero: {

@@ -1,13 +1,18 @@
 import Link from 'next/link';
 import { type SiteContent } from '@/content/types';
 import { type Locale, localePath } from '@/lib/i18n';
+import { FlyingCta } from '@/components/motion/FlyingCta';
 import { LogoMark } from '@/components/ui/LogoMark';
 import { HeaderControls } from './HeaderControls';
+import { LangSwitch } from './LangSwitch';
 
 interface HeaderProps {
   locale: Locale;
   content: SiteContent;
 }
+
+/** id of the hero's primary CTA, which the header's one replaces while flying. */
+export const HERO_CTA_ID = 'hero-cta';
 
 export function Header({ locale, content }: HeaderProps) {
   const home = localePath(locale);
@@ -24,7 +29,18 @@ export function Header({ locale, content }: HeaderProps) {
             arlioz
           </span>
         </Link>
-        <HeaderControls locale={locale} homeHref={home} nav={content.nav} a11y={content.a11y} />
+
+        <div className="relative z-10 flex items-center gap-2">
+          {/* The CTA lands first in the row: while it is still down in the hero, the
+              empty slot reads as space between the logo and the pills, not as a hole. */}
+          <FlyingCta href={`${home}#contact`} label={content.nav.cta} heroId={HERO_CTA_ID} />
+          <LangSwitch
+            locale={locale}
+            label={content.a11y.languageGroup}
+            className="hdr-lang pill glass pointer-events-auto h-[52px] rounded-pill px-1.5"
+          />
+          <HeaderControls locale={locale} homeHref={home} nav={content.nav} a11y={content.a11y} />
+        </div>
       </div>
     </header>
   );

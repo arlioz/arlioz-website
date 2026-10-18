@@ -12,7 +12,7 @@ export function Expertises({ content }: { content: SiteContent }) {
   return (
     <section id="expertises" aria-labelledby="services-title" className="pb-section">
       <div className="container-site">
-        <div className="mb-[clamp(40px,5vw,64px)] flex min-w-0 max-w-[780px] flex-col gap-[22px]">
+        <div className="mb-[clamp(48px,6vw,80px)] flex min-w-0 max-w-[780px] flex-col gap-[26px]">
           <Eyebrow index={x.index} label={x.label} animated />
           <LineTitle
             id="services-title"
