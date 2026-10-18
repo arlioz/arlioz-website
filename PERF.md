@@ -94,7 +94,8 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
    `animation-timeline` garde la pile sans le recul, et perd l'ombre portée des cartes (une ombre floutée sur un
    élément sticky est re-rasterisée à chaque frame). Les règles Firefox (`@supports (-moz-appearance: none)`) sont
    hors couche : dans `@layer components` elles perdaient contre l'utilitaire `glass`. Mesure headless après la
-   pile : 28 à 34 frames > 33 ms sur ~210 (25 à 32 avant). Sous 1081 px les cartes sont statiques, l'une sous l'autre.
+   pile : 28 à 34 frames > 33 ms sur ~210 (25 à 32 avant). Sur téléphone (≤ 720 px) la carte est compacte (visuel, titre, résumé, lien dans la barre) pour tenir dans l'écran
+   et la pile s'applique aussi ; entre 721 et 1080 px (tablettes) les cartes restent statiques, l'une sous l'autre.
 
 ## Pourquoi le score mobile plafonne à 92–95
 

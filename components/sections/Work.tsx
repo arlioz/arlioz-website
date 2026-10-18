@@ -75,8 +75,10 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                       {project.index} / {total}
                     </span>
                     <span aria-hidden="true" className="pcard-rule" />
-                    <span>{project.type}</span>
-                    <span aria-hidden="true">/</span>
+                    <span className="pcard-type">{project.type}</span>
+                    <span aria-hidden="true" className="pcard-type">
+                      /
+                    </span>
                     <span>
                       {work.clientPrefix} {project.client}
                     </span>
@@ -108,9 +110,11 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                     <p className="sx-txt m-0 max-w-[580px] text-[16.5px] leading-[1.6] text-muted text-pretty">
                       {project.summary}
                     </p>
-                    <p className="sx-txt m-0 text-[15px] text-paper-2">{project.highlights}</p>
-                    <Chips items={project.tags} animated className="mt-1" />
-                    <div className="sx-txt mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[15px]">
+                    <p className="sx-txt pcard-hl m-0 text-[15px] text-paper-2">
+                      {project.highlights}
+                    </p>
+                    <Chips items={project.tags} animated className="pcard-chips mt-1" />
+                    <div className="sx-txt pcard-links mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[15px]">
                       <Link
                         href={href}
                         className="link-u pcard-body-link inline-flex items-center gap-2 font-medium text-paper"

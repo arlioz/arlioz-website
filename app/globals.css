@@ -555,9 +555,14 @@
     background: var(--color-ink);
     opacity: 0;
   }
-  /* The pile (wide screens, every browser): cards stick under the header, each one
-     18px lower than the previous so the edges of the cards below show. */
-  @media (min-width: 1081px) {
+  /* The pile (every browser): cards stick under the header, each one a step lower
+     than the previous so the edges of the cards below show. Wide screens and phones;
+     tablets keep a plain list (a card there is taller than the screen). */
+  .stack {
+    --pile-top: 108px;
+    --pile-step: 18px;
+  }
+  @media (min-width: 1081px), (max-width: 720px) {
     /* Room for the last card to settle: a grid item (not padding) so it counts in
        the sticky containing block. */
     .stack::after {
@@ -566,7 +571,18 @@
     }
     .pcard {
       position: sticky;
-      top: calc(108px + var(--i) * 18px);
+      top: calc(var(--pile-top) + var(--i) * var(--pile-step));
+    }
+  }
+  /* Phones: a compact card that fits the screen (visual, title, summary; the
+     case-study link lives in the top bar), tighter steps. */
+  @media (max-width: 720px) {
+    .stack {
+      --pile-top: 92px;
+      --pile-step: 12px;
+    }
+    .pcard {
+      padding: 18px;
     }
   }
   .team-grid {
@@ -1430,7 +1446,7 @@
        by the next card's view timeline (timeline-scope on .stack), so a sticky card's
        own timeline is never needed. The sticky pile itself is set outside this
        @supports block (it must work in Firefox and Safari too). */
-    @media (min-width: 1081px) {
+    @media (min-width: 1081px), (max-width: 720px) {
       .pcard {
         view-timeline-name: var(--self);
       }
@@ -1438,12 +1454,14 @@
       .pcard[style*='--next'] {
         animation: pcard-back linear both;
         animation-timeline: var(--next);
-        animation-range: entry 10% entry calc(100vh - 126px - var(--i) * 18px);
+        animation-range: entry 10% entry
+          calc(100vh - var(--pile-top) - (var(--i) + 1) * var(--pile-step));
       }
       .pcard[style*='--next'] .pcard-veil {
         animation: pcard-veil linear both;
         animation-timeline: var(--next);
-        animation-range: entry 10% entry calc(100vh - 126px - var(--i) * 18px);
+        animation-range: entry 10% entry
+          calc(100vh - var(--pile-top) - (var(--i) + 1) * var(--pile-step));
       }
     }
     .pj-stage {
@@ -1506,17 +1524,26 @@
   }
 }
 @media (max-width: 720px) {
-  .pcard-rule {
-    display: none;
+  /* Phone card: visual, title, summary; the case-study link is in the top bar.
+     !important: `flex` utilities on the chips and links win over the layer. */
+  .pcard-rule,
+  .pcard-type,
+  .pcard-hl,
+  .pcard-chips,
+  .pcard-links {
+    display: none !important;
   }
 }
-@media (max-width: 1080px) {
+/* Tablets: plain list, the case-study link sits in the body. */
+@media (min-width: 721px) and (max-width: 1080px) {
   .pcard-top-link {
     display: none;
   }
   .pcard-body-link {
     display: inline-flex;
   }
+}
+@media (max-width: 1080px) {
   .pcard-num {
     font-size: clamp(120px, 30vw, 200px);
   }
