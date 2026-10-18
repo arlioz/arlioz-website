@@ -326,7 +326,18 @@ export const en: SiteContent = {
   },
   stack: {
     label: 'Technologies',
-    items: ['Angular', 'React', 'Next.js', 'Vue.js', 'Nuxt', 'NestJS', 'TypeScript'],
+    items: [
+      'Angular',
+      'React',
+      'Next.js',
+      'Vue.js',
+      'Nuxt',
+      'NestJS',
+      'TypeScript',
+      'Java',
+      'C#',
+      '.NET',
+    ],
   },
   team: {
     index: '04',
