@@ -202,6 +202,8 @@ export const fr: SiteContent = {
       'conseil RGPD',
       'conformité RGPD',
       'privacy by design',
+      'formation développement web',
+      'formation RGPD',
       'Belgique',
       'Next.js',
       'React',
@@ -229,7 +231,8 @@ export const fr: SiteContent = {
       { label: 'Réalisations', anchor: 'realisations', dot: 'blue' },
       { label: 'Expertises', anchor: 'expertises', dot: 'orange' },
       { label: 'Équipe', anchor: 'equipe', dot: 'green' },
-      { label: 'Contact', anchor: 'contact', dot: 'yellow' },
+      { label: 'Éducation', anchor: 'education', dot: 'yellow' },
+      { label: 'Contact', anchor: 'contact', dot: 'blue' },
     ],
     write: 'Nous écrire',
     follow: 'Suivre',
@@ -371,8 +374,8 @@ export const fr: SiteContent = {
       {
         name: 'Guy Moins',
         role: 'Architecte IT & expert RGPD',
-        text: 'Il cadre vos données et rend la conformité RGPD concrète pour vos équipes.',
-        tags: ['Conseil RGPD', 'Architecture IT', 'Stack projet'],
+        text: 'Il cadre vos données, rend la conformité RGPD concrète pour vos équipes et enseigne le développement à de futurs développeurs.',
+        tags: ['Conseil RGPD', 'Architecture IT', 'Stack projet', 'Enseignement'],
         initials: 'GM',
         photoLabel: 'Photo · Guy Moins',
         accent: 'blue',
@@ -392,8 +395,52 @@ export const fr: SiteContent = {
       },
     ],
   },
-  contact: {
+  education: {
     index: '05',
+    label: 'Éducation',
+    brand: 'Arlioz Education',
+    title: ['Transmettre', 'et accompagner.'],
+    text: 'Guy enseigne le développement à de futurs développeurs et accompagne les entreprises sur le terrain : architecture, choix techniques, qualité, montée en compétence des équipes. Même exigence qu’en projet : du code solide, des données protégées.',
+    audiences: [
+      {
+        title: 'Entreprises',
+        text: 'Un accompagnement architectural, technique et organisationnel : audit de votre existant, choix de stack, revue de code, formations sur mesure pour vos équipes, sur site ou à distance.',
+      },
+      {
+        title: 'Étudiants',
+        text: 'Cours et accompagnement de jeunes développeurs, du premier projet aux bonnes pratiques professionnelles.',
+      },
+    ],
+    topics: [
+      {
+        icon: 'layout',
+        tag: 'Accompagnement',
+        title: 'Architecture et stack',
+        text: 'Audit de l’existant, choix technologiques, fondations d’un projet qui doit durer.',
+      },
+      {
+        icon: 'gauge',
+        tag: 'Accompagnement',
+        title: 'Technique et qualité',
+        text: 'Revue de code, bonnes pratiques, performance et outillage, aux côtés de vos développeurs.',
+      },
+      {
+        icon: 'shield',
+        tag: 'Accompagnement',
+        title: 'RGPD et données',
+        text: 'Conformité, privacy by design et sécurité, expliqués et mis en place avec vos équipes.',
+      },
+      {
+        icon: 'code',
+        tag: 'Cours',
+        title: 'Développement web',
+        text: 'JavaScript et TypeScript, frameworks front-end et back-end, de la base au projet complet.',
+      },
+    ],
+    cta: 'Parler d’un accompagnement',
+  },
+  contact: {
+    index: '06',
     label: 'Contact',
     title: 'Un projet ? Une question RGPD ? Parlons-en.',
     text: 'Dites-nous où vous en êtes, nous revenons vers vous avec un premier avis.',

@@ -163,6 +163,22 @@ export interface SiteContent {
   /** Technologies band under the hero (`label` is its accessible name). */
   stack: { label: string; items: string[] };
   team: { index: string; label: string; title: string; members: TeamMember[] };
+  /** Arlioz Education: teaching and company support (architecture, technique, GDPR). */
+  education: {
+    index: string;
+    label: string;
+    brand: string;
+    title: [string, string];
+    text: string;
+    audiences: { title: string; text: string }[];
+    topics: {
+      icon: 'code' | 'shield' | 'layout' | 'gauge';
+      tag: string;
+      title: string;
+      text: string;
+    }[];
+    cta: string;
+  };
   contact: {
     index: string;
     label: string;

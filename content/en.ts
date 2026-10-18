@@ -178,6 +178,8 @@ export const en: SiteContent = {
       'GDPR consulting',
       'GDPR compliance',
       'privacy by design',
+      'web development training',
+      'GDPR training',
       'Belgium',
       'Next.js',
       'React',
@@ -205,7 +207,8 @@ export const en: SiteContent = {
       { label: 'Work', anchor: 'realisations', dot: 'blue' },
       { label: 'Expertise', anchor: 'expertises', dot: 'orange' },
       { label: 'Team', anchor: 'equipe', dot: 'green' },
-      { label: 'Contact', anchor: 'contact', dot: 'yellow' },
+      { label: 'Education', anchor: 'education', dot: 'yellow' },
+      { label: 'Contact', anchor: 'contact', dot: 'blue' },
     ],
     write: 'Write to us',
     follow: 'Follow',
@@ -347,8 +350,8 @@ export const en: SiteContent = {
       {
         name: 'Guy Moins',
         role: 'IT architect & GDPR expert',
-        text: 'He frames your data and makes GDPR compliance concrete for your teams.',
-        tags: ['GDPR consulting', 'IT architecture', 'Project stack'],
+        text: 'He frames your data, makes GDPR compliance concrete for your teams and teaches development to future developers.',
+        tags: ['GDPR consulting', 'IT architecture', 'Project stack', 'Teaching'],
         initials: 'GM',
         photoLabel: 'Photo · Guy Moins',
         accent: 'blue',
@@ -368,8 +371,52 @@ export const en: SiteContent = {
       },
     ],
   },
-  contact: {
+  education: {
     index: '05',
+    label: 'Education',
+    brand: 'Arlioz Education',
+    title: ['Teaching', 'and guiding.'],
+    text: 'Guy teaches development to future developers and supports companies in the field: architecture, technical choices, quality, upskilling teams. The same standard as on a project: solid code, protected data.',
+    audiences: [
+      {
+        title: 'Companies',
+        text: 'Architectural, technical and organisational support: an audit of your codebase, stack choices, code reviews, tailored training for your teams, on site or remote.',
+      },
+      {
+        title: 'Students',
+        text: 'Courses and guidance for young developers, from the first project to professional best practices.',
+      },
+    ],
+    topics: [
+      {
+        icon: 'layout',
+        tag: 'Support',
+        title: 'Architecture and stack',
+        text: 'Audit of the existing, technology choices, foundations for a project built to last.',
+      },
+      {
+        icon: 'gauge',
+        tag: 'Support',
+        title: 'Technique and quality',
+        text: 'Code reviews, best practices, performance and tooling, alongside your developers.',
+      },
+      {
+        icon: 'shield',
+        tag: 'Support',
+        title: 'GDPR and data',
+        text: 'Compliance, privacy by design and security, explained and put in place with your teams.',
+      },
+      {
+        icon: 'code',
+        tag: 'Course',
+        title: 'Web development',
+        text: 'JavaScript and TypeScript, front-end and back-end frameworks, from the basics to a complete project.',
+      },
+    ],
+    cta: 'Talk about support',
+  },
+  contact: {
+    index: '06',
     label: 'Contact',
     title: 'A project? A GDPR question? Let’s talk.',
     text: 'Tell us where you stand, we come back to you with a first opinion.',

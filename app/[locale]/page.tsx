@@ -2,6 +2,7 @@ import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { About } from '@/components/sections/About';
 import { Contact } from '@/components/sections/Contact';
+import { Education } from '@/components/sections/Education';
 import { Expertises } from '@/components/sections/Expertises';
 import { Hero } from '@/components/sections/Hero';
 import { StackMarquee } from '@/components/sections/StackMarquee';
@@ -42,6 +43,7 @@ export default async function HomePage({ params }: PageProps) {
       <About content={content} />
       <Expertises content={content} />
       <Team content={content} />
+      <Education locale={locale} content={content} />
       <Contact locale={locale} content={content} />
     </>
   );
