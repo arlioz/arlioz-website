@@ -318,6 +318,17 @@ export const en: SiteContent = {
         aria: 'Development and GDPR meet: privacy by design',
       },
     },
+    migration: {
+      tag: 'Development · Migration',
+      title: 'Migrating from WinDev, WebDev or WinDev Mobile',
+      text: 'Have a PCSoft application that needs to evolve? We support its migration to a modern, open and maintainable web and mobile stack, with no disruption for your users.',
+      items: [
+        'Audit of the existing application and its data',
+        'Step-by-step migration plan, coexisting with the current system',
+        'Data and business rules carried over',
+        'A new web and mobile stack, documented and handed over to your teams',
+      ],
+    },
   },
   work: {
     index: '01',
@@ -416,17 +427,6 @@ export const en: SiteContent = {
         text: 'JavaScript and TypeScript, front-end and back-end frameworks, from the basics to a complete project.',
       },
     ],
-    featured: {
-      tag: 'Support · Migration',
-      title: 'Migrating from WinDev, WebDev or WinDev Mobile',
-      text: 'Have a PCSoft application that needs to evolve? We support its migration to a modern, open and maintainable web and mobile stack, with no disruption for your users.',
-      items: [
-        'Audit of the existing application and its data',
-        'Step-by-step migration plan, coexisting with the current system',
-        'Data and business rules carried over',
-        'A new web and mobile stack, documented and handed over to your teams',
-      ],
-    },
     cta: 'Talk about support',
   },
   contact: {

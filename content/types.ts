@@ -148,6 +148,8 @@ export interface SiteContent {
       text: RichSegment[];
       diagram: { left: string; right: string; center: [string, string]; aria: string };
     };
+    /** Migrating away from PCSoft tools (WinDev, WebDev, WinDev Mobile). */
+    migration: { tag: string; title: string; text: string; items: string[] };
   };
   work: {
     index: string;
@@ -177,8 +179,6 @@ export interface SiteContent {
       title: string;
       text: string;
     }[];
-    /** Featured support offer: migrating away from PCSoft tools (WinDev, WebDev…). */
-    featured: { tag: string; title: string; text: string; items: string[] };
     cta: string;
   };
   contact: {
