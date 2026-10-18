@@ -54,7 +54,7 @@ export function Footer({ locale, content, year }: FooterProps) {
             <p className="label-mono-sm m-0 text-muted-3">{f.contact}</p>
             <ul className="foot-list m-0 flex list-none flex-col gap-[10px] p-0 text-[15px]">
               <li>
-                <a href={`mailto:${site.email}`} className={linkClass}>
+                <a href={`mailto:${site.email}`} className={`${linkClass} selectable`}>
                   {site.email}
                 </a>
               </li>
