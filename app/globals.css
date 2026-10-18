@@ -258,25 +258,16 @@
       background-size: 100% 1px;
     }
   }
-  /* Primary call to action: the glass pill with a thin orange → teal ring (the hero's
-     two currents). On hover the same gradient rises and fills the pill. */
-  .btn-primary::after {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    z-index: 1;
-    padding: 1.5px;
-    border-radius: inherit;
-    background: linear-gradient(100deg, #ff7c00, #ffb13d 38%, #7df5e0 62%, #00ffcc);
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+  /* Primary call to action: the glass pill with a uniform orange ring and a faint
+     inner glow; on hover the brand gradient rises and fills the pill. */
+  .btn-primary {
+    border-color: rgb(250 127 19 / 0.55);
+    box-shadow:
+      inset 0 0 0 1px rgb(250 127 19 / 0.1),
+      inset 0 0 22px rgb(250 127 19 / 0.1);
+  }
+  .btn-primary svg {
+    color: var(--color-orange-light);
   }
   .btn-primary::before {
     content: '';
@@ -284,15 +275,19 @@
     inset: 0;
     z-index: -1;
     border-radius: inherit;
-    background: linear-gradient(100deg, #ff7c00, #00ffcc);
+    background: linear-gradient(100deg, #feb613, #fa7f13 55%, #f6601a);
     transform: translateY(102%);
     transition: transform 0.55s var(--ease-out-expo);
   }
   @media (hover: hover) {
     .btn-primary:hover {
       color: var(--color-ink);
+      border-color: rgb(250 127 19 / 0.9);
       transform: translateY(-2px);
-      box-shadow: 0 14px 34px -12px rgb(255 124 0 / 0.45);
+      box-shadow: 0 14px 34px -12px rgb(250 127 19 / 0.55);
+    }
+    .btn-primary:hover svg {
+      color: var(--color-ink);
     }
     .btn-primary:hover::before {
       transform: translateY(0);
