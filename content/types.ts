@@ -177,6 +177,8 @@ export interface SiteContent {
       title: string;
       text: string;
     }[];
+    /** Featured support offer: migrating away from PCSoft tools (WinDev, WebDev…). */
+    featured: { tag: string; title: string; text: string; items: string[] };
     cta: string;
   };
   contact: {

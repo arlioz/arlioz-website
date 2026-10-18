@@ -204,6 +204,9 @@ export const fr: SiteContent = {
       'privacy by design',
       'formation développement web',
       'formation RGPD',
+      'migration WinDev',
+      'migration WebDev',
+      'migration WinDev Mobile',
       'Belgique',
       'Next.js',
       'React',
@@ -437,6 +440,17 @@ export const fr: SiteContent = {
         text: 'JavaScript et TypeScript, frameworks front-end et back-end, de la base au projet complet.',
       },
     ],
+    featured: {
+      tag: 'Accompagnement · Migration',
+      title: 'Migrer depuis WinDev, WebDev ou WinDev Mobile',
+      text: 'Vous avez une application PCSoft à faire évoluer ? Nous accompagnons sa migration vers une stack web et mobile moderne, ouverte et maintenable, sans rupture pour vos utilisateurs.',
+      items: [
+        'Audit de l’application existante et de ses données',
+        'Plan de migration par étapes, en coexistence avec l’existant',
+        'Reprise des données et des règles métier',
+        'Nouvelle stack web et mobile, documentée et transmise à vos équipes',
+      ],
+    },
     cta: 'Parler d’un accompagnement',
   },
   contact: {
