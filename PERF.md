@@ -97,6 +97,11 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
    pile : 28 à 34 frames > 33 ms sur ~210 (25 à 32 avant). Sur téléphone (≤ 720 px) la carte est compacte (visuel, titre, résumé, lien dans la barre) pour tenir dans l'écran
    et la pile s'applique aussi ; entre 721 et 1080 px (tablettes) les cartes restent statiques, l'une sous l'autre.
 
+9. **Ancres au chargement** : `html { scroll-behavior: smooth }` a été retiré. Lenis anime déjà le défilement, et le
+   saut natif animé vers le fragment (`/fr#education`) faisait la course avec lui : atterrissage 100 à 500 px trop
+   bas selon le timing. `ScrollRestoration` vise désormais une position en pixels mesurée depuis le vrai scroll et
+   refait le saut après `load` (la page arrive en streaming).
+
 ## Pourquoi le score mobile plafonne à 92–95
 
 Le LCP mobile **simulé** (3,0–3,2 s) ne dépend presque pas des polices : Lighthouse estime le LCP d'un texte en

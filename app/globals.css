@@ -92,10 +92,11 @@
 /* Base                                                                */
 /* ------------------------------------------------------------------ */
 @layer base {
+  /* No native `scroll-behavior: smooth`: Lenis animates the scroll, and a native
+     smooth hash jump at load raced with it and landed off target. */
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    scroll-behavior: smooth;
     background: var(--color-ink);
   }
   body {
@@ -125,11 +126,6 @@
   :focus-visible {
     outline: 2px solid var(--color-blue-light);
     outline-offset: 3px;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
   }
 }
 
@@ -589,6 +585,14 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 32px;
+  }
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .edu-aud {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .contact-grid {
     display: grid;
@@ -1513,6 +1517,9 @@
   .bento {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .edu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .span-c3 {
     grid-column: span 2;
   }
@@ -1668,6 +1675,13 @@
   .team-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 56px;
+  }
+  .edu-grid,
+  .edu-aud {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .edu-grid article {
+    min-height: 0 !important;
   }
   .meta-wide {
     grid-column: 1 / -1;

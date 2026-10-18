@@ -136,4 +136,5 @@ export const expertiseIcons = {
   devices: Devices,
   layout: Layout,
   gauge: Gauge,
+  shield: Shield,
 } as const;
