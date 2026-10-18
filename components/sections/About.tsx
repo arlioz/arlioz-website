@@ -17,8 +17,7 @@ export function About({ content }: { content: SiteContent }) {
         <div className="split">
           <div className="flex flex-col justify-between gap-10">
             <Eyebrow index={about.index} label={about.label} />
-            {/* Just under the fold on load: enters with the page, not on scroll. */}
-            <div className="intro intro-4">
+            <div className="rv">
               <p className="m-0 font-display text-stat leading-[0.85] font-normal tracking-[-0.05em] text-paper">
                 {about.year}
               </p>
@@ -29,7 +28,7 @@ export function About({ content }: { content: SiteContent }) {
           <div className="min-w-0">
             <h2
               id="about-title"
-              className="intro intro-4 m-0 font-display text-h2-sm leading-[1.17] font-normal tracking-[-0.028em] text-pretty"
+              className="rv m-0 font-display text-h2-sm leading-[1.17] font-normal tracking-[-0.028em] text-pretty"
             >
               {about.title.map((segment, i) =>
                 segment.mark ? (

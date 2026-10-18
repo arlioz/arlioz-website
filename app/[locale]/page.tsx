@@ -38,9 +38,9 @@ export default async function HomePage({ params }: PageProps) {
       />
       <Hero locale={locale} content={content} />
       <StackMarquee content={content} />
+      <Work locale={locale} content={content} />
       <About content={content} />
       <Expertises content={content} />
-      <Work locale={locale} content={content} />
       <Team content={content} />
       <Contact locale={locale} content={content} />
     </>
