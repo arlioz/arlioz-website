@@ -344,14 +344,23 @@ export const fr: SiteContent = {
     },
     migration: {
       tag: 'Développement · Migration',
-      title: 'Migrer depuis WinDev, WebDev ou WinDev Mobile',
-      text: 'Vous avez une application PCSoft à faire évoluer ? Nous accompagnons sa migration vers une stack web et mobile moderne, ouverte et maintenable, sans rupture pour vos utilisateurs.',
-      items: [
-        'Audit de l’application existante et de ses données',
-        'Plan de migration par étapes, en coexistence avec l’existant',
-        'Reprise des données et des règles métier',
-        'Nouvelle stack web et mobile, documentée et transmise à vos équipes',
+      title: 'Migrer votre parc WinDev, WebDev et WinDev Mobile',
+      text: 'Une migration progressive et complète de vos applications métier vers une stack fullstack moderne : front-end web, applications mobiles et desktop, API et back-end. Application par application, sans rupture pour vos utilisateurs.',
+      from: { label: 'Aujourd’hui', items: ['WinDev', 'WebDev', 'WinDev Mobile'] },
+      to: { label: 'Demain', items: ['Front-end web', 'Apps mobiles & desktop', 'API & back-end'] },
+      steps: [
+        { title: 'Cartographier', text: 'Applications, données, flux et ordre de migration.' },
+        {
+          title: 'Faire cohabiter',
+          text: 'Une application à la fois : l’ancien et le nouveau tournent ensemble.',
+        },
+        {
+          title: 'Reconstruire',
+          text: 'Interfaces, applications, API ; données et règles métier reprises.',
+        },
+        { title: 'Transmettre', text: 'Documentation et transfert de compétences à vos équipes.' },
       ],
+      note: 'Réalisée par nous, ou menée par vos équipes avec notre accompagnement.',
     },
   },
   work: {
