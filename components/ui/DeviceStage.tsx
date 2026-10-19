@@ -96,7 +96,7 @@ export function DeviceStage({
     <>
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[length:48px_48px] bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)]"
+        className="pointer-events-none absolute inset-0 bg-[length:48px_48px] bg-[linear-gradient(rgb(var(--paper-rgb)/0.035)_1px,transparent_1px),linear-gradient(90deg,rgb(var(--paper-rgb)/0.035)_1px,transparent_1px)]"
       />
       <Glow
         color={glow}
@@ -112,7 +112,7 @@ export function DeviceStage({
 
       {/* Desktop */}
       <div
-        className="dev dev-desk absolute top-[9%] w-[72%] overflow-hidden rounded-xl border border-line-4 bg-[#0E0E11] shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
+        className="dev dev-desk absolute top-[9%] w-[72%] overflow-hidden rounded-xl border border-line-4 bg-[#0E0E11] shadow-device-lg"
         style={reversed ? { left: '5%' } : { right: '5%' }}
       >
         <BrowserBar url={devices.url} size="sm" />
@@ -132,7 +132,7 @@ export function DeviceStage({
 
       {/* Tablet */}
       <div
-        className="dev dev-tab absolute bottom-[8%] w-[23%] rounded-2xl border border-line-4 bg-device p-1.5 shadow-[0_24px_50px_rgba(0,0,0,0.55)]"
+        className="dev dev-tab absolute bottom-[8%] w-[23%] rounded-2xl border border-line-4 bg-device p-1.5 shadow-device"
         style={reversed ? { right: '4%' } : { left: '4%' }}
       >
         <div
@@ -151,7 +151,7 @@ export function DeviceStage({
 
       {/* Phone */}
       <div
-        className="dev dev-phone absolute bottom-[5%] w-[13%] rounded-[20px] border border-line-4 bg-device p-1 shadow-[0_24px_50px_rgba(0,0,0,0.6)]"
+        className="dev dev-phone absolute bottom-[5%] w-[13%] rounded-[20px] border border-line-4 bg-device p-1 shadow-device"
         style={{ left: reversed ? '52%' : '35%' }}
       >
         <div

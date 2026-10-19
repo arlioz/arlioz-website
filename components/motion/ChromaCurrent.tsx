@@ -5,6 +5,8 @@ import { useEffect, useRef } from 'react';
 interface ChromaCurrentProps {
   /** Two colours the currents drift between (hex). */
   colors?: readonly [string, string];
+  /** The same pair for a device on the light colour scheme (defaults to `colors`). */
+  lightColors?: readonly [string, string];
   className?: string;
 }
 
@@ -87,10 +89,12 @@ function hexToRgb(hex: string): [number, number, number] {
  */
 export function ChromaCurrent({
   colors = ['#ff7c00', '#00ffcc'],
+  lightColors = colors,
   className = '',
 }: ChromaCurrentProps) {
   const ref = useRef<HTMLCanvasElement>(null);
   const [colorA, colorB] = colors;
+  const [lightA, lightB] = lightColors;
 
   useEffect(() => {
     const canvas = ref.current;
@@ -111,6 +115,8 @@ export function ChromaCurrent({
 
     const coarse = window.matchMedia('(pointer: coarse)').matches;
     const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // The palette follows the device's colour scheme, live (the CSS does the same).
+    const lightScheme = window.matchMedia('(prefers-color-scheme: light)');
     const dpr = Math.min(coarse ? 1 : 1.5, window.devicePixelRatio || 1);
     const pitch = 9 * dpr;
     const parent = canvas.parentElement;
@@ -126,7 +132,7 @@ export function ChromaCurrent({
       buffer: WebGLBuffer | null;
       texture: WebGLTexture | null;
       framebuffer: WebGLFramebuffer | null;
-      fieldU: Record<'R' | 'T' | 'M' | 'PX' | 'PL', WebGLUniformLocation | null>;
+      fieldU: Record<'R' | 'T' | 'M' | 'PX' | 'PL' | 'A' | 'B', WebGLUniformLocation | null>;
       dotsU: Record<'G' | 'T' | 'PX' | 'IN', WebGLUniformLocation | null>;
     }
     let res: Resources | null = null;
@@ -134,6 +140,14 @@ export function ChromaCurrent({
     let height = 0;
     let gridW = 0;
     let gridH = 0;
+
+    const recolor = () => {
+      if (!res) return;
+      const light = lightScheme.matches;
+      gl.useProgram(res.field);
+      gl.uniform3fv(res.fieldU.A, hexToRgb(light ? lightA : colorA));
+      gl.uniform3fv(res.fieldU.B, hexToRgb(light ? lightB : colorB));
+    };
 
     const resize = () => {
       if (!res) return;
@@ -197,9 +211,6 @@ export function ChromaCurrent({
         gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
       }
       const u = (program: WebGLProgram, name: string) => gl.getUniformLocation(program, name);
-      gl.useProgram(field);
-      gl.uniform3fv(u(field, 'A'), hexToRgb(colorA));
-      gl.uniform3fv(u(field, 'B'), hexToRgb(colorB));
       gl.useProgram(dots);
       gl.uniform1i(u(dots, 'F'), 0);
 
@@ -230,9 +241,12 @@ export function ChromaCurrent({
           M: u(field, 'M'),
           PX: u(field, 'PX'),
           PL: u(field, 'PL'),
+          A: u(field, 'A'),
+          B: u(field, 'B'),
         },
         dotsU: { G: u(dots, 'G'), T: u(dots, 'T'), PX: u(dots, 'PX'), IN: u(dots, 'IN') },
       };
+      recolor();
       resize();
       return true;
     };
@@ -341,6 +355,11 @@ export function ChromaCurrent({
       if (!document.hidden) play();
     };
     const onPageShow = () => play();
+    const onScheme = () => {
+      recolor();
+      if (still) play();
+    };
+    lightScheme.addEventListener('change', onScheme);
     if (!still) {
       if (!coarse) window.addEventListener('pointermove', onMove, { passive: true });
       parent?.addEventListener('pointerdown', onDown);
@@ -372,12 +391,13 @@ export function ChromaCurrent({
       parent?.removeEventListener('pointerdown', onDown);
       document.removeEventListener('visibilitychange', onVisibility);
       window.removeEventListener('pageshow', onPageShow);
+      lightScheme.removeEventListener('change', onScheme);
       canvas.removeEventListener('webglcontextlost', onLost);
       canvas.removeEventListener('webglcontextrestored', onRestored);
       parent?.removeAttribute('data-live');
       dispose();
     };
-  }, [colorA, colorB]);
+  }, [colorA, colorB, lightA, lightB]);
 
   return <canvas ref={ref} aria-hidden="true" className={className} />;
 }

@@ -24,7 +24,8 @@ export function Glow({ color, style, blur = 110, opacity, className = '' }: Glow
       className={`pointer-events-none absolute rounded-full ${className}`}
       style={{
         background: `radial-gradient(closest-side, ${color} 0%, color-mix(in srgb, ${color} 55%, transparent) 38%, color-mix(in srgb, ${color} 14%, transparent) 70%, transparent 100%)`,
-        opacity,
+        // `--glow-k` (globals.css) dims every halo on the light scheme.
+        opacity: `calc(${opacity} * var(--glow-k, 1))`,
         transform: `scale(${scale.toFixed(2)})`,
         ...style,
       }}

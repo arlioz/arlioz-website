@@ -45,9 +45,9 @@ const delays = ['', 'rv-d1', 'rv-d2'] as const;
 const dt = 'label-mono-sm text-muted-3';
 const dd = 'm-0 text-base text-paper';
 const caption =
-  'absolute bottom-3.5 left-4 rounded-pill border border-line-3 bg-[rgba(10,10,12,0.72)] px-2.5 py-1.5 font-mono text-[11px] tracking-[0.06em] uppercase text-paper-3';
+  'absolute bottom-3.5 left-4 rounded-pill border border-line-3 bg-ink/72 px-2.5 py-1.5 font-mono text-[11px] tracking-[0.06em] uppercase text-paper-3';
 const phoneBg =
-  'bg-[radial-gradient(circle_at_50%_42%,rgba(226,194,122,0.16),transparent_62%),#111114]';
+  'bg-[radial-gradient(circle_at_50%_42%,rgba(226,194,122,0.16),transparent_62%),var(--color-surface)]';
 
 function GalleryFigure({ item, index }: { item: GalleryItem; index: number }) {
   const delay = delays[index % 3];
@@ -75,7 +75,7 @@ function GalleryFigure({ item, index }: { item: GalleryItem; index: number }) {
       <figure
         className={`rv ${delay} relative m-0 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-card-sm border border-line-2 pb-7 ${phoneBg}`}
       >
-        <div className="g-tab w-[40%] rounded-[18px] border border-line-4 bg-device p-1.5 shadow-[0_24px_50px_rgba(0,0,0,0.55)]">
+        <div className="g-tab w-[40%] rounded-[18px] border border-line-4 bg-device p-1.5 shadow-device">
           <div className="relative aspect-[820/1180] overflow-hidden rounded-xl">
             <Image
               src={item.image.src}
@@ -99,7 +99,7 @@ function GalleryFigure({ item, index }: { item: GalleryItem; index: number }) {
       }`}
     >
       <div
-        className={`g-phone rounded-[26px] border border-line-4 bg-device p-1 shadow-[0_24px_50px_rgba(0,0,0,0.55)] ${
+        className={`g-phone rounded-[26px] border border-line-4 bg-device p-1 shadow-device ${
           tall ? 'w-[min(230px,64%)]' : 'w-[27%]'
         }`}
       >

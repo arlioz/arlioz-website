@@ -39,7 +39,7 @@ export function BrowserBar({ url, size = 'sm' }: BrowserBarProps) {
       </span>
       <span className="flex min-w-0 flex-1 justify-center">
         <span
-          className={`overflow-hidden text-ellipsis whitespace-nowrap bg-white/5 font-mono text-muted-2 ${p.url}`}
+          className={`overflow-hidden text-ellipsis whitespace-nowrap bg-paper/5 font-mono text-muted-2 ${p.url}`}
         >
           {url}
         </span>

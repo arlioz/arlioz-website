@@ -91,7 +91,7 @@ export function Footer({ locale, content, year }: FooterProps) {
 
         <p
           aria-hidden="true"
-          className="rv-word m-0 mt-[clamp(48px,6vw,80px)] bg-[linear-gradient(180deg,rgba(242,241,238,0.16),rgba(242,241,238,0.015)_92%)] bg-clip-text text-center font-display text-[clamp(110px,30vw,440px)] leading-[0.8] font-semibold tracking-[-0.045em] whitespace-nowrap text-transparent select-none"
+          className="rv-word m-0 mt-[clamp(48px,6vw,80px)] bg-[linear-gradient(180deg,rgb(var(--paper-rgb)/0.16),rgb(var(--paper-rgb)/0.015)_92%)] bg-clip-text text-center font-display text-[clamp(110px,30vw,440px)] leading-[0.8] font-semibold tracking-[-0.045em] whitespace-nowrap text-transparent select-none"
         >
           arlioz
         </p>

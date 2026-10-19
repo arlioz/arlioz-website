@@ -43,6 +43,8 @@
   --color-line-3: rgb(255 255 255 / 0.1);
   --color-line-4: rgb(255 255 255 / 0.12);
   --color-line-5: rgb(255 255 255 / 0.18);
+  /* Text on the orange gradient (buttons, selection): ink in both colour schemes. */
+  --color-on-accent: #0a0a0c;
 
   --radius-card: 24px;
   --radius-card-sm: 20px;
@@ -89,6 +91,76 @@
 }
 
 /* ------------------------------------------------------------------ */
+/* Colour schemes                                                      */
+/* ------------------------------------------------------------------ */
+/* The tokens above are the dark design, the site's default. The names read as
+   roles, not shades: `ink` is the page, `paper` the text, `line` the hairlines.
+   On a device set to light, every role is remapped here, so the components
+   (which only use the tokens) switch with the device; there is no toggle.
+   Unlayered so these win over the `@layer theme` declarations. */
+:root {
+  color-scheme: dark;
+  --ink-rgb: 10 10 12;
+  --paper-rgb: 242 241 238;
+  --glass-bg: rgb(20 20 24 / 0.62);
+  --glass-bg-hover: rgb(28 28 34 / 0.78);
+  --glass-bg-solid: rgb(20 20 24 / 0.9);
+  --glass-border: rgb(255 255 255 / 0.09);
+  --glass-border-hover: rgb(255 255 255 / 0.18);
+  --shadow-card: 0 40px 80px -40px rgb(0 0 0 / 0.75);
+  --shadow-device: 0 24px 50px rgb(0 0 0 / 0.55);
+  --shadow-device-lg: 0 30px 60px rgb(0 0 0 / 0.5);
+  --glow-k: 1;
+  --hero-a: #ffb13d, #ff7c00 55%, #ff5a1f;
+  --hero-b: #7df5e0, #00ffcc 50%, #38b6ff;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --color-ink: #f4f3f0;
+    --color-ink-2: #edece8;
+    --color-surface: #fbfaf8;
+    --color-surface-2: #ffffff;
+    --color-dot: #d6d5d0;
+
+    --color-paper: #0e0e11;
+    --color-paper-2: #2a2a30;
+    --color-paper-3: #44444c;
+    --color-paper-4: #1d1d22;
+    --color-muted: #5a5a63;
+    --color-muted-2: #60606a;
+    --color-muted-3: #686872;
+    --color-muted-4: #74747e;
+
+    /* The accents used as text, darkened to keep 4.5:1 on the light page. */
+    --color-orange-light: #b64e06;
+    --color-blue-light: #1d5bbf;
+    --color-green: #137a5a;
+    --color-green-light: #116f52;
+
+    --color-line: rgb(10 10 12 / 0.08);
+    --color-line-2: rgb(10 10 12 / 0.1);
+    --color-line-3: rgb(10 10 12 / 0.12);
+    --color-line-4: rgb(10 10 12 / 0.14);
+    --color-line-5: rgb(10 10 12 / 0.22);
+
+    --ink-rgb: 244 243 240;
+    --paper-rgb: 14 14 17;
+    --glass-bg: rgb(255 255 255 / 0.66);
+    --glass-bg-hover: rgb(255 255 255 / 0.9);
+    --glass-bg-solid: rgb(255 255 255 / 0.92);
+    --glass-border: rgb(10 10 12 / 0.1);
+    --glass-border-hover: rgb(10 10 12 / 0.22);
+    --shadow-card: 0 40px 80px -40px rgb(0 0 0 / 0.18);
+    --shadow-device: 0 24px 50px rgb(0 0 0 / 0.2);
+    --shadow-device-lg: 0 30px 60px rgb(0 0 0 / 0.18);
+    --glow-k: 0.55;
+    --hero-a: #e8640a, #d14a08 55%, #c23d0c;
+    --hero-b: #0b8f7c, #0f7ab3 60%, #1d5bbf;
+  }
+}
+
+/* ------------------------------------------------------------------ */
 /* Base                                                                */
 /* ------------------------------------------------------------------ */
 @layer base {
@@ -131,7 +203,7 @@
   }
   ::selection {
     background: var(--color-orange);
-    color: var(--color-ink);
+    color: var(--color-on-accent);
   }
   :focus-visible {
     outline: 2px solid var(--color-blue-light);
@@ -166,8 +238,8 @@
 }
 
 @utility glass {
-  background: rgb(20 20 24 / 0.62);
-  border: 1px solid rgb(255 255 255 / 0.09);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   backdrop-filter: blur(18px) saturate(150%);
   -webkit-backdrop-filter: blur(18px) saturate(150%);
 }
@@ -193,7 +265,15 @@
 
 @utility outline-text {
   color: transparent;
-  -webkit-text-stroke: 1.2px rgb(242 241 238 / 0.6);
+  -webkit-text-stroke: 1.2px rgb(var(--paper-rgb) / 0.6);
+}
+
+/* Device frames and project cards: a deep shadow on ink, a soft one on the light page. */
+@utility shadow-device {
+  box-shadow: var(--shadow-device);
+}
+@utility shadow-device-lg {
+  box-shadow: var(--shadow-device-lg);
 }
 
 @utility section-bottom {
@@ -214,8 +294,8 @@
   @media (hover: hover) {
     .menu-btn:hover,
     .btn-glass:hover {
-      background-color: rgb(28 28 34 / 0.78);
-      border-color: rgb(255 255 255 / 0.18);
+      background-color: var(--glass-bg-hover);
+      border-color: var(--glass-border-hover);
     }
   }
   .btn-glass {
@@ -223,8 +303,8 @@
     overflow: hidden;
     isolation: isolate;
     color: var(--color-paper);
-    background: rgb(20 20 24 / 0.62);
-    border: 1px solid rgb(255 255 255 / 0.09);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     backdrop-filter: blur(18px) saturate(150%);
     -webkit-backdrop-filter: blur(18px) saturate(150%);
     transition:
@@ -302,13 +382,13 @@
   }
   @media (hover: hover) {
     .btn-primary:hover {
-      color: var(--color-ink);
+      color: var(--color-on-accent);
       border-color: rgb(250 127 19 / 0.9);
       transform: translateY(-2px);
       box-shadow: 0 14px 34px -12px rgb(250 127 19 / 0.55);
     }
     .btn-primary:hover svg {
-      color: var(--color-ink);
+      color: var(--color-on-accent);
     }
     .btn-primary:hover::before {
       transform: translateY(0);
@@ -426,14 +506,19 @@
     background:
       radial-gradient(
         ellipse 50% 46% at 50% 50%,
-        rgb(10 10 12 / 0.92),
-        rgb(10 10 12 / 0.5) 60%,
+        rgb(var(--ink-rgb) / 0.92),
+        rgb(var(--ink-rgb) / 0.5) 60%,
         transparent 78%
       ),
-      linear-gradient(rgb(10 10 12 / 0.6), transparent 22%, transparent 78%, rgb(10 10 12 / 0.7));
+      linear-gradient(
+        rgb(var(--ink-rgb) / 0.6),
+        transparent 22%,
+        transparent 78%,
+        rgb(var(--ink-rgb) / 0.7)
+      );
   }
   .hero-title {
-    text-shadow: 0 2px 24px rgb(10 10 12 / 0.8);
+    text-shadow: 0 2px 24px rgb(var(--ink-rgb) / 0.8);
   }
   /* The two promises: italic serif, each with the gradient of "its" current. */
   .hero-hl {
@@ -446,13 +531,13 @@
     text-shadow: none;
   }
   .hero-hl-a {
-    background-image: linear-gradient(95deg, #ffb13d 0%, #ff7c00 55%, #ff5a1f 100%);
+    background-image: linear-gradient(95deg, var(--hero-a));
   }
   .hero-hl-b {
-    background-image: linear-gradient(95deg, #7df5e0 0%, #00ffcc 50%, #38b6ff 100%);
+    background-image: linear-gradient(95deg, var(--hero-b));
   }
   .hero-lead {
-    text-shadow: 0 1px 12px rgb(10 10 12 / 0.9);
+    text-shadow: 0 1px 12px rgb(var(--ink-rgb) / 0.9);
   }
   /* Layout grids --------------------------------------------------- */
   .split {
@@ -498,8 +583,8 @@
     border-radius: var(--radius-card);
     background: var(--color-surface);
     box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.07),
-      0 40px 80px -40px rgb(0 0 0 / 0.75);
+      inset 0 1px 0 var(--color-line-2),
+      var(--shadow-card);
     transform-origin: 50% 0;
   }
   .pcard::before {
@@ -661,7 +746,7 @@
   }
   @media (hover: hover) {
     .card-hover:hover {
-      border-color: rgb(255 255 255 / 0.16);
+      border-color: var(--color-line-5);
       background-color: var(--color-surface-2);
       transform: translateY(-4px);
     }
@@ -729,7 +814,12 @@
     bottom: 0;
     left: 0;
     width: 30%;
-    background: linear-gradient(90deg, rgb(255 255 255 / 0), #ffffff 50%, rgb(255 255 255 / 0));
+    background: linear-gradient(
+      90deg,
+      rgb(var(--paper-rgb) / 0),
+      rgb(var(--paper-rgb)) 50%,
+      rgb(var(--paper-rgb) / 0)
+    );
     opacity: 0;
     translate: -100% 0;
   }
@@ -1806,10 +1896,10 @@
   .btn-glass {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    background: rgb(20 20 24 / 0.9);
+    background: var(--glass-bg-solid);
   }
   .pcard {
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.07);
+    box-shadow: inset 0 1px 0 var(--color-line-2);
   }
 }
 html.no-sda.is-scrolling .jk-scroll,
