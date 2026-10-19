@@ -215,9 +215,9 @@ export function Expertises({ content }: { content: SiteContent }) {
             </svg>
           </article>
 
-          {/* Migration from PCSoft tools */}
+          {/* Migration from PCSoft tools: a trajectory card */}
           <article
-            className={`${card} span-c3 hx-orange flex-row flex-wrap items-start justify-between gap-x-12 gap-y-8 overflow-clip p-[clamp(28px,3.4vw,44px)]`}
+            className={`${card} span-c3 hx-orange gap-9 overflow-clip p-[clamp(28px,3.4vw,44px)]`}
           >
             <Glow
               color="#FA7F13"
@@ -227,59 +227,79 @@ export function Expertises({ content }: { content: SiteContent }) {
             />
             <div className="hx" aria-hidden="true" />
             <div className="hx-line" aria-hidden="true" />
-            <div className="relative flex min-w-0 max-w-[600px] flex-[1_1_380px] flex-col gap-5">
-              <div className="flex items-center gap-3.5">
-                <span className="ico inline-flex h-[52px] w-[52px] items-center justify-center rounded-tile bg-orange/13 text-orange-light">
-                  <Layers />
-                </span>
-                <span className="hx-tag label-mono-sm rounded-pill border border-orange-light/30 px-3 py-1.5 text-orange-light">
-                  {x.migration.tag}
-                </span>
+
+            <div className="relative flex flex-wrap items-start justify-between gap-x-12 gap-y-8">
+              <div className="flex min-w-0 max-w-[560px] flex-[1_1_380px] flex-col gap-5">
+                <div className="flex items-center gap-3.5">
+                  <span className="ico inline-flex h-[52px] w-[52px] items-center justify-center rounded-tile bg-orange/13 text-orange-light">
+                    <Layers />
+                  </span>
+                  <span className="hx-tag label-mono-sm rounded-pill border border-orange-light/30 px-3 py-1.5 text-orange-light">
+                    {x.migration.tag}
+                  </span>
+                </div>
+                <LineTitle
+                  as="h3"
+                  lines={[x.migration.title]}
+                  className="font-display text-h3 leading-[1.05] font-medium tracking-[-0.035em] text-balance"
+                />
+                <p className="sx-txt m-0 text-base leading-[1.6] text-muted">{x.migration.text}</p>
               </div>
-              <LineTitle
-                as="h3"
-                lines={[x.migration.title]}
-                className="font-display text-h3 leading-[1.05] font-medium tracking-[-0.035em] text-balance"
-              />
-              <p className="sx-txt m-0 text-base leading-[1.6] text-muted">{x.migration.text}</p>
-              {/* From the PCSoft tools to the full-stack targets. */}
-              <p className="sx-txt m-0 flex flex-wrap items-center gap-x-3 gap-y-2.5 pt-1">
-                <span className="inline-flex flex-wrap items-center gap-2">
-                  {x.migration.from.map((item) => (
-                    <span
-                      key={item}
-                      className="label-mono-sm rounded-pill border border-line-3 px-3 py-1.5 text-muted-3 line-through decoration-line-5"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </span>
-                <ArrowRight size={16} className="flex-none text-orange-light" aria-hidden="true" />
-                <span className="inline-flex flex-wrap items-center gap-2">
-                  {x.migration.to.map((item) => (
-                    <span
-                      key={item}
-                      className="label-mono-sm rounded-pill border border-orange-light/30 bg-orange/10 px-3 py-1.5 text-orange-light"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </span>
-              </p>
-            </div>
-            <ul className="relative m-0 flex min-w-0 flex-[1_1_360px] list-none flex-col p-0">
-              {x.migration.items.map((item, i, all) => (
-                <li
-                  key={item}
-                  className={`sx-li flex items-center gap-3 border-t border-line-2 py-[13px] text-[15px] text-paper-2 ${
-                    i === all.length - 1 ? 'border-b' : ''
-                  }`}
+
+              {/* Today → tomorrow */}
+              <div className="mig-band sx-txt flex min-w-0 flex-[0_1_420px] items-stretch gap-4 rounded-card border border-line-2 bg-ink/40 p-5">
+                <div className="flex min-w-0 flex-1 flex-col gap-3">
+                  <span className="label-mono-sm text-muted-3">{x.migration.from.label}</span>
+                  <ul className="m-0 flex list-none flex-col gap-2 p-0">
+                    {x.migration.from.items.map((item) => (
+                      <li
+                        key={item}
+                        className="font-mono text-[13px] tracking-[0.02em] text-muted-2 line-through decoration-line-5"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <span
+                  aria-hidden="true"
+                  className="mig-arrow inline-flex h-9 w-9 flex-none items-center justify-center self-center rounded-full bg-orange/13 text-orange-light"
                 >
-                  <Check className="ck flex-none text-orange-light" />
-                  {item}
+                  <ArrowRight size={18} />
+                </span>
+                <div className="flex min-w-0 flex-1 flex-col gap-3">
+                  <span className="label-mono-sm text-orange-light">{x.migration.to.label}</span>
+                  <ul className="m-0 flex list-none flex-col gap-2 p-0">
+                    {x.migration.to.items.map((item) => (
+                      <li key={item} className="font-mono text-[13px] tracking-[0.02em] text-paper">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* The four steps */}
+            <ol className="mig-steps relative m-0 list-none p-0">
+              {x.migration.steps.map((step, i) => (
+                <li
+                  key={step.title}
+                  className="sx-li flex min-w-0 flex-col gap-2.5 border-t border-line-2 pt-5"
+                >
+                  <span className="label-mono-sm text-orange-light">0{i + 1}</span>
+                  <span className="font-display text-[20px] leading-[1.15] font-medium tracking-[-0.02em] text-paper">
+                    {step.title}
+                  </span>
+                  <span className="text-[15px] leading-[1.55] text-muted">{step.text}</span>
                 </li>
               ))}
-            </ul>
+            </ol>
+
+            <p className="sx-txt relative m-0 flex items-start gap-3 text-[15px] text-paper-2">
+              <Check className="mt-0.5 flex-none text-orange-light" />
+              {x.migration.note}
+            </p>
           </article>
         </div>
       </div>

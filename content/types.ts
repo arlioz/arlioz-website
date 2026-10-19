@@ -153,9 +153,10 @@ export interface SiteContent {
       tag: string;
       title: string;
       text: string;
-      from: string[];
-      to: string[];
-      items: string[];
+      from: { label: string; items: string[] };
+      to: { label: string; items: string[] };
+      steps: { title: string; text: string }[];
+      note: string;
     };
   };
   work: {

@@ -607,6 +607,11 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
   }
+  .mig-steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+  }
   .edu-aud {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1533,7 +1538,8 @@
   .bento {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .edu-grid {
+  .edu-grid,
+  .mig-steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .span-c3 {
@@ -1693,8 +1699,15 @@
     gap: 56px;
   }
   .edu-grid,
-  .edu-aud {
+  .edu-aud,
+  .mig-steps {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .mig-band {
+    flex-direction: column;
+  }
+  .mig-arrow {
+    rotate: 90deg;
   }
   .edu-grid article {
     min-height: 0 !important;

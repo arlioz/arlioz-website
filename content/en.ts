@@ -320,16 +320,23 @@ export const en: SiteContent = {
     },
     migration: {
       tag: 'Development · Migration',
-      title: 'Migrate your WinDev, WebDev and WinDev Mobile estate to a modern stack',
-      text: 'Do your business applications run on PCSoft tools? We carry out, or guide your teams through, the progressive and complete migration of the whole estate to modern full-stack technologies: web front-ends, mobile and desktop applications, APIs and back-end. One application at a time, alongside the existing system, with no disruption for your users.',
-      from: ['WinDev', 'WebDev', 'WinDev Mobile'],
-      to: ['Web front-end', 'Mobile applications', 'API & back-end'],
-      items: [
-        'Mapping the estate: applications, data, flows and migration order',
-        'A progressive path, one application at a time, old and new running side by side',
-        'Full-stack rebuild: interfaces, applications, APIs, data and business rules carried over',
-        'Done by us or led by your teams with our support, documentation and knowledge transfer',
+      title: 'Migrate your WinDev, WebDev and WinDev Mobile estate',
+      text: 'A progressive and complete migration of your business applications to a modern full-stack: web front-end, mobile and desktop applications, API and back-end. One application at a time, with no disruption for your users.',
+      from: { label: 'Today', items: ['WinDev', 'WebDev', 'WinDev Mobile'] },
+      to: {
+        label: 'Tomorrow',
+        items: ['Web front-end', 'Mobile & desktop apps', 'API & back-end'],
+      },
+      steps: [
+        { title: 'Map', text: 'Applications, data, flows and migration order.' },
+        { title: 'Coexist', text: 'One application at a time: old and new run side by side.' },
+        {
+          title: 'Rebuild',
+          text: 'Interfaces, applications, API; data and business rules carried over.',
+        },
+        { title: 'Hand over', text: 'Documentation and knowledge transfer to your teams.' },
       ],
+      note: 'Done by us, or led by your teams with our support.',
     },
   },
   work: {

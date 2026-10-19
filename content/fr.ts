@@ -344,16 +344,23 @@ export const fr: SiteContent = {
     },
     migration: {
       tag: 'Développement · Migration',
-      title: 'Migrer votre parc WinDev, WebDev et WinDev Mobile vers une stack moderne',
-      text: 'Vos applications métier tournent sur les outils PCSoft ? Nous réalisons, ou guidons vos équipes dans, la migration progressive et complète de tout le parc vers des technologies fullstack modernes : interfaces web, applications mobiles et desktop, API et back-end. Application par application, en coexistence avec l’existant, sans rupture pour vos utilisateurs.',
-      from: ['WinDev', 'WebDev', 'WinDev Mobile'],
-      to: ['Front-end web', 'Applications mobiles', 'API & back-end'],
-      items: [
-        'Cartographie du parc : applications, données, flux et ordre de migration',
-        'Trajectoire progressive, application par application, l’ancien et le nouveau cohabitent',
-        'Reconstruction fullstack : interfaces, applications, API, reprise des données et des règles métier',
-        'Réalisée par nous ou menée par vos équipes avec notre accompagnement, documentation et transfert de compétences',
+      title: 'Migrer votre parc WinDev, WebDev et WinDev Mobile',
+      text: 'Une migration progressive et complète de vos applications métier vers une stack fullstack moderne : front-end web, applications mobiles et desktop, API et back-end. Application par application, sans rupture pour vos utilisateurs.',
+      from: { label: 'Aujourd’hui', items: ['WinDev', 'WebDev', 'WinDev Mobile'] },
+      to: { label: 'Demain', items: ['Front-end web', 'Apps mobiles & desktop', 'API & back-end'] },
+      steps: [
+        { title: 'Cartographier', text: 'Applications, données, flux et ordre de migration.' },
+        {
+          title: 'Faire cohabiter',
+          text: 'Une application à la fois : l’ancien et le nouveau tournent ensemble.',
+        },
+        {
+          title: 'Reconstruire',
+          text: 'Interfaces, applications, API ; données et règles métier reprises.',
+        },
+        { title: 'Transmettre', text: 'Documentation et transfert de compétences à vos équipes.' },
       ],
+      note: 'Réalisée par nous, ou menée par vos équipes avec notre accompagnement.',
     },
   },
   work: {
