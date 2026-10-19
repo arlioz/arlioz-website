@@ -1,7 +1,7 @@
 import { type SiteContent } from '@/content/types';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Glow } from '@/components/ui/Glow';
-import { Check, expertiseIcons, Layers, Shield } from '@/components/ui/Icons';
+import { ArrowRight, Check, expertiseIcons, Layers, Shield } from '@/components/ui/Icons';
 import { LineTitle } from '@/components/ui/LineTitle';
 
 const card =
@@ -242,6 +242,30 @@ export function Expertises({ content }: { content: SiteContent }) {
                 className="font-display text-h3 leading-[1.05] font-medium tracking-[-0.035em] text-balance"
               />
               <p className="sx-txt m-0 text-base leading-[1.6] text-muted">{x.migration.text}</p>
+              {/* From the PCSoft tools to the full-stack targets. */}
+              <p className="sx-txt m-0 flex flex-wrap items-center gap-x-3 gap-y-2.5 pt-1">
+                <span className="inline-flex flex-wrap items-center gap-2">
+                  {x.migration.from.map((item) => (
+                    <span
+                      key={item}
+                      className="label-mono-sm rounded-pill border border-line-3 px-3 py-1.5 text-muted-3 line-through decoration-line-5"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </span>
+                <ArrowRight size={16} className="flex-none text-orange-light" aria-hidden="true" />
+                <span className="inline-flex flex-wrap items-center gap-2">
+                  {x.migration.to.map((item) => (
+                    <span
+                      key={item}
+                      className="label-mono-sm rounded-pill border border-orange-light/30 bg-orange/10 px-3 py-1.5 text-orange-light"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </span>
+              </p>
             </div>
             <ul className="relative m-0 flex min-w-0 flex-[1_1_360px] list-none flex-col p-0">
               {x.migration.items.map((item, i, all) => (
