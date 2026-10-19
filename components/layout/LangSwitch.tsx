@@ -28,7 +28,7 @@ export function LangSwitch({ locale, label, size = 'md', className = '' }: LangS
             lang={target}
             aria-current={active ? 'page' : undefined}
             className={`inline-flex min-w-10 items-center justify-center rounded-pill px-2.5 font-mono text-xs font-medium tracking-[0.06em] transition-colors duration-200 ${height} ${
-              active ? 'bg-white/12 text-paper' : 'text-muted-3 hover:text-paper'
+              active ? 'bg-paper/12 text-paper' : 'text-muted-3 hover:text-paper'
             }`}
           >
             {target.toUpperCase()}

@@ -58,8 +58,11 @@ const jetbrains = localFont({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0A0A0C',
-  colorScheme: 'dark',
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0A0A0C' },
+    { media: '(prefers-color-scheme: light)', color: '#F4F3F0' },
+  ],
+  colorScheme: 'dark light',
 };
 
 export const metadata: Metadata = {

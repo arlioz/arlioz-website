@@ -7,6 +7,12 @@ Rebuild complet (v3) à partir de la maquette Claude Design « Arlioz — Site v
 
 - **Next.js 16** (App Router, Turbopack, Cache Components, React Compiler) · **React 19** · **TypeScript strict**
 - **Tailwind CSS v4** (tokens dans `app/globals.css` via `@theme`, pas de `tailwind.config`)
+- **Thème clair / sombre** : le sombre est le design de référence, le clair suit `prefers-color-scheme` du device,
+  sans bouton. Les tokens portent des rôles (`ink` = la page, `paper` = le texte, `line` = les filets…) et sont
+  remappés dans un seul bloc `@media (prefers-color-scheme: light)` de `globals.css` ; les composants ne connaissent
+  que les tokens. Les accents utilisés comme texte (orange, bleu, vert) y sont assombris pour garder 4,5:1, le hero
+  WebGL change de palette à chaud, les halos sont atténués (`--glow-k`). Chrome headless, donc Lighthouse et
+  PageSpeed, audite la version claire.
 - **Animations** : CSS scroll-driven (`animation-timeline: view()`) pour tous les reveals, **Lenis** pour le smooth scroll,
   **GSAP ScrollTrigger** chargé à la demande uniquement comme fallback pour les navigateurs sans `animation-timeline`.
 - **Hero** : « courant chromatique » WebGL maison (`components/motion/ChromaCurrent.tsx`, aucune dépendance, ~4 kB) :

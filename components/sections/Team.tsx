@@ -56,7 +56,7 @@ export function Team({ content }: { content: SiteContent }) {
                   <span className="relative font-display text-[clamp(96px,11vw,160px)] leading-none font-medium tracking-[-0.06em] text-paper/12">
                     {member.initials}
                   </span>
-                  <span className="label-mono-sm absolute bottom-[18px] left-5 rounded-lg border border-dashed border-white/18 px-2.5 py-1.5 text-muted-3">
+                  <span className="label-mono-sm absolute bottom-[18px] left-5 rounded-lg border border-dashed border-paper/18 px-2.5 py-1.5 text-muted-3">
                     {member.photoLabel}
                   </span>
                 </div>
