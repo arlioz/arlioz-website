@@ -3,8 +3,11 @@ import { type ProjectImage } from './types';
 /** Image dimensions are the intrinsic sizes of the files in /public/images. */
 export const media = {
   logo: { src: '/images/logo-arlioz.webp', width: 900, height: 1000 },
+  // Optimised images are cached for a year under their URL: when a photo changes,
+  // give the file a new name (-v2, -v3…) or visitors keep the old one.
   team: {
-    amaury: { src: '/images/team/amaury.webp', width: 800, height: 800 },
+    amaury: { src: '/images/team/amaury-v2.webp', width: 750, height: 750 },
+    guy: { src: '/images/team/guy-v2.webp', width: 1122, height: 1122 },
   },
   restomax: {
     url: 'natithai.book.ezordr.app',

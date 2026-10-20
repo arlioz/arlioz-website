@@ -373,8 +373,12 @@ export const en: SiteContent = {
       {
         name: 'Guy Moins',
         role: 'IT architect & GDPR expert',
-        text: 'He frames your data, makes GDPR compliance concrete for your teams and teaches development to future developers.',
-        tags: ['GDPR consulting', 'IT architecture', 'Project stack', 'Teaching'],
+        text: 'Over thirty years in IT, from systems security to architecture, in large international companies. He frames your data, makes GDPR concrete for your teams and has over ten years of teaching computer science.',
+        tags: ['GDPR consulting', 'IT security', 'IT architecture', 'Teaching'],
+        photo: {
+          ...media.team.guy,
+          alt: 'Portrait of Guy Moins, IT architect and GDPR expert at Arlioz',
+        },
         initials: 'GM',
         photoLabel: 'Photo · Guy Moins',
         accent: 'blue',
@@ -382,8 +386,8 @@ export const en: SiteContent = {
       {
         name: 'Amaury Lapaque',
         role: 'Fullstack developer',
-        text: 'He designs and builds your websites and applications, from frontend to API.',
-        tags: ['Angular', 'React · Next.js', 'Vue · Nuxt', 'NestJS', 'TypeScript'],
+        text: 'Fullstack developer since 2019: frontend architecture, web and mobile apps, back ends migrated to modern APIs. He builds your products from design system to API.',
+        tags: ['Angular', 'React · Next.js', 'Vue', 'NestJS · .NET', 'Mobile apps'],
         photo: {
           ...media.team.amaury,
           alt: 'Portrait of Amaury Lapaque, fullstack developer at Arlioz',

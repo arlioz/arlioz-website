@@ -62,6 +62,8 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [390, 640, 834, 1080, 1280, 1440, 1920],
     imageSizes: [64, 96, 128, 256, 384],
+    // 75 everywhere; 85 for the team portraits, where 75 smears hair and beards.
+    qualities: [75, 85],
     minimumCacheTTL: 60 * 60 * 24 * 365,
   },
   async headers() {

@@ -397,8 +397,12 @@ export const fr: SiteContent = {
       {
         name: 'Guy Moins',
         role: 'Architecte IT & expert RGPD',
-        text: 'Il cadre vos données, rend la conformité RGPD concrète pour vos équipes et enseigne le développement à de futurs développeurs.',
-        tags: ['Conseil RGPD', 'Architecture IT', 'Stack projet', 'Enseignement'],
+        text: 'Plus de trente ans dans l’IT, de la sécurité des systèmes à l’architecture, au sein de grands groupes internationaux. Il cadre vos données, rend le RGPD concret pour vos équipes et compte plus de dix ans d’enseignement en informatique.',
+        tags: ['Conseil RGPD', 'Sécurité IT', 'Architecture IT', 'Enseignement'],
+        photo: {
+          ...media.team.guy,
+          alt: 'Portrait de Guy Moins, architecte IT et expert RGPD chez Arlioz',
+        },
         initials: 'GM',
         photoLabel: 'Photo · Guy Moins',
         accent: 'blue',
@@ -406,8 +410,8 @@ export const fr: SiteContent = {
       {
         name: 'Amaury Lapaque',
         role: 'Développeur fullstack',
-        text: 'Il conçoit et développe vos sites et applications, du frontend à l’API.',
-        tags: ['Angular', 'React · Next.js', 'Vue · Nuxt', 'NestJS', 'TypeScript'],
+        text: 'Développeur fullstack depuis 2019 : architecture frontend, applications web et mobiles, migration de back-ends vers des API modernes. Il construit vos produits du design system à l’API.',
+        tags: ['Angular', 'React · Next.js', 'Vue', 'NestJS · .NET', 'Apps mobiles'],
         photo: {
           ...media.team.amaury,
           alt: 'Portrait d’Amaury Lapaque, développeur fullstack chez Arlioz',
