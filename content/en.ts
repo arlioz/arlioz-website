@@ -375,6 +375,10 @@ export const en: SiteContent = {
         role: 'IT architect & GDPR expert',
         text: 'He frames your data, makes GDPR compliance concrete for your teams and teaches development to future developers.',
         tags: ['GDPR consulting', 'IT architecture', 'Project stack', 'Teaching'],
+        photo: {
+          ...media.team.guy,
+          alt: 'Portrait of Guy Moins, IT architect and GDPR expert at Arlioz',
+        },
         initials: 'GM',
         photoLabel: 'Photo · Guy Moins',
         accent: 'blue',

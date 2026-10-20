@@ -5,6 +5,7 @@ export const media = {
   logo: { src: '/images/logo-arlioz.webp', width: 900, height: 1000 },
   team: {
     amaury: { src: '/images/team/amaury.webp', width: 800, height: 800 },
+    guy: { src: '/images/team/guy.webp', width: 800, height: 800 },
   },
   restomax: {
     url: 'natithai.book.ezordr.app',

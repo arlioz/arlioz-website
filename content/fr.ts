@@ -399,6 +399,10 @@ export const fr: SiteContent = {
         role: 'Architecte IT & expert RGPD',
         text: 'Il cadre vos données, rend la conformité RGPD concrète pour vos équipes et enseigne le développement à de futurs développeurs.',
         tags: ['Conseil RGPD', 'Architecture IT', 'Stack projet', 'Enseignement'],
+        photo: {
+          ...media.team.guy,
+          alt: 'Portrait de Guy Moins, architecte IT et expert RGPD chez Arlioz',
+        },
         initials: 'GM',
         photoLabel: 'Photo · Guy Moins',
         accent: 'blue',
