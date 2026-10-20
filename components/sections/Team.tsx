@@ -34,6 +34,7 @@ export function Team({ content }: { content: SiteContent }) {
                     alt={member.photo.alt}
                     fill
                     sizes="(max-width: 720px) 100vw, (max-width: 1440px) 45vw, 640px"
+                    quality={85}
                     className="photo-zoom object-cover"
                   />
                 </div>
