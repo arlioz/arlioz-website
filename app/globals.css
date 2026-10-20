@@ -685,7 +685,33 @@
   .team-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 32px;
+    gap: 16px;
+  }
+  /* Team profile card: portrait on the left (4:5), role and name, then the text and
+     the tags pushed to the bottom. Phones switch to a compact header (see below). */
+  .tcard {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'photo head'
+      'photo body';
+    gap: 22px 28px;
+    padding: clamp(16px, 1.6vw, 20px);
+    padding-right: clamp(20px, 2.2vw, 32px);
+  }
+  .tcard-photo {
+    grid-area: photo;
+    aspect-ratio: 4 / 5;
+    align-self: start;
+  }
+  .tcard-head {
+    grid-area: head;
+    padding-top: clamp(4px, 1vw, 14px);
+  }
+  .tcard-body {
+    grid-area: body;
+    padding-bottom: clamp(4px, 1vw, 14px);
   }
   .edu-grid {
     display: grid;
@@ -1663,6 +1689,13 @@
   }
 }
 @media (max-width: 1080px) {
+  /* One profile card per row; the portrait keeps a sensible size. */
+  .team-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .tcard {
+    grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+  }
   .pcard-num {
     font-size: clamp(120px, 30vw, 200px);
   }
@@ -1784,9 +1817,30 @@
   .vn {
     margin: 0 auto;
   }
-  .team-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 56px;
+  .tcard {
+    grid-template-columns: 112px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      'photo head'
+      'body body';
+    gap: 20px 18px;
+    padding: 16px 16px 20px;
+  }
+  .tcard-photo {
+    aspect-ratio: 1 / 1;
+    align-self: center;
+  }
+  .tcard-head,
+  .tcard-body {
+    padding: 0;
+  }
+  /* The role pill would wrap next to the small portrait: plain label instead. */
+  .tcard-role {
+    padding: 0;
+    border: 0;
+  }
+  .tcard-body {
+    padding-inline: 4px;
   }
   .edu-grid,
   .edu-aud,
