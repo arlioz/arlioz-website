@@ -28,12 +28,12 @@ export function Team({ content }: { content: SiteContent }) {
               className={`rv ${i === 1 ? 'rv-d1' : ''} flex min-w-0 flex-col gap-[26px]`}
             >
               {member.photo ? (
-                <div className="relative aspect-square overflow-hidden rounded-card border border-line-2 bg-[#E9E9E9]">
+                <div className="relative aspect-square w-full max-w-[420px] overflow-hidden rounded-card border border-line-2 bg-[#E9E9E9]">
                   <Image
                     src={member.photo.src}
                     alt={member.photo.alt}
                     fill
-                    sizes="(max-width: 720px) 100vw, (max-width: 1440px) 45vw, 640px"
+                    sizes="(max-width: 720px) 100vw, 420px"
                     quality={85}
                     className="photo-zoom object-cover"
                   />
@@ -41,7 +41,7 @@ export function Team({ content }: { content: SiteContent }) {
               ) : (
                 <div
                   aria-hidden="true"
-                  className="relative flex aspect-square items-center justify-center overflow-hidden rounded-card border border-line-2 bg-surface"
+                  className="relative flex aspect-square w-full max-w-[420px] items-center justify-center overflow-hidden rounded-card border border-line-2 bg-surface"
                 >
                   <Glow
                     color={member.accent === 'blue' ? '#2065CB' : '#FA7F13'}
