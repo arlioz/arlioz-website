@@ -35,6 +35,9 @@ export interface DeviceSet {
   phoneAlt?: ProjectImage;
   /** Which composed animation the stage plays. */
   motion: 'swap' | 'scroll';
+  /** A real device mockup (transparent PNG/WebP). When set it replaces the composed
+      CSS devices on the project card. */
+  mockup?: ProjectImage;
 }
 
 export interface GalleryItem {

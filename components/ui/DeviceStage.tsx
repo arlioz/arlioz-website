@@ -88,16 +88,21 @@ export function DeviceStage({
   ariaLabel,
 }: DeviceStageProps) {
   const scroll = devices.motion === 'scroll';
-  const stageClass = `pj-stage stage relative block aspect-[16/11] overflow-clip rounded-card border border-line-2 bg-surface ${
-    reversed ? 'pj-rev' : ''
-  }`;
+  // No frame of its own: the devices sit directly on the project card (one level of
+  // nesting less, as the design review asked).
+  const stageClass = `pj-stage stage relative block aspect-[16/11] ${reversed ? 'pj-rev' : ''}`;
 
-  const inner = (
+  const inner = devices.mockup ? (
+    <Image
+      src={devices.mockup.src}
+      alt={devices.mockup.alt}
+      width={devices.mockup.width}
+      height={devices.mockup.height}
+      sizes="(max-width: 1080px) 92vw, 760px"
+      className="absolute inset-0 h-full w-full object-contain"
+    />
+  ) : (
     <>
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[length:48px_48px] bg-[linear-gradient(rgb(var(--paper-rgb)/0.035)_1px,transparent_1px),linear-gradient(90deg,rgb(var(--paper-rgb)/0.035)_1px,transparent_1px)]"
-      />
       <Glow
         color={glow}
         opacity={glowOpacity}
