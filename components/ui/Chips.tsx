@@ -1,15 +1,11 @@
 interface ChipsProps {
   items: readonly string[];
   className?: string;
-  /** Scroll-driven staggered pop (project cards). */
-  animated?: boolean;
 }
 
-export function Chips({ items, className = '', animated = false }: ChipsProps) {
+export function Chips({ items, className = '' }: ChipsProps) {
   return (
-    <ul
-      className={`m-0 flex list-none flex-wrap gap-2 p-0 ${animated ? 'pj-chips' : ''} ${className}`}
-    >
+    <ul className={`m-0 flex list-none flex-wrap gap-2 p-0 ${className}`}>
       {items.map((item) => (
         <li
           key={item}

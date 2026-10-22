@@ -51,13 +51,15 @@ function OfferCard({
       <div className="hx" aria-hidden="true" />
       <div className="hx-line" aria-hidden="true" />
 
-      <div className="relative flex items-center justify-between gap-3">
+      <div className="relative flex flex-wrap items-center justify-between gap-3">
         <span
           className={`ico inline-flex h-[52px] w-[52px] items-center justify-center rounded-tile ${t.ico}`}
         >
           <Icon />
         </span>
-        <span className={`hx-tag label-mono-sm rounded-pill border px-3 py-1.5 ${t.tag}`}>
+        <span
+          className={`hx-tag label-mono-sm rounded-pill border px-3 py-1.5 whitespace-nowrap ${t.tag}`}
+        >
           {offer.tag}
         </span>
       </div>

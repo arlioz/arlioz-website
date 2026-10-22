@@ -99,7 +99,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                     <p className="sx-txt m-0 max-w-[580px] text-[17px] leading-[1.6] text-muted text-pretty">
                       {project.summary}
                     </p>
-                    <dl className="sx-txt pcard-story m-0 grid max-w-[580px] gap-3 border-t border-line-2 pt-4">
+                    <dl className="pcard-story m-0 grid max-w-[580px] gap-3 border-t border-line-2 pt-4">
                       <div className="grid gap-1">
                         <dt className="label-mono-sm text-muted-3">{work.need}</dt>
                         <dd className="m-0 text-base leading-[1.55] text-paper-2">
@@ -116,8 +116,8 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                         </dd>
                       </div>
                     </dl>
-                    <Chips items={project.tags} animated className="pcard-chips mt-1" />
-                    <div className="sx-txt pcard-links mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[16px]">
+                    <Chips items={project.tags} className="pcard-chips mt-1" />
+                    <div className="pcard-links mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[16px]">
                       <Link
                         href={href}
                         className="link-u pcard-body-link inline-flex items-center gap-2 font-medium text-paper"

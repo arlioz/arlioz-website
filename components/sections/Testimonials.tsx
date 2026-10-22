@@ -8,8 +8,6 @@ const accents = [
   { hx: 'hx-green', dot: 'bg-green/14 text-green-light' },
 ] as const;
 
-const delays = ['', 'rv-d1'] as const;
-
 function initials(name: string) {
   return name
     .split(/\s+/)
@@ -47,7 +45,7 @@ export function Testimonials({ content }: { content: SiteContent }) {
             return (
               <figure
                 key={item.name}
-                className={`card-hover ${a.hx} rv ${delays[i % 2] ?? ''} relative m-0 flex flex-col gap-8 rounded-card border border-line-2 bg-surface p-[clamp(24px,3vw,40px)]`}
+                className={`card-hover ${a.hx} relative m-0 flex flex-col gap-8 rounded-card border border-line-2 bg-surface p-[clamp(24px,3vw,40px)]`}
               >
                 <div className="hx" aria-hidden="true" />
                 <div className="hx-line" aria-hidden="true" />

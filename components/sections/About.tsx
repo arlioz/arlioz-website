@@ -7,8 +7,6 @@ const bars = [
   'bg-[linear-gradient(90deg,#1E92A0,#2BBE8D_60%,#4FD6A4)] b3',
 ] as const;
 
-const delays = ['', 'rv-d1', 'rv-d2'] as const;
-
 export function About({ content }: { content: SiteContent }) {
   const { about } = content;
   return (
@@ -17,7 +15,7 @@ export function About({ content }: { content: SiteContent }) {
         <div className="split">
           <div className="flex flex-col justify-between gap-10">
             <Eyebrow index={about.index} label={about.label} />
-            <dl className="about-facts rv m-0">
+            <dl className="about-facts m-0">
               {about.facts.map((fact, i) => (
                 <div key={fact.label} className={i === 0 ? 'about-fact-main' : 'about-fact'}>
                   <dt
@@ -54,7 +52,7 @@ export function About({ content }: { content: SiteContent }) {
             </h2>
             <div className="pillars mt-14 grid grid-cols-3 gap-10">
               {about.pillars.map((pillar, i) => (
-                <div key={pillar.title} className={`rv ${delays[i] ?? ''} flex flex-col gap-4`}>
+                <div key={pillar.title} className="flex flex-col gap-4">
                   <div aria-hidden="true" className={`rv-bar h-1 rounded-pill ${bars[i] ?? ''}`} />
                   <h3 className="m-0 mt-1 font-display text-card leading-[1.1] font-medium tracking-[-0.025em]">
                     {pillar.title}

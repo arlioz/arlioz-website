@@ -112,6 +112,8 @@
   --glow-k: 1;
   --hero-a: #ffb13d, #ff7c00 55%, #ff5a1f;
   --hero-b: #7df5e0, #00ffcc 50%, #38b6ff;
+  --btn-halo: 0 10px 26px -14px rgb(246 96 26 / 0.7);
+  --btn-halo-hover: 0 16px 34px -12px rgb(246 96 26 / 0.65);
 }
 /* Light palette: plain white and cool, slightly blue neutrals (the GDPR blue's
    family), not the warm off-white that reads as a default AI template. White
@@ -160,6 +162,9 @@
     --glow-k: 0.55;
     --hero-a: #e8640a, #d14a08 55%, #c23d0c;
     --hero-b: #0b8f7c, #0f7ab3 60%, #1d5bbf;
+    /* On white the dark-theme halo reads as a smudge: tighter and lighter. */
+    --btn-halo: 0 8px 18px -12px rgb(246 96 26 / 0.45);
+    --btn-halo-hover: 0 12px 24px -12px rgb(246 96 26 / 0.45);
   }
 }
 
@@ -364,7 +369,7 @@
     color: var(--color-on-accent);
     border-color: transparent;
     background: linear-gradient(100deg, #feb613, #fa7f13 45%, #f6601a 80%, #fa7f13) 0 0 / 200% 100%;
-    box-shadow: 0 10px 26px -14px rgb(246 96 26 / 0.7);
+    box-shadow: var(--btn-halo);
     transition:
       background-position 0.6s var(--ease-out-expo),
       transform 0.35s var(--ease-out-expo),
@@ -378,7 +383,7 @@
       border-color: transparent;
       background-position: 100% 0;
       transform: translateY(-2px);
-      box-shadow: 0 16px 34px -12px rgb(246 96 26 / 0.65);
+      box-shadow: var(--btn-halo-hover);
     }
   }
   .btn-primary:active {
@@ -1046,24 +1051,6 @@
   .sx-rule {
     transform-origin: 0 50%;
   }
-  .pj-chips li {
-    --i: 0;
-  }
-  .pj-chips li:nth-child(2) {
-    --i: 1;
-  }
-  .pj-chips li:nth-child(3) {
-    --i: 2;
-  }
-  .pj-chips li:nth-child(4) {
-    --i: 3;
-  }
-  .pj-chips li:nth-child(5) {
-    --i: 4;
-  }
-  .pj-chips li:nth-child(6) {
-    --i: 5;
-  }
 }
 
 /* ------------------------------------------------------------------ */
@@ -1236,76 +1223,13 @@
   }
 }
 @keyframes pj-stage {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 70px, 0) scale(0.96);
-  }
-  35% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-}
-@keyframes pj-desk {
   from {
     opacity: 0;
-    translate: 0 90px;
-    scale: 0.9;
+    translate: 0 56px;
   }
   to {
     opacity: 1;
     translate: 0 0;
-    scale: 1;
-  }
-}
-@keyframes pj-tab-l {
-  from {
-    opacity: 0;
-    translate: -70px 50px;
-    rotate: -8deg;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-    rotate: 0deg;
-  }
-}
-@keyframes pj-tab-r {
-  from {
-    opacity: 0;
-    translate: 70px 50px;
-    rotate: 8deg;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-    rotate: 0deg;
-  }
-}
-@keyframes pj-phone {
-  from {
-    opacity: 0;
-    translate: 0 150px;
-    rotate: 10deg;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-    rotate: 0deg;
-  }
-}
-@keyframes pj-chip {
-  from {
-    opacity: 0;
-    translate: 0 14px;
-    scale: 0.8;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-    scale: 1;
   }
 }
 
@@ -1424,37 +1348,12 @@
           calc(100vh - var(--pile-top) - (var(--i) + 1) * var(--pile-step));
       }
     }
+    /* One entrance for the whole device group: the devices used to fly in one by
+       one (four scaled layers per card), the main cost of a scroll frame. */
     .pj-stage {
-      view-timeline-name: --stg;
       animation: pj-stage var(--ease-out-soft) both;
-      animation-timeline: --stg;
-      animation-range: entry 0px entry 420px;
-    }
-    .pj-stage .dev-desk {
-      animation: pj-desk var(--ease-out-soft) both;
-      animation-timeline: --stg;
-      animation-range: entry 110px entry 450px;
-    }
-    .pj-stage .dev-tab {
-      animation: pj-tab-l var(--ease-out-soft) both;
-      animation-timeline: --stg;
-      animation-range: entry 190px entry 520px;
-    }
-    .pj-stage.pj-rev .dev-tab {
-      animation-name: pj-tab-r;
-    }
-    .pj-stage .dev-phone {
-      animation: pj-phone cubic-bezier(0.2, 0.7, 0.25, 1.12) both;
-      animation-timeline: --stg;
-      animation-range: entry 260px entry 590px;
-    }
-    .pj-chips {
-      view-timeline-name: --chips;
-    }
-    .pj-chips li {
-      animation: pj-chip cubic-bezier(0.2, 0.7, 0.25, 1.25) both;
-      animation-timeline: --chips;
-      animation-range: entry calc(var(--i) * 40px + 30px) entry calc(var(--i) * 40px + 210px);
+      animation-timeline: view();
+      animation-range: entry 0px entry 380px;
     }
   }
 }
@@ -1484,6 +1383,25 @@
 }
 /* Tablets: plain list, the case-study link sits in the body. */
 @media (min-width: 721px) and (max-width: 1080px) {
+  /* Full-width offer on tablets: problem → result on the left, services on the
+     right, so lines stay near 70 characters instead of running the whole width. */
+  .offer {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    column-gap: clamp(28px, 4vw, 48px);
+  }
+  .offer > * {
+    grid-column: 1 / -1;
+  }
+  .offer > dl {
+    grid-column: 1;
+  }
+  .offer > ul {
+    grid-column: 2;
+    align-self: start;
+    border-top: 0;
+    padding-top: 0;
+  }
   .pcard-top-link {
     display: none;
   }

@@ -41,7 +41,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
-const delays = ['', 'rv-d1', 'rv-d2'] as const;
 const dt = 'label-mono-sm text-muted-3';
 const dd = 'm-0 text-base text-paper';
 const caption =
@@ -50,11 +49,10 @@ const phoneBg =
   'bg-[radial-gradient(circle_at_50%_42%,rgba(226,194,122,0.16),transparent_62%),var(--color-surface)]';
 
 function GalleryFigure({ item, index }: { item: GalleryItem; index: number }) {
-  const delay = delays[index % 3];
   if (item.kind === 'desktop') {
     return (
       <figure
-        className={`g-wide rv ${delay} relative m-0 overflow-hidden rounded-card-sm border border-line-2 bg-surface`}
+        className={`g-wide relative m-0 overflow-hidden rounded-card-sm border border-line-2 bg-surface`}
       >
         <BrowserBar url="" size="md" />
         <div className="relative aspect-[16/10]">
@@ -73,7 +71,7 @@ function GalleryFigure({ item, index }: { item: GalleryItem; index: number }) {
   if (item.kind === 'tablet') {
     return (
       <figure
-        className={`rv ${delay} relative m-0 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-card-sm border border-line-2 pb-7 ${phoneBg}`}
+        className={`relative m-0 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-card-sm border border-line-2 pb-7 ${phoneBg}`}
       >
         <div className="g-tab w-[40%] rounded-[18px] border border-line-4 bg-device p-1.5 shadow-device">
           <div className="relative aspect-[820/1180] overflow-hidden rounded-xl">
@@ -94,7 +92,7 @@ function GalleryFigure({ item, index }: { item: GalleryItem; index: number }) {
   const tall = index === 1;
   return (
     <figure
-      className={`rv ${delay} relative m-0 flex items-center justify-center overflow-hidden rounded-card-sm border border-line-2 ${phoneBg} ${
+      className={`relative m-0 flex items-center justify-center overflow-hidden rounded-card-sm border border-line-2 ${phoneBg} ${
         tall ? 'px-6 pt-7 pb-14' : 'aspect-[4/3] pb-7'
       }`}
     >
@@ -261,10 +259,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     [cs.sections.solution, project.story.solution],
                     [cs.sections.role, project.story.role],
                   ] as const
-                ).map(([label, text], i) => (
+                ).map(([label, text]) => (
                   <div
                     key={label}
-                    className={`rv ${i ? `rv-d${i}` : ''} flex min-w-0 flex-col gap-3 border-t border-line-2 pt-5`}
+                    className="flex min-w-0 flex-col gap-3 border-t border-line-2 pt-5"
                   >
                     <h3 className="label-mono m-0 font-medium text-orange-light">{label}</h3>
                     <p className="m-0 text-base leading-[1.6] text-paper-2">{text}</p>
@@ -325,7 +323,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             {study.features.map((feature, i) => (
               <article
                 key={feature.title}
-                className={`card-hover rv ${delays[i % 3]} flex min-h-[240px] flex-col gap-10 rounded-card border border-line-2 bg-surface p-8`}
+                className={`card-hover flex min-h-[240px] flex-col gap-10 rounded-card border border-line-2 bg-surface p-8`}
               >
                 <p className="m-0 font-mono text-[13px] font-medium tracking-[0.08em] text-orange-light">
                   {String(i + 1).padStart(2, '0')}
@@ -365,10 +363,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
           <ul
             className={`stack-grid m-0 list-none p-0 ${study.stack.length <= 4 ? 'stack-grid-4' : ''}`}
           >
-            {study.stack.map((item, i) => (
+            {study.stack.map((item) => (
               <li
                 key={item.name}
-                className={`card-hover rv ${delays[i % 3]} flex min-h-[160px] flex-col justify-between gap-8 rounded-card-sm border border-line-2 bg-surface p-6`}
+                className={`card-hover flex min-h-[160px] flex-col justify-between gap-8 rounded-card-sm border border-line-2 bg-surface p-6`}
               >
                 <span className="label-mono-sm text-muted-3">{item.category}</span>
                 <span className="font-display text-[28px] leading-none font-medium tracking-[-0.03em]">

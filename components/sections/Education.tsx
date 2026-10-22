@@ -35,7 +35,7 @@ export function Education({ locale, content }: { locale: Locale; content: SiteCo
               className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
             />
           </div>
-          <div className="rv rv-d1 flex min-w-0 flex-col gap-9">
+          <div className="flex min-w-0 flex-col gap-9">
             <p className="m-0 max-w-[620px] text-[17px] leading-[1.6] text-muted text-pretty">
               {e.text}
             </p>
