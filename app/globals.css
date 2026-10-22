@@ -561,17 +561,6 @@
     grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
     gap: 48px;
   }
-  .bento {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-  .span-r2 {
-    grid-row: span 2;
-  }
-  .span-c3 {
-    grid-column: span 3;
-  }
   .proj-row {
     display: grid;
     grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
@@ -683,7 +672,17 @@
   .team-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 24px;
+  }
+  /* Expertises: three offers side by side, roomy cards (spacious density). */
+  .offers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .offer {
+    gap: 26px;
+    padding: clamp(28px, 2.8vw, 40px);
   }
   /* Team profile card: portrait on the left (4:5), role and name, then the text and
      the tags pushed to the bottom. Phones switch to a compact header (see below). */
@@ -694,14 +693,9 @@
     grid-template-areas:
       'photo head'
       'photo body';
-    gap: 22px 28px;
-    padding: clamp(16px, 1.6vw, 20px);
-    padding-right: clamp(20px, 2.2vw, 32px);
-  }
-  .team-quotes {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 24px 32px;
+    padding: clamp(20px, 2vw, 28px);
+    padding-right: clamp(24px, 2.6vw, 40px);
   }
   .tcard-photo {
     grid-area: photo;
@@ -715,16 +709,6 @@
   .tcard-body {
     grid-area: body;
     padding-bottom: clamp(4px, 1vw, 14px);
-  }
-  .edu-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
-  }
-  .mig-steps {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 28px;
   }
   .edu-aud {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1062,19 +1046,6 @@
   .sx-rule {
     transform-origin: 0 50%;
   }
-  .sx-card {
-    --o: 0px;
-  }
-  .sx-d1 {
-    --o: 70px;
-  }
-  .sx-d2 {
-    --o: 140px;
-  }
-  .vn-c {
-    transform-box: view-box;
-    transform-origin: 180px 105px;
-  }
   .pj-chips li {
     --i: 0;
   }
@@ -1244,60 +1215,6 @@
     translate: 0 0;
   }
 }
-@keyframes sx-card {
-  from {
-    opacity: 0;
-    translate: 0 90px;
-    scale: 0.94;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-    scale: 1;
-  }
-}
-@keyframes sx-spill {
-  from {
-    opacity: 0;
-    scale: 1 0.15;
-  }
-  to {
-    opacity: 1;
-    scale: 1 1;
-  }
-}
-@keyframes sx-draw {
-  from {
-    opacity: 0;
-    scale: 0 1;
-  }
-  to {
-    opacity: 1;
-    scale: 1 1;
-  }
-}
-@keyframes sx-ico {
-  from {
-    opacity: 0;
-    scale: 0.3;
-    rotate: -50deg;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
-    rotate: 0deg;
-  }
-}
-@keyframes sx-right {
-  from {
-    opacity: 0;
-    translate: 24px 0;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
 @keyframes sx-left {
   from {
     opacity: 0;
@@ -1306,56 +1223,6 @@
   to {
     opacity: 1;
     translate: 0 0;
-  }
-}
-@keyframes sx-li {
-  from {
-    opacity: 0;
-    translate: -22px 0;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-@keyframes sx-tick {
-  from {
-    stroke-dasharray: 1 2;
-    stroke-dashoffset: 1.05;
-  }
-  to {
-    stroke-dasharray: 1 2;
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes vn-l {
-  from {
-    opacity: 0;
-    translate: -58px 0;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-@keyframes vn-r {
-  from {
-    opacity: 0;
-    translate: 58px 0;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-@keyframes vn-c {
-  from {
-    opacity: 0;
-    scale: 0.4;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
   }
 }
 @keyframes pcard-back {
@@ -1530,65 +1397,10 @@
     .sx-up.sx-late {
       animation-range: entry 120px entry 400px;
     }
-    .sx-card {
-      view-timeline-name: --cd;
-      animation: sx-card cubic-bezier(0.2, 0.6, 0.25, 1) both;
-      animation-timeline: --cd;
-      animation-range: entry var(--o) entry calc(var(--o) + 360px);
-    }
-    .sx-card .hx {
-      animation: sx-spill var(--ease-out-soft) both;
-      animation-timeline: --cd;
-      animation-range: entry calc(var(--o) + 150px) entry calc(var(--o) + 470px);
-    }
-    .sx-card .hx-line {
-      animation: sx-draw cubic-bezier(0.3, 0.6, 0.2, 1) both;
-      animation-timeline: --cd;
-      animation-range: entry calc(var(--o) + 120px) entry calc(var(--o) + 440px);
-    }
-    .sx-card .ico {
-      animation: sx-ico cubic-bezier(0.2, 0.7, 0.25, 1.25) both;
-      animation-timeline: --cd;
-      animation-range: entry calc(var(--o) + 90px) entry calc(var(--o) + 340px);
-    }
-    .sx-card .hx-tag {
-      animation: sx-right var(--ease-out-soft) both;
-      animation-timeline: --cd;
-      animation-range: entry calc(var(--o) + 150px) entry calc(var(--o) + 400px);
-    }
     .sx-txt {
       animation: arz-up var(--ease-out-soft) both;
       animation-timeline: view();
       animation-range: entry calc(var(--o, 0px) + 30px) entry calc(var(--o, 0px) + 300px);
-    }
-    .sx-li {
-      view-timeline-name: --li;
-      animation: sx-li var(--ease-out-soft) both;
-      animation-timeline: --li;
-      animation-range: entry 0px entry 230px;
-    }
-    .sx-li .ck path {
-      animation: sx-tick cubic-bezier(0.3, 0.6, 0.3, 1) both;
-      animation-timeline: --li;
-      animation-range: entry 80px entry 270px;
-    }
-    .vn {
-      view-timeline-name: --vn;
-    }
-    .vn-l {
-      animation: vn-l var(--ease-out-soft) both;
-      animation-timeline: --vn;
-      animation-range: entry 0px entry 330px;
-    }
-    .vn-r {
-      animation: vn-r var(--ease-out-soft) both;
-      animation-timeline: --vn;
-      animation-range: entry 0px entry 330px;
-    }
-    .vn-c {
-      animation: vn-c cubic-bezier(0.2, 0.7, 0.25, 1.25) both;
-      animation-timeline: --vn;
-      animation-range: entry 230px entry 410px;
     }
     /* The recede: while the next card enters, the one below shrinks and dims. Driven
        by the next card's view timeline (timeline-scope on .stack), so a sticky card's
@@ -1658,22 +1470,6 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 40px;
   }
-  .bento {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .edu-grid,
-  .mig-steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .span-c3 {
-    grid-column: span 2;
-  }
-  .stk-txt {
-    flex-basis: 300px !important;
-  }
-  .vn {
-    flex-basis: 300px !important;
-  }
 }
 @media (max-width: 720px) {
   /* Phone card: visual, title, summary; the case-study link is in the top bar.
@@ -1696,8 +1492,9 @@
   }
 }
 @media (max-width: 1080px) {
-  /* One profile card per row; the portrait keeps a sensible size. */
-  .team-grid {
+  /* One profile card per row; the portrait keeps a sensible size. One offer per row. */
+  .team-grid,
+  .offers {
     grid-template-columns: minmax(0, 1fr);
   }
   .tcard {
@@ -1753,10 +1550,6 @@
   }
 }
 @media (max-width: 720px) {
-  .sx-d1,
-  .sx-d2 {
-    --o: 0px;
-  }
   .hdr-lang,
   .hdr-cta {
     display: none !important;
@@ -1806,21 +1599,6 @@
     grid-template-columns: minmax(0, 1fr) !important;
     gap: 36px !important;
   }
-  .bento {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .span-r2 {
-    grid-row: auto;
-  }
-  .span-c3 {
-    grid-column: auto;
-  }
-  .bento article {
-    min-height: 0 !important;
-  }
-  .vn {
-    margin: 0 auto;
-  }
   .tcard {
     grid-template-columns: 112px minmax(0, 1fr);
     grid-template-rows: auto auto;
@@ -1846,21 +1624,9 @@
   .tcard-body {
     padding-inline: 4px;
   }
-  .edu-grid,
   .edu-aud,
-  .mig-steps,
-  .case-story,
-  .team-quotes {
+  .case-story {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .mig-band {
-    flex-direction: column;
-  }
-  .mig-arrow {
-    rotate: 90deg;
-  }
-  .edu-grid article {
-    min-height: 0 !important;
   }
   .meta-wide {
     grid-column: 1 / -1;
@@ -1980,7 +1746,7 @@ html.no-sda.is-scrolling .rx-b,
 
 /* Light reveals for `html.no-sda.sda-light` (small surfaces only, see
    ScrollRevealFallback). Short, compositor-only transitions. */
-html.sda-light :is(.sx-txt, .sx-up, .sx-li, .sx-num, .sx-lab, .rv:not(article):not(.rv-media)) {
+html.sda-light :is(.sx-txt, .sx-up, .sx-num, .sx-lab, .rv:not(article):not(.rv-media)) {
   transition:
     opacity 0.5s ease-out,
     transform 0.5s var(--ease-out-expo);
@@ -1988,10 +1754,6 @@ html.sda-light :is(.sx-txt, .sx-up, .sx-li, .sx-num, .sx-lab, .rv:not(article):n
 html.sda-light :is(.sx-txt, .sx-up, .sx-num, .sx-lab, .rv:not(article):not(.rv-media)):not(.is-in) {
   opacity: 0;
   transform: translate3d(0, 18px, 0);
-}
-html.sda-light .sx-li:not(.is-in) {
-  opacity: 0;
-  transform: translate3d(-16px, 0, 0);
 }
 html.sda-light :is(.rv-bar, .sx-rule) {
   transform-origin: 0 50%;

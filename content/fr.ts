@@ -289,125 +289,101 @@ export const fr: SiteContent = {
       { value: '3', label: 'Produits en production' },
     ],
     title: [
-      { text: 'Nous réunissons ' },
-      { text: 'la protection des données', mark: 'blue' },
+      { text: 'Depuis 2018, ' },
+      { text: 'un expert RGPD', mark: 'blue' },
       { text: ' et ' },
-      { text: 'le développement digital', mark: 'orange' },
-      { text: ' pour faire ' },
-      { text: 'grandir', mark: 'green' },
-      { text: ' votre entreprise.' },
+      { text: 'un développeur fullstack', mark: 'orange' },
+      { text: ' livrent ensemble des produits ' },
+      { text: 'conformes dès la conception', mark: 'green' },
+      { text: '.' },
     ],
     pillars: [
       {
         title: 'Développer',
-        text: 'Sites, applications web et mobiles, avec des technologies éprouvées.',
+        text: 'Sites, applications web et mobiles et API, en Angular, React, Vue et NestJS.',
       },
       {
         title: 'Protéger',
-        text: 'Une conformité RGPD claire, intégrée dès l’architecture.',
+        text: 'Audit, registre, analyses d’impact : une conformité RGPD que vous pouvez démontrer.',
       },
       {
-        title: 'Grandir',
-        text: 'Des solutions robustes qui accompagnent votre croissance.',
+        title: 'Transmettre',
+        text: 'Plus de dix ans d’enseignement : nous documentons et formons vos équipes.',
       },
     ],
   },
   expertises: {
     index: '02',
     label: 'Expertises',
-    title: ['Deux expertises', 'qui se complètent.'],
+    title: ['Trois offres,', 'une même équipe.'],
     intro:
-      'Confiez-nous la conformité RGPD de votre organisation, le développement de vos applications, ou les deux : la même équipe conçoit le produit et protège ses données.',
-    rgpd: {
-      tag: 'Protection des données',
-      title: 'Conseil RGPD',
-      text: 'Mettre votre organisation en conformité, et le rester.',
-      items: [
-        'Audit de conformité',
-        'Registre des traitements',
-        'Analyses d’impact (AIPD)',
-        'Politiques de confidentialité et cookies',
-        'Contrats de sous-traitance',
-        'Sensibilisation des équipes',
-      ],
-      benefit:
-        'Une conformité que vous pouvez démontrer à vos clients, à vos partenaires et à l’Autorité de protection des données.',
-      cta: {
-        label: 'Parler de votre conformité',
-        subject: 'Conformité RGPD — demande de contact',
-      },
-    },
-    devCta: {
-      label: 'Parler de votre projet',
-      subject: 'Projet de développement — demande de contact',
-    },
-    cards: [
+      'Un développeur fullstack et un expert RGPD sous le même toit, depuis 2018. Vous choisissez l’offre, nous la menons de bout en bout.',
+    signature:
+      'Privacy by design : chaque projet de développement intègre le RGPD dès l’architecture, pas après la mise en ligne.',
+    labels: { problem: 'Le problème', solution: 'Ce que nous faisons', result: 'Le résultat' },
+    offers: [
       {
+        accent: 'orange',
         tag: 'Développement',
-        title: 'Développement web',
-        text: 'Sites, plateformes et widgets sur mesure, rapides et accessibles.',
-        icon: 'code',
+        title: 'Sites et applications',
+        problem:
+          'Votre site ou votre outil métier est lent, difficile à faire évoluer ou mal adapté au mobile.',
+        solution:
+          'Nous concevons et développons sites, applications web et mobiles et API, sur des technologies éprouvées.',
+        result: 'Un produit rapide et accessible, que vos équipes peuvent faire évoluer.',
+        points: [
+          'Sites et plateformes sur mesure',
+          'Applications web et mobiles',
+          'Architecture frontend et design system',
+          'Performance, SEO technique, accessibilité',
+        ],
+        cta: {
+          label: 'Parler de votre projet',
+          subject: 'Projet de développement — demande de contact',
+        },
       },
       {
-        tag: 'Développement',
-        title: 'Applications cross-platform',
-        text: 'Une base de code pour le web et le mobile, aux couleurs de votre marque.',
-        icon: 'devices',
+        accent: 'blue',
+        tag: 'Protection des données',
+        title: 'Conformité RGPD',
+        problem: 'Vous traitez des données personnelles sans savoir si vous êtes en règle.',
+        solution:
+          'Nous auditons vos traitements, rédigeons les documents obligatoires et formons vos équipes.',
+        result:
+          'Une conformité que vous pouvez démontrer à vos clients et à l’Autorité de protection des données.',
+        points: [
+          'Audit de conformité',
+          'Registre des traitements et analyses d’impact (AIPD)',
+          'Politiques de confidentialité, cookies, contrats de sous-traitance',
+          'Sensibilisation des équipes',
+        ],
+        cta: {
+          label: 'Parler de votre conformité',
+          subject: 'Conformité RGPD — demande de contact',
+        },
       },
       {
-        tag: 'Développement',
-        title: 'Architecture frontend',
-        text: 'Monorepo, design system, gestion d’état : des fondations qui durent.',
-        icon: 'layout',
-      },
-      {
-        tag: 'Développement',
-        title: 'Optimisation de sites web',
-        text: 'Performance, SEO technique, accessibilité : un site plus rapide et plus visible.',
-        icon: 'gauge',
+        accent: 'orange',
+        tag: 'Développement · Migration',
+        title: 'Migration WinDev et WebDev',
+        problem:
+          'Vos applications WinDev, WebDev ou WinDev Mobile vieillissent et deviennent coûteuses à maintenir.',
+        solution:
+          'Nous les migrons une à une vers une stack moderne. Nous menons la migration, ou nous accompagnons vos équipes.',
+        result: 'Vos utilisateurs continuent de travailler pendant la migration, sans rupture.',
+        points: [
+          'Cartographie des applications et des données',
+          'Ancien et nouveau en parallèle, application par application',
+          'Interfaces, applications et API reconstruites',
+          'Documentation et transfert à vos équipes',
+        ],
+        shift: { from: 'WinDev · WebDev · WinDev Mobile', to: 'Web · mobile · API' },
+        cta: {
+          label: 'Parler de votre migration',
+          subject: 'Migration WinDev / WebDev — demande de contact',
+        },
       },
     ],
-    stack: {
-      tag: 'Dev × RGPD',
-      title: 'Architecture de stack projet',
-      text: [
-        {
-          text: 'Technologies, hébergement, flux de données, sécurité : une architecture conforme dès la conception. Le ',
-        },
-        { text: 'privacy by design', strong: true },
-        { text: ', concrètement.' },
-      ],
-      diagram: {
-        left: 'DEV',
-        right: 'RGPD',
-        center: ['PRIVACY', 'BY DESIGN'],
-        aria: 'Le développement et le RGPD se rejoignent : le privacy by design',
-      },
-    },
-    migration: {
-      tag: 'Développement · Migration',
-      title: 'Migrer votre parc WinDev, WebDev et WinDev Mobile',
-      text: 'Vos applications métier passent sur une stack moderne, une à une, sans rupture pour vos utilisateurs.',
-      from: { label: 'Aujourd’hui', items: ['WinDev', 'WebDev', 'WinDev Mobile'] },
-      to: { label: 'Demain', items: ['Front-end web', 'Apps mobiles & desktop', 'API & back-end'] },
-      steps: [
-        { title: 'Cartographier', text: 'Applications, données, flux et ordre de migration.' },
-        {
-          title: 'Faire cohabiter',
-          text: 'Une application à la fois : l’ancien et le nouveau tournent ensemble.',
-        },
-        {
-          title: 'Reconstruire',
-          text: 'Interfaces, applications, API ; données et règles métier reprises.',
-        },
-        { title: 'Transmettre', text: 'Documentation et transfert de compétences à vos équipes.' },
-      ],
-      note: 'Réalisée par nous, ou menée par vos équipes avec notre accompagnement.',
-      cta: {
-        label: 'Parler de votre migration',
-        subject: 'Migration WinDev / WebDev — demande de contact',
-      },
-    },
   },
   work: {
     index: '01',
@@ -471,32 +447,6 @@ export const fr: SiteContent = {
       {
         title: 'Étudiants',
         text: 'Cours et accompagnement de jeunes développeurs, du premier projet aux bonnes pratiques professionnelles.',
-      },
-    ],
-    topics: [
-      {
-        icon: 'layout',
-        tag: 'Accompagnement',
-        title: 'Architecture et stack',
-        text: 'Audit de l’existant, choix technologiques, fondations d’un projet qui doit durer.',
-      },
-      {
-        icon: 'gauge',
-        tag: 'Accompagnement',
-        title: 'Technique et qualité',
-        text: 'Revue de code, bonnes pratiques, performance et outillage, aux côtés de vos développeurs.',
-      },
-      {
-        icon: 'shield',
-        tag: 'Accompagnement',
-        title: 'RGPD et données',
-        text: 'Conformité, privacy by design et sécurité, expliqués et mis en place avec vos équipes.',
-      },
-      {
-        icon: 'code',
-        tag: 'Cours',
-        title: 'Développement web',
-        text: 'JavaScript et TypeScript, frameworks front-end et back-end, de la base au projet complet.',
       },
     ],
     cta: 'Parler d’un accompagnement',

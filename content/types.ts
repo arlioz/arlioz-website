@@ -79,6 +79,22 @@ export interface Project {
   };
 }
 
+/** One offer of the Expertises section; `accent` follows the brand colour code
+    (orange = development, blue = GDPR, green = both). */
+export interface Offer {
+  accent: 'orange' | 'blue' | 'green';
+  tag: string;
+  title: string;
+  problem: string;
+  solution: string;
+  result: string;
+  /** Up to four services. */
+  points: string[];
+  /** A compact "from → to" line (the WinDev migration). */
+  shift?: { from: string; to: string };
+  cta: ContactLink;
+}
+
 /** A mailto link with a pre-filled subject, for a given topic. */
 export interface ContactLink {
   label: string;
@@ -165,45 +181,18 @@ export interface SiteContent {
     title: RichSegment[];
     pillars: { title: string; text: string }[];
   };
+  /** Three offers, each read as problem → what we do → result (Expertises section). */
   expertises: {
     index: string;
     label: string;
     title: [string, string];
-    /** What a visitor can hand over to Arlioz, next to the title. */
+    /** What sets Arlioz apart, next to the title. */
     intro: string;
-    rgpd: {
-      tag: string;
-      title: string;
-      text: string;
-      items: string[];
-      benefit: string;
-      cta: ContactLink;
-    };
-    /** Contact link under the development cards. */
-    devCta: ContactLink;
-    cards: {
-      tag: string;
-      title: string;
-      text: string;
-      icon: 'code' | 'devices' | 'layout' | 'gauge';
-    }[];
-    stack: {
-      tag: string;
-      title: string;
-      text: RichSegment[];
-      diagram: { left: string; right: string; center: [string, string]; aria: string };
-    };
-    /** Migrating a PCSoft estate (WinDev, WebDev, WinDev Mobile) to a modern full-stack. */
-    migration: {
-      tag: string;
-      title: string;
-      text: string;
-      from: { label: string; items: string[] };
-      to: { label: string; items: string[] };
-      steps: { title: string; text: string }[];
-      note: string;
-      cta: ContactLink;
-    };
+    /** The development × GDPR line (green), under the offers. */
+    signature: string;
+    /** Labels of the three lines on each offer. */
+    labels: { problem: string; solution: string; result: string };
+    offers: Offer[];
   };
   work: {
     index: string;
@@ -235,12 +224,6 @@ export interface SiteContent {
     title: [string, string];
     text: string;
     audiences: { title: string; text: string }[];
-    topics: {
-      icon: 'code' | 'shield' | 'layout' | 'gauge';
-      tag: string;
-      title: string;
-      text: string;
-    }[];
     cta: string;
   };
   /** Recommendations published on LinkedIn, quoted with their author's headline. */

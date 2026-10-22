@@ -265,125 +265,94 @@ export const en: SiteContent = {
       { value: '3', label: 'Products in production' },
     ],
     title: [
-      { text: 'We bring ' },
-      { text: 'data protection', mark: 'blue' },
+      { text: 'Since 2018, ' },
+      { text: 'a GDPR expert', mark: 'blue' },
       { text: ' and ' },
-      { text: 'digital development', mark: 'orange' },
-      { text: ' together to help your business ' },
-      { text: 'grow', mark: 'green' },
+      { text: 'a full-stack developer', mark: 'orange' },
+      { text: ' have delivered products together, ' },
+      { text: 'compliant by design', mark: 'green' },
       { text: '.' },
     ],
     pillars: [
       {
         title: 'Build',
-        text: 'Websites, web and mobile applications, with proven technologies.',
+        text: 'Websites, web and mobile applications and APIs, in Angular, React, Vue and NestJS.',
       },
       {
         title: 'Protect',
-        text: 'Clear GDPR compliance, built in from the architecture up.',
+        text: 'Audit, record of processing, impact assessments: GDPR compliance you can demonstrate.',
       },
       {
-        title: 'Grow',
-        text: 'Robust solutions that support your growth.',
+        title: 'Pass on',
+        text: 'Over ten years of teaching: we document and train your teams.',
       },
     ],
   },
   expertises: {
     index: '02',
     label: 'Expertise',
-    title: ['Two areas of expertise', 'that complement each other.'],
+    title: ['Three offers,', 'one team.'],
     intro:
-      'Hand us your organisation’s GDPR compliance, the development of your applications, or both: the same team builds the product and protects its data.',
-    rgpd: {
-      tag: 'Data protection',
-      title: 'GDPR consulting',
-      text: 'Bringing your organisation into compliance, and keeping it there.',
-      items: [
-        'Compliance audit',
-        'Records of processing activities',
-        'Impact assessments (DPIA)',
-        'Privacy and cookie policies',
-        'Data processing agreements',
-        'Team awareness training',
-      ],
-      benefit:
-        'Compliance you can demonstrate to your clients, your partners and the Data Protection Authority.',
-      cta: {
-        label: 'Talk about your compliance',
-        subject: 'GDPR compliance — contact request',
-      },
-    },
-    devCta: {
-      label: 'Talk about your project',
-      subject: 'Development project — contact request',
-    },
-    cards: [
+      'A full-stack developer and a GDPR expert under one roof, since 2018. You pick the offer, we take it from start to finish.',
+    signature:
+      'Privacy by design: every development project builds GDPR in from the architecture, not after going live.',
+    labels: { problem: 'The problem', solution: 'What we do', result: 'The result' },
+    offers: [
       {
+        accent: 'orange',
         tag: 'Development',
-        title: 'Web development',
-        text: 'Bespoke websites, platforms and widgets, fast and accessible.',
-        icon: 'code',
+        title: 'Websites and applications',
+        problem:
+          'Your website or business tool is slow, hard to change or poorly suited to mobile.',
+        solution:
+          'We design and build websites, web and mobile applications and APIs, on proven technologies.',
+        result: 'A fast, accessible product your teams can keep evolving.',
+        points: [
+          'Custom websites and platforms',
+          'Web and mobile applications',
+          'Frontend architecture and design systems',
+          'Performance, technical SEO, accessibility',
+        ],
+        cta: { label: 'Talk about your project', subject: 'Development project — contact request' },
       },
       {
-        tag: 'Development',
-        title: 'Cross-platform apps',
-        text: 'One code base for web and mobile, in your brand’s colours.',
-        icon: 'devices',
+        accent: 'blue',
+        tag: 'Data protection',
+        title: 'GDPR compliance',
+        problem: 'You process personal data without knowing whether you are compliant.',
+        solution: 'We audit your processing, write the required documents and train your teams.',
+        result:
+          'Compliance you can demonstrate to your clients and to the Data Protection Authority.',
+        points: [
+          'Compliance audit',
+          'Record of processing and impact assessments (DPIA)',
+          'Privacy and cookie policies, processing agreements',
+          'Team awareness training',
+        ],
+        cta: { label: 'Talk about your compliance', subject: 'GDPR compliance — contact request' },
       },
       {
-        tag: 'Development',
-        title: 'Frontend architecture',
-        text: 'Monorepo, design system, state management: foundations that last.',
-        icon: 'layout',
-      },
-      {
-        tag: 'Development',
-        title: 'Website optimisation',
-        text: 'Performance, technical SEO, accessibility: a faster, more visible site.',
-        icon: 'gauge',
+        accent: 'orange',
+        tag: 'Development · Migration',
+        title: 'WinDev and WebDev migration',
+        problem:
+          'Your WinDev, WebDev or WinDev Mobile applications are ageing and getting costly to maintain.',
+        solution:
+          'We move them one by one to a modern stack. We run the migration, or we support your teams.',
+        result: 'Your users keep working throughout the migration, with no disruption.',
+        points: [
+          'Map of applications and data',
+          'Old and new side by side, one application at a time',
+          'Interfaces, applications and APIs rebuilt',
+          'Documentation and handover to your teams',
+        ],
+        shift: { from: 'WinDev · WebDev · WinDev Mobile', to: 'Web · mobile · API' },
+        cta: {
+          label: 'Talk about your migration',
+          subject: 'WinDev / WebDev migration — contact request',
+        },
       },
     ],
-    stack: {
-      tag: 'Dev × GDPR',
-      title: 'Project stack architecture',
-      text: [
-        {
-          text: 'Technologies, hosting, data flows, security: an architecture compliant from day one. ',
-        },
-        { text: 'Privacy by design', strong: true },
-        { text: ', for real.' },
-      ],
-      diagram: {
-        left: 'DEV',
-        right: 'GDPR',
-        center: ['PRIVACY', 'BY DESIGN'],
-        aria: 'Development and GDPR meet: privacy by design',
-      },
-    },
-    migration: {
-      tag: 'Development · Migration',
-      title: 'Migrate your WinDev, WebDev and WinDev Mobile estate',
-      text: 'Your business applications move to a modern stack, one at a time, with no disruption for your users.',
-      from: { label: 'Today', items: ['WinDev', 'WebDev', 'WinDev Mobile'] },
-      to: {
-        label: 'Tomorrow',
-        items: ['Web front-end', 'Mobile & desktop apps', 'API & back-end'],
-      },
-      steps: [
-        { title: 'Map', text: 'Applications, data, flows and migration order.' },
-        { title: 'Coexist', text: 'One application at a time: old and new run side by side.' },
-        {
-          title: 'Rebuild',
-          text: 'Interfaces, applications, API; data and business rules carried over.',
-        },
-        { title: 'Hand over', text: 'Documentation and knowledge transfer to your teams.' },
-      ],
-      note: 'Done by us, or led by your teams with our support.',
-      cta: {
-        label: 'Talk about your migration',
-        subject: 'WinDev / WebDev migration — contact request',
-      },
-    },
   },
   work: {
     index: '01',
@@ -447,32 +416,6 @@ export const en: SiteContent = {
       {
         title: 'Students',
         text: 'Courses and guidance for young developers, from the first project to professional best practices.',
-      },
-    ],
-    topics: [
-      {
-        icon: 'layout',
-        tag: 'Support',
-        title: 'Architecture and stack',
-        text: 'Audit of the existing, technology choices, foundations for a project built to last.',
-      },
-      {
-        icon: 'gauge',
-        tag: 'Support',
-        title: 'Technique and quality',
-        text: 'Code reviews, best practices, performance and tooling, alongside your developers.',
-      },
-      {
-        icon: 'shield',
-        tag: 'Support',
-        title: 'GDPR and data',
-        text: 'Compliance, privacy by design and security, explained and put in place with your teams.',
-      },
-      {
-        icon: 'code',
-        tag: 'Course',
-        title: 'Web development',
-        text: 'JavaScript and TypeScript, front-end and back-end frameworks, from the basics to a complete project.',
       },
     ],
     cta: 'Talk about support',

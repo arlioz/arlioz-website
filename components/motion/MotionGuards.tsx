@@ -14,7 +14,6 @@ const TARGETS = [
   '.lm-in',
   '.sx-txt',
   '.sx-up',
-  '.sx-li',
   '.sx-num',
   '.sx-lab',
   '.sx-rule',

@@ -130,20 +130,16 @@ export function websiteJsonLd(locale: Locale, content: SiteContent) {
 }
 
 export function servicesJsonLd(locale: Locale, content: SiteContent) {
-  const names = [
-    content.expertises.rgpd.title,
-    ...content.expertises.cards.map((c) => c.title),
-    content.expertises.stack.title,
-  ];
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: names.map((name, i) => ({
+    itemListElement: content.expertises.offers.map((offer, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       item: {
         '@type': 'Service',
-        name,
+        name: offer.title,
+        description: offer.solution,
         provider: { '@id': `${site.url}/#organization` },
         areaServed: { '@type': 'Country', name: 'Belgium' },
         url: `${absolute(localePath(locale))}#expertises`,
