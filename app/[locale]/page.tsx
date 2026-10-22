@@ -1,11 +1,11 @@
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { About } from '@/components/sections/About';
+import { ClientsBand } from '@/components/sections/ClientsBand';
 import { Contact } from '@/components/sections/Contact';
 import { Education } from '@/components/sections/Education';
 import { Expertises } from '@/components/sections/Expertises';
 import { Hero } from '@/components/sections/Hero';
-import { StackMarquee } from '@/components/sections/StackMarquee';
 import { Team } from '@/components/sections/Team';
 import { Work } from '@/components/sections/Work';
 import { JsonLd } from '@/components/ui/JsonLd';
@@ -38,11 +38,11 @@ export default async function HomePage({ params }: PageProps) {
         ]}
       />
       <Hero locale={locale} content={content} />
-      <StackMarquee content={content} />
+      <ClientsBand content={content} />
       <Work locale={locale} content={content} />
-      <About content={content} />
       <Expertises content={content} />
       <Team content={content} />
+      <About content={content} />
       <Education locale={locale} content={content} />
       <Contact locale={locale} content={content} />
     </>

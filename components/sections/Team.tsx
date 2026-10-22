@@ -71,7 +71,7 @@ export function Team({ content }: { content: SiteContent }) {
                 </div>
 
                 <div className="tcard-body relative flex min-w-0 flex-col gap-5">
-                  <p className="m-0 text-[15.5px] leading-[1.6] text-muted">{member.text}</p>
+                  <p className="m-0 text-[16.5px] leading-[1.6] text-muted">{member.text}</p>
                   <Chips items={member.tags} className="mt-auto" />
                 </div>
               </article>

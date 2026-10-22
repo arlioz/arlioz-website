@@ -83,7 +83,6 @@
   --text-stat: clamp(72px, 9vw, 132px);
   --text-stat-sm: clamp(64px, 7vw, 104px);
   --text-contact: clamp(38px, 4.8vw, 68px);
-  --text-marquee: clamp(30px, 4vw, 56px);
   --text-next: clamp(44px, 7vw, 104px);
   --text-member: clamp(28px, 2.6vw, 36px);
   --text-row: clamp(22px, 2.2vw, 30px);
@@ -261,11 +260,6 @@
 
 @utility text-pretty {
   text-wrap: pretty;
-}
-
-@utility outline-text {
-  color: transparent;
-  -webkit-text-stroke: 1.2px rgb(var(--paper-rgb) / 0.6);
 }
 
 /* Device frames and project cards: a deep shadow on ink, a soft one on the light page. */
@@ -606,24 +600,6 @@
       transparent 70%
     );
   }
-  .pcard-num {
-    position: absolute;
-    right: clamp(8px, 1.6vw, 24px);
-    bottom: -0.18em;
-    z-index: -1;
-    font-size: clamp(150px, 22vw, 320px);
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: -0.06em;
-    color: var(--color-paper);
-    opacity: 0.04;
-    pointer-events: none;
-    user-select: none;
-  }
-  .pcard-rev .pcard-num {
-    right: auto;
-    left: clamp(8px, 1.6vw, 24px);
-  }
   .pcard-bar {
     display: flex;
     flex-wrap: wrap;
@@ -924,41 +900,6 @@
     animation-delay: -3s;
   }
 
-  /* Marquee -------------------------------------------------------- */
-  .marquee {
-    position: relative;
-    overflow: hidden;
-  }
-  .marquee::before,
-  .marquee::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 8%;
-    z-index: 1;
-    pointer-events: none;
-  }
-  .marquee::before {
-    left: 0;
-    background: linear-gradient(90deg, var(--color-ink), transparent);
-  }
-  .marquee::after {
-    right: 0;
-    background: linear-gradient(270deg, var(--color-ink), transparent);
-  }
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    animation: arz-marquee 42s linear infinite;
-    will-change: transform;
-  }
-  @media (hover: hover) {
-    .marquee:hover .marquee-track {
-      animation-play-state: paused;
-    }
-  }
-
   /* Team ----------------------------------------------------------- */
   .photo-zoom {
     transition: transform 0.9s var(--ease-out-expo);
@@ -986,8 +927,26 @@
   .intro-1 {
     animation-delay: 0.05s;
   }
+  .intro-3 {
+    animation-delay: 0.42s;
+  }
   .intro-4 {
     animation-delay: 0.58s;
+  }
+  /* Founders' portraits in the hero pill, overlapping, ringed with the page colour. */
+  .hero-face {
+    box-shadow: 0 0 0 2px var(--color-ink);
+  }
+  .hero-team {
+    transition:
+      border-color 0.3s var(--ease-out-expo),
+      background-color 0.3s var(--ease-out-expo);
+  }
+  @media (hover: hover) {
+    .hero-team:hover {
+      border-color: var(--color-line-5);
+      background-color: rgb(var(--paper-rgb) / 0.06);
+    }
   }
   .ln-wrap {
     display: flex;
@@ -1097,14 +1056,6 @@
   }
   to {
     opacity: 0;
-  }
-}
-@keyframes arz-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
   }
 }
 @keyframes jk-scroll {
@@ -1696,9 +1647,6 @@
   .tcard {
     grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
   }
-  .pcard-num {
-    font-size: clamp(120px, 30vw, 200px);
-  }
   .proj-row,
   .proj-row-rev {
     grid-template-columns: minmax(0, 1fr);
@@ -1931,11 +1879,9 @@
   }
 }
 @media (max-width: 400px) {
-  .hero-badge {
-    font-size: 11px !important;
-    letter-spacing: 0.04em !important;
+  .hero-team {
+    font-size: 14px !important;
     gap: 10px !important;
-    padding: 8px 14px 8px 12px !important;
   }
 }
 
@@ -1959,11 +1905,9 @@
 html.no-sda.is-scrolling .jk-scroll,
 html.no-sda.is-scrolling .rx-a,
 html.no-sda.is-scrolling .rx-b,
-html.no-sda.is-scrolling .marquee-track,
 .loop-paused .jk-scroll,
 .loop-paused .rx-a,
-.loop-paused .rx-b,
-.loop-paused .marquee-track {
+.loop-paused .rx-b {
   animation-play-state: paused;
 }
 
@@ -2028,7 +1972,6 @@ html.sda-light :is(.rv-d2, .rv-bar.b3) {
   .menu-overlay {
     animation: none;
   }
-  .marquee-track,
   .jk-scroll,
   .rx-a,
   .rx-b {

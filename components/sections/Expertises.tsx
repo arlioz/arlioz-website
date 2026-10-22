@@ -52,7 +52,7 @@ export function Expertises({ content }: { content: SiteContent }) {
               {x.rgpd.items.map((item, i, all) => (
                 <li
                   key={item}
-                  className={`sx-li flex items-center gap-3 border-t border-line-2 py-[13px] text-[15px] text-paper-2 ${
+                  className={`sx-li flex items-center gap-3 border-t border-line-2 py-[13px] text-[16px] text-paper-2 ${
                     i === all.length - 1 ? 'border-b' : ''
                   }`}
                 >
@@ -87,7 +87,7 @@ export function Expertises({ content }: { content: SiteContent }) {
                     lines={[item.title]}
                     className="font-display text-card leading-[1.1] font-medium tracking-[-0.025em]"
                   />
-                  <p className="sx-txt m-0 text-[15.5px] leading-[1.6] text-muted">{item.text}</p>
+                  <p className="sx-txt m-0 text-[16.5px] leading-[1.6] text-muted">{item.text}</p>
                 </div>
               </article>
             );
@@ -291,12 +291,12 @@ export function Expertises({ content }: { content: SiteContent }) {
                   <span className="font-display text-[20px] leading-[1.15] font-medium tracking-[-0.02em] text-paper">
                     {step.title}
                   </span>
-                  <span className="text-[15px] leading-[1.55] text-muted">{step.text}</span>
+                  <span className="text-[16px] leading-[1.55] text-muted">{step.text}</span>
                 </li>
               ))}
             </ol>
 
-            <p className="sx-txt relative m-0 flex items-start gap-3 text-[15px] text-paper-2">
+            <p className="sx-txt relative m-0 flex items-start gap-3 text-[16px] text-paper-2">
               <Check className="mt-0.5 flex-none text-orange-light" />
               {x.migration.note}
             </p>

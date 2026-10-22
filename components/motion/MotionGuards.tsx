@@ -23,7 +23,7 @@ const TARGETS = [
 ].join(', ');
 
 /** Infinite animations: device screenshots and the technologies band. */
-const LOOPS = '.stage, .marquee';
+const LOOPS = '.stage';
 
 /**
  * The three small document-level guards behind the site's motion, in one client

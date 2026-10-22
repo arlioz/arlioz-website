@@ -192,10 +192,10 @@ const jkstudio: Project = {
 export const fr: SiteContent = {
   locale: 'fr',
   meta: {
-    title: 'Arlioz — Développement digital & conseil RGPD en Belgique',
+    title: 'Arlioz — Sites, applications et conformité RGPD · Charleroi, Belgique',
     template: '%s — Arlioz',
     description:
-      'Arlioz réunit le développement digital et la protection des données : sites, applications web et mobiles, conformité RGPD. Une seule équipe, basée en Belgique, depuis 2018.',
+      'Vos sites, applications web et mobiles et outils métier, conçus et conformes RGPD dès le premier jour. Un développeur fullstack et un expert RGPD, en direct, depuis 2018 à Charleroi.',
     keywords: [
       'développement web',
       'application mobile',
@@ -208,11 +208,12 @@ export const fr: SiteContent = {
       'migration WebDev',
       'migration WinDev Mobile',
       'Belgique',
+      'Charleroi',
       'Next.js',
       'React',
       'Angular',
     ],
-    ogAlt: 'Arlioz — Du code solide. Des données protégées.',
+    ogAlt: 'Arlioz — Vos sites et outils métier, conçus et conformes RGPD dès le premier jour.',
     ogTagline: 'Développement digital & conseil RGPD · Belgique',
   },
   a11y: {
@@ -245,16 +246,17 @@ export const fr: SiteContent = {
     linkedin: 'LinkedIn',
   },
   hero: {
-    badge: 'Développement & RGPD · Belgique',
     title: [
-      { lead: 'Du ', em: 'code solide.' },
-      { lead: 'Des ', em: 'données protégées.' },
+      { lead: 'Vos sites et outils métier, ', em: 'conçus' },
+      { lead: 'et ', em: 'conformes RGPD', tail: ' dès le premier jour.' },
     ],
+    lead: 'Un développeur fullstack et un expert RGPD, en direct, aux côtés des entreprises depuis 2018.',
+    team: 'Guy et Amaury, vos interlocuteurs',
     ctaPrimary: 'Parlons de votre projet',
     ctaSecondary: 'Voir nos réalisations',
   },
   about: {
-    index: '02',
+    index: '04',
     label: 'À propos',
     year: '2018',
     yearLabel: 'Année de création',
@@ -283,7 +285,7 @@ export const fr: SiteContent = {
     ],
   },
   expertises: {
-    index: '03',
+    index: '02',
     label: 'Expertises',
     title: ['Deux expertises', 'qui se complètent.'],
     rgpd: {
@@ -345,7 +347,7 @@ export const fr: SiteContent = {
     migration: {
       tag: 'Développement · Migration',
       title: 'Migrer votre parc WinDev, WebDev et WinDev Mobile',
-      text: 'Une migration progressive et complète de vos applications métier vers une stack fullstack moderne : front-end web, applications mobiles et desktop, API et back-end. Application par application, sans rupture pour vos utilisateurs.',
+      text: 'Vos applications métier passent sur une stack moderne, une à une, sans rupture pour vos utilisateurs.',
       from: { label: 'Aujourd’hui', items: ['WinDev', 'WebDev', 'WinDev Mobile'] },
       to: { label: 'Demain', items: ['Front-end web', 'Apps mobiles & desktop', 'API & back-end'] },
       steps: [
@@ -367,30 +369,17 @@ export const fr: SiteContent = {
     index: '01',
     label: 'Réalisations',
     title: ['Des projets', 'concrets, en ligne.'],
-    clientsLabel: 'En production chez',
-    clients: ['Radyo', 'Restomax', 'JK Studio'],
     caseStudy: 'Étude de cas',
     liveExample: 'Voir un exemple en ligne',
     viewSite: 'Voir le site',
     clientPrefix: 'Client :',
   },
-  stack: {
-    label: 'Technologies',
-    items: [
-      'Angular',
-      'React',
-      'Next.js',
-      'Vue.js',
-      'Nuxt',
-      'NestJS',
-      'TypeScript',
-      'Java',
-      'C#',
-      '.NET',
-    ],
+  clients: {
+    label: 'En production chez',
+    items: ['Radyo', 'Restomax', 'JK Studio'],
   },
   team: {
-    index: '04',
+    index: '03',
     label: 'Équipe',
     title: 'Deux experts, en direct.',
     members: [
@@ -427,11 +416,11 @@ export const fr: SiteContent = {
     label: 'Éducation',
     brand: 'Arlioz Education',
     title: ['Transmettre', 'et accompagner.'],
-    text: 'Guy enseigne le développement à de futurs développeurs et accompagne les entreprises sur le terrain : architecture, choix techniques, qualité, montée en compétence des équipes. Même exigence qu’en projet : du code solide, des données protégées.',
+    text: 'Guy forme de futurs développeurs et fait monter en compétence les équipes en entreprise : architecture, qualité, RGPD.',
     audiences: [
       {
         title: 'Entreprises',
-        text: 'Un accompagnement architectural, technique et organisationnel : audit de votre existant, choix de stack, revue de code, formations sur mesure pour vos équipes, sur site ou à distance.',
+        text: 'Audit de l’existant, choix de stack, revue de code et formations sur mesure, sur site ou à distance.',
       },
       {
         title: 'Étudiants',

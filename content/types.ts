@@ -117,9 +117,16 @@ export interface SiteContent {
     linkedin: string;
   };
   hero: {
-    badge: string;
-    /** One entry per line: `lead` in the display face, `em` highlighted in italic serif. */
-    title: { lead: string; em: string }[];
+    /**
+     * One entry per line: `lead` in the display face, `em` highlighted in italic serif
+     * (orange gradient on the first line, development; blue-green on the second, GDPR),
+     * then an optional `tail` back in the display face.
+     */
+    title: { lead: string; em: string; tail?: string }[];
+    /** The line under the title: who you deal with, since when. */
+    lead: string;
+    /** Next to the founders' portraits, above the title; links to the team section. */
+    team: string;
     ctaPrimary: string;
     ctaSecondary: string;
   };
@@ -163,15 +170,13 @@ export interface SiteContent {
     index: string;
     label: string;
     title: [string, string];
-    clientsLabel: string;
-    clients: string[];
     caseStudy: string;
     liveExample: string;
     viewSite: string;
     clientPrefix: string;
   };
-  /** Technologies band under the hero (`label` is its accessible name). */
-  stack: { label: string; items: string[] };
+  /** The clients band under the hero: who runs our work in production. */
+  clients: { label: string; items: string[] };
   team: { index: string; label: string; title: string; members: TeamMember[] };
   /** Arlioz Education: teaching and company support (architecture, technique, GDPR). */
   education: {

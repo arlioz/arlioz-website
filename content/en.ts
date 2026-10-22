@@ -168,10 +168,10 @@ const jkstudio: Project = {
 export const en: SiteContent = {
   locale: 'en',
   meta: {
-    title: 'Arlioz — Digital development & GDPR consulting in Belgium',
+    title: 'Arlioz — Websites, apps and GDPR compliance · Charleroi, Belgium',
     template: '%s — Arlioz',
     description:
-      'Arlioz brings digital development and data protection together: websites, web and mobile applications, GDPR compliance. One team, based in Belgium, since 2018.',
+      'Your websites, web and mobile apps and business tools, built and GDPR-compliant from day one. A full-stack developer and a GDPR expert, working with you directly, in Charleroi since 2018.',
     keywords: [
       'web development',
       'mobile application',
@@ -184,11 +184,12 @@ export const en: SiteContent = {
       'WebDev migration',
       'WinDev Mobile migration',
       'Belgium',
+      'Charleroi',
       'Next.js',
       'React',
       'Angular',
     ],
-    ogAlt: 'Arlioz — Solid code. Protected data.',
+    ogAlt: 'Arlioz — Your websites and business tools, built and GDPR-compliant from day one.',
     ogTagline: 'Digital development & GDPR consulting · Belgium',
   },
   a11y: {
@@ -221,16 +222,17 @@ export const en: SiteContent = {
     linkedin: 'LinkedIn',
   },
   hero: {
-    badge: 'Development & GDPR · Belgium',
     title: [
-      { lead: 'Solid ', em: 'code.' },
-      { lead: 'Protected ', em: 'data.' },
+      { lead: 'Your websites and business tools, ', em: 'built' },
+      { lead: 'and ', em: 'GDPR-compliant', tail: ' from day one.' },
     ],
+    lead: 'A full-stack developer and a GDPR expert, working with businesses directly since 2018.',
+    team: 'Guy and Amaury, your contacts',
     ctaPrimary: 'Let’s talk about your project',
     ctaSecondary: 'See our work',
   },
   about: {
-    index: '02',
+    index: '04',
     label: 'About',
     year: '2018',
     yearLabel: 'Founded',
@@ -259,7 +261,7 @@ export const en: SiteContent = {
     ],
   },
   expertises: {
-    index: '03',
+    index: '02',
     label: 'Expertise',
     title: ['Two areas of expertise', 'that complement each other.'],
     rgpd: {
@@ -321,7 +323,7 @@ export const en: SiteContent = {
     migration: {
       tag: 'Development · Migration',
       title: 'Migrate your WinDev, WebDev and WinDev Mobile estate',
-      text: 'A progressive and complete migration of your business applications to a modern full-stack: web front-end, mobile and desktop applications, API and back-end. One application at a time, with no disruption for your users.',
+      text: 'Your business applications move to a modern stack, one at a time, with no disruption for your users.',
       from: { label: 'Today', items: ['WinDev', 'WebDev', 'WinDev Mobile'] },
       to: {
         label: 'Tomorrow',
@@ -343,30 +345,17 @@ export const en: SiteContent = {
     index: '01',
     label: 'Work',
     title: ['Real projects,', 'live online.'],
-    clientsLabel: 'In production at',
-    clients: ['Radyo', 'Restomax', 'JK Studio'],
     caseStudy: 'Case study',
     liveExample: 'See a live example',
     viewSite: 'Visit the site',
     clientPrefix: 'Client:',
   },
-  stack: {
-    label: 'Technologies',
-    items: [
-      'Angular',
-      'React',
-      'Next.js',
-      'Vue.js',
-      'Nuxt',
-      'NestJS',
-      'TypeScript',
-      'Java',
-      'C#',
-      '.NET',
-    ],
+  clients: {
+    label: 'In production at',
+    items: ['Radyo', 'Restomax', 'JK Studio'],
   },
   team: {
-    index: '04',
+    index: '03',
     label: 'Team',
     title: 'Two experts, directly.',
     members: [
@@ -403,11 +392,11 @@ export const en: SiteContent = {
     label: 'Education',
     brand: 'Arlioz Education',
     title: ['Teaching', 'and guiding.'],
-    text: 'Guy teaches development to future developers and supports companies in the field: architecture, technical choices, quality, upskilling teams. The same standard as on a project: solid code, protected data.',
+    text: 'Guy trains future developers and upskills in-house teams: architecture, quality, GDPR.',
     audiences: [
       {
         title: 'Companies',
-        text: 'Architectural, technical and organisational support: an audit of your codebase, stack choices, code reviews, tailored training for your teams, on site or remote.',
+        text: 'Codebase audits, stack choices, code reviews and tailored training, on site or remote.',
       },
       {
         title: 'Students',
