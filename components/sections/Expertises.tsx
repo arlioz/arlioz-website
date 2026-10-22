@@ -98,7 +98,7 @@ export function Expertises({ content }: { content: SiteContent }) {
                     lines={[item.title]}
                     className="font-display text-card leading-[1.1] font-medium tracking-[-0.025em]"
                   />
-                  <p className="sx-txt m-0 text-base leading-[1.6] text-muted">{item.text}</p>
+                  <p className="sx-txt m-0 text-[16.5px] leading-[1.6] text-muted">{item.text}</p>
                 </div>
               </article>
             );

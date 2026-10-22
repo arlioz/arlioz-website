@@ -191,10 +191,10 @@ const jkstudio: Project = {
 export const en: SiteContent = {
   locale: 'en',
   meta: {
-    title: 'Arlioz — Digital development & GDPR consulting in Belgium',
+    title: 'Arlioz — Websites, apps and GDPR compliance · Charleroi, Belgium',
     template: '%s — Arlioz',
     description:
-      'Arlioz brings digital development and data protection together: websites, web and mobile applications, GDPR compliance. One team, based in Belgium, since 2018.',
+      'Your websites, web and mobile apps and business tools, built and GDPR-compliant from day one. A full-stack developer and a GDPR expert, working with you directly, in Charleroi since 2018.',
     keywords: [
       'web development',
       'mobile application',
@@ -207,11 +207,12 @@ export const en: SiteContent = {
       'WebDev migration',
       'WinDev Mobile migration',
       'Belgium',
+      'Charleroi',
       'Next.js',
       'React',
       'Angular',
     ],
-    ogAlt: 'Arlioz — Solid code. Protected data.',
+    ogAlt: 'Arlioz — Your websites and business tools, built and GDPR-compliant from day one.',
     ogTagline: 'Digital development & GDPR consulting · Belgium',
   },
   a11y: {
@@ -244,17 +245,18 @@ export const en: SiteContent = {
     linkedin: 'LinkedIn',
   },
   hero: {
-    badge: 'Development & GDPR · Belgium',
     title: [
-      { lead: 'Solid ', em: 'code.' },
-      { lead: 'Protected ', em: 'data.' },
+      { lead: 'Your websites and business tools, ', em: 'built' },
+      { lead: 'and ', em: 'GDPR-compliant', tail: ' from day one.' },
     ],
-    lead: 'Custom web and mobile applications, with GDPR compliance built in from the start: we support companies and organisations, from audit to production.',
+    lead: 'A full-stack developer and a GDPR expert, working directly with companies and organisations since 2018.',
+    team: 'Guy and Amaury, your contacts',
+    proof: '{count} LinkedIn recommendations',
     ctaPrimary: 'Talk about my project',
     ctaSecondary: 'See our work',
   },
   about: {
-    index: '02',
+    index: '04',
     label: 'About',
     facts: [
       { value: '2018', label: 'Arlioz founded' },
@@ -287,7 +289,7 @@ export const en: SiteContent = {
     ],
   },
   expertises: {
-    index: '03',
+    index: '02',
     label: 'Expertise',
     title: ['Two areas of expertise', 'that complement each other.'],
     intro:
@@ -361,7 +363,7 @@ export const en: SiteContent = {
     migration: {
       tag: 'Development · Migration',
       title: 'Migrate your WinDev, WebDev and WinDev Mobile estate',
-      text: 'A progressive and complete migration of your business applications to a modern full-stack: web front-end, mobile and desktop applications, API and back-end. One application at a time, with no disruption for your users.',
+      text: 'Your business applications move to a modern stack, one at a time, with no disruption for your users.',
       from: { label: 'Today', items: ['WinDev', 'WebDev', 'WinDev Mobile'] },
       to: {
         label: 'Tomorrow',
@@ -387,8 +389,6 @@ export const en: SiteContent = {
     index: '01',
     label: 'Work',
     title: ['Real projects,', 'live online.'],
-    clientsLabel: 'In production at',
-    clients: ['Radyo', 'Restomax', 'JK Studio'],
     caseStudy: 'Case study',
     liveExample: 'See a live example',
     viewSite: 'Visit the site',
@@ -397,8 +397,12 @@ export const en: SiteContent = {
     result: 'The result',
   },
   trust: { label: 'Experience gained at' },
+  clients: {
+    label: 'In production at',
+    items: ['Radyo', 'Restomax', 'JK Studio'],
+  },
   team: {
-    index: '04',
+    index: '03',
     label: 'Team',
     title: 'Two experts, directly.',
     members: [
@@ -429,50 +433,17 @@ export const en: SiteContent = {
         accent: 'orange',
       },
     ],
-    recommendations: {
-      label: 'They recommend Amaury',
-      items: [
-        {
-          quote:
-            'Amaury is exceptionally well experienced in the Angular frontend development. He is motivated and eager to learn business concepts. On a personal level it is very nice to work with him.',
-          lang: 'en',
-          author: 'Stefan Casier',
-          role: 'Technical architect, his direct manager',
-        },
-        {
-          quote:
-            'He focused on coaching, writing shared components and deciding on the main architecture. Everyone enjoyed working with Amaury.',
-          lang: 'en',
-          author: 'Wahid Argandiwall',
-          role: 'Technical architect, same team',
-        },
-        {
-          quote:
-            'Amaury is really an excellent developer. His years of experience don’t reflect all his knowledge and skills. He is a real pillar in a development team.',
-          lang: 'en',
-          author: 'Frederique Rensonnet',
-          role: 'Head of IT Corporate functions',
-        },
-        {
-          quote:
-            'Nous avons clairement amélioré la qualité du code de l’application […] et sa maintenabilité. Amaury m’a aussi accompagné dans des concepts avancés d’Angular grâce à sa qualité de pédagogue.',
-          lang: 'fr',
-          author: 'Alexandre Moreaux',
-          role: 'Analyst developer, same project',
-        },
-      ],
-    },
   },
   education: {
     index: '05',
     label: 'Education',
     brand: 'Arlioz Education',
     title: ['Teaching', 'and guiding.'],
-    text: 'Guy teaches development to future developers and supports companies in the field: architecture, technical choices, quality, upskilling teams. The same standard as on a project: solid code, protected data.',
+    text: 'Guy trains future developers and upskills in-house teams: architecture, quality, GDPR.',
     audiences: [
       {
         title: 'Companies',
-        text: 'Architectural, technical and organisational support: an audit of your codebase, stack choices, code reviews, tailored training for your teams, on site or remote.',
+        text: 'Codebase audits, stack choices, code reviews and tailored training, on site or remote.',
       },
       {
         title: 'Students',
@@ -507,8 +478,47 @@ export const en: SiteContent = {
     ],
     cta: 'Talk about support',
   },
-  contact: {
+  testimonials: {
     index: '06',
+    label: 'Testimonials',
+    title: ['They worked', 'with Amaury.'],
+    text: 'Recommendations posted on LinkedIn by architects, a direct manager and fellow developers.',
+    translated: 'Translated from French',
+    source: 'LinkedIn recommendation',
+    items: [
+      {
+        quote:
+          'He focused on coaching, writing shared components and deciding on the main architecture. Everyone enjoyed working with Amaury. He has great in-depth knowledge of the Angular framework, is up-to-date and provides you with tons of information. He is able to focus and keep calm during stressful situations.',
+        name: 'Wahid Argandiwall',
+        role: 'Technical architect',
+        context: 'Same frontend team at Candriam · February 2022',
+      },
+      {
+        quote:
+          'Amaury is exceptionally well experienced in the Angular frontend development. He is motivated and eager to learn business concepts. On a personal level it is very nice to work with him.',
+        name: 'Stefan Casier',
+        role: 'Technical Architect at Samayas',
+        context: 'Amaury’s direct manager · February 2022',
+      },
+      {
+        quote:
+          'We clearly improved the application’s code quality (always looking for best practices) and its maintainability, which was our priority. Amaury also guided me through advanced Angular concepts thanks to his teaching skills. […] This collaboration was a major asset in my growth as a front-end developer.',
+        name: 'Alexandre Moreaux',
+        role: 'Developer analyst and projects · SBIM',
+        context: 'Same team, 6 months on the same project · August 2021',
+        translated: true,
+      },
+      {
+        quote:
+          'Amaury is really an excellent developer. His years of experience don’t reflect all his knowledge and skills. He is a real pillar in a development team. He is team player and reliable.',
+        name: 'Frederique Rensonnet',
+        role: 'Head of IT Corporate functions',
+        context: 'February 2022',
+      },
+    ],
+  },
+  contact: {
+    index: '07',
     label: 'Contact',
     title: 'A project? A GDPR question? Let’s talk.',
     text: 'Tell us where you stand, we come back to you with a first opinion.',

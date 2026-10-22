@@ -1,12 +1,13 @@
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { About } from '@/components/sections/About';
+import { ClientsBand } from '@/components/sections/ClientsBand';
 import { Contact } from '@/components/sections/Contact';
 import { Education } from '@/components/sections/Education';
 import { Expertises } from '@/components/sections/Expertises';
 import { Hero } from '@/components/sections/Hero';
-import { TrustBand } from '@/components/sections/TrustBand';
 import { Team } from '@/components/sections/Team';
+import { Testimonials } from '@/components/sections/Testimonials';
 import { Work } from '@/components/sections/Work';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { getContent } from '@/content';
@@ -38,12 +39,13 @@ export default async function HomePage({ params }: PageProps) {
         ]}
       />
       <Hero locale={locale} content={content} />
-      <TrustBand content={content} />
+      <ClientsBand content={content} />
       <Work locale={locale} content={content} />
-      <About content={content} />
       <Expertises content={content} />
       <Team content={content} />
+      <About content={content} />
       <Education locale={locale} content={content} />
+      <Testimonials content={content} />
       <Contact locale={locale} content={content} />
     </>
   );

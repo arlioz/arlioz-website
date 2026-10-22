@@ -49,7 +49,7 @@ export function Education({ locale, content }: { locale: Locale; content: SiteCo
                   <h3 className="m-0 font-display text-card leading-[1.1] font-medium tracking-[-0.025em]">
                     {audience.title}
                   </h3>
-                  <p className="m-0 text-base leading-[1.6] text-muted">{audience.text}</p>
+                  <p className="m-0 text-[16.5px] leading-[1.6] text-muted">{audience.text}</p>
                 </div>
               ))}
             </div>
@@ -77,7 +77,7 @@ export function Education({ locale, content }: { locale: Locale; content: SiteCo
                     lines={[topic.title]}
                     className="font-display text-card leading-[1.1] font-medium tracking-[-0.025em]"
                   />
-                  <p className="sx-txt m-0 text-base leading-[1.6] text-muted">{topic.text}</p>
+                  <p className="sx-txt m-0 text-[16.5px] leading-[1.6] text-muted">{topic.text}</p>
                 </div>
               </article>
             );

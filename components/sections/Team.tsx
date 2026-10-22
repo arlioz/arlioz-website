@@ -71,48 +71,13 @@ export function Team({ content }: { content: SiteContent }) {
                 </div>
 
                 <div className="tcard-body relative flex min-w-0 flex-col gap-5">
-                  <p className="m-0 text-base leading-[1.6] text-muted">{member.text}</p>
+                  <p className="m-0 text-[16.5px] leading-[1.6] text-muted">{member.text}</p>
                   <Chips items={member.tags} className="mt-auto" />
                 </div>
               </article>
             );
           })}
         </div>
-
-        {team.recommendations.items.length > 0 && (
-          <figure className="rv m-0 mt-[clamp(48px,6vw,80px)] flex flex-col gap-6">
-            <figcaption className="label-mono text-muted-3">
-              {team.recommendations.label}
-            </figcaption>
-            <ul className="team-quotes m-0 list-none p-0">
-              {team.recommendations.items.map((item) => (
-                <li
-                  key={item.author}
-                  className="flex flex-col justify-between gap-6 rounded-card border border-line-2 bg-surface p-[clamp(24px,2.6vw,36px)]"
-                >
-                  <div className="flex flex-col gap-3">
-                    <span
-                      aria-hidden="true"
-                      className="font-serif text-[56px] leading-[0.6] text-orange-light italic"
-                    >
-                      “
-                    </span>
-                    <blockquote
-                      lang={item.lang}
-                      className="m-0 font-display text-[clamp(19px,1.6vw,23px)] leading-[1.4] tracking-[-0.01em] text-paper text-pretty"
-                    >
-                      {item.quote}
-                    </blockquote>
-                  </div>
-                  <p className="m-0 flex flex-col gap-1">
-                    <span className="font-medium text-paper">{item.author}</span>
-                    <span className="text-sm text-muted">{item.role}</span>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </figure>
-        )}
       </div>
     </section>
   );

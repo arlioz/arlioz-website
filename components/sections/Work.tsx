@@ -30,14 +30,6 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
               className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
             />
           </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <p className="label-mono m-0 text-muted-3">{work.clientsLabel}</p>
-            <ul className="m-0 flex list-none flex-wrap items-center gap-x-6 gap-y-1.5 p-0 font-display text-[22px] font-medium tracking-[-0.02em] text-muted-2">
-              {work.clients.map((client) => (
-                <li key={client}>{client}</li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         {/* Stacked cards: on wide screens each card sticks under the header and the next
@@ -66,10 +58,6 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                 className={`pcard proj-card ${project.reversed ? 'pcard-rev' : ''}`}
                 style={vars}
               >
-                <span aria-hidden="true" className="pcard-num font-display">
-                  {project.index}
-                </span>
-
                 <div className="pcard-bar label-mono text-muted-3">
                   <p className="m-0 flex flex-wrap items-center gap-x-3.5 gap-y-2 tracking-[0.06em]">
                     <span className="text-paper">
@@ -108,7 +96,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                       lines={[project.title]}
                       className="font-display text-h3-work leading-[1.02] font-medium tracking-[-0.035em]"
                     />
-                    <p className="sx-txt m-0 max-w-[580px] text-[16.5px] leading-[1.6] text-muted text-pretty">
+                    <p className="sx-txt m-0 max-w-[580px] text-[17px] leading-[1.6] text-muted text-pretty">
                       {project.summary}
                     </p>
                     <dl className="sx-txt pcard-story m-0 grid max-w-[580px] gap-3 border-t border-line-2 pt-4">
@@ -129,7 +117,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                       </div>
                     </dl>
                     <Chips items={project.tags} animated className="pcard-chips mt-1" />
-                    <div className="sx-txt pcard-links mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[15px]">
+                    <div className="sx-txt pcard-links mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[16px]">
                       <Link
                         href={href}
                         className="link-u pcard-body-link inline-flex items-center gap-2 font-medium text-paper"

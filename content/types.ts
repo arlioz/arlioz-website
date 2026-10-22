@@ -85,6 +85,17 @@ export interface ContactLink {
   subject: string;
 }
 
+export interface Testimonial {
+  quote: string;
+  name: string;
+  /** The author's LinkedIn headline. */
+  role: string;
+  /** How they know the person and when they wrote it. */
+  context: string;
+  /** True when `quote` is a translation of the original. */
+  translated?: boolean;
+}
+
 export interface TeamMember {
   name: string;
   role: string;
@@ -131,11 +142,18 @@ export interface SiteContent {
     linkedin: string;
   };
   hero: {
-    badge: string;
-    /** One entry per line: `lead` in the display face, `em` highlighted in italic serif. */
-    title: { lead: string; em: string }[];
-    /** One sentence under the title: what Arlioz does, and for whom. */
+    /**
+     * One entry per line: `lead` in the display face, `em` highlighted in italic serif
+     * (orange gradient on the first line, development; blue-green on the second, GDPR),
+     * then an optional `tail` back in the display face.
+     */
+    title: { lead: string; em: string; tail?: string }[];
+    /** The line under the title: who you deal with, since when. */
     lead: string;
+    /** Next to the founders' portraits, above the title; links to the team section. */
+    team: string;
+    /** Under the buttons, links to the testimonials; `{count}` is replaced. */
+    proof: string;
     ctaPrimary: string;
     ctaSecondary: string;
   };
@@ -191,8 +209,6 @@ export interface SiteContent {
     index: string;
     label: string;
     title: [string, string];
-    clientsLabel: string;
-    clients: string[];
     caseStudy: string;
     liveExample: string;
     viewSite: string;
@@ -201,20 +217,15 @@ export interface SiteContent {
     need: string;
     result: string;
   };
-  /** Logo band under the hero (logos in `content/media.ts`). */
+  /** The clients band under the hero: who runs our work in production. */
+  clients: { label: string; items: string[] };
+  /** Under the team cards: where the founders have worked (logos in `content/media.ts`). */
   trust: { label: string };
   team: {
     index: string;
     label: string;
     title: string;
     members: TeamMember[];
-    /** LinkedIn recommendations, published with their authors' consent. The block is
-        hidden while the list is empty. */
-    recommendations: {
-      label: string;
-      /** Quotes stay in the language they were written in (`lang`); excerpts mark cuts with […]. */
-      items: { quote: string; lang: 'fr' | 'en'; author: string; role: string }[];
-    };
   };
   /** Arlioz Education: teaching and company support (architecture, technique, GDPR). */
   education: {
@@ -231,6 +242,17 @@ export interface SiteContent {
       text: string;
     }[];
     cta: string;
+  };
+  /** Recommendations published on LinkedIn, quoted with their author's headline. */
+  testimonials: {
+    index: string;
+    label: string;
+    title: [string, string];
+    text: string;
+    /** Shown on a quote translated from another language. */
+    translated: string;
+    source: string;
+    items: Testimonial[];
   };
   contact: {
     index: string;

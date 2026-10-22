@@ -113,23 +113,27 @@
   --hero-a: #ffb13d, #ff7c00 55%, #ff5a1f;
   --hero-b: #7df5e0, #00ffcc 50%, #38b6ff;
 }
+/* Light palette: plain white and cool, slightly blue neutrals (the GDPR blue's
+   family), not the warm off-white that reads as a default AI template. White
+   cards sit on white with a hairline; the alternate sections are a cool grey.
+   Every text token keeps at least 4.5:1 on ink, ink-2 and surface-2. */
 @media (prefers-color-scheme: light) {
   :root {
     color-scheme: light;
-    --color-ink: #f4f3f0;
-    --color-ink-2: #edece8;
-    --color-surface: #fbfaf8;
-    --color-surface-2: #ffffff;
-    --color-dot: #d6d5d0;
+    --color-ink: #ffffff;
+    --color-ink-2: #f3f5f9;
+    --color-surface: #ffffff;
+    --color-surface-2: #f6f8fb;
+    --color-dot: #d5dae2;
 
-    --color-paper: #0e0e11;
-    --color-paper-2: #2a2a30;
-    --color-paper-3: #44444c;
-    --color-paper-4: #1d1d22;
-    --color-muted: #4d4d55;
-    --color-muted-2: #53535c;
-    --color-muted-3: #5a5a63;
-    --color-muted-4: #74747e;
+    --color-paper: #0b0d12;
+    --color-paper-2: #262a33;
+    --color-paper-3: #3c414c;
+    --color-paper-4: #171a20;
+    --color-muted: #505663;
+    --color-muted-2: #575d6a;
+    --color-muted-3: #5f6572;
+    --color-muted-4: #6a707d;
 
     /* The accents used as text, darkened to keep 4.5:1 on the light page. */
     --color-orange-light: #b64e06;
@@ -137,22 +141,22 @@
     --color-green: #137a5a;
     --color-green-light: #116f52;
 
-    --color-line: rgb(10 10 12 / 0.08);
-    --color-line-2: rgb(10 10 12 / 0.1);
-    --color-line-3: rgb(10 10 12 / 0.12);
-    --color-line-4: rgb(10 10 12 / 0.14);
-    --color-line-5: rgb(10 10 12 / 0.22);
+    --color-line: rgb(11 13 18 / 0.08);
+    --color-line-2: rgb(11 13 18 / 0.1);
+    --color-line-3: rgb(11 13 18 / 0.12);
+    --color-line-4: rgb(11 13 18 / 0.14);
+    --color-line-5: rgb(11 13 18 / 0.22);
 
-    --ink-rgb: 244 243 240;
-    --paper-rgb: 14 14 17;
-    --glass-bg: rgb(255 255 255 / 0.66);
-    --glass-bg-hover: rgb(255 255 255 / 0.9);
-    --glass-bg-solid: rgb(255 255 255 / 0.92);
-    --glass-border: rgb(10 10 12 / 0.1);
-    --glass-border-hover: rgb(10 10 12 / 0.22);
-    --shadow-card: 0 40px 80px -40px rgb(0 0 0 / 0.18);
-    --shadow-device: 0 24px 50px rgb(0 0 0 / 0.2);
-    --shadow-device-lg: 0 30px 60px rgb(0 0 0 / 0.18);
+    --ink-rgb: 255 255 255;
+    --paper-rgb: 11 13 18;
+    --glass-bg: rgb(255 255 255 / 0.72);
+    --glass-bg-hover: rgb(255 255 255 / 0.92);
+    --glass-bg-solid: rgb(255 255 255 / 0.94);
+    --glass-border: rgb(11 13 18 / 0.1);
+    --glass-border-hover: rgb(11 13 18 / 0.22);
+    --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 32px 64px -36px rgb(16 24 40 / 0.2);
+    --shadow-device: 0 24px 50px rgb(16 24 40 / 0.18);
+    --shadow-device-lg: 0 30px 60px rgb(16 24 40 / 0.16);
     --glow-k: 0.55;
     --hero-a: #e8640a, #d14a08 55%, #c23d0c;
     --hero-b: #0b8f7c, #0f7ab3 60%, #1d5bbf;
@@ -521,12 +525,8 @@
   .hero-hl-b {
     background-image: linear-gradient(95deg, var(--hero-b));
   }
-  /* The sentence under the title: what Arlioz does and for whom. Pulled closer to the
-     title than the hero's gap, and revealed between the title and the buttons. */
   .hero-lead {
-    margin-top: calc(-1 * clamp(10px, 1.2vw, 16px));
     text-shadow: 0 1px 12px rgb(var(--ink-rgb) / 0.9);
-    animation-delay: 0.42s;
   }
   /* About: the founding year, large, then three key facts in a row. The label comes
      first in the DOM (dt) and is shown under the figure. */
@@ -621,24 +621,6 @@
       color-mix(in srgb, var(--accent) 16%, transparent),
       transparent 70%
     );
-  }
-  .pcard-num {
-    position: absolute;
-    right: clamp(8px, 1.6vw, 24px);
-    bottom: -0.18em;
-    z-index: -1;
-    font-size: clamp(150px, 22vw, 320px);
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: -0.06em;
-    color: var(--color-paper);
-    opacity: 0.04;
-    pointer-events: none;
-    user-select: none;
-  }
-  .pcard-rev .pcard-num {
-    right: auto;
-    left: clamp(8px, 1.6vw, 24px);
   }
   .pcard-bar {
     display: flex;
@@ -945,8 +927,8 @@
     animation-delay: -3s;
   }
 
-  /* Trust band: logos as single-tone masks in the text colour, so they follow the
-     colour scheme. `--scale` (TrustBand.tsx) evens out their visual weight. */
+  /* Trust logos: single-tone masks in the text colour, so they follow the colour
+     scheme. `--scale` (TrustBand.tsx) evens out their visual weight. */
   .trust-track {
     --logo-h: clamp(34px, 3.4vw, 48px);
     gap: clamp(44px, 5.4vw, 80px);
@@ -964,41 +946,6 @@
     font-size: calc(var(--logo-h) * 0.56);
     line-height: 1;
     letter-spacing: -0.02em;
-  }
-
-  /* Marquee -------------------------------------------------------- */
-  .marquee {
-    position: relative;
-    overflow: hidden;
-  }
-  .marquee::before,
-  .marquee::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 8%;
-    z-index: 1;
-    pointer-events: none;
-  }
-  .marquee::before {
-    left: 0;
-    background: linear-gradient(90deg, var(--color-ink), transparent);
-  }
-  .marquee::after {
-    right: 0;
-    background: linear-gradient(270deg, var(--color-ink), transparent);
-  }
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    animation: arz-marquee 42s linear infinite;
-    will-change: transform;
-  }
-  @media (hover: hover) {
-    .marquee:hover .marquee-track {
-      animation-play-state: paused;
-    }
   }
 
   /* Team ----------------------------------------------------------- */
@@ -1034,8 +981,26 @@
   .intro-1 {
     animation-delay: 0.05s;
   }
+  .intro-3 {
+    animation-delay: 0.42s;
+  }
   .intro-4 {
     animation-delay: 0.58s;
+  }
+  /* Founders' portraits in the hero pill, overlapping, ringed with the page colour. */
+  .hero-face {
+    box-shadow: 0 0 0 2px var(--color-ink);
+  }
+  .hero-team {
+    transition:
+      border-color 0.3s var(--ease-out-expo),
+      background-color 0.3s var(--ease-out-expo);
+  }
+  @media (hover: hover) {
+    .hero-team:hover {
+      border-color: var(--color-line-5);
+      background-color: rgb(var(--paper-rgb) / 0.06);
+    }
   }
   .ln-wrap {
     display: flex;
@@ -1145,14 +1110,6 @@
   }
   to {
     opacity: 0;
-  }
-}
-@keyframes arz-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
   }
 }
 @keyframes jk-scroll {
@@ -1744,9 +1701,6 @@
   .tcard {
     grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
   }
-  .pcard-num {
-    font-size: clamp(120px, 30vw, 200px);
-  }
   .proj-row,
   .proj-row-rev {
     grid-template-columns: minmax(0, 1fr);
@@ -1981,11 +1935,9 @@
   }
 }
 @media (max-width: 400px) {
-  .hero-badge {
-    font-size: 11px !important;
-    letter-spacing: 0.04em !important;
+  .hero-team {
+    font-size: 14px !important;
     gap: 10px !important;
-    padding: 8px 14px 8px 12px !important;
   }
 }
 
@@ -2009,11 +1961,9 @@
 html.no-sda.is-scrolling .jk-scroll,
 html.no-sda.is-scrolling .rx-a,
 html.no-sda.is-scrolling .rx-b,
-html.no-sda.is-scrolling .marquee-track,
 .loop-paused .jk-scroll,
 .loop-paused .rx-a,
-.loop-paused .rx-b,
-.loop-paused .marquee-track {
+.loop-paused .rx-b {
   animation-play-state: paused;
 }
 
@@ -2078,7 +2028,6 @@ html.sda-light :is(.rv-d2, .rv-bar.b3) {
   .menu-overlay {
     animation: none;
   }
-  .marquee-track,
   .jk-scroll,
   .rx-a,
   .rx-b {

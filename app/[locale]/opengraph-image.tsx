@@ -81,15 +81,16 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
               display: 'flex',
               flexDirection: 'column',
               fontFamily: 'Bricolage Grotesque',
-              fontSize: 92,
-              lineHeight: 0.98,
-              letterSpacing: -4,
+              fontSize: 62,
+              lineHeight: 1.04,
+              letterSpacing: -2.5,
             }}
           >
             {content.hero.title.map((line, i) => (
-              <span key={line.em} style={{ display: 'flex' }}>
+              <span key={line.em} style={{ display: 'flex', flexWrap: 'wrap', whiteSpace: 'pre' }}>
                 <span>{line.lead}</span>
                 <span style={{ color: i === 0 ? '#FF7C00' : '#00FFCC' }}>{line.em}</span>
+                {line.tail && <span>{line.tail}</span>}
               </span>
             ))}
           </div>
