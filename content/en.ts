@@ -396,21 +396,7 @@ export const en: SiteContent = {
     need: 'The need',
     result: 'The result',
   },
-  stack: {
-    label: 'Technologies',
-    items: [
-      'Angular',
-      'React',
-      'Next.js',
-      'Vue.js',
-      'Nuxt',
-      'NestJS',
-      'TypeScript',
-      'Java',
-      'C#',
-      '.NET',
-    ],
-  },
+  trust: { label: 'Experience gained at' },
   team: {
     index: '04',
     label: 'Team',

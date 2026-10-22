@@ -201,8 +201,8 @@ export interface SiteContent {
     need: string;
     result: string;
   };
-  /** Technologies band under the hero (`label` is its accessible name). */
-  stack: { label: string; items: string[] };
+  /** Logo band under the hero (logos in `content/media.ts`). */
+  trust: { label: string };
   team: {
     index: string;
     label: string;

@@ -5,7 +5,7 @@ import { Contact } from '@/components/sections/Contact';
 import { Education } from '@/components/sections/Education';
 import { Expertises } from '@/components/sections/Expertises';
 import { Hero } from '@/components/sections/Hero';
-import { StackMarquee } from '@/components/sections/StackMarquee';
+import { TrustBand } from '@/components/sections/TrustBand';
 import { Team } from '@/components/sections/Team';
 import { Work } from '@/components/sections/Work';
 import { JsonLd } from '@/components/ui/JsonLd';
@@ -38,7 +38,7 @@ export default async function HomePage({ params }: PageProps) {
         ]}
       />
       <Hero locale={locale} content={content} />
-      <StackMarquee content={content} />
+      <TrustBand content={content} />
       <Work locale={locale} content={content} />
       <About content={content} />
       <Expertises content={content} />

@@ -420,21 +420,7 @@ export const fr: SiteContent = {
     need: 'Le besoin',
     result: 'Le résultat',
   },
-  stack: {
-    label: 'Technologies',
-    items: [
-      'Angular',
-      'React',
-      'Next.js',
-      'Vue.js',
-      'Nuxt',
-      'NestJS',
-      'TypeScript',
-      'Java',
-      'C#',
-      '.NET',
-    ],
-  },
+  trust: { label: 'Une expérience forgée chez' },
   team: {
     index: '04',
     label: 'Équipe',

@@ -26,6 +26,34 @@ export const media = {
   },
 } as const;
 
+/**
+ * The trust band under the hero: companies and schools where the team has worked.
+ * `src` files are single-tone masks (alpha only, 120 px high) shown in the text
+ * colour; `w`/`h` give the ratio. `name: true` writes the name next to a symbol-only
+ * logo; no `src` means a text wordmark (no usable logo file).
+ */
+export interface TrustLogo {
+  name: string;
+  src?: string;
+  w?: number;
+  h?: number;
+  withName?: boolean;
+}
+
+export const trustLogos: TrustLogo[] = [
+  { name: 'IBM', src: '/images/logos/ibm.webp', w: 322, h: 120 },
+  { name: 'Candriam', src: '/images/logos/candriam.webp', w: 602, h: 120 },
+  { name: 'SWIFT', src: '/images/logos/swift.webp', w: 120, h: 120 },
+  { name: 'Restomax', src: '/images/logos/restomax.webp', w: 491, h: 120 },
+  { name: 'HELHa', src: '/images/logos/helha.webp', w: 340, h: 120 },
+  { name: 'Radyo', src: '/images/logos/radyo.webp', w: 122, h: 120, withName: true },
+  { name: 'EasyOrder' },
+  { name: 'Pharmasimple', src: '/images/logos/pharmasimple.webp', w: 988, h: 120 },
+  { name: 'EICPN', src: '/images/logos/eicpn.webp', w: 138, h: 120 },
+  { name: 'SBIM' },
+  { name: 'Agoraz', src: '/images/logos/agoraz.webp', w: 480, h: 120 },
+];
+
 export function img(
   base: { src: string; width: number; height: number },
   alt: string,
