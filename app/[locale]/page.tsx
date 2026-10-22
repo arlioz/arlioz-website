@@ -7,6 +7,7 @@ import { Education } from '@/components/sections/Education';
 import { Expertises } from '@/components/sections/Expertises';
 import { Hero } from '@/components/sections/Hero';
 import { Team } from '@/components/sections/Team';
+import { Testimonials } from '@/components/sections/Testimonials';
 import { Work } from '@/components/sections/Work';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { getContent } from '@/content';
@@ -44,6 +45,7 @@ export default async function HomePage({ params }: PageProps) {
       <Team content={content} />
       <About content={content} />
       <Education locale={locale} content={content} />
+      <Testimonials content={content} />
       <Contact locale={locale} content={content} />
     </>
   );

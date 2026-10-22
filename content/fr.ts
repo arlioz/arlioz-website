@@ -252,6 +252,7 @@ export const fr: SiteContent = {
     ],
     lead: 'Un développeur fullstack et un expert RGPD, en direct, aux côtés des entreprises depuis 2018.',
     team: 'Guy et Amaury, vos interlocuteurs',
+    proof: '{count} recommandations LinkedIn',
     ctaPrimary: 'Parlons de votre projet',
     ctaSecondary: 'Voir nos réalisations',
   },
@@ -455,8 +456,49 @@ export const fr: SiteContent = {
     ],
     cta: 'Parler d’un accompagnement',
   },
-  contact: {
+  testimonials: {
     index: '06',
+    label: 'Témoignages',
+    title: ['Ils ont travaillé', 'avec Amaury.'],
+    text: 'Recommandations publiées sur LinkedIn par des architectes, un responsable direct et des collègues développeurs.',
+    translated: 'Traduit de l’anglais',
+    source: 'Recommandation LinkedIn',
+    items: [
+      {
+        quote:
+          'Il s’occupait du coaching, de l’écriture des composants partagés et des choix d’architecture. Tout le monde appréciait de travailler avec Amaury. Il a une connaissance approfondie d’Angular, se tient à jour et partage énormément. Il sait rester concentré et calme dans les situations de stress.',
+        name: 'Wahid Argandiwall',
+        role: 'Technical architect',
+        context: 'Même équipe frontend chez Candriam · février 2022',
+        translated: true,
+      },
+      {
+        quote:
+          'Amaury a une expérience exceptionnelle du développement frontend Angular. Il est motivé et désireux de comprendre les concepts métier. Sur le plan humain, il est très agréable de travailler avec lui.',
+        name: 'Stefan Casier',
+        role: 'Technical Architect chez Samayas',
+        context: 'Responsable direct d’Amaury · février 2022',
+        translated: true,
+      },
+      {
+        quote:
+          'Nous avons clairement amélioré la qualité du code de l’application (toujours à la recherche des bonnes pratiques) et sa maintenabilité, qui était notre priorité. Amaury m’a aussi accompagné dans des concepts avancés d’Angular grâce à sa qualité de pédagogue. […] Cette collaboration fut un atout majeur dans mon évolution en tant que développeur front-end.',
+        name: 'Alexandre Moreaux',
+        role: 'Analyste développeur et projets · SBIM',
+        context: 'Même équipe, 6 mois sur le même projet · août 2021',
+      },
+      {
+        quote:
+          'Amaury est vraiment un excellent développeur. Ses années d’expérience ne reflètent pas toutes ses connaissances et compétences. C’est un vrai pilier dans une équipe de développement. Il a l’esprit d’équipe et il est fiable.',
+        name: 'Frederique Rensonnet',
+        role: 'Head of IT Corporate functions',
+        context: 'Février 2022',
+        translated: true,
+      },
+    ],
+  },
+  contact: {
+    index: '07',
     label: 'Contact',
     title: 'Un projet ? Une question RGPD ? Parlons-en.',
     text: 'Dites-nous où vous en êtes, nous revenons vers vous avec un premier avis.',

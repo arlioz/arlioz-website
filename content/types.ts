@@ -71,6 +71,17 @@ export interface Project {
   };
 }
 
+export interface Testimonial {
+  quote: string;
+  name: string;
+  /** The author's LinkedIn headline. */
+  role: string;
+  /** How they know the person and when they wrote it. */
+  context: string;
+  /** True when `quote` is a translation of the original. */
+  translated?: boolean;
+}
+
 export interface TeamMember {
   name: string;
   role: string;
@@ -127,6 +138,8 @@ export interface SiteContent {
     lead: string;
     /** Next to the founders' portraits, above the title; links to the team section. */
     team: string;
+    /** Under the buttons, links to the testimonials; `{count}` is replaced. */
+    proof: string;
     ctaPrimary: string;
     ctaSecondary: string;
   };
@@ -193,6 +206,17 @@ export interface SiteContent {
       text: string;
     }[];
     cta: string;
+  };
+  /** Recommendations published on LinkedIn, quoted with their author's headline. */
+  testimonials: {
+    index: string;
+    label: string;
+    title: [string, string];
+    text: string;
+    /** Shown on a quote translated from another language. */
+    translated: string;
+    source: string;
+    items: Testimonial[];
   };
   contact: {
     index: string;

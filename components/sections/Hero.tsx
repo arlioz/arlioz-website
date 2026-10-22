@@ -8,7 +8,7 @@ import { HERO_ID } from '@/components/layout/Header';
 const highlight = ['hero-hl-a', 'hero-hl-b'] as const;
 
 export function Hero({ locale, content }: { locale: Locale; content: SiteContent }) {
-  const { hero, team } = content;
+  const { hero, team, testimonials } = content;
   const home = localePath(locale);
 
   return (
@@ -75,6 +75,18 @@ export function Hero({ locale, content }: { locale: Locale; content: SiteContent
               {hero.ctaSecondary}
             </ButtonLink>
           </div>
+
+          <a
+            href={`${home}#temoignages`}
+            className="intro intro-4 link-u label-mono inline-flex items-center gap-2.5 text-muted-2"
+          >
+            <span aria-hidden="true" className="inline-flex gap-1">
+              <span className="h-1.5 w-1.5 rounded-full bg-orange" />
+              <span className="h-1.5 w-1.5 rounded-full bg-blue" />
+              <span className="h-1.5 w-1.5 rounded-full bg-green" />
+            </span>
+            {hero.proof.replace('{count}', String(testimonials.items.length))}
+          </a>
         </div>
       </div>
     </section>
