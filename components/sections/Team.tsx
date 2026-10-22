@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { type SiteContent } from '@/content/types';
 import { Chips } from '@/components/ui/Chips';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import { LogoRow } from '@/components/ui/BrandLogo';
+import { trustLogos } from '@/content/media';
 
 const accent = {
   blue: { hx: 'hx-blue', text: 'text-blue-light', border: 'border-blue-light/32' },
@@ -77,6 +79,11 @@ export function Team({ content }: { content: SiteContent }) {
               </article>
             );
           })}
+        </div>
+
+        <div className="rv mt-[clamp(56px,7vw,96px)] flex flex-col items-center gap-[clamp(24px,3vw,36px)] border-t border-line pt-[clamp(40px,5vw,64px)]">
+          <p className="label-mono m-0 text-center text-muted-3">{content.trust.label}</p>
+          <LogoRow logos={trustLogos} className="logo-row-trust max-w-[1100px] text-muted-2" />
         </div>
       </div>
     </section>

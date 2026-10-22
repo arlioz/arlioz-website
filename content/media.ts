@@ -27,7 +27,9 @@ export const media = {
 } as const;
 
 /**
- * The trust band under the hero: companies and schools where the team has worked.
+ * Company logos (`components/ui/BrandLogo.tsx`): `trustLogos` are the companies and
+ * schools where the founders have worked (Team section), `clientLogos` the clients
+ * running our work in production (band under the hero).
  * `src` files are single-tone masks (alpha only, 120 px high) shown in the text
  * colour; `w`/`h` give the ratio. `name: true` writes the name next to a symbol-only
  * logo; no `src` means a text wordmark (no usable logo file).
@@ -52,6 +54,12 @@ export const trustLogos: TrustLogo[] = [
   { name: 'EICPN', src: '/images/logos/eicpn.webp', w: 138, h: 120 },
   { name: 'SBIM' },
   { name: 'Agoraz', src: '/images/logos/agoraz.webp', w: 480, h: 120 },
+];
+
+export const clientLogos: TrustLogo[] = [
+  { name: 'Radyo', src: '/images/logos/radyo.webp', w: 122, h: 120, withName: true },
+  { name: 'Restomax', src: '/images/logos/restomax.webp', w: 491, h: 120 },
+  { name: 'JK Studio' },
 ];
 
 export function img(

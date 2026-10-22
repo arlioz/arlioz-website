@@ -218,7 +218,7 @@ export interface SiteContent {
     result: string;
   };
   /** The clients band under the hero: who runs our work in production. */
-  clients: { label: string; items: string[] };
+  clients: { label: string };
   /** Under the team cards: where the founders have worked (logos in `content/media.ts`). */
   trust: { label: string };
   team: {

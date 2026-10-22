@@ -399,7 +399,6 @@ export const en: SiteContent = {
   trust: { label: 'Experience gained at' },
   clients: {
     label: 'In production at',
-    items: ['Radyo', 'Restomax', 'JK Studio'],
   },
   team: {
     index: '03',

@@ -422,7 +422,6 @@ export const fr: SiteContent = {
   },
   clients: {
     label: 'En production chez',
-    items: ['Radyo', 'Restomax', 'JK Studio'],
   },
   trust: { label: 'Une expérience forgée chez' },
   team: {
