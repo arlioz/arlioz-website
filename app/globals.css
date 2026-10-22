@@ -113,23 +113,27 @@
   --hero-a: #ffb13d, #ff7c00 55%, #ff5a1f;
   --hero-b: #7df5e0, #00ffcc 50%, #38b6ff;
 }
+/* Light palette: plain white and cool, slightly blue neutrals (the GDPR blue's
+   family), not the warm off-white that reads as a default AI template. White
+   cards sit on white with a hairline; the alternate sections are a cool grey.
+   Every text token keeps at least 4.5:1 on ink, ink-2 and surface-2. */
 @media (prefers-color-scheme: light) {
   :root {
     color-scheme: light;
-    --color-ink: #f4f3f0;
-    --color-ink-2: #edece8;
-    --color-surface: #fbfaf8;
-    --color-surface-2: #ffffff;
-    --color-dot: #d6d5d0;
+    --color-ink: #ffffff;
+    --color-ink-2: #f3f5f9;
+    --color-surface: #ffffff;
+    --color-surface-2: #f6f8fb;
+    --color-dot: #d5dae2;
 
-    --color-paper: #0e0e11;
-    --color-paper-2: #2a2a30;
-    --color-paper-3: #44444c;
-    --color-paper-4: #1d1d22;
-    --color-muted: #5a5a63;
-    --color-muted-2: #60606a;
-    --color-muted-3: #686872;
-    --color-muted-4: #74747e;
+    --color-paper: #0b0d12;
+    --color-paper-2: #262a33;
+    --color-paper-3: #3c414c;
+    --color-paper-4: #171a20;
+    --color-muted: #505663;
+    --color-muted-2: #575d6a;
+    --color-muted-3: #5f6572;
+    --color-muted-4: #6a707d;
 
     /* The accents used as text, darkened to keep 4.5:1 on the light page. */
     --color-orange-light: #b64e06;
@@ -137,22 +141,22 @@
     --color-green: #137a5a;
     --color-green-light: #116f52;
 
-    --color-line: rgb(10 10 12 / 0.08);
-    --color-line-2: rgb(10 10 12 / 0.1);
-    --color-line-3: rgb(10 10 12 / 0.12);
-    --color-line-4: rgb(10 10 12 / 0.14);
-    --color-line-5: rgb(10 10 12 / 0.22);
+    --color-line: rgb(11 13 18 / 0.08);
+    --color-line-2: rgb(11 13 18 / 0.1);
+    --color-line-3: rgb(11 13 18 / 0.12);
+    --color-line-4: rgb(11 13 18 / 0.14);
+    --color-line-5: rgb(11 13 18 / 0.22);
 
-    --ink-rgb: 244 243 240;
-    --paper-rgb: 14 14 17;
-    --glass-bg: rgb(255 255 255 / 0.66);
-    --glass-bg-hover: rgb(255 255 255 / 0.9);
-    --glass-bg-solid: rgb(255 255 255 / 0.92);
-    --glass-border: rgb(10 10 12 / 0.1);
-    --glass-border-hover: rgb(10 10 12 / 0.22);
-    --shadow-card: 0 40px 80px -40px rgb(0 0 0 / 0.18);
-    --shadow-device: 0 24px 50px rgb(0 0 0 / 0.2);
-    --shadow-device-lg: 0 30px 60px rgb(0 0 0 / 0.18);
+    --ink-rgb: 255 255 255;
+    --paper-rgb: 11 13 18;
+    --glass-bg: rgb(255 255 255 / 0.72);
+    --glass-bg-hover: rgb(255 255 255 / 0.92);
+    --glass-bg-solid: rgb(255 255 255 / 0.94);
+    --glass-border: rgb(11 13 18 / 0.1);
+    --glass-border-hover: rgb(11 13 18 / 0.22);
+    --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 32px 64px -36px rgb(16 24 40 / 0.2);
+    --shadow-device: 0 24px 50px rgb(16 24 40 / 0.18);
+    --shadow-device-lg: 0 30px 60px rgb(16 24 40 / 0.16);
     --glow-k: 0.55;
     --hero-a: #e8640a, #d14a08 55%, #c23d0c;
     --hero-b: #0b8f7c, #0f7ab3 60%, #1d5bbf;
