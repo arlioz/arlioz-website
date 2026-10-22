@@ -443,7 +443,39 @@ export const en: SiteContent = {
         accent: 'orange',
       },
     ],
-    recommendations: { label: 'They recommend us', items: [] },
+    recommendations: {
+      label: 'They recommend Amaury',
+      items: [
+        {
+          quote:
+            'Amaury is exceptionally well experienced in the Angular frontend development. He is motivated and eager to learn business concepts. On a personal level it is very nice to work with him.',
+          lang: 'en',
+          author: 'Stefan Casier',
+          role: 'Technical architect, his direct manager',
+        },
+        {
+          quote:
+            'He focused on coaching, writing shared components and deciding on the main architecture. Everyone enjoyed working with Amaury.',
+          lang: 'en',
+          author: 'Wahid Argandiwall',
+          role: 'Technical architect, same team',
+        },
+        {
+          quote:
+            'Amaury is really an excellent developer. His years of experience don’t reflect all his knowledge and skills. He is a real pillar in a development team.',
+          lang: 'en',
+          author: 'Frederique Rensonnet',
+          role: 'Head of IT Corporate functions',
+        },
+        {
+          quote:
+            'Nous avons clairement amélioré la qualité du code de l’application […] et sa maintenabilité. Amaury m’a aussi accompagné dans des concepts avancés d’Angular grâce à sa qualité de pédagogue.',
+          lang: 'fr',
+          author: 'Alexandre Moreaux',
+          role: 'Analyst developer, same project',
+        },
+      ],
+    },
   },
   education: {
     index: '05',

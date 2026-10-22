@@ -722,7 +722,7 @@
   }
   .team-quotes {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
   }
   .tcard-photo {
@@ -1876,7 +1876,8 @@
   .edu-grid,
   .edu-aud,
   .mig-steps,
-  .case-story {
+  .case-story,
+  .team-quotes {
     grid-template-columns: minmax(0, 1fr);
   }
   .mig-band {

@@ -210,7 +210,11 @@ export interface SiteContent {
     members: TeamMember[];
     /** LinkedIn recommendations, published with their authors' consent. The block is
         hidden while the list is empty. */
-    recommendations: { label: string; items: { quote: string; author: string; role: string }[] };
+    recommendations: {
+      label: string;
+      /** Quotes stay in the language they were written in (`lang`); excerpts mark cuts with […]. */
+      items: { quote: string; lang: 'fr' | 'en'; author: string; role: string }[];
+    };
   };
   /** Arlioz Education: teaching and company support (architecture, technique, GDPR). */
   education: {

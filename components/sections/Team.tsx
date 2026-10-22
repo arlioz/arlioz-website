@@ -97,7 +97,10 @@ export function Team({ content }: { content: SiteContent }) {
                     >
                       “
                     </span>
-                    <blockquote className="m-0 font-display text-[clamp(19px,1.6vw,23px)] leading-[1.4] tracking-[-0.01em] text-paper text-pretty">
+                    <blockquote
+                      lang={item.lang}
+                      className="m-0 font-display text-[clamp(19px,1.6vw,23px)] leading-[1.4] tracking-[-0.01em] text-paper text-pretty"
+                    >
                       {item.quote}
                     </blockquote>
                   </div>
