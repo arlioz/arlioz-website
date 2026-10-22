@@ -20,7 +20,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
       className="border-y border-line bg-ink-2 py-section"
     >
       <div className="container-site">
-        <div className="mb-[clamp(56px,7vw,96px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
+        <div className="mb-[clamp(48px,6vw,80px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
           <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
             {/* First section under the band: no opacity reveal near the fold (axe contrast). */}
             <Eyebrow index={work.index} label={work.label} />
@@ -59,6 +59,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
               '--accent': glow[project.accent],
               ...(last ? {} : { '--next': `--c${i + 2}` }),
             } as CSSProperties;
+            const headline = project.story.results[0] ?? { text: project.highlights };
             return (
               <article
                 key={project.slug}
@@ -110,9 +111,23 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                     <p className="sx-txt m-0 max-w-[580px] text-[16.5px] leading-[1.6] text-muted text-pretty">
                       {project.summary}
                     </p>
-                    <p className="sx-txt pcard-hl m-0 text-[15px] text-paper-2">
-                      {project.highlights}
-                    </p>
+                    <dl className="sx-txt pcard-story m-0 grid max-w-[580px] gap-3 border-t border-line-2 pt-4">
+                      <div className="grid gap-1">
+                        <dt className="label-mono-sm text-muted-3">{work.need}</dt>
+                        <dd className="m-0 text-base leading-[1.55] text-paper-2">
+                          {project.story.challenge}
+                        </dd>
+                      </div>
+                      <div className="grid gap-1">
+                        <dt className="label-mono-sm text-muted-3">{work.result}</dt>
+                        <dd className="m-0 text-base leading-[1.55] text-paper-2">
+                          {headline.value && (
+                            <strong className="font-semibold text-paper">{headline.value} </strong>
+                          )}
+                          {headline.text}
+                        </dd>
+                      </div>
+                    </dl>
                     <Chips items={project.tags} animated className="pcard-chips mt-1" />
                     <div className="sx-txt pcard-links mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[15px]">
                       <Link

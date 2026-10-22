@@ -60,6 +60,14 @@ export interface Project {
   devices: DeviceSet;
   accent: Accent;
   reversed: boolean;
+  /** The business story, shown on the card (need, result) and the case study. */
+  story: {
+    challenge: string;
+    solution: string;
+    role: string;
+    /** Only facts the client confirmed; `value` only for a measured result. */
+    results: { value?: string; text: string }[];
+  };
   caseStudy: {
     tagline: string;
     intro: string;
@@ -69,6 +77,12 @@ export interface Project {
     gallery: GalleryItem[];
     heroImage: ProjectImage;
   };
+}
+
+/** A mailto link with a pre-filled subject, for a given topic. */
+export interface ContactLink {
+  label: string;
+  subject: string;
 }
 
 export interface TeamMember {
@@ -120,14 +134,16 @@ export interface SiteContent {
     badge: string;
     /** One entry per line: `lead` in the display face, `em` highlighted in italic serif. */
     title: { lead: string; em: string }[];
+    /** One sentence under the title: what Arlioz does, and for whom. */
+    lead: string;
     ctaPrimary: string;
     ctaSecondary: string;
   };
   about: {
     index: string;
     label: string;
-    year: string;
-    yearLabel: string;
+    /** Key facts in the left column; the first one is the founding year. */
+    facts: { value: string; label: string }[];
     title: RichSegment[];
     pillars: { title: string; text: string }[];
   };
@@ -135,7 +151,18 @@ export interface SiteContent {
     index: string;
     label: string;
     title: [string, string];
-    rgpd: { tag: string; title: string; text: string; items: string[] };
+    /** What a visitor can hand over to Arlioz, next to the title. */
+    intro: string;
+    rgpd: {
+      tag: string;
+      title: string;
+      text: string;
+      items: string[];
+      benefit: string;
+      cta: ContactLink;
+    };
+    /** Contact link under the development cards. */
+    devCta: ContactLink;
     cards: {
       tag: string;
       title: string;
@@ -157,6 +184,7 @@ export interface SiteContent {
       to: { label: string; items: string[] };
       steps: { title: string; text: string }[];
       note: string;
+      cta: ContactLink;
     };
   };
   work: {
@@ -169,10 +197,21 @@ export interface SiteContent {
     liveExample: string;
     viewSite: string;
     clientPrefix: string;
+    /** Labels of the need / result lines on the project cards. */
+    need: string;
+    result: string;
   };
   /** Technologies band under the hero (`label` is its accessible name). */
   stack: { label: string; items: string[] };
-  team: { index: string; label: string; title: string; members: TeamMember[] };
+  team: {
+    index: string;
+    label: string;
+    title: string;
+    members: TeamMember[];
+    /** LinkedIn recommendations, published with their authors' consent. The block is
+        hidden while the list is empty. */
+    recommendations: { label: string; items: { quote: string; author: string; role: string }[] };
+  };
   /** Arlioz Education: teaching and company support (architecture, technique, GDPR). */
   education: {
     index: string;
@@ -230,6 +269,10 @@ export interface SiteContent {
     demo: string;
     sections: {
       project: string;
+      challenge: string;
+      solution: string;
+      role: string;
+      results: string;
       features: string;
       featuresTitle: string;
       stack: string;

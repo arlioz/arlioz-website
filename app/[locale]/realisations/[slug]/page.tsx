@@ -7,7 +7,7 @@ import { BrowserBar } from '@/components/ui/BrowserBar';
 import { ButtonLink } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Glow } from '@/components/ui/Glow';
-import { ArrowLeft, ArrowRight, ArrowUpRight } from '@/components/ui/Icons';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from '@/components/ui/Icons';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { LineTitle } from '@/components/ui/LineTitle';
 import { LogoMark } from '@/components/ui/LogoMark';
@@ -45,7 +45,7 @@ const delays = ['', 'rv-d1', 'rv-d2'] as const;
 const dt = 'label-mono-sm text-muted-3';
 const dd = 'm-0 text-base text-paper';
 const caption =
-  'absolute bottom-3.5 left-4 rounded-pill border border-line-3 bg-ink/72 px-2.5 py-1.5 font-mono text-[11px] tracking-[0.06em] uppercase text-paper-3';
+  'absolute bottom-3.5 left-4 rounded-pill border border-line-3 bg-ink/72 px-2.5 py-1.5 font-mono text-xs tracking-[0.06em] uppercase text-paper-3';
 const phoneBg =
   'bg-[radial-gradient(circle_at_50%_42%,rgba(226,194,122,0.16),transparent_62%),var(--color-surface)]';
 
@@ -254,16 +254,56 @@ export default async function CaseStudyPage({ params }: PageProps) {
               >
                 {study.intro}
               </h2>
-              {study.stat && (
-                <div className="rv rv-d1 flex flex-wrap items-end gap-x-8 gap-y-4 rounded-card border border-line-2 bg-surface px-9 py-8">
-                  <p className="m-0 font-display text-stat-sm leading-[0.85] font-medium tracking-[-0.05em] text-orange-light">
-                    {study.stat.value}
-                  </p>
-                  <p className="m-0 max-w-[420px] pb-1.5 text-[17px] leading-normal text-paper-3">
-                    {study.stat.text}
-                  </p>
-                </div>
-              )}
+              <div className="case-story">
+                {(
+                  [
+                    [cs.sections.challenge, project.story.challenge],
+                    [cs.sections.solution, project.story.solution],
+                    [cs.sections.role, project.story.role],
+                  ] as const
+                ).map(([label, text], i) => (
+                  <div
+                    key={label}
+                    className={`rv ${i ? `rv-d${i}` : ''} flex min-w-0 flex-col gap-3 border-t border-line-2 pt-5`}
+                  >
+                    <h3 className="label-mono m-0 font-medium text-orange-light">{label}</h3>
+                    <p className="m-0 text-base leading-[1.6] text-paper-2">{text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="rv flex flex-col gap-5">
+                <h3 className="label-mono m-0 font-medium text-orange-light">
+                  {cs.sections.results}
+                </h3>
+                {study.stat && (
+                  <div className="flex flex-wrap items-end gap-x-8 gap-y-4 rounded-card border border-line-2 bg-surface px-9 py-8">
+                    <p className="m-0 font-display text-stat-sm leading-[0.85] font-medium tracking-[-0.05em] text-orange-light">
+                      {study.stat.value}
+                    </p>
+                    <p className="m-0 max-w-[420px] pb-1.5 text-[17px] leading-normal text-paper-3">
+                      {study.stat.text}
+                    </p>
+                  </div>
+                )}
+                <ul className="m-0 grid list-none gap-3 p-0">
+                  {project.story.results
+                    .filter((result) => !(study.stat && result.value))
+                    .map((result) => (
+                      <li
+                        key={result.text}
+                        className="flex items-start gap-3 text-base leading-[1.55] text-paper-2"
+                      >
+                        <Check className="mt-1 flex-none text-orange-light" />
+                        <span>
+                          {result.value && (
+                            <strong className="font-semibold text-paper">{result.value} </strong>
+                          )}
+                          {result.text}
+                        </span>
+                      </li>
+                    ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -287,14 +327,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 key={feature.title}
                 className={`card-hover rv ${delays[i % 3]} flex min-h-[240px] flex-col gap-10 rounded-card border border-line-2 bg-surface p-8`}
               >
-                <p className="m-0 font-mono text-xs font-medium tracking-[0.08em] text-orange-light">
+                <p className="m-0 font-mono text-[13px] font-medium tracking-[0.08em] text-orange-light">
                   {String(i + 1).padStart(2, '0')}
                 </p>
                 <div className="mt-auto flex flex-col gap-2.5">
                   <h3 className="m-0 font-display text-card leading-[1.1] font-medium tracking-[-0.025em]">
                     {feature.title}
                   </h3>
-                  <p className="m-0 text-[15.5px] leading-[1.6] text-muted">{feature.text}</p>
+                  <p className="m-0 text-base leading-[1.6] text-muted">{feature.text}</p>
                 </div>
               </article>
             ))}

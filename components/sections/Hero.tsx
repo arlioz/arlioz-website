@@ -40,7 +40,11 @@ export function Hero({ locale, content }: { locale: Locale; content: SiteContent
             ))}
           </h1>
 
-          <div className="intro intro-4 hero-ctas flex flex-wrap justify-center gap-3 pt-3">
+          <p className="intro hero-lead m-0 max-w-[640px] text-lead leading-[1.55] text-paper-3 text-pretty">
+            {hero.lead}
+          </p>
+
+          <div className="intro intro-4 hero-ctas flex flex-wrap justify-center gap-3">
             <ButtonLink href={`${home}#contact`}>{hero.ctaPrimary}</ButtonLink>
             <ButtonLink href={`${home}#realisations`} variant="glass">
               {hero.ctaSecondary}

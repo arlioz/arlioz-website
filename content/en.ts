@@ -15,6 +15,18 @@ const restomax: Project = {
   demoLabel: 'See a live example',
   accent: 'orange',
   reversed: false,
+  story: {
+    challenge:
+      'Bookings taken over the phone in the middle of service, and tables lost to no-shows.',
+    solution:
+      'A booking website and widget in each restaurant’s colours: guests book online, the team manages every booking from a single tool.',
+    role: 'Fullstack design and development: the widget, the website generated for each restaurant and the booking management module.',
+    results: [
+      { value: '2 h', text: 'saved every day for the restaurant team' },
+      { text: 'Online bookings around the clock, without a phone call' },
+      { text: 'Fewer no-shows, thanks to smart booking management' },
+    ],
+  },
   devices: {
     screenBg: '#FFFFFF',
     url: media.restomax.url,
@@ -103,6 +115,17 @@ const jkstudio: Project = {
   demoLabel: 'Visit the site',
   accent: 'yellow',
   reversed: true,
+  story: {
+    challenge:
+      'A nightlife, wedding and events photographer needed a fast portfolio he could update himself.',
+    solution:
+      'A clean website where each gallery reads like a contact sheet, in a light or dark theme, with a direct quote request.',
+    role: 'Design and development of the website, from the interface to content management.',
+    results: [
+      { text: 'Galleries published by the photographer himself, without a developer' },
+      { text: 'Static pages, fast and well indexed' },
+    ],
+  },
   devices: {
     screenBg: '#EFEAE3',
     url: media.jkstudio.url,
@@ -217,7 +240,7 @@ export const en: SiteContent = {
     follow: 'Follow',
     language: 'Language',
     tagline: 'Digital development and GDPR compliance, since 2018.',
-    cta: 'Let’s talk about your project',
+    cta: 'Talk about my project',
     linkedin: 'LinkedIn',
   },
   hero: {
@@ -226,14 +249,19 @@ export const en: SiteContent = {
       { lead: 'Solid ', em: 'code.' },
       { lead: 'Protected ', em: 'data.' },
     ],
-    ctaPrimary: 'Let’s talk about your project',
+    lead: 'Custom web and mobile applications, with GDPR compliance built in from the start: we support companies and organisations, from audit to production.',
+    ctaPrimary: 'Talk about my project',
     ctaSecondary: 'See our work',
   },
   about: {
     index: '02',
     label: 'About',
-    year: '2018',
-    yearLabel: 'Founded',
+    facts: [
+      { value: '2018', label: 'Arlioz founded' },
+      { value: '30+', label: 'Years of IT and security experience' },
+      { value: '10+', label: 'Years teaching computer science' },
+      { value: '3', label: 'Products in production' },
+    ],
     title: [
       { text: 'We bring ' },
       { text: 'data protection', mark: 'blue' },
@@ -262,6 +290,8 @@ export const en: SiteContent = {
     index: '03',
     label: 'Expertise',
     title: ['Two areas of expertise', 'that complement each other.'],
+    intro:
+      'Hand us your organisation’s GDPR compliance, the development of your applications, or both: the same team builds the product and protects its data.',
     rgpd: {
       tag: 'Data protection',
       title: 'GDPR consulting',
@@ -274,6 +304,16 @@ export const en: SiteContent = {
         'Data processing agreements',
         'Team awareness training',
       ],
+      benefit:
+        'Compliance you can demonstrate to your clients, your partners and the Data Protection Authority.',
+      cta: {
+        label: 'Talk about your compliance',
+        subject: 'GDPR compliance — contact request',
+      },
+    },
+    devCta: {
+      label: 'Talk about your project',
+      subject: 'Development project — contact request',
     },
     cards: [
       {
@@ -337,6 +377,10 @@ export const en: SiteContent = {
         { title: 'Hand over', text: 'Documentation and knowledge transfer to your teams.' },
       ],
       note: 'Done by us, or led by your teams with our support.',
+      cta: {
+        label: 'Talk about your migration',
+        subject: 'WinDev / WebDev migration — contact request',
+      },
     },
   },
   work: {
@@ -349,6 +393,8 @@ export const en: SiteContent = {
     liveExample: 'See a live example',
     viewSite: 'Visit the site',
     clientPrefix: 'Client:',
+    need: 'The need',
+    result: 'The result',
   },
   stack: {
     label: 'Technologies',
@@ -397,6 +443,7 @@ export const en: SiteContent = {
         accent: 'orange',
       },
     ],
+    recommendations: { label: 'They recommend us', items: [] },
   },
   education: {
     index: '05',
@@ -482,6 +529,10 @@ export const en: SiteContent = {
     demo: 'Live example',
     sections: {
       project: 'The project',
+      challenge: 'The challenge',
+      solution: 'Our solution',
+      role: 'Our role',
+      results: 'Results',
       features: 'Features',
       featuresTitle: 'What the solution brings.',
       stack: 'Tech stack',

@@ -34,7 +34,7 @@ export function Footer({ locale, content, year }: FooterProps) {
                 arlioz
               </span>
             </Link>
-            <p className="m-0 text-[15.5px] leading-[1.6] text-muted">{f.tagline}</p>
+            <p className="m-0 text-base leading-[1.6] text-muted">{f.tagline}</p>
           </div>
 
           <nav aria-label={content.a11y.siteMap} className="flex flex-col gap-4">
@@ -96,7 +96,7 @@ export function Footer({ locale, content, year }: FooterProps) {
           arlioz
         </p>
 
-        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-line pt-7 pb-9 text-[13.5px] text-muted-3">
+        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-line pt-7 pb-9 text-sm text-muted-3">
           <p className="m-0">{copyright}</p>
           <p className="m-0">{f.madeIn}</p>
           <a href="#top" className="link-u text-paper-3">

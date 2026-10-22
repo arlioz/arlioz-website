@@ -3,6 +3,8 @@ import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Glow } from '@/components/ui/Glow';
 import { ArrowRight, Check, expertiseIcons, Layers, Shield } from '@/components/ui/Icons';
 import { LineTitle } from '@/components/ui/LineTitle';
+import { ButtonLink } from '@/components/ui/Button';
+import { MailLink, mailto } from '@/components/ui/MailLink';
 
 const card =
   'card-hover sx-card relative flex flex-col rounded-card border border-line-2 bg-surface';
@@ -12,13 +14,18 @@ export function Expertises({ content }: { content: SiteContent }) {
   return (
     <section id="expertises" aria-labelledby="services-title" className="pb-section">
       <div className="container-site">
-        <div className="mb-[clamp(48px,6vw,80px)] flex min-w-0 max-w-[780px] flex-col gap-[26px]">
-          <Eyebrow index={x.index} label={x.label} animated />
-          <LineTitle
-            id="services-title"
-            lines={x.title}
-            className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
-          />
+        <div className="mb-[clamp(48px,6vw,80px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
+          <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
+            <Eyebrow index={x.index} label={x.label} animated />
+            <LineTitle
+              id="services-title"
+              lines={x.title}
+              className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
+            />
+          </div>
+          <p className="rv m-0 max-w-[470px] text-[17px] leading-[1.6] text-muted text-pretty">
+            {x.intro}
+          </p>
         </div>
 
         <div className="bento">
@@ -52,7 +59,7 @@ export function Expertises({ content }: { content: SiteContent }) {
               {x.rgpd.items.map((item, i, all) => (
                 <li
                   key={item}
-                  className={`sx-li flex items-center gap-3 border-t border-line-2 py-[13px] text-[15px] text-paper-2 ${
+                  className={`sx-li flex items-center gap-3 border-t border-line-2 py-[13px] text-base text-paper-2 ${
                     i === all.length - 1 ? 'border-b' : ''
                   }`}
                 >
@@ -61,6 +68,10 @@ export function Expertises({ content }: { content: SiteContent }) {
                 </li>
               ))}
             </ul>
+            <div className="sx-txt relative flex flex-col gap-4">
+              <p className="m-0 text-base leading-[1.6] text-paper-2">{x.rgpd.benefit}</p>
+              <MailLink link={x.rgpd.cta} />
+            </div>
           </article>
 
           {/* Development cards */}
@@ -87,7 +98,7 @@ export function Expertises({ content }: { content: SiteContent }) {
                     lines={[item.title]}
                     className="font-display text-card leading-[1.1] font-medium tracking-[-0.025em]"
                   />
-                  <p className="sx-txt m-0 text-[15.5px] leading-[1.6] text-muted">{item.text}</p>
+                  <p className="sx-txt m-0 text-base leading-[1.6] text-muted">{item.text}</p>
                 </div>
               </article>
             );
@@ -254,7 +265,7 @@ export function Expertises({ content }: { content: SiteContent }) {
                     {x.migration.from.items.map((item) => (
                       <li
                         key={item}
-                        className="font-mono text-[13px] tracking-[0.02em] text-muted-2 line-through decoration-line-5"
+                        className="font-mono text-sm tracking-[0.02em] text-muted-2 line-through decoration-line-5"
                       >
                         {item}
                       </li>
@@ -271,7 +282,7 @@ export function Expertises({ content }: { content: SiteContent }) {
                   <span className="label-mono-sm text-orange-light">{x.migration.to.label}</span>
                   <ul className="m-0 flex list-none flex-col gap-2 p-0">
                     {x.migration.to.items.map((item) => (
-                      <li key={item} className="font-mono text-[13px] tracking-[0.02em] text-paper">
+                      <li key={item} className="font-mono text-sm tracking-[0.02em] text-paper">
                         {item}
                       </li>
                     ))}
@@ -291,16 +302,23 @@ export function Expertises({ content }: { content: SiteContent }) {
                   <span className="font-display text-[20px] leading-[1.15] font-medium tracking-[-0.02em] text-paper">
                     {step.title}
                   </span>
-                  <span className="text-[15px] leading-[1.55] text-muted">{step.text}</span>
+                  <span className="text-base leading-[1.55] text-muted">{step.text}</span>
                 </li>
               ))}
             </ol>
 
-            <p className="sx-txt relative m-0 flex items-start gap-3 text-[15px] text-paper-2">
-              <Check className="mt-0.5 flex-none text-orange-light" />
-              {x.migration.note}
-            </p>
+            <div className="sx-txt relative flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
+              <p className="m-0 flex items-start gap-3 text-base text-paper-2">
+                <Check className="mt-0.5 flex-none text-orange-light" />
+                {x.migration.note}
+              </p>
+              <MailLink link={x.migration.cta} />
+            </div>
           </article>
+        </div>
+
+        <div className="rv mt-[clamp(32px,4vw,48px)] flex flex-wrap items-center gap-x-7 gap-y-4">
+          <ButtonLink href={mailto(x.devCta.subject)}>{x.devCta.label}</ButtonLink>
         </div>
       </div>
     </section>

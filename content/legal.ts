@@ -18,7 +18,7 @@ export interface LegalPage {
 
 const legalFr: LegalPage = {
   title: 'Mentions légales',
-  description: 'Mentions légales du site arlioz.be : éditeur, hébergeur, propriété intellectuelle.',
+  description: 'Mentions légales du site arlioz.be : éditeur, hébergeur, propriété intellectuelle.',
   updated: '2026-10-16',
   updatedLabel: 'Dernière mise à jour',
   sections: [
@@ -26,7 +26,7 @@ const legalFr: LegalPage = {
       title: 'Éditeur du site',
       paragraphs: [
         'Le site arlioz.be est édité par Arlioz, société établie en Belgique, inscrite à la Banque-Carrefour des Entreprises sous le numéro BE 0694.716.176, dont le siège social est situé rue de la Croix 24, 6042 Lodelinsart (Charleroi), Belgique.',
-        'Adresse e-mail : contact@arlioz.be. Responsable de la publication : Arlioz.',
+        'Adresse e-mail : contact@arlioz.be. Responsable de la publication : Arlioz.',
       ],
     },
     {
@@ -51,8 +51,8 @@ const legalFr: LegalPage = {
     {
       title: 'Responsabilité',
       paragraphs: [
-        'Arlioz s’efforce de maintenir les informations de ce site exactes et à jour, sans pouvoir garantir l’absence d’erreur ou d’omission. Les contenus sont fournis à titre informatif et ne constituent pas un conseil juridique : seule une analyse de votre situation, dans le cadre d’une mission, engage Arlioz.',
-        'Les liens vers des sites tiers (clients, réseaux sociaux, outils) sont proposés pour votre commodité ; Arlioz n’exerce aucun contrôle sur leur contenu et décline toute responsabilité à leur égard.',
+        'Arlioz s’efforce de maintenir les informations de ce site exactes et à jour, sans pouvoir garantir l’absence d’erreur ou d’omission. Les contenus sont fournis à titre informatif et ne constituent pas un conseil juridique : seule une analyse de votre situation, dans le cadre d’une mission, engage Arlioz.',
+        'Les liens vers des sites tiers (clients, réseaux sociaux, outils) sont proposés pour votre commodité ; Arlioz n’exerce aucun contrôle sur leur contenu et décline toute responsabilité à leur égard.',
       ],
     },
     {
@@ -64,7 +64,7 @@ const legalFr: LegalPage = {
     {
       title: 'Crédits',
       paragraphs: [
-        'Conception et développement : Arlioz. Polices : Bricolage Grotesque, Instrument Sans et JetBrains Mono (licence SIL Open Font License).',
+        'Conception et développement : Arlioz. Polices : Bricolage Grotesque, Instrument Sans et JetBrains Mono (licence SIL Open Font License).',
       ],
     },
   ],
@@ -127,7 +127,7 @@ const legalEn: LegalPage = {
 const privacyFr: LegalPage = {
   title: 'Politique de confidentialité',
   description:
-    'Comment Arlioz traite les données personnelles collectées sur arlioz.be : finalités, base légale, durées, droits et cookies.',
+    'Comment Arlioz traite les données personnelles collectées sur arlioz.be : finalités, base légale, durées, droits et cookies.',
   updated: '2026-10-16',
   updatedLabel: 'Dernière mise à jour',
   sections: [
@@ -140,7 +140,7 @@ const privacyFr: LegalPage = {
     {
       title: 'Données collectées',
       paragraphs: [
-        'Ce site ne comporte aucun formulaire : nous ne traitons que les données que vous nous transmettez vous-même, par e-mail à contact@arlioz.be ou par message sur LinkedIn :',
+        'Ce site ne comporte aucun formulaire : nous ne traitons que les données que vous nous transmettez vous-même, par e-mail à contact@arlioz.be ou par message sur LinkedIn :',
       ],
       list: [
         'vos nom et prénom, et le cas échéant votre société et votre fonction',
@@ -158,7 +158,7 @@ const privacyFr: LegalPage = {
     {
       title: 'Destinataires et sous-traitants',
       paragraphs: [
-        'Vos données sont accessibles aux membres d’Arlioz en charge de votre demande. Le site lui-même ne collecte rien ; il est hébergé par Vercel Inc. Les e-mails sont traités par notre fournisseur de messagerie, et les messages LinkedIn par LinkedIn Ireland Unlimited Company selon sa propre politique de confidentialité. Ces prestataires sont tenus par des accords de traitement conformes à l’article 28 du RGPD ; les transferts hors Union européenne sont encadrés par les clauses contractuelles types de la Commission européenne.',
+        'Vos données sont accessibles aux membres d’Arlioz en charge de votre demande. Le site lui-même ne collecte rien ; il est hébergé par Vercel Inc. Les e-mails sont traités par notre fournisseur de messagerie, et les messages LinkedIn par LinkedIn Ireland Unlimited Company selon sa propre politique de confidentialité. Ces prestataires sont tenus par des accords de traitement conformes à l’article 28 du RGPD ; les transferts hors Union européenne sont encadrés par les clauses contractuelles types de la Commission européenne.',
       ],
     },
     {
@@ -189,7 +189,7 @@ const privacyFr: LegalPage = {
       id: 'cookies',
       title: 'Cookies et mesure d’audience',
       paragraphs: [
-        'Ce site ne dépose aucun cookie de suivi et n’utilise aucun outil publicitaire. La mesure d’audience repose sur Vercel Web Analytics et Vercel Speed Insights, qui fonctionnent sans cookie et sans identifiant persistant : les données sont agrégées et anonymes (pages vues, pays, type d’appareil, métriques de performance). Aucun consentement n’est donc requis et aucune bannière n’est affichée.',
+        'Ce site ne dépose aucun cookie de suivi et n’utilise aucun outil publicitaire. La mesure d’audience repose sur Vercel Web Analytics et Vercel Speed Insights, qui fonctionnent sans cookie et sans identifiant persistant : les données sont agrégées et anonymes (pages vues, pays, type d’appareil, métriques de performance). Aucun consentement n’est donc requis et aucune bannière n’est affichée.',
         'Les seules données stockées dans votre navigateur sont techniques (préférences d’affichage) et ne permettent pas de vous identifier.',
       ],
     },
@@ -293,36 +293,36 @@ const browserGuides = [
 const cookiesFr: LegalPage = {
   title: 'Gestion des cookies',
   description:
-    'Les cookies et traceurs utilisés sur arlioz.be : aucun cookie de suivi, mesure d’audience sans cookie, et comment gérer vos préférences.',
+    'Les cookies et traceurs utilisés sur arlioz.be : aucun cookie de suivi, mesure d’audience sans cookie, et comment gérer vos préférences.',
   updated: '2026-10-16',
   updatedLabel: 'Dernière mise à jour',
   sections: [
     {
-      title: 'Qu’est-ce qu’un cookie ?',
+      title: 'Qu’est-ce qu’un cookie ?',
       paragraphs: [
         'Un cookie est un petit fichier déposé par un site dans votre navigateur. Il peut servir au fonctionnement du site (cookies strictement nécessaires), à mesurer la fréquentation ou à vous suivre à des fins publicitaires. Les deux dernières catégories requièrent votre consentement.',
       ],
     },
     {
       title: 'Ce que ce site utilise',
-      paragraphs: ['Ce site est conçu pour fonctionner sans cookie et sans traceur :'],
+      paragraphs: ['Ce site est conçu pour fonctionner sans cookie et sans traceur :'],
       list: [
-        'aucun cookie de suivi ni cookie publicitaire ;',
-        'aucun réseau social ni service tiers embarqué (pas de vidéo, de carte ou de police chargée depuis un domaine externe) ;',
-        'mesure d’audience par Vercel Web Analytics et Vercel Speed Insights, qui fonctionnent sans cookie ni identifiant persistant et ne produisent que des statistiques agrégées et anonymes (pages vues, pays, type d’appareil, métriques de performance) ;',
-        'aucun formulaire : le contact se fait par e-mail ou LinkedIn, aucune donnée n’est saisie sur le site.',
+        'aucun cookie de suivi ni cookie publicitaire ;',
+        'aucun réseau social ni service tiers embarqué (pas de vidéo, de carte ou de police chargée depuis un domaine externe) ;',
+        'mesure d’audience par Vercel Web Analytics et Vercel Speed Insights, qui fonctionnent sans cookie ni identifiant persistant et ne produisent que des statistiques agrégées et anonymes (pages vues, pays, type d’appareil, métriques de performance) ;',
+        'aucun formulaire : le contact se fait par e-mail ou LinkedIn, aucune donnée n’est saisie sur le site.',
       ],
     },
     {
-      title: 'Pourquoi aucune bannière ?',
+      title: 'Pourquoi aucune bannière ?',
       paragraphs: [
-        'La réglementation (directive ePrivacy, article 129 de la loi belge du 13 juin 2005 et lignes directrices de l’Autorité de protection des données) n’impose un consentement que pour les cookies et traceurs non strictement nécessaires. Ce site n’en utilise aucun : il n’y a donc rien à accepter ni à refuser, et aucune bannière n’est affichée.',
+        'La réglementation (directive ePrivacy, article 129 de la loi belge du 13 juin 2005 et lignes directrices de l’Autorité de protection des données) n’impose un consentement que pour les cookies et traceurs non strictement nécessaires. Ce site n’en utilise aucun : il n’y a donc rien à accepter ni à refuser, et aucune bannière n’est affichée.',
       ],
     },
     {
       title: 'Gérer les cookies dans votre navigateur',
       paragraphs: [
-        'Vous pouvez à tout moment consulter, bloquer ou supprimer les cookies de tous les sites via les réglages de votre navigateur :',
+        'Vous pouvez à tout moment consulter, bloquer ou supprimer les cookies de tous les sites via les réglages de votre navigateur :',
       ],
       links: browserGuides,
     },
@@ -334,7 +334,7 @@ const cookiesFr: LegalPage = {
     },
     {
       title: 'Questions',
-      paragraphs: ['Pour toute question sur les cookies ou vos données : contact@arlioz.be.'],
+      paragraphs: ['Pour toute question sur les cookies ou vos données : contact@arlioz.be.'],
     },
   ],
 };

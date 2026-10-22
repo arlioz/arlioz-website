@@ -67,6 +67,17 @@ chaque page et dans le sitemap. Les segments publics anglais (`/en/work/...`, `/
 
 Pas de formulaire ni de backend : la section Contact invite à écrire à contact@arlioz.be (lien `mailto:` avec sujet
 pré-rempli) ou à contacter Arlioz sur LinkedIn.
+Les blocs d'expertise (RGPD, développement, migration) ont chacun leur lien `mailto:` avec un objet propre
+(`components/ui/MailLink.tsx`).
+
+## Preuves et contenu commercial
+
+- **Réalisations** : chaque projet a une histoire (`story` : besoin, solution, rôle, résultats) affichée sur la
+  carte (besoin, résultat) et dans l'étude de cas. Un résultat chiffré (`value`) ne s'écrit que s'il a été mesuré.
+- **À propos** : les chiffres clés (`about.facts`) ne reprennent que des faits vérifiés.
+- **Recommandations** : `team.recommendations.items` (citation, auteur, fonction), à remplir avec des
+  recommandations LinkedIn publiées avec l'accord de leurs auteurs. Le bloc est masqué tant que la liste est vide.
+- **Typographie française** : espace insécable avant `: ; ? !` dans `content/fr.ts` et `content/legal.ts`.
 
 ## Déploiement (Vercel)
 
