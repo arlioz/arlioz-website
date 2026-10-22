@@ -8,7 +8,7 @@ import { Eyebrow } from '@/components/ui/Eyebrow';
 import { ArrowRight, ArrowUpRight } from '@/components/ui/Icons';
 import { LineTitle } from '@/components/ui/LineTitle';
 
-const glow = { orange: '#FA7F13', blue: '#2065CB', green: '#2BBE8D', yellow: '#FEB613' } as const;
+const glow = { orange: '#FA7F13', blue: '#2065CB', green: '#2BBE8D' } as const;
 
 export function Work({ locale, content }: { locale: Locale; content: SiteContent }) {
   const { work } = content;
@@ -86,7 +86,6 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                     devices={project.devices}
                     reversed={project.reversed}
                     glow={glow[project.accent]}
-                    glowOpacity={project.accent === 'yellow' ? 0.14 : 0.16}
                     href={href}
                     ariaLabel={`${work.caseStudy} : ${project.title}`}
                   />

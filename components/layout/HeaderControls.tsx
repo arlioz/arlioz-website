@@ -23,7 +23,6 @@ const dotColor = {
   orange: 'bg-orange',
   blue: 'bg-blue',
   green: 'bg-green',
-  yellow: 'bg-yellow',
 } as const;
 
 export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsProps) {

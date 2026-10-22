@@ -2,11 +2,8 @@ import { type SiteContent } from '@/content/types';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { LineTitle } from '@/components/ui/LineTitle';
 
-const accents = [
-  { hx: 'hx-orange', dot: 'bg-orange/14 text-orange-light' },
-  { hx: 'hx-blue', dot: 'bg-blue/14 text-blue-light' },
-  { hx: 'hx-green', dot: 'bg-green/14 text-green-light' },
-] as const;
+/** Every recommendation is about development work: orange, per the brand colour code. */
+const a = { hx: 'hx-orange', dot: 'bg-orange/14 text-orange-light' } as const;
 
 function initials(name: string) {
   return name
@@ -40,8 +37,7 @@ export function Testimonials({ content }: { content: SiteContent }) {
         </div>
 
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-          {testimonials.items.map((item, i) => {
-            const a = accents[i % accents.length] ?? accents[0];
+          {testimonials.items.map((item) => {
             return (
               <figure
                 key={item.name}

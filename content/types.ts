@@ -1,6 +1,7 @@
 import { type Locale } from '@/lib/i18n';
 
-export type Accent = 'orange' | 'blue' | 'green' | 'yellow';
+/** Brand colour code: orange = development, blue = GDPR, green = both. */
+export type Accent = 'orange' | 'blue' | 'green';
 export type Mark = 'blue' | 'orange' | 'green';
 
 export interface RichSegment {

@@ -113,7 +113,7 @@ const jkstudio: Project = {
   tags: ['Next.js', 'Supabase'],
   demoUrl: 'https://www.jkstudio.fr/',
   demoLabel: 'Visit the site',
-  accent: 'yellow',
+  accent: 'orange',
   reversed: true,
   story: {
     challenge:
@@ -231,11 +231,11 @@ export const en: SiteContent = {
     close: 'Close',
     sectionLabel: 'Navigation',
     items: [
-      { label: 'Work', anchor: 'realisations', dot: 'blue' },
-      { label: 'Expertise', anchor: 'expertises', dot: 'orange' },
+      { label: 'Work', anchor: 'realisations', dot: 'orange' },
+      { label: 'Expertise', anchor: 'expertises', dot: 'green' },
       { label: 'Team', anchor: 'equipe', dot: 'green' },
-      { label: 'Education', anchor: 'education', dot: 'yellow' },
-      { label: 'Contact', anchor: 'contact', dot: 'blue' },
+      { label: 'Education', anchor: 'education', dot: 'green' },
+      { label: 'Contact', anchor: 'contact', dot: 'orange' },
     ],
     write: 'Write to us',
     follow: 'Follow',
