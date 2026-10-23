@@ -46,13 +46,13 @@ export default async function HomePage({ params }: PageProps) {
           faqJsonLd(content),
         ]}
       />
-      {/* Promise → proof → offer → method → people → proof → way in → objections → contact. */}
+      {/* Promise → proof → people → offer → work → method → social proof → way in → objections → contact. */}
       <Hero locale={locale} content={content} />
       <ClientsBand content={content} />
+      <Team content={content} />
       <Expertises locale={locale} content={content} />
       <Work locale={locale} content={content} />
       <Method content={content} />
-      <Team content={content} />
       <Testimonials content={content} />
       <Start content={content} />
       <Faq content={content} />

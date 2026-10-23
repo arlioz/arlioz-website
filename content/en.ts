@@ -266,10 +266,10 @@ export const en: SiteContent = {
     close: 'Close',
     sectionLabel: 'Navigation',
     items: [
+      { label: 'Team', anchor: 'equipe', dot: 'green' },
       { label: 'Expertise', anchor: 'expertises', dot: 'green' },
       { label: 'Work', anchor: 'realisations', dot: 'orange' },
       { label: 'Methodology', anchor: 'methode', dot: 'green' },
-      { label: 'Team', anchor: 'equipe', dot: 'green' },
       { label: 'Get started', anchor: 'demarrer', dot: 'orange' },
       { label: 'Contact', anchor: 'contact', dot: 'orange' },
     ],
@@ -293,7 +293,7 @@ export const en: SiteContent = {
     ctaSecondary: 'See our work',
   },
   expertises: {
-    index: '01',
+    index: '02',
     label: 'Expertise',
     title: ['Two crafts,', 'two specialties.'],
     intro:
@@ -390,7 +390,7 @@ export const en: SiteContent = {
     ],
   },
   work: {
-    index: '02',
+    index: '03',
     label: 'Work',
     title: ['Products', 'in production.'],
     intro: 'Software used every day, and a team we support day to day.',
@@ -414,7 +414,7 @@ export const en: SiteContent = {
     ],
   },
   team: {
-    index: '04',
+    index: '01',
     label: 'Team',
     title: 'Two seniors, directly.',
     intro: [
@@ -505,7 +505,7 @@ export const en: SiteContent = {
     ],
   },
   method: {
-    index: '03',
+    index: '04',
     label: 'Methodology',
     title: ['No black box.', 'Four clear steps.'],
     intro: 'At every step, you know what we do, why, and what you get at the end.',

@@ -285,10 +285,10 @@ export const fr: SiteContent = {
     close: 'Fermer',
     sectionLabel: 'Navigation',
     items: [
+      { label: 'Équipe', anchor: 'equipe', dot: 'green' },
       { label: 'Expertises', anchor: 'expertises', dot: 'green' },
       { label: 'Réalisations', anchor: 'realisations', dot: 'orange' },
       { label: 'Méthodologie', anchor: 'methode', dot: 'green' },
-      { label: 'Équipe', anchor: 'equipe', dot: 'green' },
       { label: 'Démarrer', anchor: 'demarrer', dot: 'orange' },
       { label: 'Contact', anchor: 'contact', dot: 'orange' },
     ],
@@ -312,7 +312,7 @@ export const fr: SiteContent = {
     ctaSecondary: 'Voir nos réalisations',
   },
   expertises: {
-    index: '01',
+    index: '02',
     label: 'Expertises',
     title: ['Deux métiers,', 'deux spécialités.'],
     intro:
@@ -420,7 +420,7 @@ export const fr: SiteContent = {
     ],
   },
   work: {
-    index: '02',
+    index: '03',
     label: 'Réalisations',
     title: ['Des produits', 'en production.'],
     intro: 'Des logiciels utilisés chaque jour, et une équipe que nous accompagnons au quotidien.',
@@ -444,7 +444,7 @@ export const fr: SiteContent = {
   },
   trust: { label: 'Une expérience forgée chez' },
   team: {
-    index: '04',
+    index: '01',
     label: 'Équipe',
     title: 'Deux seniors, en direct.',
     intro: [
@@ -544,7 +544,7 @@ export const fr: SiteContent = {
     ],
   },
   method: {
-    index: '03',
+    index: '04',
     label: 'Méthodologie',
     title: ['Pas de boîte noire.', 'Quatre étapes claires.'],
     intro:
