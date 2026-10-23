@@ -222,12 +222,6 @@ export interface SiteContent {
     eyebrow: string;
     /** The line under the title: who you deal with, since when. */
     lead: string;
-    /** Next to the founders' portraits, above the title; links to the team section. */
-    team: string;
-    /** Under the buttons, links to the testimonials; `{count}` is replaced. */
-    proof: string;
-    /** Facts shown next to the recommendations link, under the buttons. */
-    facts: string[];
     /** Pre-filled subject of the primary button (a discovery call by e-mail). */
     callSubject: string;
     /** Caption of the device stage beside the title. */

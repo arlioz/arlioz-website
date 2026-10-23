@@ -525,17 +525,9 @@
   .hero-br {
     display: none;
   }
-  @media (min-width: 1081px), (max-width: 600px) {
+  @media (max-width: 600px) {
     .hero-br {
       display: inline;
-    }
-  }
-  .hero-proof-link {
-    transition: border-color 0.3s var(--ease-out-expo);
-  }
-  @media (hover: hover) {
-    .hero-proof-link:hover {
-      border-color: var(--color-line-5);
     }
   }
   /* The current only flows along the edges: the centre is masked out so the
@@ -1185,21 +1177,6 @@
   }
   .intro-4 {
     animation-delay: 0.58s;
-  }
-  /* Founders' portraits in the hero pill, overlapping, ringed with the page colour. */
-  .hero-face {
-    box-shadow: 0 0 0 2px var(--color-ink);
-  }
-  .hero-team {
-    transition:
-      border-color 0.3s var(--ease-out-expo),
-      background-color 0.3s var(--ease-out-expo);
-  }
-  @media (hover: hover) {
-    .hero-team:hover {
-      border-color: var(--color-line-5);
-      background-color: rgb(var(--paper-rgb) / 0.06);
-    }
   }
   .ln-wrap {
     display: flex;
@@ -1914,12 +1891,6 @@
   .cta-btns > a {
     flex: 1 1 100%;
     justify-content: center;
-  }
-}
-@media (max-width: 400px) {
-  .hero-team {
-    font-size: 14px !important;
-    gap: 10px !important;
   }
 }
 
