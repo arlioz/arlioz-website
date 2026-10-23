@@ -509,7 +509,7 @@ export const en: SiteContent = {
     label: 'Methodology',
     title: ['No black box.', 'Four clear steps.'],
     intro: 'At every step, you know what we do, why, and what you get at the end.',
-    deliverable: 'You get',
+    deliverable: 'Deliverable',
     steps: [
       {
         title: 'Audit',

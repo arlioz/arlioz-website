@@ -549,7 +549,7 @@ export const fr: SiteContent = {
     title: ['Pas de boîte noire.', 'Quatre étapes claires.'],
     intro:
       'À chaque étape, vous savez ce que nous faisons, pourquoi, et ce que vous recevez à la fin.',
-    deliverable: 'Vous recevez',
+    deliverable: 'Livrable',
     steps: [
       {
         title: 'Audit',
