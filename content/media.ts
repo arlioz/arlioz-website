@@ -58,7 +58,6 @@ export const trustLogos: TrustLogo[] = [
 
 export const clientLogos: TrustLogo[] = [
   { name: 'Radyo', src: '/images/logos/radyo-v2.webp', w: 122, h: 120, withName: true },
-  { name: 'Restomax', src: '/images/logos/restomax-v2.webp', w: 489, h: 120 },
   { name: 'JK Studio', src: '/images/logos/jkstudio.webp', w: 120, h: 120, withName: true },
 ];
 
