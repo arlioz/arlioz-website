@@ -14,27 +14,8 @@ export function About({ content }: { content: SiteContent }) {
     <section id="a-propos" aria-labelledby="about-title" className="pb-section">
       <div className="container-site">
         <div className="split">
-          <div className="flex flex-col justify-between gap-10">
-            <Eyebrow index={about.index} label={about.label} />
-            <dl className="about-facts m-0">
-              {about.facts.map((fact, i) => (
-                <div key={fact.label} className={i === 0 ? 'about-fact-main' : 'about-fact'}>
-                  <dt
-                    className={
-                      i === 0
-                        ? 'label-mono m-0 text-muted-3'
-                        : 'm-0 text-sm leading-[1.4] text-muted text-pretty'
-                    }
-                  >
-                    {fact.label}
-                  </dt>
-                  <dd className="m-0 font-display leading-[0.9] font-normal tracking-[-0.05em] text-paper">
-                    {fact.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+          {/* The key figures moved to the proof band under the hero. */}
+          <Eyebrow index={about.index} label={about.label} className="self-start" />
 
           <div className="min-w-0">
             <h2

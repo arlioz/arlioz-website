@@ -12,8 +12,10 @@ interface DeviceStageProps {
   glowOpacity?: number;
   href?: string;
   ariaLabel?: string;
-  /** Case-study hero: larger images, and the laptop screen is the page's LCP. */
-  hero?: boolean;
+  /** Case-study hero: the stage spans up to 1100 px, so the images load larger. */
+  large?: boolean;
+  /** Above the fold: the laptop screen is the page's LCP and loads first. */
+  priority?: boolean;
 }
 
 /**
@@ -53,18 +55,20 @@ function Screen({
   frame,
   motion,
   className,
-  hero = false,
+  large = false,
+  priority = false,
 }: {
   image: ProjectImage;
   alt?: ProjectImage;
   frame: keyof typeof frames;
   motion: DeviceSet['motion'];
   className: string;
-  hero?: boolean;
+  large?: boolean;
+  priority?: boolean;
 }) {
   const f = frames[frame];
-  const sizes = hero ? heroSizes[frame] : f.sizes;
-  const lcp = hero && frame === 'desktop';
+  const sizes = large ? heroSizes[frame] : f.sizes;
+  const lcp = priority && frame === 'desktop';
   const base = 'absolute top-0 left-0 block h-auto w-full';
   const vars = (img: ProjectImage) => ({ '--travel': travel(img, f.w, f.h) }) as CSSProperties;
   return (
@@ -107,7 +111,8 @@ export function DeviceStage({
   glowOpacity = 0.16,
   href,
   ariaLabel,
-  hero = false,
+  large = false,
+  priority = false,
 }: DeviceStageProps) {
   const scroll = devices.motion === 'scroll';
   // No frame of its own: the devices sit directly on the project card (one level of
@@ -150,7 +155,8 @@ export function DeviceStage({
           frame="desktop"
           motion={devices.motion}
           className={scroll ? 'jk-scroll-desk' : ''}
-          hero={hero}
+          large={large}
+          priority={priority}
         />
       </DeviceFrame>
 
@@ -167,7 +173,8 @@ export function DeviceStage({
           frame="tablet"
           motion={devices.motion}
           className={scroll ? 'jk-scroll-tab' : 'rx-t'}
-          hero={hero}
+          large={large}
+          priority={priority}
         />
       </DeviceFrame>
 
@@ -184,7 +191,8 @@ export function DeviceStage({
           frame="phone"
           motion={devices.motion}
           className={scroll ? 'jk-scroll-mob' : 'rx-m'}
-          hero={hero}
+          large={large}
+          priority={priority}
         />
       </DeviceFrame>
     </>

@@ -111,9 +111,10 @@
   --shadow-device: 0 24px 50px rgb(0 0 0 / 0.55);
   --shadow-device-lg: 0 30px 60px rgb(0 0 0 / 0.5);
   --glow-k: 1;
+  /* Brand colour code: orange = development (line 1), green = teams, development
+     and GDPR together (line 2). */
   --hero-a: #ffb13d, #ff7c00 55%, #ff5a1f;
-  /* Brand colour code: orange = development (line 1), blue = GDPR (line 2). */
-  --hero-b: #a9c8ff, #6e9cf0 50%, #4f86f0;
+  --hero-c: #8ff0cb, #3ccf9b 50%, #22b08f;
   --btn-halo: 0 10px 26px -14px rgb(246 96 26 / 0.7);
   --btn-halo-hover: 0 16px 34px -12px rgb(246 96 26 / 0.65);
 }
@@ -163,7 +164,7 @@
     --shadow-device-lg: 0 30px 60px rgb(16 24 40 / 0.16);
     --glow-k: 0.55;
     --hero-a: #e8640a, #d14a08 55%, #c23d0c;
-    --hero-b: #2a6fd6, #1d5bbf 55%, #1a4fa8;
+    --hero-c: #0f9a72, #0b8466 55%, #0a7268;
     --color-device-edge: #d9dbdb;
     /* On white the dark-theme halo reads as a smudge: tighter and lighter. */
     --btn-halo: 0 8px 18px -12px rgb(246 96 26 / 0.45);
@@ -517,11 +518,35 @@
   /* The first screen holds the hero and the logo band under it (~190px): trust
      is visible without scrolling. Short screens let the content set the height. */
   .hero {
+    --hero-focus: 30% 50%;
     display: grid;
-    place-items: center;
+    align-items: center;
     min-height: calc(100svh - 190px);
     margin-top: -84px;
-    padding: 164px 0 72px;
+    padding: 148px 0 72px;
+  }
+  /* Promise on the left (7 columns), the product on its devices on the right (5). */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: center;
+    gap: clamp(32px, 4vw, 72px);
+  }
+  .hero-br {
+    display: none;
+  }
+  @media (min-width: 1081px), (max-width: 600px) {
+    .hero-br {
+      display: inline;
+    }
+  }
+  .hero-proof-link {
+    transition: border-color 0.3s var(--ease-out-expo);
+  }
+  @media (hover: hover) {
+    .hero-proof-link:hover {
+      border-color: var(--color-line-5);
+    }
   }
   /* The current only flows along the edges: the centre is masked out so the
      text sits on plain ink. The veil darkens the middle a little more. Without a
@@ -532,8 +557,12 @@
     display: block;
     width: 100%;
     height: 100%;
-    mask-image: radial-gradient(ellipse 46% 44% at 50% 50%, transparent 38%, #000 100%);
-    -webkit-mask-image: radial-gradient(ellipse 46% 44% at 50% 50%, transparent 38%, #000 100%);
+    mask-image: radial-gradient(ellipse 46% 44% at var(--hero-focus), transparent 38%, #000 100%);
+    -webkit-mask-image: radial-gradient(
+      ellipse 46% 44% at var(--hero-focus),
+      transparent 38%,
+      #000 100%
+    );
   }
   .hero-veil {
     position: absolute;
@@ -541,7 +570,7 @@
     pointer-events: none;
     background:
       radial-gradient(
-        ellipse 50% 46% at 50% 50%,
+        ellipse 50% 46% at var(--hero-focus),
         rgb(var(--ink-rgb) / 0.92),
         rgb(var(--ink-rgb) / 0.5) 60%,
         transparent 78%
@@ -569,38 +598,30 @@
   .hero-hl-a {
     background-image: linear-gradient(95deg, var(--hero-a));
   }
-  .hero-hl-b {
-    background-image: linear-gradient(95deg, var(--hero-b));
+  .hero-hl-c {
+    background-image: linear-gradient(95deg, var(--hero-c));
   }
   .hero-lead {
     text-shadow: 0 1px 12px rgb(var(--ink-rgb) / 0.9);
   }
-  /* About: the founding year, large, then three key facts in a row. The label comes
+  /* Proof band: four key figures in a row, split by hairlines. The label comes
      first in the DOM (dt) and is shown under the figure. */
-  .about-facts {
+  .stats {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px 20px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-  .about-facts > div {
+  .stat {
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
     gap: 10px;
+    padding: 4px clamp(16px, 2.4vw, 36px);
   }
-  .about-fact-main {
-    grid-column: 1 / -1;
-    padding-bottom: 28px;
-    border-bottom: 1px solid var(--color-line-2);
+  .stat + .stat {
+    border-left: 1px solid var(--color-line);
   }
-  .about-fact-main dd {
-    font-size: var(--text-stat);
-  }
-  .about-fact dd {
-    font-size: clamp(34px, 3.2vw, 48px);
-  }
-  .about-fact dt {
-    line-height: 1.4;
+  .stat:first-child {
+    padding-left: 0;
   }
   /* Layout grids --------------------------------------------------- */
   .split {
@@ -1488,7 +1509,24 @@
     display: inline-flex;
   }
 }
+@media (max-width: 720px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 24px;
+  }
+  .stat:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
 @media (max-width: 1080px) {
+  /* Hero: the promise, then the product under it at a readable size. */
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hero-visual {
+    width: min(100%, 640px);
+  }
   /* One profile card per row; the portrait keeps a sensible size. One offer per row. */
   .team-grid,
   .offers {
@@ -1612,8 +1650,9 @@
     background-position: 0 calc(100% - 9px);
   }
   .hero {
+    --hero-focus: 50% 32%;
     min-height: 78svh;
-    padding: 140px 0 56px;
+    padding: 132px 0 56px;
   }
   .pillars {
     grid-template-columns: minmax(0, 1fr) !important;

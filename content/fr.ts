@@ -295,29 +295,27 @@ export const fr: SiteContent = {
     follow: 'Suivre',
     language: 'Langue',
     tagline: 'Applications, accompagnement des équipes et conformité RGPD, depuis 2018.',
-    cta: 'Parler de mon projet',
+    cta: 'Réserver un appel',
     linkedin: 'LinkedIn',
   },
   hero: {
     title: [
-      { lead: 'Vos logiciels et SaaS, ', em: 'conçus' },
-      { lead: 'et ', em: 'conformes RGPD', tail: ' dès le premier jour.' },
+      { lead: 'Nous ', em: 'concevons', tail: ' vos logiciels,' },
+      { lead: 'et faisons ', em: 'grandir', tail: ' vos équipes.' },
     ],
-    lead: 'Un développeur fullstack et un expert RGPD, en direct : nous développons vos logiciels et accompagnons vos équipes, depuis 2018.',
+    eyebrow: 'Studio produit & conseil technique · Charleroi',
+    lead: 'Un développeur fullstack et un architecte IT & expert RGPD, en direct depuis 2018 : SaaS, applications métier, lead technique, et la conformité intégrée dès l’architecture.',
     team: 'Guy et Amaury, vos interlocuteurs',
     proof: '{count} recommandations LinkedIn',
-    ctaPrimary: 'Parler de mon projet',
+    facts: ['Lead technique chez Radyo', 'Restomax Book en production'],
+    callSubject: 'Appel découverte (30 min) — demande de rendez-vous',
+    visualCaption: 'En production · Restomax Book, SaaS de réservation',
+    ctaPrimary: 'Réserver un appel de 30 min',
     ctaSecondary: 'Voir nos réalisations',
   },
   about: {
     index: '04',
     label: 'À propos',
-    facts: [
-      { value: '2018', label: 'Création d’Arlioz' },
-      { value: '30+', label: 'Années d’expérience en IT et sécurité' },
-      { value: '10+', label: 'Années d’enseignement en informatique' },
-      { value: '3', label: 'Produits en production' },
-    ],
     title: [
       { text: 'Depuis 2018, ' },
       { text: 'un expert RGPD', mark: 'blue' },
@@ -449,6 +447,13 @@ export const fr: SiteContent = {
   },
   clients: {
     label: 'En production chez',
+    statsLabel: 'Arlioz en chiffres',
+    stats: [
+      { value: '2018', label: 'Création d’Arlioz' },
+      { value: '30+', label: 'Années d’expérience en IT et sécurité' },
+      { value: '10+', label: 'Années d’enseignement en informatique' },
+      { value: '3', label: 'Produits en production' },
+    ],
   },
   trust: { label: 'Une expérience forgée chez' },
   team: {

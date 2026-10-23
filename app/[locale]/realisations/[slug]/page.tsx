@@ -218,7 +218,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </dl>
           {/* The project on its three devices, as on the home page card. */}
           <div className="intro-media mx-auto mt-[clamp(40px,5vw,64px)] w-full max-w-[1100px]">
-            <DeviceStage devices={project.devices} glow={glow[project.accent]} hero />
+            <DeviceStage devices={project.devices} glow={glow[project.accent]} large priority />
           </div>
         </div>
       </section>

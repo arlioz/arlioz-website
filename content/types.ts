@@ -189,20 +189,26 @@ export interface SiteContent {
      * then an optional `tail` back in the display face.
      */
     title: { lead: string; em: string; tail?: string }[];
+    /** Mono line above the title: what Arlioz is, and where. */
+    eyebrow: string;
     /** The line under the title: who you deal with, since when. */
     lead: string;
     /** Next to the founders' portraits, above the title; links to the team section. */
     team: string;
     /** Under the buttons, links to the testimonials; `{count}` is replaced. */
     proof: string;
+    /** Facts shown next to the recommendations link, under the buttons. */
+    facts: string[];
+    /** Pre-filled subject of the primary button (a discovery call by e-mail). */
+    callSubject: string;
+    /** Caption of the device stage beside the title. */
+    visualCaption: string;
     ctaPrimary: string;
     ctaSecondary: string;
   };
   about: {
     index: string;
     label: string;
-    /** Key facts in the left column; the first one is the founding year. */
-    facts: { value: string; label: string }[];
     title: RichSegment[];
     pillars: { title: string; text: string }[];
   };
@@ -233,8 +239,13 @@ export interface SiteContent {
     /** The cards, in order: projects (with a case study) and missions. */
     items: (Project | Mission)[];
   };
-  /** The clients band under the hero: who runs our work in production. */
-  clients: { label: string };
+  /** The proof band under the hero: who runs our work in production, then key figures. */
+  clients: {
+    label: string;
+    /** Accessible name of the key figures list. */
+    statsLabel: string;
+    stats: { value: string; label: string }[];
+  };
   /** Under the team cards: where the founders have worked (logos in `content/media.ts`). */
   trust: { label: string };
   team: {

@@ -276,29 +276,27 @@ export const en: SiteContent = {
     follow: 'Follow',
     language: 'Language',
     tagline: 'Applications, team support and GDPR compliance, since 2018.',
-    cta: 'Talk about my project',
+    cta: 'Book a call',
     linkedin: 'LinkedIn',
   },
   hero: {
     title: [
-      { lead: 'Your software and SaaS, ', em: 'built' },
-      { lead: 'and ', em: 'GDPR-compliant', tail: ' from day one.' },
+      { lead: 'We ', em: 'build', tail: ' your software,' },
+      { lead: 'and ', em: 'grow', tail: ' your teams.' },
     ],
-    lead: 'A full-stack developer and a GDPR expert, working with you directly: we build your software and support your teams, since 2018.',
+    eyebrow: 'Product studio & technical consulting · Charleroi',
+    lead: 'A full-stack developer and an IT architect & GDPR expert, working with you directly since 2018: SaaS, business applications, tech lead, and compliance built into the architecture.',
     team: 'Guy and Amaury, your contacts',
     proof: '{count} LinkedIn recommendations',
-    ctaPrimary: 'Talk about my project',
+    facts: ['Tech lead at Radyo', 'Restomax Book in production'],
+    callSubject: 'Discovery call (30 min) — meeting request',
+    visualCaption: 'In production · Restomax Book, booking SaaS',
+    ctaPrimary: 'Book a 30-min call',
     ctaSecondary: 'See our work',
   },
   about: {
     index: '04',
     label: 'About',
-    facts: [
-      { value: '2018', label: 'Arlioz founded' },
-      { value: '30+', label: 'Years of IT and security experience' },
-      { value: '10+', label: 'Years teaching computer science' },
-      { value: '3', label: 'Products in production' },
-    ],
     title: [
       { text: 'Since 2018, ' },
       { text: 'a GDPR expert', mark: 'blue' },
@@ -420,6 +418,13 @@ export const en: SiteContent = {
   trust: { label: 'Experience gained at' },
   clients: {
     label: 'In production at',
+    statsLabel: 'Arlioz in figures',
+    stats: [
+      { value: '2018', label: 'Arlioz founded' },
+      { value: '30+', label: 'Years of IT and security experience' },
+      { value: '10+', label: 'Years teaching computer science' },
+      { value: '3', label: 'Products in production' },
+    ],
   },
   team: {
     index: '01',
