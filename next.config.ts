@@ -45,6 +45,9 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   experimental: {
     optimizePackageImports: ['gsap'],
+    // Off for `next build`: the restored build cache on Vercel served the previous
+    // deployment's Tailwind output (new HTML, old CSS: offers and logos unstyled).
+    turbopackFileSystemCacheForBuild: false,
   },
   turbopack: {
     rules: {
