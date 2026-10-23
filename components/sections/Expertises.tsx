@@ -1,33 +1,23 @@
 import { type Offer, type SiteContent } from '@/content/types';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { ArrowRight, Check, expertiseIcons, Layers, Shield } from '@/components/ui/Icons';
+import { ArrowDown, Check, expertiseIcons, Layers, Shield } from '@/components/ui/Icons';
 import { LineTitle } from '@/components/ui/LineTitle';
 import { MailLink } from '@/components/ui/MailLink';
 
 /** Brand colour code: orange = development, blue = GDPR, green = both. */
 const tone = {
-  orange: {
-    hx: 'hx-orange',
-    ico: 'bg-orange/13 text-orange-light',
-    tag: 'border-orange-light/30 text-orange-light',
-    check: 'text-orange-light',
-  },
-  blue: {
-    hx: 'hx-blue',
-    ico: 'bg-blue/14 text-blue-light',
-    tag: 'border-blue-light/32 text-blue-light',
-    check: 'text-blue-light',
-  },
-  green: {
-    hx: 'hx-green',
-    ico: 'bg-green/14 text-green-light',
-    tag: 'border-green-light/30 text-green-light',
-    check: 'text-green-light',
-  },
+  orange: { hx: 'hx-orange', ico: 'bg-orange/13 text-orange-light', accent: 'text-orange-light' },
+  blue: { hx: 'hx-blue', ico: 'bg-blue/14 text-blue-light', accent: 'text-blue-light' },
+  green: { hx: 'hx-green', ico: 'bg-green/14 text-green-light', accent: 'text-green-light' },
 } as const;
 
 const icons = [expertiseIcons.code, Shield, Layers] as const;
 
+/**
+ * One offer, read top to bottom: what it is, where you are today (grey), where you
+ * will be (ink, after the arrow), what we do (four points), then the contact link.
+ * The problem / result labels are only for screen readers; the arrow says it.
+ */
 function OfferCard({
   offer,
   index,
@@ -39,11 +29,6 @@ function OfferCard({
 }) {
   const t = tone[offer.accent];
   const Icon = icons[index] ?? Layers;
-  const lines = [
-    [labels.problem, offer.problem],
-    [labels.solution, offer.solution],
-    [labels.result, offer.result],
-  ] as const;
   return (
     <article
       className={`offer card-hover ${t.hx} relative flex flex-col rounded-card border border-line-2 bg-surface`}
@@ -51,44 +36,36 @@ function OfferCard({
       <div className="hx" aria-hidden="true" />
       <div className="hx-line" aria-hidden="true" />
 
-      <div className="relative flex flex-wrap items-center justify-between gap-3">
+      <div className="relative flex items-center gap-4">
         <span
-          className={`ico inline-flex h-[52px] w-[52px] items-center justify-center rounded-tile ${t.ico}`}
+          aria-hidden="true"
+          className={`inline-flex h-12 w-12 flex-none items-center justify-center rounded-tile ${t.ico}`}
         >
           <Icon />
         </span>
-        <span
-          className={`hx-tag label-mono-sm rounded-pill border px-3 py-1.5 whitespace-nowrap ${t.tag}`}
-        >
-          {offer.tag}
-        </span>
+        <h3 className="m-0 font-display text-card leading-[1.1] font-medium tracking-[-0.025em]">
+          {offer.title}
+        </h3>
       </div>
 
-      <h3 className="relative m-0 font-display text-card leading-[1.1] font-medium tracking-[-0.025em]">
-        {offer.title}
-      </h3>
-
-      {offer.shift && (
-        <p className="relative m-0 flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-sm text-muted-2">
-          <span className="line-through decoration-line-5">{offer.shift.from}</span>
-          <ArrowRight size={15} className={t.check} />
-          <span className="text-paper">{offer.shift.to}</span>
-        </p>
-      )}
-
-      <dl className="relative m-0 flex flex-col gap-4">
-        {lines.map(([label, text]) => (
-          <div key={label} className="flex flex-col gap-1">
-            <dt className="label-mono-sm text-muted-3">{label}</dt>
-            <dd className="m-0 text-base leading-[1.6] text-paper-2">{text}</dd>
-          </div>
-        ))}
+      <dl className="relative m-0 flex flex-col gap-3">
+        <div>
+          <dt className="sr-only">{labels.problem}</dt>
+          <dd className="m-0 text-base leading-[1.6] text-muted">{offer.problem}</dd>
+        </div>
+        <div>
+          <dt className="sr-only">{labels.result}</dt>
+          <dd className="m-0 flex flex-col gap-3 text-[17px] leading-[1.55] font-medium text-paper">
+            <ArrowDown size={18} className={t.accent} />
+            {offer.result}
+          </dd>
+        </div>
       </dl>
 
       <ul className="relative m-0 flex list-none flex-col gap-2.5 border-t border-line-2 p-0 pt-5">
         {offer.points.map((point) => (
           <li key={point} className="flex items-start gap-3 text-base leading-[1.5] text-paper-2">
-            <Check className={`mt-1 flex-none ${t.check}`} />
+            <Check className={`mt-1 flex-none ${t.accent}`} />
             {point}
           </li>
         ))}
@@ -99,7 +76,7 @@ function OfferCard({
   );
 }
 
-/** Three offers, read as problem → what we do → result, with one contact link each. */
+/** Three offers, each read as before → after, with what we do and a contact link. */
 export function Expertises({ content }: { content: SiteContent }) {
   const { expertises: x } = content;
   return (

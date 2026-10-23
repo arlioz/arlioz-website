@@ -296,11 +296,10 @@ export const en: SiteContent = {
       'A full-stack developer and a GDPR expert under one roof, since 2018. You pick the offer, we take it from start to finish.',
     signature:
       'Privacy by design: every development project builds GDPR in from the architecture, not after going live.',
-    labels: { problem: 'The problem', solution: 'What we do', result: 'The result' },
+    labels: { problem: 'The problem', result: 'The result' },
     offers: [
       {
         accent: 'orange',
-        tag: 'Development',
         title: 'Websites and applications',
         problem:
           'Your website or business tool is slow, hard to change or poorly suited to mobile.',
@@ -317,7 +316,6 @@ export const en: SiteContent = {
       },
       {
         accent: 'blue',
-        tag: 'Data protection',
         title: 'GDPR compliance',
         problem: 'You process personal data without knowing whether you are compliant.',
         solution: 'We audit your processing, write the required documents and train your teams.',
@@ -333,7 +331,6 @@ export const en: SiteContent = {
       },
       {
         accent: 'orange',
-        tag: 'Development · Migration',
         title: 'WinDev and WebDev migration',
         problem:
           'Your WinDev, WebDev or WinDev Mobile applications are ageing and getting costly to maintain.',
@@ -346,7 +343,6 @@ export const en: SiteContent = {
           'Interfaces, applications and APIs rebuilt',
           'Documentation and handover to your teams',
         ],
-        shift: { from: 'WinDev · WebDev · WinDev Mobile', to: 'Web · mobile · API' },
         cta: {
           label: 'Talk about your migration',
           subject: 'WinDev / WebDev migration — contact request',

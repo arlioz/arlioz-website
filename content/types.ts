@@ -87,15 +87,12 @@ export interface Project {
     (orange = development, blue = GDPR, green = both). */
 export interface Offer {
   accent: 'orange' | 'blue' | 'green';
-  tag: string;
   title: string;
   problem: string;
   solution: string;
   result: string;
   /** Up to four services. */
   points: string[];
-  /** A compact "from → to" line (the WinDev migration). */
-  shift?: { from: string; to: string };
   cta: ContactLink;
 }
 
@@ -192,8 +189,8 @@ export interface SiteContent {
     intro: string;
     /** The development × GDPR line (green), under the offers. */
     signature: string;
-    /** Labels of the three lines on each offer. */
-    labels: { problem: string; solution: string; result: string };
+    /** Before → after on each offer, read by screen readers (shown as an arrow). */
+    labels: { problem: string; result: string };
     offers: Offer[];
   };
   work: {

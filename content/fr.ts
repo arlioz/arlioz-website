@@ -320,11 +320,10 @@ export const fr: SiteContent = {
       'Un développeur fullstack et un expert RGPD sous le même toit, depuis 2018. Vous choisissez l’offre, nous la menons de bout en bout.',
     signature:
       'Privacy by design : chaque projet de développement intègre le RGPD dès l’architecture, pas après la mise en ligne.',
-    labels: { problem: 'Le problème', solution: 'Ce que nous faisons', result: 'Le résultat' },
+    labels: { problem: 'Le problème', result: 'Le résultat' },
     offers: [
       {
         accent: 'orange',
-        tag: 'Développement',
         title: 'Sites et applications',
         problem:
           'Votre site ou votre outil métier est lent, difficile à faire évoluer ou mal adapté au mobile.',
@@ -344,7 +343,6 @@ export const fr: SiteContent = {
       },
       {
         accent: 'blue',
-        tag: 'Protection des données',
         title: 'Conformité RGPD',
         problem: 'Vous traitez des données personnelles sans savoir si vous êtes en règle.',
         solution:
@@ -364,7 +362,6 @@ export const fr: SiteContent = {
       },
       {
         accent: 'orange',
-        tag: 'Développement · Migration',
         title: 'Migration WinDev et WebDev',
         problem:
           'Vos applications WinDev, WebDev ou WinDev Mobile vieillissent et deviennent coûteuses à maintenir.',
@@ -377,7 +374,6 @@ export const fr: SiteContent = {
           'Interfaces, applications et API reconstruites',
           'Documentation et transfert à vos équipes',
         ],
-        shift: { from: 'WinDev · WebDev · WinDev Mobile', to: 'Web · mobile · API' },
         cta: {
           label: 'Parler de votre migration',
           subject: 'Migration WinDev / WebDev — demande de contact',
