@@ -13,7 +13,8 @@
   --color-ink-2: #0d0d10;
   --color-surface: #111114;
   --color-surface-2: #141418;
-  --color-device: #1b1b21;
+  /* Outer edge of the device frames (components/ui/DeviceFrame.tsx): space grey. */
+  --color-device-edge: #3c3a38;
   --color-dot: #2a2a31;
 
   --color-paper: #f2f1ee;
@@ -163,6 +164,7 @@
     --glow-k: 0.55;
     --hero-a: #e8640a, #d14a08 55%, #c23d0c;
     --hero-b: #2a6fd6, #1d5bbf 55%, #1a4fa8;
+    --color-device-edge: #d9dbdb;
     /* On white the dark-theme halo reads as a smudge: tighter and lighter. */
     --btn-halo: 0 8px 18px -12px rgb(246 96 26 / 0.45);
     --btn-halo-hover: 0 12px 24px -12px rgb(246 96 26 / 0.45);

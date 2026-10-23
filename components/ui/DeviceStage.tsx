@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { type CSSProperties } from 'react';
 import { type DeviceSet, type ProjectImage } from '@/content/types';
-import { BrowserBar } from './BrowserBar';
+import { DeviceFrame, deviceScreens } from './DeviceFrame';
 import { Glow } from './Glow';
 
 interface DeviceStageProps {
@@ -27,9 +27,15 @@ function travel(image: ProjectImage, frameW: number, frameH: number): string {
 }
 
 const frames = {
-  desktop: { w: 16, h: 10, sizes: '(max-width: 1080px) 72vw, 42vw' },
-  tablet: { w: 820, h: 1180, sizes: '(max-width: 600px) 34vw, (max-width: 1080px) 23vw, 14vw' },
-  phone: { w: 390, h: 844, sizes: '(max-width: 600px) 21vw, (max-width: 1080px) 13vw, 8vw' },
+  desktop: { ...deviceScreens.laptop, sizes: '(max-width: 1080px) 72vw, 42vw' },
+  tablet: {
+    ...deviceScreens.tablet,
+    sizes: '(max-width: 600px) 34vw, (max-width: 1080px) 23vw, 14vw',
+  },
+  phone: {
+    ...deviceScreens.phone,
+    sizes: '(max-width: 600px) 21vw, (max-width: 1080px) 13vw, 8vw',
+  },
 } as const;
 
 function Screen({
@@ -75,7 +81,8 @@ function Screen({
 }
 
 /**
- * Composition of three device frames (desktop, tablet, phone) with screenshots.
+ * Composition of three device frames (MacBook, iPad, iPhone, from Apple Frames) with
+ * screenshots.
  * `motion: 'swap'` crossfades between two screens; `motion: 'scroll'` slowly
  * scrolls a tall capture. Both are CSS transform/opacity animations only.
  */
@@ -116,62 +123,52 @@ export function DeviceStage({
       />
 
       {/* Desktop */}
-      <div
-        className="dev dev-desk absolute top-[9%] w-[72%] overflow-hidden rounded-xl border border-line-4 bg-[#0E0E11] shadow-device-lg"
-        style={reversed ? { left: '5%' } : { right: '5%' }}
+      <DeviceFrame
+        kind="laptop"
+        screenBg={devices.screenBg}
+        className="dev dev-desk absolute top-[7%] w-[80%]"
+        style={reversed ? { left: '2%' } : { right: '2%' }}
       >
-        <BrowserBar url={devices.url} size="sm" />
-        <div
-          className="relative block aspect-[16/10] overflow-hidden"
-          style={{ backgroundColor: devices.screenBg }}
-        >
-          <Screen
-            image={devices.desktop}
-            alt={devices.desktopAlt}
-            frame="desktop"
-            motion={devices.motion}
-            className={scroll ? 'jk-scroll-desk' : ''}
-          />
-        </div>
-      </div>
+        <Screen
+          image={devices.desktop}
+          alt={devices.desktopAlt}
+          frame="desktop"
+          motion={devices.motion}
+          className={scroll ? 'jk-scroll-desk' : ''}
+        />
+      </DeviceFrame>
 
       {/* Tablet */}
-      <div
-        className="dev dev-tab absolute bottom-[8%] w-[23%] rounded-2xl border border-line-4 bg-device p-1.5 shadow-device"
+      <DeviceFrame
+        kind="tablet"
+        screenBg={devices.screenBg}
+        className="dev dev-tab absolute bottom-[6%] w-[24%]"
         style={reversed ? { right: '4%' } : { left: '4%' }}
       >
-        <div
-          className="relative block aspect-[820/1180] overflow-hidden rounded-[10px]"
-          style={{ backgroundColor: devices.screenBg }}
-        >
-          <Screen
-            image={devices.tablet}
-            alt={devices.tabletAlt}
-            frame="tablet"
-            motion={devices.motion}
-            className={scroll ? 'jk-scroll-tab' : 'rx-t'}
-          />
-        </div>
-      </div>
+        <Screen
+          image={devices.tablet}
+          alt={devices.tabletAlt}
+          frame="tablet"
+          motion={devices.motion}
+          className={scroll ? 'jk-scroll-tab' : 'rx-t'}
+        />
+      </DeviceFrame>
 
       {/* Phone */}
-      <div
-        className="dev dev-phone absolute bottom-[5%] w-[13%] rounded-[20px] border border-line-4 bg-device p-1 shadow-device"
-        style={{ left: reversed ? '52%' : '35%' }}
+      <DeviceFrame
+        kind="phone"
+        screenBg={devices.screenBg}
+        className="dev dev-phone absolute bottom-[4%] w-[14%]"
+        style={{ left: reversed ? '52%' : '34%' }}
       >
-        <div
-          className="relative block aspect-[390/844] overflow-hidden rounded-2xl"
-          style={{ backgroundColor: devices.screenBg }}
-        >
-          <Screen
-            image={devices.phone}
-            alt={devices.phoneAlt}
-            frame="phone"
-            motion={devices.motion}
-            className={scroll ? 'jk-scroll-mob' : 'rx-m'}
-          />
-        </div>
-      </div>
+        <Screen
+          image={devices.phone}
+          alt={devices.phoneAlt}
+          frame="phone"
+          motion={devices.motion}
+          className={scroll ? 'jk-scroll-mob' : 'rx-m'}
+        />
+      </DeviceFrame>
     </>
   );
 

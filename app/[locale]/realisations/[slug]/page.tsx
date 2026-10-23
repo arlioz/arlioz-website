@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Magnetic } from '@/components/motion/Magnetic';
 import { BrowserBar } from '@/components/ui/BrowserBar';
+import { DeviceFrame } from '@/components/ui/DeviceFrame';
 import { ButtonLink } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Glow } from '@/components/ui/Glow';
@@ -73,18 +74,16 @@ function GalleryFigure({ item, index }: { item: GalleryItem; index: number }) {
       <figure
         className={`relative m-0 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-card-sm border border-line-2 pb-7 ${phoneBg}`}
       >
-        <div className="g-tab w-[40%] rounded-[18px] border border-line-4 bg-device p-1.5 shadow-device">
-          <div className="relative aspect-[820/1180] overflow-hidden rounded-xl">
-            <Image
-              src={item.image.src}
-              alt={item.image.alt}
-              fill
-              sizes="(max-width: 720px) 62vw, 200px"
-              className="object-cover"
-              style={{ objectPosition: item.position ?? '50% 0%' }}
-            />
-          </div>
-        </div>
+        <DeviceFrame kind="tablet" className="g-tab relative w-[40%]">
+          <Image
+            src={item.image.src}
+            alt={item.image.alt}
+            fill
+            sizes="(max-width: 720px) 62vw, 200px"
+            className="object-cover"
+            style={{ objectPosition: item.position ?? '50% 0%' }}
+          />
+        </DeviceFrame>
         <figcaption className={caption}>{item.caption}</figcaption>
       </figure>
     );
@@ -96,22 +95,19 @@ function GalleryFigure({ item, index }: { item: GalleryItem; index: number }) {
         tall ? 'px-6 pt-7 pb-14' : 'aspect-[4/3] pb-7'
       }`}
     >
-      <div
-        className={`g-phone rounded-[26px] border border-line-4 bg-device p-1 shadow-device ${
-          tall ? 'w-[min(230px,64%)]' : 'w-[27%]'
-        }`}
+      <DeviceFrame
+        kind="phone"
+        className={`g-phone relative ${tall ? 'w-[min(230px,64%)]' : 'w-[27%]'}`}
       >
-        <div className="relative aspect-[398/852] overflow-hidden rounded-[22px]">
-          <Image
-            src={item.image.src}
-            alt={item.image.alt}
-            fill
-            sizes="(max-width: 720px) 44vw, 230px"
-            className="object-cover"
-            style={{ objectPosition: item.position ?? '50% 0%' }}
-          />
-        </div>
-      </div>
+        <Image
+          src={item.image.src}
+          alt={item.image.alt}
+          fill
+          sizes="(max-width: 720px) 44vw, 230px"
+          className="object-cover"
+          style={{ objectPosition: item.position ?? '50% 0%' }}
+        />
+      </DeviceFrame>
       <figcaption className={caption}>{item.caption}</figcaption>
     </figure>
   );
