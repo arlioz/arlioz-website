@@ -22,7 +22,7 @@ const restomax: Project = {
       'Un site et un widget de réservation aux couleurs de chaque restaurant : le client réserve en ligne, l’équipe gère toutes les réservations depuis un seul outil.',
     role: 'Conception et développement fullstack : le widget, le site généré pour chaque restaurant et le module de gestion des réservations.',
     results: [
-      { value: '2 h', text: 'libérées chaque jour pour l’équipe du restaurant' },
+      { value: 'Jusqu’à 2 h', text: 'libérées par jour pour l’équipe du restaurant' },
       { text: 'Des réservations en ligne 24 h/24, sans appel' },
       { text: 'Moins de no-shows, grâce à une gestion intelligente des réservations' },
     ],
@@ -47,7 +47,7 @@ const restomax: Project = {
       'Le système de réservation en ligne de Restomax : un site et un widget personnalisables, qui simplifient la gestion des réservations.',
     stat: {
       value: '2 h',
-      text: 'Libérées chaque jour pour l’équipe du restaurant.',
+      text: 'C’est le temps que l’équipe du restaurant peut libérer chaque jour.',
     },
     heroImage: img(
       media.restomax.desktop1,

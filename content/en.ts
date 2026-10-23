@@ -22,7 +22,7 @@ const restomax: Project = {
       'A booking website and widget in each restaurant’s colours: guests book online, the team manages every booking from a single tool.',
     role: 'Fullstack design and development: the widget, the website generated for each restaurant and the booking management module.',
     results: [
-      { value: '2 h', text: 'saved every day for the restaurant team' },
+      { value: 'Up to 2 h', text: 'saved per day for the restaurant team' },
       { text: 'Online bookings around the clock, without a phone call' },
       { text: 'Fewer no-shows, thanks to smart booking management' },
     ],
@@ -45,7 +45,7 @@ const restomax: Project = {
     tagline: 'A website and an online booking widget, in each restaurant’s colours.',
     intro:
       'Restomax’s online booking system: a customisable website and widget that simplify reservation management.',
-    stat: { value: '2 h', text: 'Freed up every day for the restaurant team.' },
+    stat: { value: '2 h', text: 'The time the restaurant team can save each day.' },
     heroImage: img(
       media.restomax.desktop1,
       'Restomax Book for Nati Thai: choosing the party size and the service',
