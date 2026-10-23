@@ -80,43 +80,24 @@ export function Code(props: IconProps) {
   );
 }
 
-export function Devices(props: IconProps) {
-  return (
-    <svg {...base({ size: 26, strokeWidth: 1.6, ...props })}>
-      <rect x="2.5" y="4.5" width="13.5" height="10" rx="1.5" />
-      <path d="M6 18.5h6.5" />
-      <path d="M9.25 14.5v4" />
-      <rect x="17.5" y="8.5" width="4.5" height="11" rx="1.2" />
-    </svg>
-  );
-}
-
-export function Layout(props: IconProps) {
-  return (
-    <svg {...base({ size: 26, strokeWidth: 1.6, ...props })}>
-      <rect x="3.5" y="3.5" width="17" height="17" rx="2.5" />
-      <path d="M3.5 9h17" />
-      <path d="M9.5 9v11.5" />
-    </svg>
-  );
-}
-
-export function Gauge(props: IconProps) {
-  return (
-    <svg {...base({ size: 26, strokeWidth: 1.6, ...props })}>
-      <path d="M4.2 16.5a8.5 8.5 0 1 1 15.6 0" />
-      <path d="M12 14l4.2-4.6" />
-      <circle cx="12" cy="14.2" r="1.3" />
-    </svg>
-  );
-}
-
 export function Layers(props: IconProps) {
   return (
     <svg {...base({ size: 26, strokeWidth: 1.6, ...props })}>
       <path d="M12 3.5l8.5 4.5-8.5 4.5L3.5 8 12 3.5z" />
       <path d="M3.5 12.2L12 16.7l8.5-4.5" />
       <path d="M3.5 16.2L12 20.7l8.5-4.5" />
+    </svg>
+  );
+}
+
+/** Two people: team support and training. */
+export function Team(props: IconProps) {
+  return (
+    <svg {...base({ size: 26, strokeWidth: 1.6, ...props })}>
+      <circle cx="9" cy="8" r="3.2" />
+      <path d="M3.2 19.5a5.8 5.8 0 0 1 11.6 0" />
+      <path d="M15.2 5.2a3.2 3.2 0 0 1 0 5.6" />
+      <path d="M17.6 14.2a5.8 5.8 0 0 1 3.2 5.3" />
     </svg>
   );
 }
@@ -157,11 +138,3 @@ export function LinkedIn({ size = 18, ...rest }: IconProps) {
     </svg>
   );
 }
-
-export const expertiseIcons = {
-  code: Code,
-  devices: Devices,
-  layout: Layout,
-  gauge: Gauge,
-  shield: Shield,
-} as const;

@@ -1,6 +1,6 @@
 import { type Offer, type SiteContent } from '@/content/types';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { ArrowDown, Check, expertiseIcons, Layers, Shield } from '@/components/ui/Icons';
+import { ArrowDown, Check, Code, Layers, Shield, Team } from '@/components/ui/Icons';
 import { LineTitle } from '@/components/ui/LineTitle';
 import { MailLink } from '@/components/ui/MailLink';
 
@@ -11,7 +11,7 @@ const tone = {
   green: { hx: 'hx-green', ico: 'bg-green/14 text-green-light', accent: 'text-green-light' },
 } as const;
 
-const icons = [expertiseIcons.code, Shield, Layers] as const;
+const icons = { code: Code, team: Team, shield: Shield, layers: Layers } as const;
 
 /**
  * One offer, read top to bottom: what it is, where you are today (grey), where you
@@ -20,15 +20,13 @@ const icons = [expertiseIcons.code, Shield, Layers] as const;
  */
 function OfferCard({
   offer,
-  index,
   labels,
 }: {
   offer: Offer;
-  index: number;
   labels: SiteContent['expertises']['labels'];
 }) {
   const t = tone[offer.accent];
-  const Icon = icons[index] ?? Layers;
+  const Icon = icons[offer.icon];
   return (
     <article
       className={`offer card-hover ${t.hx} relative flex flex-col rounded-card border border-line-2 bg-surface`}
@@ -76,7 +74,7 @@ function OfferCard({
   );
 }
 
-/** Three offers, each read as before → after, with what we do and a contact link. */
+/** Four offers, each read as before → after, with what we do and a contact link. */
 export function Expertises({ content }: { content: SiteContent }) {
   const { expertises: x } = content;
   return (
@@ -97,8 +95,8 @@ export function Expertises({ content }: { content: SiteContent }) {
         </div>
 
         <div className="offers">
-          {x.offers.map((offer, i) => (
-            <OfferCard key={offer.title} offer={offer} index={i} labels={x.labels} />
+          {x.offers.map((offer) => (
+            <OfferCard key={offer.title} offer={offer} labels={x.labels} />
           ))}
         </div>
 

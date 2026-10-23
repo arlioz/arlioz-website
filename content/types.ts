@@ -1,4 +1,5 @@
 import { type Locale } from '@/lib/i18n';
+import { type TrustLogo } from './media';
 
 /** Brand colour code: orange = development, blue = GDPR, green = both. */
 export type Accent = 'orange' | 'blue' | 'green';
@@ -83,10 +84,35 @@ export interface Project {
   };
 }
 
+/**
+ * A mission inside a client's team (no screenshots, no case study): what they needed
+ * and what we do there. Shown among the projects in the Work section.
+ */
+export interface Mission {
+  kind: 'mission';
+  title: string;
+  type: string;
+  /** Shown as a pill in the card's top bar (e.g. ongoing). */
+  status: string;
+  client: string;
+  /** The client's logo mask, from `content/media.ts`. */
+  logo: TrustLogo;
+  summary: string;
+  need: string;
+  /** What we do there, in a few short lines. */
+  actions: string[];
+  /** Label of the actions list, for screen readers and the panel header. */
+  actionsLabel: string;
+  cta: ContactLink;
+  accent: Accent;
+}
+
 /** One offer of the Expertises section; `accent` follows the brand colour code
     (orange = development, blue = GDPR, green = both). */
 export interface Offer {
   accent: 'orange' | 'blue' | 'green';
+  /** The offer's icon (components/sections/Expertises.tsx). */
+  icon: 'code' | 'team' | 'shield' | 'layers';
   title: string;
   problem: string;
   solution: string;
@@ -180,7 +206,7 @@ export interface SiteContent {
     title: RichSegment[];
     pillars: { title: string; text: string }[];
   };
-  /** Three offers, each read as problem → what we do → result (Expertises section). */
+  /** Four offers, each read as problem → result, then what we do (Expertises section). */
   expertises: {
     index: string;
     label: string;
@@ -204,6 +230,8 @@ export interface SiteContent {
     /** Labels of the need / result lines on the project cards. */
     need: string;
     result: string;
+    /** The cards, in order: projects (with a case study) and missions. */
+    items: (Project | Mission)[];
   };
   /** The clients band under the hero: who runs our work in production. */
   clients: { label: string };
@@ -215,7 +243,7 @@ export interface SiteContent {
     title: string;
     members: TeamMember[];
   };
-  /** Arlioz Education: teaching and company support (architecture, technique, GDPR). */
+  /** Arlioz Education: training, technical leadership and teaching. */
   education: {
     index: string;
     label: string;

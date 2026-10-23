@@ -1,15 +1,16 @@
-import { img, media } from './media';
-import { type Project, type SiteContent } from './types';
+import { clientLogos, img, media } from './media';
+import { type Mission, type Project, type SiteContent } from './types';
 
 const restomax: Project = {
   slug: 'restomax-book',
   index: '01',
   title: 'Restomax Book',
-  type: 'Website & widget',
+  type: 'Booking SaaS',
   client: 'Restomax',
   clientUrl: 'https://restomax.be',
-  summary: 'A website and an online booking widget, in each restaurant’s colours.',
-  highlights: 'Up to 2 h saved per day · Anti no-show · Customisable',
+  summary:
+    'Restomax’s online booking solution: a website in each restaurant’s colours, and a dashboard to track and plan the service.',
+  highlights: 'Up to 2 h saved per day · Dashboard · Several restaurants',
   tags: ['React', 'Recoil', 'Nx', 'MUI', 'Emotion', 'TypeScript'],
   demoUrl: 'https://natithai.book.ezordr.app/',
   demoLabel: 'See a live example',
@@ -19,7 +20,7 @@ const restomax: Project = {
     challenge:
       'Bookings taken over the phone in the middle of service, and tables lost to no-shows.',
     solution:
-      'A booking website and widget in each restaurant’s colours: guests book online, the team manages every booking from a single tool.',
+      'An online solution used by each restaurant: guests book on a website in the venue’s colours, the team tracks and plans every booking from a dashboard.',
     role: 'Fullstack design and development: the widget, the website generated for each restaurant and the booking management module.',
     results: [
       { value: 'Up to 2 h', text: 'saved per day for the restaurant team' },
@@ -42,16 +43,19 @@ const restomax: Project = {
     phoneAlt: img(media.restomax.mobile2, ''),
   },
   caseStudy: {
-    tagline: 'A website and an online booking widget, in each restaurant’s colours.',
+    tagline: 'A booking SaaS: a website in each restaurant’s colours, a dashboard for the team.',
     intro:
-      'Restomax’s online booking system: a customisable website and widget that simplify reservation management.',
+      'Restomax Book, Restomax’s online booking solution: guests book around the clock, the team tracks and plans bookings for one or several restaurants from a single dashboard.',
     stat: { value: '2 h', text: 'The time the restaurant team can save each day.' },
     heroImage: img(
       media.restomax.desktop1,
       'Restomax Book for Nati Thai: choosing the party size and the service',
     ),
     features: [
-      { title: 'Simpler bookings', text: 'Every reservation managed from a single tool.' },
+      {
+        title: 'Tracking and planning',
+        text: 'Every booking at a glance, and services planned from the dashboard.',
+      },
       { title: 'Time saved', text: 'Up to two hours freed up per day for your team.' },
       { title: 'In your colours', text: 'An interface in your venue’s colours.' },
       { title: 'Fewer no-shows', text: 'Reservations managed smartly to limit absences.' },
@@ -59,7 +63,10 @@ const restomax: Project = {
         title: 'A personalised service',
         text: 'Your customers’ habits, found again at every visit.',
       },
-      { title: 'For every restaurant', text: 'A solution suited to every type of venue.' },
+      {
+        title: 'Several venues, one tool',
+        text: 'One or several restaurants run from the same dashboard.',
+      },
     ],
     stack: [
       { category: 'Interface', name: 'React' },
@@ -114,7 +121,7 @@ const jkstudio: Project = {
   demoUrl: 'https://www.jkstudio.fr/',
   demoLabel: 'Visit the site',
   accent: 'orange',
-  reversed: true,
+  reversed: false,
   story: {
     challenge:
       'A nightlife, wedding and events photographer needed a fast portfolio he could update himself.',
@@ -188,15 +195,43 @@ const jkstudio: Project = {
   },
 };
 
+const radyo: Mission = {
+  kind: 'mission',
+  title: 'Tech lead at Radyo',
+  type: 'Engagement · Tech lead',
+  status: 'Ongoing engagement',
+  client: 'Radyo',
+  logo: clientLogos[0]!,
+  summary:
+    'Amaury is tech lead within Radyo’s development team: one way of working for the whole team, and developers who keep growing.',
+  need: 'Get the development team working the same way, and help every developer grow.',
+  actionsLabel: 'What he does there',
+  actions: [
+    'Standardise the team’s code and tools',
+    'Put best practices in place',
+    'Mentor the developers so they keep growing',
+  ],
+  cta: {
+    label: 'Talk about team support',
+    subject: 'Technical support — contact request',
+  },
+  accent: 'orange',
+};
+
 export const en: SiteContent = {
   locale: 'en',
   meta: {
-    title: 'Arlioz — Websites, apps and GDPR compliance · Charleroi, Belgium',
+    title: 'Arlioz — Applications, SaaS, team support and GDPR · Charleroi, Belgium',
     template: '%s — Arlioz',
     description:
-      'Your websites, web and mobile apps and business tools, built and GDPR-compliant from day one. A full-stack developer and a GDPR expert, working with you directly, in Charleroi since 2018.',
+      'Business applications, SaaS and platforms, built and GDPR-compliant from day one, plus technical support and training for your teams. A full-stack developer and a GDPR expert, working with you directly, in Charleroi since 2018.',
     keywords: [
       'web development',
+      'SaaS development',
+      'business application',
+      'tech lead',
+      'technical consulting',
+      'developer training',
       'mobile application',
       'GDPR consulting',
       'GDPR compliance',
@@ -212,8 +247,8 @@ export const en: SiteContent = {
       'React',
       'Angular',
     ],
-    ogAlt: 'Arlioz — Your websites and business tools, built and GDPR-compliant from day one.',
-    ogTagline: 'Digital development & GDPR consulting · Belgium',
+    ogAlt: 'Arlioz — Your software and SaaS, built and GDPR-compliant from day one.',
+    ogTagline: 'Applications, SaaS, team support & GDPR · Belgium',
   },
   a11y: {
     skipToContent: 'Skip to content',
@@ -234,22 +269,22 @@ export const en: SiteContent = {
       { label: 'Team', anchor: 'equipe', dot: 'green' },
       { label: 'Work', anchor: 'realisations', dot: 'orange' },
       { label: 'Expertise', anchor: 'expertises', dot: 'green' },
-      { label: 'Education', anchor: 'education', dot: 'green' },
+      { label: 'Training', anchor: 'education', dot: 'green' },
       { label: 'Contact', anchor: 'contact', dot: 'orange' },
     ],
     write: 'Write to us',
     follow: 'Follow',
     language: 'Language',
-    tagline: 'Digital development and GDPR compliance, since 2018.',
+    tagline: 'Applications, team support and GDPR compliance, since 2018.',
     cta: 'Talk about my project',
     linkedin: 'LinkedIn',
   },
   hero: {
     title: [
-      { lead: 'Your websites and business tools, ', em: 'built' },
+      { lead: 'Your software and SaaS, ', em: 'built' },
       { lead: 'and ', em: 'GDPR-compliant', tail: ' from day one.' },
     ],
-    lead: 'A full-stack developer and a GDPR expert, working directly with companies and organisations since 2018.',
+    lead: 'A full-stack developer and a GDPR expert, working with you directly: we build your software and support your teams, since 2018.',
     team: 'Guy and Amaury, your contacts',
     proof: '{count} LinkedIn recommendations',
     ctaPrimary: 'Talk about my project',
@@ -276,7 +311,7 @@ export const en: SiteContent = {
     pillars: [
       {
         title: 'Build',
-        text: 'Websites, web and mobile applications and APIs, in Angular, React, Vue and NestJS.',
+        text: 'Business applications, SaaS, web and mobile apps and APIs, in Angular, React, Vue and NestJS.',
       },
       {
         title: 'Protect',
@@ -284,38 +319,57 @@ export const en: SiteContent = {
       },
       {
         title: 'Pass on',
-        text: 'Over ten years of teaching: we document and train your teams.',
+        text: 'Tech lead, code reviews, training: we help your teams grow.',
       },
     ],
   },
   expertises: {
     index: '03',
     label: 'Expertise',
-    title: ['Three offers,', 'one team.'],
+    title: ['Four offers,', 'one team.'],
     intro:
-      'A full-stack developer and a GDPR expert under one roof, since 2018. You pick the offer, we take it from start to finish.',
+      'A full-stack developer and a GDPR expert under one roof, since 2018. We build your software and help your teams keep it running.',
     signature:
       'Privacy by design: every development project builds GDPR in from the architecture, not after going live.',
     labels: { problem: 'The problem', result: 'The result' },
     offers: [
       {
         accent: 'orange',
-        title: 'Websites and applications',
+        icon: 'code',
+        title: 'Custom applications and SaaS',
         problem:
-          'Your website or business tool is slow, hard to change or poorly suited to mobile.',
+          'Your business runs on spreadsheets and tools that don’t talk to each other, or your SaaS idea is waiting to be built.',
         solution:
-          'We design and build websites, web and mobile applications and APIs, on proven technologies.',
-        result: 'A fast, accessible product your teams can keep evolving.',
+          'We design and build business applications, SaaS, platforms and APIs, from design system to back office, on proven technologies.',
+        result: 'Reliable software your users adopt and your teams can keep evolving.',
         points: [
-          'Custom websites and platforms',
-          'Web and mobile applications',
-          'Frontend architecture and design systems',
-          'Performance, technical SEO, accessibility',
+          'SaaS, platforms and back offices',
+          'Business tools and dashboards',
+          'Web and mobile applications, APIs',
+          'Fast, accessible websites',
         ],
         cta: { label: 'Talk about your project', subject: 'Development project — contact request' },
       },
       {
+        accent: 'green',
+        icon: 'team',
+        title: 'Team support and training',
+        problem:
+          'Your development team is growing, but everyone works their own way and newcomers take time to become autonomous.',
+        solution:
+          'We join your team as tech lead or in support: standards, best practices, code reviews and training, in development as in GDPR.',
+        result: 'A team that works the same way, and developers who keep growing.',
+        points: [
+          'Tech lead within your team',
+          'Code standards and best practices',
+          'Code reviews and developer mentoring',
+          'Tailored training, development and GDPR',
+        ],
+        cta: { label: 'Talk about team support', subject: 'Technical support — contact request' },
+      },
+      {
         accent: 'blue',
+        icon: 'shield',
         title: 'GDPR compliance',
         problem: 'You process personal data without knowing whether you are compliant.',
         solution: 'We audit your processing, write the required documents and train your teams.',
@@ -331,6 +385,7 @@ export const en: SiteContent = {
       },
       {
         accent: 'orange',
+        icon: 'layers',
         title: 'WinDev and WebDev migration',
         problem:
           'Your WinDev, WebDev or WinDev Mobile applications are ageing and getting costly to maintain.',
@@ -353,13 +408,14 @@ export const en: SiteContent = {
   work: {
     index: '02',
     label: 'Work',
-    title: ['Real projects,', 'live online.'],
+    title: ['Products live online,', 'teams supported.'],
     caseStudy: 'Case study',
     liveExample: 'See a live example',
     viewSite: 'Visit the site',
     clientPrefix: 'Client:',
     need: 'The need',
     result: 'The result',
+    items: [restomax, radyo, jkstudio],
   },
   trust: { label: 'Experience gained at' },
   clients: {
@@ -385,9 +441,9 @@ export const en: SiteContent = {
       },
       {
         name: 'Amaury Lapaque',
-        role: 'Fullstack developer',
-        text: 'Fullstack developer since 2019: frontend architecture, web and mobile apps, back ends migrated to modern APIs. He builds your products from design system to API.',
-        tags: ['Angular', 'React · Next.js', 'Vue', 'NestJS · .NET', 'Mobile apps'],
+        role: 'Fullstack developer & tech lead',
+        text: 'Fullstack developer since 2019: business applications, SaaS, web and mobile apps, back ends migrated to modern APIs. He builds your products from design system to API, and helps the teams he supports grow as their tech lead.',
+        tags: ['Tech lead', 'Angular', 'React · Next.js', 'Vue', 'NestJS · .NET', 'Mobile apps'],
         photo: {
           ...media.team.amaury,
           alt: 'Portrait of Amaury Lapaque, fullstack developer at Arlioz',
@@ -400,14 +456,14 @@ export const en: SiteContent = {
   },
   education: {
     index: '05',
-    label: 'Education',
+    label: 'Training',
     brand: 'Arlioz Education',
     title: ['Teaching', 'and guiding.'],
-    text: 'Guy trains future developers and upskills in-house teams: architecture, quality, GDPR.',
+    text: 'Guy trains future developers and in-house teams: architecture, quality, GDPR. Amaury supports developers day to day, as tech lead.',
     audiences: [
       {
         title: 'Companies',
-        text: 'Codebase audits, stack choices, code reviews and tailored training, on site or remote.',
+        text: 'Tech lead, codebase audits, stack choices, code reviews and tailored training, on site or remote.',
       },
       {
         title: 'Students',
@@ -453,7 +509,7 @@ export const en: SiteContent = {
   contact: {
     index: '07',
     label: 'Contact',
-    title: 'A project? A GDPR question? Let’s talk.',
+    title: 'A project, a team to support, a GDPR question? Let’s talk.',
     text: 'Tell us where you stand, we come back to you with a first opinion.',
     emailLabel: 'E-mail',
     linkedinLabel: 'LinkedIn',
@@ -463,13 +519,13 @@ export const en: SiteContent = {
       text: 'Describe your project in a few lines.',
       email: 'Write to contact@arlioz.be',
       linkedin: 'Contact us on LinkedIn',
-      subject: 'Project / GDPR question — contact request',
+      subject: 'Project / team support / GDPR question — contact request',
       privacy: 'Your data is used only to answer your request.',
       privacyLink: 'Privacy policy',
     },
   },
   footer: {
-    tagline: 'Data protection and digital development.',
+    tagline: 'Software development, team support and data protection.',
     navigation: 'Navigation',
     contact: 'Contact',
     legal: 'Legal',
@@ -506,7 +562,7 @@ export const en: SiteContent = {
     nextAria: 'Next project:',
     cta: {
       title: 'A similar project? Let’s talk.',
-      text: 'Booking, portfolio, bespoke platform: tools that are GDPR-compliant from the first line.',
+      text: 'SaaS, business tool, website: software that is GDPR-compliant from the first line.',
       write: 'Write to contact@arlioz.be',
       home: 'Back to home',
     },

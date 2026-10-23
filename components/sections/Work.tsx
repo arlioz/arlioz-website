@@ -1,18 +1,21 @@
 import Link from 'next/link';
 import { type CSSProperties } from 'react';
-import { type SiteContent } from '@/content/types';
+import { type Mission, type Project, type SiteContent } from '@/content/types';
 import { type Locale, localePath } from '@/lib/i18n';
 import { Chips } from '@/components/ui/Chips';
 import { DeviceStage } from '@/components/ui/DeviceStage';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { ArrowRight, ArrowUpRight } from '@/components/ui/Icons';
 import { LineTitle } from '@/components/ui/LineTitle';
+import { MissionCard } from './MissionCard';
 
 const glow = { orange: '#FA7F13', blue: '#2065CB', green: '#2BBE8D' } as const;
 
 export function Work({ locale, content }: { locale: Locale; content: SiteContent }) {
   const { work } = content;
-  const total = String(content.projects.length).padStart(2, '0');
+  const items = work.items;
+  // Numbered by position: projects and missions share one sequence on the home page.
+  const total = String(items.length).padStart(2, '0');
   return (
     <section
       id="realisations"
@@ -38,19 +41,32 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
           className="stack"
           style={
             {
-              timelineScope: content.projects.map((_, i) => `--c${i + 1}`).join(', '),
+              timelineScope: items.map((_, i) => `--c${i + 1}`).join(', '),
             } as CSSProperties
           }
         >
-          {content.projects.map((project, i) => {
-            const href = localePath(locale, 'work', project.slug);
-            const last = i === content.projects.length - 1;
+          {items.map((item: Project | Mission, i) => {
+            const last = i === items.length - 1;
             const vars = {
               '--i': i,
               '--self': `--c${i + 1}`,
-              '--accent': glow[project.accent],
+              '--accent': glow[item.accent],
               ...(last ? {} : { '--next': `--c${i + 2}` }),
             } as CSSProperties;
+            const number = `${String(i + 1).padStart(2, '0')} / ${total}`;
+            if ('kind' in item) {
+              return (
+                <MissionCard
+                  key={item.title}
+                  mission={item}
+                  number={number}
+                  labels={work}
+                  style={vars}
+                />
+              );
+            }
+            const project = item;
+            const href = localePath(locale, 'work', project.slug);
             const headline = project.story.results[0] ?? { text: project.highlights };
             return (
               <article
@@ -60,9 +76,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
               >
                 <div className="pcard-bar label-mono text-muted-3">
                   <p className="m-0 flex flex-wrap items-center gap-x-3.5 gap-y-2 tracking-[0.06em]">
-                    <span className="text-paper">
-                      {project.index} / {total}
-                    </span>
+                    <span className="text-paper">{number}</span>
                     <span aria-hidden="true" className="pcard-rule" />
                     <span className="pcard-type">{project.type}</span>
                     <span aria-hidden="true" className="pcard-type">
