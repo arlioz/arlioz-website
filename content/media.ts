@@ -50,7 +50,7 @@ export const trustLogos: TrustLogo[] = [
   { name: 'HELHa', src: '/images/logos/helha.webp', w: 340, h: 120 },
   { name: 'Radyo', src: '/images/logos/radyo-v2.webp', w: 122, h: 120, withName: true },
   { name: 'EasyOrder', src: '/images/logos/easyorder.webp', w: 754, h: 120 },
-  { name: 'Pharmasimple', src: '/images/logos/pharmasimple.webp', w: 988, h: 120 },
+  { name: 'Pharmasimple', src: '/images/logos/pharmasimple-v2.webp', w: 988, h: 120 },
   { name: 'EICPN', src: '/images/logos/eicpn.webp', w: 138, h: 120 },
   { name: 'SBIM', src: '/images/logos/sbim.webp', w: 409, h: 120 },
   { name: 'Agoraz', src: '/images/logos/agoraz.webp', w: 480, h: 120 },
