@@ -52,7 +52,7 @@ export default async function ServicePage({ params }: PageProps) {
   const content = getContent(locale);
   const offer = getOffer(locale, slug);
   if (!offer) notFound();
-  const { services: sv, expertises: x, method, faq, start, hero } = content;
+  const { services: sv, expertises: x, method, faq, start } = content;
   const t = tone[offer.accent];
   const Icon = icons[offer.icon];
   const home = localePath(locale);
@@ -115,11 +115,9 @@ export default async function ServicePage({ params }: PageProps) {
           <p className="intro intro-3 m-0 mt-7 max-w-[820px] font-display text-case-lead leading-[1.3] font-normal tracking-[-0.02em] text-paper-3 text-pretty">
             {offer.solution}
           </p>
-          <div className="intro intro-4 mt-10 flex flex-wrap gap-3">
-            <ButtonLink href={mailto(hero.callSubject)}>{hero.ctaPrimary}</ButtonLink>
-            <ButtonLink href={mailto(offer.cta.subject)} variant="glass" arrow>
-              {offer.cta.label}
-            </ButtonLink>
+          {/* One action here: the call and the audit come at the end of the page. */}
+          <div className="intro intro-4 mt-10">
+            <ButtonLink href={mailto(offer.cta.subject)}>{offer.cta.label}</ButtonLink>
           </div>
         </div>
       </section>
