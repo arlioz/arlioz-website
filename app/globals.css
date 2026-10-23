@@ -721,15 +721,52 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
   }
-  /* Expertises: three offers side by side, roomy cards (spacious density). */
+  /* Expertises: four offers in a 2 × 2 grid, roomy cards (spacious density). */
   .offers {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
   }
   .offer {
     gap: 26px;
     padding: clamp(28px, 2.8vw, 40px);
+  }
+  /* Mission card (Work): the visual column is typographic. The client's logo, then
+     what we do there as large numbered lines split by hairlines. */
+  .mission-board {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 2.2vw, 28px);
+    padding: clamp(24px, 3vw, 44px);
+    border: 1px solid var(--color-line-2);
+    border-radius: var(--radius-tile);
+    background: var(--color-surface-2);
+  }
+  .mission-logo {
+    --logo-h: clamp(34px, 3.4vw, 48px);
+    padding-bottom: clamp(16px, 2vw, 24px);
+    border-bottom: 1px solid var(--color-line-2);
+  }
+  .mission-step {
+    display: grid;
+    grid-template-columns: 3.2em minmax(0, 1fr);
+    align-items: baseline;
+    gap: 12px;
+    padding: clamp(14px, 1.6vw, 20px) 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .mission-step:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .mission-num {
+    color: var(--color-orange-light);
+  }
+  .mission-text {
+    font-size: clamp(21px, 2.1vw, 28px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
   /* Team profile card: portrait on the left (4:5), role and name, then the text and
      the tags pushed to the bottom. Phones switch to a compact header (see below). */

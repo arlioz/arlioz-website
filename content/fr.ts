@@ -1,15 +1,16 @@
-import { img, media } from './media';
-import { type Project, type SiteContent } from './types';
+import { clientLogos, img, media } from './media';
+import { type Mission, type Project, type SiteContent } from './types';
 
 const restomax: Project = {
   slug: 'restomax-book',
   index: '01',
   title: 'Restomax Book',
-  type: 'Site web & widget',
+  type: 'SaaS de réservation',
   client: 'Restomax',
   clientUrl: 'https://restomax.be',
-  summary: 'Un site et un widget de réservation en ligne, aux couleurs de chaque restaurant.',
-  highlights: 'Jusqu’à 2 h libérées par jour · Anti no-show · Personnalisable',
+  summary:
+    'La solution de réservation en ligne de Restomax : un site aux couleurs de chaque restaurant, et un tableau de bord pour suivre et planifier le service.',
+  highlights: 'Jusqu’à 2 h libérées par jour · Tableau de bord · Plusieurs restaurants',
   tags: ['React', 'Recoil', 'Nx', 'MUI', 'Emotion', 'TypeScript'],
   demoUrl: 'https://natithai.book.ezordr.app/',
   demoLabel: 'Voir un exemple en ligne',
@@ -19,7 +20,7 @@ const restomax: Project = {
     challenge:
       'Des réservations prises au téléphone en plein service, et des tables perdues à cause des no-shows.',
     solution:
-      'Un site et un widget de réservation aux couleurs de chaque restaurant : le client réserve en ligne, l’équipe gère toutes les réservations depuis un seul outil.',
+      'Une solution en ligne, utilisée par chaque restaurant : le client réserve sur un site aux couleurs de l’établissement, l’équipe suit et planifie toutes les réservations depuis un tableau de bord.',
     role: 'Conception et développement fullstack : le widget, le site généré pour chaque restaurant et le module de gestion des réservations.',
     results: [
       { value: 'Jusqu’à 2 h', text: 'libérées par jour pour l’équipe du restaurant' },
@@ -42,9 +43,10 @@ const restomax: Project = {
     phoneAlt: img(media.restomax.mobile2, ''),
   },
   caseStudy: {
-    tagline: 'Un site et un widget de réservation en ligne, aux couleurs de chaque restaurant.',
+    tagline:
+      'Une solution SaaS de réservation : un site aux couleurs de chaque restaurant, un tableau de bord pour l’équipe.',
     intro:
-      'Le système de réservation en ligne de Restomax : un site et un widget personnalisables, qui simplifient la gestion des réservations.',
+      'Restomax Book, la solution de réservation en ligne de Restomax : les clients réservent 24 h/24, l’équipe suit et planifie les réservations d’un ou de plusieurs restaurants depuis un seul tableau de bord.',
     stat: {
       value: '2 h',
       text: 'C’est le temps que l’équipe du restaurant peut libérer chaque jour.',
@@ -55,8 +57,8 @@ const restomax: Project = {
     ),
     features: [
       {
-        title: 'Réservations simplifiées',
-        text: 'Toutes les réservations gérées depuis un seul outil.',
+        title: 'Suivi et planification',
+        text: 'Toutes les réservations d’un coup d’œil, et les services planifiés depuis le tableau de bord.',
       },
       {
         title: 'Du temps gagné',
@@ -75,8 +77,8 @@ const restomax: Project = {
         text: 'Les habitudes de vos clients retrouvées à chaque visite.',
       },
       {
-        title: 'Pour tous les restaurants',
-        text: 'Une solution adaptée à tous les types d’établissements.',
+        title: 'Plusieurs établissements, un seul outil',
+        text: 'Un ou plusieurs restaurants gérés depuis le même tableau de bord.',
       },
     ],
     stack: [
@@ -135,7 +137,7 @@ const jkstudio: Project = {
   demoUrl: 'https://www.jkstudio.fr/',
   demoLabel: 'Voir le site',
   accent: 'orange',
-  reversed: true,
+  reversed: false,
   story: {
     challenge:
       'Un photographe nightlife, mariages et événements avait besoin d’un portfolio rapide, qu’il puisse mettre à jour lui-même.',
@@ -212,15 +214,43 @@ const jkstudio: Project = {
   },
 };
 
+const radyo: Mission = {
+  kind: 'mission',
+  title: 'Lead technique chez Radyo',
+  type: 'Mission · Lead technique',
+  status: 'Mission en cours',
+  client: 'Radyo',
+  logo: clientLogos[0]!,
+  summary:
+    'Amaury est lead technique au sein de l’équipe de développement de Radyo : une même façon de travailler pour toute l’équipe, et des développeurs qui progressent.',
+  need: 'Faire travailler l’équipe de développement de la même façon, et faire progresser chaque développeur.',
+  actionsLabel: 'Ce qu’il y fait',
+  actions: [
+    'Standardiser le code et les outils de l’équipe',
+    'Mettre en place les bonnes pratiques',
+    'Suivre les développeurs pour les faire évoluer',
+  ],
+  cta: {
+    label: 'Parler d’un accompagnement',
+    subject: 'Accompagnement technique — demande de contact',
+  },
+  accent: 'orange',
+};
+
 export const fr: SiteContent = {
   locale: 'fr',
   meta: {
-    title: 'Arlioz — Sites, applications et conformité RGPD · Charleroi, Belgique',
+    title: 'Arlioz — Applications, SaaS, accompagnement et RGPD · Charleroi, Belgique',
     template: '%s — Arlioz',
     description:
-      'Vos sites, applications web et mobiles et outils métier, conçus et conformes RGPD dès le premier jour. Un développeur fullstack et un expert RGPD, en direct, depuis 2018 à Charleroi.',
+      'Applications métier, SaaS et plateformes conçus et conformes RGPD dès le premier jour, et un accompagnement technique et des formations pour vos équipes. Un développeur fullstack et un expert RGPD, en direct, depuis 2018 à Charleroi.',
     keywords: [
       'développement web',
+      'développement SaaS',
+      'application métier',
+      'lead technique',
+      'accompagnement technique',
+      'formation développeurs',
       'application mobile',
       'conseil RGPD',
       'conformité RGPD',
@@ -236,8 +266,8 @@ export const fr: SiteContent = {
       'React',
       'Angular',
     ],
-    ogAlt: 'Arlioz — Vos sites et outils métier, conçus et conformes RGPD dès le premier jour.',
-    ogTagline: 'Développement digital & conseil RGPD · Belgique',
+    ogAlt: 'Arlioz — Vos logiciels et SaaS, conçus et conformes RGPD dès le premier jour.',
+    ogTagline: 'Applications, SaaS, accompagnement & RGPD · Belgique',
   },
   a11y: {
     skipToContent: 'Aller au contenu',
@@ -258,22 +288,22 @@ export const fr: SiteContent = {
       { label: 'Équipe', anchor: 'equipe', dot: 'green' },
       { label: 'Réalisations', anchor: 'realisations', dot: 'orange' },
       { label: 'Expertises', anchor: 'expertises', dot: 'green' },
-      { label: 'Éducation', anchor: 'education', dot: 'green' },
+      { label: 'Formation', anchor: 'education', dot: 'green' },
       { label: 'Contact', anchor: 'contact', dot: 'orange' },
     ],
     write: 'Nous écrire',
     follow: 'Suivre',
     language: 'Langue',
-    tagline: 'Développement digital et conformité RGPD, depuis 2018.',
+    tagline: 'Applications, accompagnement des équipes et conformité RGPD, depuis 2018.',
     cta: 'Parler de mon projet',
     linkedin: 'LinkedIn',
   },
   hero: {
     title: [
-      { lead: 'Vos sites et outils métier, ', em: 'conçus' },
+      { lead: 'Vos logiciels et SaaS, ', em: 'conçus' },
       { lead: 'et ', em: 'conformes RGPD', tail: ' dès le premier jour.' },
     ],
-    lead: 'Un développeur fullstack et un expert RGPD, en direct, aux côtés des entreprises et des organisations depuis 2018.',
+    lead: 'Un développeur fullstack et un expert RGPD, en direct : nous développons vos logiciels et accompagnons vos équipes, depuis 2018.',
     team: 'Guy et Amaury, vos interlocuteurs',
     proof: '{count} recommandations LinkedIn',
     ctaPrimary: 'Parler de mon projet',
@@ -300,7 +330,7 @@ export const fr: SiteContent = {
     pillars: [
       {
         title: 'Développer',
-        text: 'Sites, applications web et mobiles et API, en Angular, React, Vue et NestJS.',
+        text: 'Applications métier, SaaS, apps web et mobiles et API, en Angular, React, Vue et NestJS.',
       },
       {
         title: 'Protéger',
@@ -308,33 +338,35 @@ export const fr: SiteContent = {
       },
       {
         title: 'Transmettre',
-        text: 'Plus de dix ans d’enseignement : nous documentons et formons vos équipes.',
+        text: 'Lead technique, revues de code, formations : nous faisons progresser vos équipes.',
       },
     ],
   },
   expertises: {
     index: '03',
     label: 'Expertises',
-    title: ['Trois offres,', 'une même équipe.'],
+    title: ['Quatre offres,', 'une même équipe.'],
     intro:
-      'Un développeur fullstack et un expert RGPD sous le même toit, depuis 2018. Vous choisissez l’offre, nous la menons de bout en bout.',
+      'Un développeur fullstack et un expert RGPD sous le même toit, depuis 2018. Nous construisons vos logiciels et aidons vos équipes à les faire vivre.',
     signature:
       'Privacy by design : chaque projet de développement intègre le RGPD dès l’architecture, pas après la mise en ligne.',
     labels: { problem: 'Le problème', result: 'Le résultat' },
     offers: [
       {
         accent: 'orange',
-        title: 'Sites et applications',
+        icon: 'code',
+        title: 'Applications et SaaS sur mesure',
         problem:
-          'Votre site ou votre outil métier est lent, difficile à faire évoluer ou mal adapté au mobile.',
+          'Votre activité tourne sur des tableurs et des outils qui ne se parlent pas, ou votre idée de SaaS attend d’être construite.',
         solution:
-          'Nous concevons et développons sites, applications web et mobiles et API, sur des technologies éprouvées.',
-        result: 'Un produit rapide et accessible, que vos équipes peuvent faire évoluer.',
+          'Nous concevons et développons applications métier, SaaS, plateformes et API, du design system au back-office, sur des technologies éprouvées.',
+        result:
+          'Un logiciel fiable, adopté par vos utilisateurs, que vos équipes peuvent faire évoluer.',
         points: [
-          'Sites et plateformes sur mesure',
-          'Applications web et mobiles',
-          'Architecture frontend et design system',
-          'Performance, SEO technique, accessibilité',
+          'SaaS, plateformes et back-offices',
+          'Outils métier et tableaux de bord',
+          'Applications web et mobiles, API',
+          'Sites rapides et accessibles',
         ],
         cta: {
           label: 'Parler de votre projet',
@@ -342,7 +374,28 @@ export const fr: SiteContent = {
         },
       },
       {
+        accent: 'green',
+        icon: 'team',
+        title: 'Accompagnement et formation',
+        problem:
+          'Votre équipe de développement grandit, mais chacun travaille à sa façon et les nouveaux mettent du temps à être autonomes.',
+        solution:
+          'Nous rejoignons votre équipe comme lead technique ou en appui : standards, bonnes pratiques, revues de code et formations, en développement comme en RGPD.',
+        result: 'Une équipe qui travaille de la même façon, et des développeurs qui progressent.',
+        points: [
+          'Lead technique au sein de votre équipe',
+          'Standards de code et bonnes pratiques',
+          'Revues de code et suivi des développeurs',
+          'Formations sur mesure, développement et RGPD',
+        ],
+        cta: {
+          label: 'Parler d’un accompagnement',
+          subject: 'Accompagnement technique — demande de contact',
+        },
+      },
+      {
         accent: 'blue',
+        icon: 'shield',
         title: 'Conformité RGPD',
         problem: 'Vous traitez des données personnelles sans savoir si vous êtes en règle.',
         solution:
@@ -362,6 +415,7 @@ export const fr: SiteContent = {
       },
       {
         accent: 'orange',
+        icon: 'layers',
         title: 'Migration WinDev et WebDev',
         problem:
           'Vos applications WinDev, WebDev ou WinDev Mobile vieillissent et deviennent coûteuses à maintenir.',
@@ -384,13 +438,14 @@ export const fr: SiteContent = {
   work: {
     index: '02',
     label: 'Réalisations',
-    title: ['Des projets', 'concrets, en ligne.'],
+    title: ['Des produits en ligne,', 'des équipes accompagnées.'],
     caseStudy: 'Étude de cas',
     liveExample: 'Voir un exemple en ligne',
     viewSite: 'Voir le site',
     clientPrefix: 'Client :',
     need: 'Le besoin',
     result: 'Le résultat',
+    items: [restomax, radyo, jkstudio],
   },
   clients: {
     label: 'En production chez',
@@ -416,9 +471,16 @@ export const fr: SiteContent = {
       },
       {
         name: 'Amaury Lapaque',
-        role: 'Développeur fullstack',
-        text: 'Développeur fullstack depuis 2019 : architecture frontend, applications web et mobiles, migration de back-ends vers des API modernes. Il construit vos produits du design system à l’API.',
-        tags: ['Angular', 'React · Next.js', 'Vue', 'NestJS · .NET', 'Apps mobiles'],
+        role: 'Développeur fullstack & lead technique',
+        text: 'Développeur fullstack depuis 2019 : applications métier, SaaS, applications web et mobiles, migration de back-ends vers des API modernes. Il construit vos produits du design system à l’API, et fait progresser les équipes qu’il accompagne comme lead technique.',
+        tags: [
+          'Lead technique',
+          'Angular',
+          'React · Next.js',
+          'Vue',
+          'NestJS · .NET',
+          'Apps mobiles',
+        ],
         photo: {
           ...media.team.amaury,
           alt: 'Portrait d’Amaury Lapaque, développeur fullstack chez Arlioz',
@@ -431,14 +493,14 @@ export const fr: SiteContent = {
   },
   education: {
     index: '05',
-    label: 'Éducation',
+    label: 'Formation',
     brand: 'Arlioz Education',
     title: ['Transmettre', 'et accompagner.'],
-    text: 'Guy forme de futurs développeurs et fait monter en compétence les équipes en entreprise : architecture, qualité, RGPD.',
+    text: 'Guy forme de futurs développeurs et les équipes en entreprise : architecture, qualité, RGPD. Amaury accompagne les développeurs au quotidien, comme lead technique.',
     audiences: [
       {
         title: 'Entreprises',
-        text: 'Audit de l’existant, choix de stack, revue de code et formations sur mesure, sur site ou à distance.',
+        text: 'Lead technique, audit de l’existant, choix de stack, revues de code et formations sur mesure, sur site ou à distance.',
       },
       {
         title: 'Étudiants',
@@ -486,7 +548,7 @@ export const fr: SiteContent = {
   contact: {
     index: '07',
     label: 'Contact',
-    title: 'Un projet ? Une question RGPD ? Parlons-en.',
+    title: 'Un projet, une équipe à accompagner, une question RGPD ? Parlons-en.',
     text: 'Dites-nous où vous en êtes, nous revenons vers vous avec un premier avis.',
     emailLabel: 'E-mail',
     linkedinLabel: 'LinkedIn',
@@ -496,13 +558,13 @@ export const fr: SiteContent = {
       text: 'Décrivez votre projet en quelques lignes.',
       email: 'Écrire à contact@arlioz.be',
       linkedin: 'Nous contacter sur LinkedIn',
-      subject: 'Projet / question RGPD — demande de contact',
+      subject: 'Projet / accompagnement / question RGPD — demande de contact',
       privacy: 'Vos données servent uniquement à répondre à votre demande.',
       privacyLink: 'Politique de confidentialité',
     },
   },
   footer: {
-    tagline: 'Protection des données et développement digital.',
+    tagline: 'Développement logiciel, accompagnement et protection des données.',
     navigation: 'Navigation',
     contact: 'Contact',
     legal: 'Légal',
@@ -539,7 +601,7 @@ export const fr: SiteContent = {
     nextAria: 'Projet suivant :',
     cta: {
       title: 'Un projet similaire ? Parlons-en.',
-      text: 'Réservation, portfolio, plateforme sur mesure : des outils conformes au RGPD dès la première ligne.',
+      text: 'SaaS, outil métier, site : des logiciels conformes au RGPD dès la première ligne.',
       write: 'Écrire à contact@arlioz.be',
       home: 'Retour à l’accueil',
     },
