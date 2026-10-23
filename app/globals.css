@@ -759,6 +759,24 @@
     flex-direction: column;
     gap: 14px;
   }
+  /* Phones: what you get closes the step. */
+  .method-deliv {
+    margin-top: auto;
+  }
+  /* Tablets and up: the steps of a row share their rows (title, text, what you
+     get), so the « you get » blocks line up whatever the length of the text above. */
+  @media (min-width: 721px) {
+    .method-step {
+      display: grid;
+      grid-row: span 3;
+      grid-template-rows: subgrid;
+      row-gap: 14px;
+    }
+    .method-deliv {
+      margin-top: 0;
+      align-self: start;
+    }
+  }
   .method-step::before {
     content: '';
     position: absolute;
@@ -1606,7 +1624,7 @@
   @media (max-width: 720px) {
     .method-steps {
       grid-template-columns: minmax(0, 1fr);
-      row-gap: 56px;
+      row-gap: 80px;
     }
   }
   .method-steps::before {

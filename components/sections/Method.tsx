@@ -41,7 +41,7 @@ export function Method({ content }: { content: SiteContent }) {
                 {step.title}
               </h3>
               <p className="m-0 text-base leading-[1.6] text-muted">{step.text}</p>
-              <p className="method-deliv m-0 mt-auto flex flex-col gap-1.5 border-t border-line-2 pt-4">
+              <p className="method-deliv m-0 flex flex-col gap-1.5 border-t border-line-2 pt-4">
                 <span className="label-mono-sm text-muted-3">{m.deliverable}</span>
                 <span className="font-medium text-paper">{step.deliverable}</span>
               </p>
