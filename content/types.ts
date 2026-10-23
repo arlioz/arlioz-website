@@ -1,6 +1,7 @@
 import { type Locale } from '@/lib/i18n';
 
-export type Accent = 'orange' | 'blue' | 'green' | 'yellow';
+/** Brand colour code: orange = development, blue = GDPR, green = both. */
+export type Accent = 'orange' | 'blue' | 'green';
 export type Mark = 'blue' | 'orange' | 'green';
 
 export interface RichSegment {
@@ -35,6 +36,9 @@ export interface DeviceSet {
   phoneAlt?: ProjectImage;
   /** Which composed animation the stage plays. */
   motion: 'swap' | 'scroll';
+  /** A real device mockup (transparent PNG/WebP). When set it replaces the composed
+      CSS devices on the project card. */
+  mockup?: ProjectImage;
 }
 
 export interface GalleryItem {
@@ -60,6 +64,14 @@ export interface Project {
   devices: DeviceSet;
   accent: Accent;
   reversed: boolean;
+  /** The business story, shown on the card (need, result) and the case study. */
+  story: {
+    challenge: string;
+    solution: string;
+    role: string;
+    /** Only facts the client confirmed; `value` only for a measured result. */
+    results: { value?: string; text: string }[];
+  };
   caseStudy: {
     tagline: string;
     intro: string;
@@ -69,6 +81,34 @@ export interface Project {
     gallery: GalleryItem[];
     heroImage: ProjectImage;
   };
+}
+
+/** One offer of the Expertises section; `accent` follows the brand colour code
+    (orange = development, blue = GDPR, green = both). */
+export interface Offer {
+  accent: 'orange' | 'blue' | 'green';
+  title: string;
+  problem: string;
+  solution: string;
+  result: string;
+  /** Up to four services. */
+  points: string[];
+  cta: ContactLink;
+}
+
+/** A mailto link with a pre-filled subject, for a given topic. */
+export interface ContactLink {
+  label: string;
+  subject: string;
+}
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  /** The author's LinkedIn headline. */
+  role: string;
+  /** True when `quote` is a translation of the original. */
+  translated?: boolean;
 }
 
 export interface TeamMember {
@@ -117,62 +157,64 @@ export interface SiteContent {
     linkedin: string;
   };
   hero: {
-    badge: string;
-    /** One entry per line: `lead` in the display face, `em` highlighted in italic serif. */
-    title: { lead: string; em: string }[];
+    /**
+     * One entry per line: `lead` in the display face, `em` highlighted in italic serif
+     * (orange gradient on the first line, development; blue-green on the second, GDPR),
+     * then an optional `tail` back in the display face.
+     */
+    title: { lead: string; em: string; tail?: string }[];
+    /** The line under the title: who you deal with, since when. */
+    lead: string;
+    /** Next to the founders' portraits, above the title; links to the team section. */
+    team: string;
+    /** Under the buttons, links to the testimonials; `{count}` is replaced. */
+    proof: string;
     ctaPrimary: string;
     ctaSecondary: string;
   };
   about: {
     index: string;
     label: string;
-    year: string;
-    yearLabel: string;
+    /** Key facts in the left column; the first one is the founding year. */
+    facts: { value: string; label: string }[];
     title: RichSegment[];
     pillars: { title: string; text: string }[];
   };
+  /** Three offers, each read as problem → what we do → result (Expertises section). */
   expertises: {
     index: string;
     label: string;
     title: [string, string];
-    rgpd: { tag: string; title: string; text: string; items: string[] };
-    cards: {
-      tag: string;
-      title: string;
-      text: string;
-      icon: 'code' | 'devices' | 'layout' | 'gauge';
-    }[];
-    stack: {
-      tag: string;
-      title: string;
-      text: RichSegment[];
-      diagram: { left: string; right: string; center: [string, string]; aria: string };
-    };
-    /** Migrating a PCSoft estate (WinDev, WebDev, WinDev Mobile) to a modern full-stack. */
-    migration: {
-      tag: string;
-      title: string;
-      text: string;
-      from: { label: string; items: string[] };
-      to: { label: string; items: string[] };
-      steps: { title: string; text: string }[];
-      note: string;
-    };
+    /** What sets Arlioz apart, next to the title. */
+    intro: string;
+    /** The development × GDPR line (green), under the offers. */
+    signature: string;
+    /** Before → after on each offer, read by screen readers (shown as an arrow). */
+    labels: { problem: string; result: string };
+    offers: Offer[];
   };
   work: {
     index: string;
     label: string;
     title: [string, string];
-    clientsLabel: string;
-    clients: string[];
     caseStudy: string;
     liveExample: string;
     viewSite: string;
     clientPrefix: string;
+    /** Labels of the need / result lines on the project cards. */
+    need: string;
+    result: string;
   };
-  /** Technologies band under the hero (`label` is its accessible name). */
-  stack: { label: string; items: string[] };
-  team: { index: string; label: string; title: string; members: TeamMember[] };
+  /** The clients band under the hero: who runs our work in production. */
+  clients: { label: string };
+  /** Under the team cards: where the founders have worked (logos in `content/media.ts`). */
+  trust: { label: string };
+  team: {
+    index: string;
+    label: string;
+    title: string;
+    members: TeamMember[];
+  };
   /** Arlioz Education: teaching and company support (architecture, technique, GDPR). */
   education: {
     index: string;
@@ -181,13 +223,19 @@ export interface SiteContent {
     title: [string, string];
     text: string;
     audiences: { title: string; text: string }[];
-    topics: {
-      icon: 'code' | 'shield' | 'layout' | 'gauge';
-      tag: string;
-      title: string;
-      text: string;
-    }[];
     cta: string;
+  };
+  /** Recommendations published on LinkedIn, quoted with their author's headline. */
+  testimonials: {
+    index: string;
+    label: string;
+    title: [string, string];
+    /** Shown under a quote translated from another language. */
+    translated: string;
+    /** Accessible name of the LinkedIn mark on each card. */
+    source: string;
+    /** The first one is shown large, across the full width. */
+    items: Testimonial[];
   };
   contact: {
     index: string;
@@ -230,6 +278,10 @@ export interface SiteContent {
     demo: string;
     sections: {
       project: string;
+      challenge: string;
+      solution: string;
+      role: string;
+      results: string;
       features: string;
       featuresTitle: string;
       stack: string;

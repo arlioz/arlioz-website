@@ -19,7 +19,10 @@ export function ScrollRestoration() {
       const el = hash ? document.querySelector(hash) : null;
       // A pixel target measured from the real scroll position: Lenis resolves an
       // element against its own scroll value, which can lag the browser's hash jump.
-      const target = el ? el.getBoundingClientRect().top + window.scrollY : 0;
+      // Same rule as Lenis' anchor links: the target's scroll-margin (globals.css)
+      // keeps it under the sticky header, on the section's content.
+      const margin = el ? parseFloat(getComputedStyle(el).scrollMarginTop) || 0 : 0;
+      const target = el ? Math.max(0, el.getBoundingClientRect().top + window.scrollY - margin) : 0;
       lenis.scrollTo(target, { immediate: true, force: true });
     };
     jump();

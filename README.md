@@ -46,7 +46,7 @@ app/
   sitemap.ts robots.ts manifest.ts icon.png apple-icon.png favicon.ico
   globals.css            tokens @theme + CSS de la maquette (animations, hover, breakpoints)
 components/
-  sections/              Hero, StackMarquee (bandeau technologies sous le hero), Work, About, Expertises, Team, Education,
+  sections/              Hero, ClientsBand (logos des clients en production sous le hero), Team, Work, Expertises, About, Education,
                          Contact, LegalPage (Server Components)
   layout/                Header (pilules verre : logo, langue, menu, CTA), HeaderCta, HeaderControls (client), Footer
   motion/                SmoothScroll (Lenis), ChromaCurrent (WebGL), MotionGuards, Magnetic
@@ -67,6 +67,53 @@ chaque page et dans le sitemap. Les segments publics anglais (`/en/work/...`, `/
 
 Pas de formulaire ni de backend : la section Contact invite à écrire à contact@arlioz.be (lien `mailto:` avec sujet
 pré-rempli) ou à contacter Arlioz sur LinkedIn.
+Les blocs d'expertise (RGPD, développement, migration) ont chacun leur lien `mailto:` avec un objet propre
+(`components/ui/MailLink.tsx`).
+
+## Preuves et contenu commercial
+
+- **Réalisations** : chaque projet a une histoire (`story` : besoin, solution, rôle, résultats) affichée sur la
+  carte (besoin, résultat) et dans l'étude de cas. Un résultat chiffré (`value`) ne s'écrit que s'il a été mesuré.
+- **À propos** : les chiffres clés (`about.facts`) ne reprennent que des faits vérifiés.
+- **Témoignages** : `testimonials.items` (citation, auteur, fonction ; la première est mise en avant), uniquement des recommandations
+  LinkedIn publiées, citées avec l'accord de leurs auteurs ; une traduction est signalée comme telle. Pas de
+  balisage `Review` / `AggregateRating`.
+- **Logos** : clients sous le hero (`clientLogos`), employeurs passés dans l'Équipe (`trustLogos`,
+  `content/media.ts`). Masques WebP mono-teinte, statiques (pas de défilement sans bouton pause, WCAG 2.2.2). Un
+  logo client ne s'affiche qu'avec l'accord du client.
+- **Typographie française** : espace insécable avant `: ; ? !` dans `content/fr.ts` et `content/legal.ts`.
+
+## Marque
+
+**Trois adjectifs : direct, rigoureux, pédagogue.** Toute décision de texte ou de design se vérifie contre eux.
+
+- **Direct** : on parle de vous et de votre besoin, pas de nous. Vouvoiement, phrases courtes, un verbe d'action par
+  bouton (« Parler de mon projet »). Les fondateurs sont nommés et visibles : on parle à Guy et Amaury, pas à une
+  agence.
+- **Rigoureux** : rien d'inventé. Un chiffre, un logo ou un avis n'apparaît que s'il est vérifiable (voir
+  ci-dessus). Pas de superlatifs (« leader », « innovant », « sur mesure pour faire grandir votre entreprise »).
+- **Pédagogue** : chaque offre se lit problème → ce qu'on fait → résultat ; les termes techniques (AIPD, API,
+  migration WinDev) sont posés dans un contexte que le lecteur comprend.
+
+**Code couleur** (tokens `orange`, `blue`, `green` de `app/globals.css`, type `Accent` de `content/types.ts`) :
+
+| Couleur | Sens          | Exemples                                                                                                                              |
+| ------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Orange  | Développement | 1re ligne du titre du hero, offres « Sites et applications » et « Migration », projets, carte d'Amaury, témoignages, bouton principal |
+| Bleu    | RGPD          | 2e ligne du titre du hero, offre « Conformité RGPD », carte de Guy                                                                    |
+| Vert    | Les deux      | phrase « Privacy by design », Arlioz Education, « conformes dès la conception » dans À propos                                         |
+
+Une couleur d'accent ne sert jamais de décoration seule : si un élément ne relève d'aucune des trois catégories, il
+reste neutre (`paper`, `muted`). Le jaune n'est qu'une teinte du dégradé orange, pas un accent.
+
+**Typographie** : Bricolage Grotesque (titres), Instrument Sans (texte), Instrument Serif italique (deux mots du
+titre), JetBrains Mono (étiquettes). Texte courant ≥ 16 px, lignes de 65 à 75 caractères.
+
+**Mouvement** : un ou deux éléments animés par écran au plus (titres de section, une intro, l'entrée d'une scène
+projet) ; tout se coupe en `prefers-reduced-motion`.
+
+À faire hors code : photos d'équipe homogènes (même fond, même lumière) et validation du logo, de la palette et
+des polices par un designer.
 
 ## Déploiement (Vercel)
 

@@ -15,15 +15,27 @@ const restomax: Project = {
   demoLabel: 'Voir un exemple en ligne',
   accent: 'orange',
   reversed: false,
+  story: {
+    challenge:
+      'Des réservations prises au téléphone en plein service, et des tables perdues à cause des no-shows.',
+    solution:
+      'Un site et un widget de réservation aux couleurs de chaque restaurant : le client réserve en ligne, l’équipe gère toutes les réservations depuis un seul outil.',
+    role: 'Conception et développement fullstack : le widget, le site généré pour chaque restaurant et le module de gestion des réservations.',
+    results: [
+      { value: 'Jusqu’à 2 h', text: 'libérées par jour pour l’équipe du restaurant' },
+      { text: 'Des réservations en ligne 24 h/24, sans appel' },
+      { text: 'Moins de no-shows, grâce à une gestion intelligente des réservations' },
+    ],
+  },
   devices: {
     screenBg: '#FFFFFF',
     url: media.restomax.url,
     motion: 'swap',
     desktop: img(
       media.restomax.desktop1,
-      'Widget Restomax Book : choix du nombre de personnes et du service',
+      'Widget Restomax Book : choix du nombre de personnes et du service',
     ),
-    desktopAlt: img(media.restomax.desktop2, 'Widget Restomax Book : choix de la date'),
+    desktopAlt: img(media.restomax.desktop2, 'Widget Restomax Book : choix de la date'),
     tablet: img(media.restomax.tablet1, 'Restomax Book sur tablette'),
     tabletAlt: img(media.restomax.tablet2, ''),
     phone: img(media.restomax.mobile1, 'Restomax Book sur mobile'),
@@ -32,14 +44,14 @@ const restomax: Project = {
   caseStudy: {
     tagline: 'Un site et un widget de réservation en ligne, aux couleurs de chaque restaurant.',
     intro:
-      'Le système de réservation en ligne de Restomax : un site et un widget personnalisables, qui simplifient la gestion des réservations.',
+      'Le système de réservation en ligne de Restomax : un site et un widget personnalisables, qui simplifient la gestion des réservations.',
     stat: {
       value: '2 h',
-      text: 'Libérées chaque jour pour l’équipe du restaurant.',
+      text: 'C’est le temps que l’équipe du restaurant peut libérer chaque jour.',
     },
     heroImage: img(
       media.restomax.desktop1,
-      'Restomax Book pour Nati Thai : choix du nombre de personnes et du service',
+      'Restomax Book pour Nati Thai : choix du nombre de personnes et du service',
     ),
     features: [
       {
@@ -78,12 +90,12 @@ const restomax: Project = {
     gallery: [
       {
         kind: 'desktop',
-        image: img(media.restomax.desktop2, 'Étape 2 sur ordinateur : choix de la date'),
+        image: img(media.restomax.desktop2, 'Étape 2 sur ordinateur : choix de la date'),
         caption: 'Desktop · choix de la date',
       },
       {
         kind: 'phone',
-        image: img(media.restomax.mobile2, 'Étape 2 sur mobile : calendrier des disponibilités'),
+        image: img(media.restomax.mobile2, 'Étape 2 sur mobile : calendrier des disponibilités'),
         caption: 'Mobile · calendrier',
       },
       {
@@ -93,14 +105,14 @@ const restomax: Project = {
       },
       {
         kind: 'phone',
-        image: img(media.restomax.mobile1, 'Étape 1 sur mobile : nombre de personnes et service'),
+        image: img(media.restomax.mobile1, 'Étape 1 sur mobile : nombre de personnes et service'),
         caption: 'Mobile · réservation',
       },
       {
         kind: 'phone',
         image: img(
           media.restomax.mobile1,
-          'Fiche du restaurant sur mobile : contact et itinéraire',
+          'Fiche du restaurant sur mobile : contact et itinéraire',
         ),
         caption: 'Mobile · infos et itinéraire',
         position: '50% 100%',
@@ -122,8 +134,19 @@ const jkstudio: Project = {
   tags: ['Next.js', 'Supabase'],
   demoUrl: 'https://www.jkstudio.fr/',
   demoLabel: 'Voir le site',
-  accent: 'yellow',
+  accent: 'orange',
   reversed: true,
+  story: {
+    challenge:
+      'Un photographe nightlife, mariages et événements avait besoin d’un portfolio rapide, qu’il puisse mettre à jour lui-même.',
+    solution:
+      'Un site sobre où chaque galerie se parcourt comme une planche-contact, en thème clair ou sombre, avec une demande de devis directe.',
+    role: 'Conception et développement du site, de l’interface à la gestion des contenus.',
+    results: [
+      { text: 'Des galeries publiées par le photographe lui-même, sans développeur' },
+      { text: 'Des pages statiques, rapides et bien référencées' },
+    ],
+  },
   devices: {
     screenBg: '#EFEAE3',
     url: media.jkstudio.url,
@@ -135,12 +158,12 @@ const jkstudio: Project = {
   caseStudy: {
     tagline: 'Un portfolio photo qui met les images au premier plan, mis à jour sans développeur.',
     intro:
-      'Le portfolio d’un photographe nightlife, mariages et événements : un site rapide et sobre, où chaque galerie se parcourt comme une planche-contact.',
+      'Le portfolio d’un photographe nightlife, mariages et événements : un site rapide et sobre, où chaque galerie se parcourt comme une planche-contact.',
     heroImage: img(media.jkstudio.desktop, 'Page d’accueil de jkstudio.fr sur ordinateur'),
     features: [
       {
         title: 'Galeries par catégories',
-        text: 'Nightlife, mariages, événements : chaque univers a sa galerie.',
+        text: 'Nightlife, mariages, événements : chaque univers a sa galerie.',
       },
       {
         title: 'Images au premier plan',
@@ -192,10 +215,10 @@ const jkstudio: Project = {
 export const fr: SiteContent = {
   locale: 'fr',
   meta: {
-    title: 'Arlioz — Développement digital & conseil RGPD en Belgique',
+    title: 'Arlioz — Sites, applications et conformité RGPD · Charleroi, Belgique',
     template: '%s — Arlioz',
     description:
-      'Arlioz réunit le développement digital et la protection des données : sites, applications web et mobiles, conformité RGPD. Une seule équipe, basée en Belgique, depuis 2018.',
+      'Vos sites, applications web et mobiles et outils métier, conçus et conformes RGPD dès le premier jour. Un développeur fullstack et un expert RGPD, en direct, depuis 2018 à Charleroi.',
     keywords: [
       'développement web',
       'application mobile',
@@ -208,11 +231,12 @@ export const fr: SiteContent = {
       'migration WebDev',
       'migration WinDev Mobile',
       'Belgique',
+      'Charleroi',
       'Next.js',
       'React',
       'Angular',
     ],
-    ogAlt: 'Arlioz — Du code solide. Des données protégées.',
+    ogAlt: 'Arlioz — Vos sites et outils métier, conçus et conformes RGPD dès le premier jour.',
     ogTagline: 'Développement digital & conseil RGPD · Belgique',
   },
   a11y: {
@@ -231,166 +255,149 @@ export const fr: SiteContent = {
     close: 'Fermer',
     sectionLabel: 'Navigation',
     items: [
-      { label: 'Réalisations', anchor: 'realisations', dot: 'blue' },
-      { label: 'Expertises', anchor: 'expertises', dot: 'orange' },
       { label: 'Équipe', anchor: 'equipe', dot: 'green' },
-      { label: 'Éducation', anchor: 'education', dot: 'yellow' },
-      { label: 'Contact', anchor: 'contact', dot: 'blue' },
+      { label: 'Réalisations', anchor: 'realisations', dot: 'orange' },
+      { label: 'Expertises', anchor: 'expertises', dot: 'green' },
+      { label: 'Éducation', anchor: 'education', dot: 'green' },
+      { label: 'Contact', anchor: 'contact', dot: 'orange' },
     ],
     write: 'Nous écrire',
     follow: 'Suivre',
     language: 'Langue',
     tagline: 'Développement digital et conformité RGPD, depuis 2018.',
-    cta: 'Parlons de votre projet',
+    cta: 'Parler de mon projet',
     linkedin: 'LinkedIn',
   },
   hero: {
-    badge: 'Développement & RGPD · Belgique',
     title: [
-      { lead: 'Du ', em: 'code solide.' },
-      { lead: 'Des ', em: 'données protégées.' },
+      { lead: 'Vos sites et outils métier, ', em: 'conçus' },
+      { lead: 'et ', em: 'conformes RGPD', tail: ' dès le premier jour.' },
     ],
-    ctaPrimary: 'Parlons de votre projet',
+    lead: 'Un développeur fullstack et un expert RGPD, en direct, aux côtés des entreprises et des organisations depuis 2018.',
+    team: 'Guy et Amaury, vos interlocuteurs',
+    proof: '{count} recommandations LinkedIn',
+    ctaPrimary: 'Parler de mon projet',
     ctaSecondary: 'Voir nos réalisations',
   },
   about: {
-    index: '02',
+    index: '04',
     label: 'À propos',
-    year: '2018',
-    yearLabel: 'Année de création',
+    facts: [
+      { value: '2018', label: 'Création d’Arlioz' },
+      { value: '30+', label: 'Années d’expérience en IT et sécurité' },
+      { value: '10+', label: 'Années d’enseignement en informatique' },
+      { value: '3', label: 'Produits en production' },
+    ],
     title: [
-      { text: 'Nous réunissons ' },
-      { text: 'la protection des données', mark: 'blue' },
+      { text: 'Depuis 2018, ' },
+      { text: 'un expert RGPD', mark: 'blue' },
       { text: ' et ' },
-      { text: 'le développement digital', mark: 'orange' },
-      { text: ' pour faire ' },
-      { text: 'grandir', mark: 'green' },
-      { text: ' votre entreprise.' },
+      { text: 'un développeur fullstack', mark: 'orange' },
+      { text: ' livrent ensemble des produits ' },
+      { text: 'conformes dès la conception', mark: 'green' },
+      { text: '.' },
     ],
     pillars: [
       {
         title: 'Développer',
-        text: 'Sites, applications web et mobiles, avec des technologies éprouvées.',
+        text: 'Sites, applications web et mobiles et API, en Angular, React, Vue et NestJS.',
       },
       {
         title: 'Protéger',
-        text: 'Une conformité RGPD claire, intégrée dès l’architecture.',
+        text: 'Audit, registre, analyses d’impact : une conformité RGPD que vous pouvez démontrer.',
       },
       {
-        title: 'Grandir',
-        text: 'Des solutions robustes qui accompagnent votre croissance.',
+        title: 'Transmettre',
+        text: 'Plus de dix ans d’enseignement : nous documentons et formons vos équipes.',
       },
     ],
   },
   expertises: {
     index: '03',
     label: 'Expertises',
-    title: ['Deux expertises', 'qui se complètent.'],
-    rgpd: {
-      tag: 'Protection des données',
-      title: 'Conseil RGPD',
-      text: 'Mettre votre organisation en conformité, et le rester.',
-      items: [
-        'Audit de conformité',
-        'Registre des traitements',
-        'Analyses d’impact (AIPD)',
-        'Politiques de confidentialité et cookies',
-        'Contrats de sous-traitance',
-        'Sensibilisation des équipes',
-      ],
-    },
-    cards: [
+    title: ['Trois offres,', 'une même équipe.'],
+    intro:
+      'Un développeur fullstack et un expert RGPD sous le même toit, depuis 2018. Vous choisissez l’offre, nous la menons de bout en bout.',
+    signature:
+      'Privacy by design : chaque projet de développement intègre le RGPD dès l’architecture, pas après la mise en ligne.',
+    labels: { problem: 'Le problème', result: 'Le résultat' },
+    offers: [
       {
-        tag: 'Développement',
-        title: 'Développement web',
-        text: 'Sites, plateformes et widgets sur mesure, rapides et accessibles.',
-        icon: 'code',
+        accent: 'orange',
+        title: 'Sites et applications',
+        problem:
+          'Votre site ou votre outil métier est lent, difficile à faire évoluer ou mal adapté au mobile.',
+        solution:
+          'Nous concevons et développons sites, applications web et mobiles et API, sur des technologies éprouvées.',
+        result: 'Un produit rapide et accessible, que vos équipes peuvent faire évoluer.',
+        points: [
+          'Sites et plateformes sur mesure',
+          'Applications web et mobiles',
+          'Architecture frontend et design system',
+          'Performance, SEO technique, accessibilité',
+        ],
+        cta: {
+          label: 'Parler de votre projet',
+          subject: 'Projet de développement — demande de contact',
+        },
       },
       {
-        tag: 'Développement',
-        title: 'Applications cross-platform',
-        text: 'Une base de code pour le web et le mobile, aux couleurs de votre marque.',
-        icon: 'devices',
+        accent: 'blue',
+        title: 'Conformité RGPD',
+        problem: 'Vous traitez des données personnelles sans savoir si vous êtes en règle.',
+        solution:
+          'Nous auditons vos traitements, rédigeons les documents obligatoires et formons vos équipes.',
+        result:
+          'Une conformité que vous pouvez démontrer à vos clients et à l’Autorité de protection des données.',
+        points: [
+          'Audit de conformité',
+          'Registre des traitements et analyses d’impact (AIPD)',
+          'Politiques de confidentialité, cookies, contrats de sous-traitance',
+          'Sensibilisation des équipes',
+        ],
+        cta: {
+          label: 'Parler de votre conformité',
+          subject: 'Conformité RGPD — demande de contact',
+        },
       },
       {
-        tag: 'Développement',
-        title: 'Architecture frontend',
-        text: 'Monorepo, design system, gestion d’état : des fondations qui durent.',
-        icon: 'layout',
-      },
-      {
-        tag: 'Développement',
-        title: 'Optimisation de sites web',
-        text: 'Performance, SEO technique, accessibilité : un site plus rapide et plus visible.',
-        icon: 'gauge',
+        accent: 'orange',
+        title: 'Migration WinDev et WebDev',
+        problem:
+          'Vos applications WinDev, WebDev ou WinDev Mobile vieillissent et deviennent coûteuses à maintenir.',
+        solution:
+          'Nous les migrons une à une vers une stack moderne. Nous menons la migration, ou nous accompagnons vos équipes.',
+        result: 'Vos utilisateurs continuent de travailler pendant la migration, sans rupture.',
+        points: [
+          'Cartographie des applications et des données',
+          'Ancien et nouveau en parallèle, application par application',
+          'Interfaces, applications et API reconstruites',
+          'Documentation et transfert à vos équipes',
+        ],
+        cta: {
+          label: 'Parler de votre migration',
+          subject: 'Migration WinDev / WebDev — demande de contact',
+        },
       },
     ],
-    stack: {
-      tag: 'Dev × RGPD',
-      title: 'Architecture de stack projet',
-      text: [
-        {
-          text: 'Technologies, hébergement, flux de données, sécurité : une architecture conforme dès la conception. Le ',
-        },
-        { text: 'privacy by design', strong: true },
-        { text: ', concrètement.' },
-      ],
-      diagram: {
-        left: 'DEV',
-        right: 'RGPD',
-        center: ['PRIVACY', 'BY DESIGN'],
-        aria: 'Le développement et le RGPD se rejoignent : le privacy by design',
-      },
-    },
-    migration: {
-      tag: 'Développement · Migration',
-      title: 'Migrer votre parc WinDev, WebDev et WinDev Mobile',
-      text: 'Une migration progressive et complète de vos applications métier vers une stack fullstack moderne : front-end web, applications mobiles et desktop, API et back-end. Application par application, sans rupture pour vos utilisateurs.',
-      from: { label: 'Aujourd’hui', items: ['WinDev', 'WebDev', 'WinDev Mobile'] },
-      to: { label: 'Demain', items: ['Front-end web', 'Apps mobiles & desktop', 'API & back-end'] },
-      steps: [
-        { title: 'Cartographier', text: 'Applications, données, flux et ordre de migration.' },
-        {
-          title: 'Faire cohabiter',
-          text: 'Une application à la fois : l’ancien et le nouveau tournent ensemble.',
-        },
-        {
-          title: 'Reconstruire',
-          text: 'Interfaces, applications, API ; données et règles métier reprises.',
-        },
-        { title: 'Transmettre', text: 'Documentation et transfert de compétences à vos équipes.' },
-      ],
-      note: 'Réalisée par nous, ou menée par vos équipes avec notre accompagnement.',
-    },
   },
   work: {
-    index: '01',
+    index: '02',
     label: 'Réalisations',
     title: ['Des projets', 'concrets, en ligne.'],
-    clientsLabel: 'En production chez',
-    clients: ['Radyo', 'Restomax', 'JK Studio'],
     caseStudy: 'Étude de cas',
     liveExample: 'Voir un exemple en ligne',
     viewSite: 'Voir le site',
-    clientPrefix: 'Client :',
+    clientPrefix: 'Client :',
+    need: 'Le besoin',
+    result: 'Le résultat',
   },
-  stack: {
-    label: 'Technologies',
-    items: [
-      'Angular',
-      'React',
-      'Next.js',
-      'Vue.js',
-      'Nuxt',
-      'NestJS',
-      'TypeScript',
-      'Java',
-      'C#',
-      '.NET',
-    ],
+  clients: {
+    label: 'En production chez',
   },
+  trust: { label: 'Une expérience forgée chez' },
   team: {
-    index: '04',
+    index: '01',
     label: 'Équipe',
     title: 'Deux experts, en direct.',
     members: [
@@ -410,7 +417,7 @@ export const fr: SiteContent = {
       {
         name: 'Amaury Lapaque',
         role: 'Développeur fullstack',
-        text: 'Développeur fullstack depuis 2019 : architecture frontend, applications web et mobiles, migration de back-ends vers des API modernes. Il construit vos produits du design system à l’API.',
+        text: 'Développeur fullstack depuis 2019 : architecture frontend, applications web et mobiles, migration de back-ends vers des API modernes. Il construit vos produits du design system à l’API.',
         tags: ['Angular', 'React · Next.js', 'Vue', 'NestJS · .NET', 'Apps mobiles'],
         photo: {
           ...media.team.amaury,
@@ -427,49 +434,59 @@ export const fr: SiteContent = {
     label: 'Éducation',
     brand: 'Arlioz Education',
     title: ['Transmettre', 'et accompagner.'],
-    text: 'Guy enseigne le développement à de futurs développeurs et accompagne les entreprises sur le terrain : architecture, choix techniques, qualité, montée en compétence des équipes. Même exigence qu’en projet : du code solide, des données protégées.',
+    text: 'Guy forme de futurs développeurs et fait monter en compétence les équipes en entreprise : architecture, qualité, RGPD.',
     audiences: [
       {
         title: 'Entreprises',
-        text: 'Un accompagnement architectural, technique et organisationnel : audit de votre existant, choix de stack, revue de code, formations sur mesure pour vos équipes, sur site ou à distance.',
+        text: 'Audit de l’existant, choix de stack, revue de code et formations sur mesure, sur site ou à distance.',
       },
       {
         title: 'Étudiants',
         text: 'Cours et accompagnement de jeunes développeurs, du premier projet aux bonnes pratiques professionnelles.',
       },
     ],
-    topics: [
-      {
-        icon: 'layout',
-        tag: 'Accompagnement',
-        title: 'Architecture et stack',
-        text: 'Audit de l’existant, choix technologiques, fondations d’un projet qui doit durer.',
-      },
-      {
-        icon: 'gauge',
-        tag: 'Accompagnement',
-        title: 'Technique et qualité',
-        text: 'Revue de code, bonnes pratiques, performance et outillage, aux côtés de vos développeurs.',
-      },
-      {
-        icon: 'shield',
-        tag: 'Accompagnement',
-        title: 'RGPD et données',
-        text: 'Conformité, privacy by design et sécurité, expliqués et mis en place avec vos équipes.',
-      },
-      {
-        icon: 'code',
-        tag: 'Cours',
-        title: 'Développement web',
-        text: 'JavaScript et TypeScript, frameworks front-end et back-end, de la base au projet complet.',
-      },
-    ],
     cta: 'Parler d’un accompagnement',
   },
-  contact: {
+  testimonials: {
     index: '06',
+    label: 'Témoignages',
+    title: ['Ils ont travaillé', 'avec l’un de nous.'],
+    translated: 'Traduit de l’anglais',
+    source: 'Recommandation LinkedIn',
+    items: [
+      {
+        quote:
+          'Amaury a une expérience exceptionnelle du développement frontend Angular. Il est motivé et désireux de comprendre les concepts métier. Sur le plan humain, il est très agréable de travailler avec lui.',
+        name: 'Stefan Casier',
+        role: 'Technical Architect chez Samayas',
+        translated: true,
+      },
+      {
+        quote:
+          'Il s’occupait du coaching, de l’écriture des composants partagés et des choix d’architecture. Tout le monde appréciait de travailler avec Amaury. Il a une connaissance approfondie d’Angular, se tient à jour et partage énormément. Il sait rester concentré et calme dans les situations de stress.',
+        name: 'Wahid Argandiwall',
+        role: 'Technical architect',
+        translated: true,
+      },
+      {
+        quote:
+          'Amaury et moi, nous avons travaillé sur le même projet durant 6 mois. Cette collaboration et rencontre fut remplie de positif ! Nous avons clairement amélioré la qualité du code de l’application (toujours à la recherche des bonnes pratiques) et sa maintenabilité, qui était notre priorité. Mais pas seulement : en travaillant ensemble, nous avons mis en place une méthodologie de gestion du projet parfaite et bien rodée. Amaury m’a aussi accompagné dans des concepts avancés d’Angular grâce à sa qualité de pédagogue. Au niveau de l’aspect humain, Amaury est quelqu’un de sympathique et surtout un grand passionné. Je pense que c’est pour cela que nous nous sommes bien entendus directement. En résumé : cette collaboration fut un atout majeur dans mon évolution en tant que développeur front-end.',
+        name: 'Alexandre Moreaux',
+        role: 'Analyste développeur et projets · SBIM',
+      },
+      {
+        quote:
+          'Amaury est vraiment un excellent développeur. Ses années d’expérience ne reflètent pas toutes ses connaissances et compétences. C’est un vrai pilier dans une équipe de développement. Il a l’esprit d’équipe et il est fiable.',
+        name: 'Frederique Rensonnet',
+        role: 'Head of IT Corporate functions',
+        translated: true,
+      },
+    ],
+  },
+  contact: {
+    index: '07',
     label: 'Contact',
-    title: 'Un projet ? Une question RGPD ? Parlons-en.',
+    title: 'Un projet ? Une question RGPD ? Parlons-en.',
     text: 'Dites-nous où vous en êtes, nous revenons vers vous avec un premier avis.',
     emailLabel: 'E-mail',
     linkedinLabel: 'LinkedIn',
@@ -506,6 +523,10 @@ export const fr: SiteContent = {
     demo: 'Exemple en ligne',
     sections: {
       project: 'Le projet',
+      challenge: 'Le défi',
+      solution: 'Notre solution',
+      role: 'Notre rôle',
+      results: 'Résultats',
       features: 'Fonctionnalités',
       featuresTitle: 'Ce que la solution apporte.',
       stack: 'Stack technique',
@@ -515,10 +536,10 @@ export const fr: SiteContent = {
       galleryTitle: 'L’interface, écran par écran.',
     },
     next: 'Projet suivant',
-    nextAria: 'Projet suivant :',
+    nextAria: 'Projet suivant :',
     cta: {
-      title: 'Un projet similaire ? Parlons-en.',
-      text: 'Réservation, portfolio, plateforme sur mesure : des outils conformes au RGPD dès la première ligne.',
+      title: 'Un projet similaire ? Parlons-en.',
+      text: 'Réservation, portfolio, plateforme sur mesure : des outils conformes au RGPD dès la première ligne.',
       write: 'Écrire à contact@arlioz.be',
       home: 'Retour à l’accueil',
     },

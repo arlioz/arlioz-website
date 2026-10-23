@@ -14,8 +14,9 @@ export function Contact({ locale, content }: { locale: Locale; content: SiteCont
   const row =
     'row-link flex items-center justify-between gap-4 border-b border-line-2 py-[22px] text-paper';
 
+  // No top padding: it follows the testimonials on the same background, whose bottom padding is the gap.
   return (
-    <section id="contact" aria-labelledby="contact-title" className="py-section">
+    <section id="contact" aria-labelledby="contact-title" className="pb-section">
       <div className="container-site">
         <div className="rv-media relative overflow-hidden rounded-[32px] border border-line-2 bg-surface p-[clamp(28px,5vw,72px)]">
           <Glow
@@ -84,11 +85,11 @@ export function Contact({ locale, content }: { locale: Locale; content: SiteCont
                   <ArrowUpRight size={16} />
                 </ButtonLink>
               </div>
-              <p className="m-0 flex items-start gap-[10px] text-[13.5px] leading-[1.55] text-muted-3">
+              <p className="m-0 flex items-start gap-[10px] text-sm leading-[1.55] text-muted-3">
                 <Shield size={18} strokeWidth={1.7} className="mt-px flex-none text-blue-light" />
                 <span>
                   {contact.direct.privacy}{' '}
-                  <Link href={localePath(locale, 'privacy')} className="link-u text-paper-3">
+                  <Link href={localePath(locale, 'privacy')} className="link-u hit text-paper-3">
                     {contact.direct.privacyLink}
                   </Link>
                 </span>

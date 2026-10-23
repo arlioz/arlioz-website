@@ -8,7 +8,7 @@ import { Eyebrow } from '@/components/ui/Eyebrow';
 import { ArrowRight, ArrowUpRight } from '@/components/ui/Icons';
 import { LineTitle } from '@/components/ui/LineTitle';
 
-const glow = { orange: '#FA7F13', blue: '#2065CB', green: '#2BBE8D', yellow: '#FEB613' } as const;
+const glow = { orange: '#FA7F13', blue: '#2065CB', green: '#2BBE8D' } as const;
 
 export function Work({ locale, content }: { locale: Locale; content: SiteContent }) {
   const { work } = content;
@@ -20,7 +20,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
       className="border-y border-line bg-ink-2 py-section"
     >
       <div className="container-site">
-        <div className="mb-[clamp(56px,7vw,96px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
+        <div className="mb-[clamp(48px,6vw,80px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
           <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
             {/* First section under the band: no opacity reveal near the fold (axe contrast). */}
             <Eyebrow index={work.index} label={work.label} />
@@ -29,14 +29,6 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
               lines={work.title}
               className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
             />
-          </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <p className="label-mono m-0 text-muted-3">{work.clientsLabel}</p>
-            <ul className="m-0 flex list-none flex-wrap items-center gap-x-6 gap-y-1.5 p-0 font-display text-[22px] font-medium tracking-[-0.02em] text-muted-2">
-              {work.clients.map((client) => (
-                <li key={client}>{client}</li>
-              ))}
-            </ul>
           </div>
         </div>
 
@@ -59,16 +51,13 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
               '--accent': glow[project.accent],
               ...(last ? {} : { '--next': `--c${i + 2}` }),
             } as CSSProperties;
+            const headline = project.story.results[0] ?? { text: project.highlights };
             return (
               <article
                 key={project.slug}
                 className={`pcard proj-card ${project.reversed ? 'pcard-rev' : ''}`}
                 style={vars}
               >
-                <span aria-hidden="true" className="pcard-num font-display">
-                  {project.index}
-                </span>
-
                 <div className="pcard-bar label-mono text-muted-3">
                   <p className="m-0 flex flex-wrap items-center gap-x-3.5 gap-y-2 tracking-[0.06em]">
                     <span className="text-paper">
@@ -85,7 +74,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                   </p>
                   <Link
                     href={href}
-                    className="link-u pcard-top-link inline-flex items-center gap-2 font-sans text-[15px] font-medium tracking-normal text-paper normal-case"
+                    className="link-u hit pcard-top-link inline-flex items-center gap-2 font-sans text-[15px] font-medium tracking-normal text-paper normal-case"
                   >
                     {work.caseStudy}
                     <ArrowRight size={16} />
@@ -97,7 +86,6 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                     devices={project.devices}
                     reversed={project.reversed}
                     glow={glow[project.accent]}
-                    glowOpacity={project.accent === 'yellow' ? 0.14 : 0.16}
                     href={href}
                     ariaLabel={`${work.caseStudy} : ${project.title}`}
                   />
@@ -107,17 +95,31 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                       lines={[project.title]}
                       className="font-display text-h3-work leading-[1.02] font-medium tracking-[-0.035em]"
                     />
-                    <p className="sx-txt m-0 max-w-[580px] text-[16.5px] leading-[1.6] text-muted text-pretty">
+                    <p className="sx-txt m-0 max-w-[580px] text-[17px] leading-[1.6] text-muted text-pretty">
                       {project.summary}
                     </p>
-                    <p className="sx-txt pcard-hl m-0 text-[15px] text-paper-2">
-                      {project.highlights}
-                    </p>
-                    <Chips items={project.tags} animated className="pcard-chips mt-1" />
-                    <div className="sx-txt pcard-links mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[15px]">
+                    <dl className="pcard-story m-0 grid max-w-[580px] gap-3 border-t border-line-2 pt-4">
+                      <div className="grid gap-1">
+                        <dt className="label-mono-sm text-muted-3">{work.need}</dt>
+                        <dd className="m-0 text-base leading-[1.55] text-paper-2">
+                          {project.story.challenge}
+                        </dd>
+                      </div>
+                      <div className="grid gap-1">
+                        <dt className="label-mono-sm text-muted-3">{work.result}</dt>
+                        <dd className="m-0 text-base leading-[1.55] text-paper-2">
+                          {headline.value && (
+                            <strong className="font-semibold text-paper">{headline.value} </strong>
+                          )}
+                          {headline.text}
+                        </dd>
+                      </div>
+                    </dl>
+                    <Chips items={project.tags} className="pcard-chips mt-1" />
+                    <div className="pcard-links mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[16px]">
                       <Link
                         href={href}
-                        className="link-u pcard-body-link inline-flex items-center gap-2 font-medium text-paper"
+                        className="link-u hit pcard-body-link inline-flex items-center gap-2 font-medium text-paper"
                       >
                         {work.caseStudy}
                         <ArrowRight size={16} />

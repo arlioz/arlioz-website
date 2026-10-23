@@ -13,7 +13,8 @@
   --color-ink-2: #0d0d10;
   --color-surface: #111114;
   --color-surface-2: #141418;
-  --color-device: #1b1b21;
+  /* Outer edge of the device frames (components/ui/DeviceFrame.tsx): space grey. */
+  --color-device-edge: #3c3a38;
   --color-dot: #2a2a31;
 
   --color-paper: #f2f1ee;
@@ -22,7 +23,7 @@
   --color-paper-4: #e4e4e8;
   --color-muted: #a3a3ab;
   --color-muted-2: #9a9aa3;
-  --color-muted-3: #85858e;
+  --color-muted-3: #8f8f98;
   --color-muted-4: #6b6b73;
 
   --color-orange: #fa7f13;
@@ -83,7 +84,6 @@
   --text-stat: clamp(72px, 9vw, 132px);
   --text-stat-sm: clamp(64px, 7vw, 104px);
   --text-contact: clamp(38px, 4.8vw, 68px);
-  --text-marquee: clamp(30px, 4vw, 56px);
   --text-next: clamp(44px, 7vw, 104px);
   --text-member: clamp(28px, 2.6vw, 36px);
   --text-row: clamp(22px, 2.2vw, 30px);
@@ -112,25 +112,32 @@
   --shadow-device-lg: 0 30px 60px rgb(0 0 0 / 0.5);
   --glow-k: 1;
   --hero-a: #ffb13d, #ff7c00 55%, #ff5a1f;
-  --hero-b: #7df5e0, #00ffcc 50%, #38b6ff;
+  /* Brand colour code: orange = development (line 1), blue = GDPR (line 2). */
+  --hero-b: #a9c8ff, #6e9cf0 50%, #4f86f0;
+  --btn-halo: 0 10px 26px -14px rgb(246 96 26 / 0.7);
+  --btn-halo-hover: 0 16px 34px -12px rgb(246 96 26 / 0.65);
 }
+/* Light palette: plain white and cool, slightly blue neutrals (the GDPR blue's
+   family), not the warm off-white that reads as a default AI template. White
+   cards sit on white with a hairline; the alternate sections are a cool grey.
+   Every text token keeps at least 4.5:1 on ink, ink-2 and surface-2. */
 @media (prefers-color-scheme: light) {
   :root {
     color-scheme: light;
-    --color-ink: #f4f3f0;
-    --color-ink-2: #edece8;
-    --color-surface: #fbfaf8;
-    --color-surface-2: #ffffff;
-    --color-dot: #d6d5d0;
+    --color-ink: #ffffff;
+    --color-ink-2: #f3f5f9;
+    --color-surface: #ffffff;
+    --color-surface-2: #f6f8fb;
+    --color-dot: #d5dae2;
 
-    --color-paper: #0e0e11;
-    --color-paper-2: #2a2a30;
-    --color-paper-3: #44444c;
-    --color-paper-4: #1d1d22;
-    --color-muted: #5a5a63;
-    --color-muted-2: #60606a;
-    --color-muted-3: #686872;
-    --color-muted-4: #74747e;
+    --color-paper: #0b0d12;
+    --color-paper-2: #262a33;
+    --color-paper-3: #3c414c;
+    --color-paper-4: #171a20;
+    --color-muted: #505663;
+    --color-muted-2: #575d6a;
+    --color-muted-3: #5f6572;
+    --color-muted-4: #6a707d;
 
     /* The accents used as text, darkened to keep 4.5:1 on the light page. */
     --color-orange-light: #b64e06;
@@ -138,25 +145,29 @@
     --color-green: #137a5a;
     --color-green-light: #116f52;
 
-    --color-line: rgb(10 10 12 / 0.08);
-    --color-line-2: rgb(10 10 12 / 0.1);
-    --color-line-3: rgb(10 10 12 / 0.12);
-    --color-line-4: rgb(10 10 12 / 0.14);
-    --color-line-5: rgb(10 10 12 / 0.22);
+    --color-line: rgb(11 13 18 / 0.08);
+    --color-line-2: rgb(11 13 18 / 0.1);
+    --color-line-3: rgb(11 13 18 / 0.12);
+    --color-line-4: rgb(11 13 18 / 0.14);
+    --color-line-5: rgb(11 13 18 / 0.22);
 
-    --ink-rgb: 244 243 240;
-    --paper-rgb: 14 14 17;
-    --glass-bg: rgb(255 255 255 / 0.66);
-    --glass-bg-hover: rgb(255 255 255 / 0.9);
-    --glass-bg-solid: rgb(255 255 255 / 0.92);
-    --glass-border: rgb(10 10 12 / 0.1);
-    --glass-border-hover: rgb(10 10 12 / 0.22);
-    --shadow-card: 0 40px 80px -40px rgb(0 0 0 / 0.18);
-    --shadow-device: 0 24px 50px rgb(0 0 0 / 0.2);
-    --shadow-device-lg: 0 30px 60px rgb(0 0 0 / 0.18);
+    --ink-rgb: 255 255 255;
+    --paper-rgb: 11 13 18;
+    --glass-bg: rgb(255 255 255 / 0.72);
+    --glass-bg-hover: rgb(255 255 255 / 0.92);
+    --glass-bg-solid: rgb(255 255 255 / 0.94);
+    --glass-border: rgb(11 13 18 / 0.1);
+    --glass-border-hover: rgb(11 13 18 / 0.22);
+    --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 32px 64px -36px rgb(16 24 40 / 0.2);
+    --shadow-device: 0 24px 50px rgb(16 24 40 / 0.18);
+    --shadow-device-lg: 0 30px 60px rgb(16 24 40 / 0.16);
     --glow-k: 0.55;
     --hero-a: #e8640a, #d14a08 55%, #c23d0c;
-    --hero-b: #0b8f7c, #0f7ab3 60%, #1d5bbf;
+    --hero-b: #2a6fd6, #1d5bbf 55%, #1a4fa8;
+    --color-device-edge: #d9dbdb;
+    /* On white the dark-theme halo reads as a smudge: tighter and lighter. */
+    --btn-halo: 0 8px 18px -12px rgb(246 96 26 / 0.45);
+    --btn-halo-hover: 0 12px 24px -12px rgb(246 96 26 / 0.45);
   }
 }
 
@@ -167,6 +178,11 @@
   /* No native `scroll-behavior: smooth`: Lenis animates the scroll, and a native
      smooth hash jump at load raced with it and landed off target. */
   html {
+    /* Room kept for the sticky header (84 px + 20 px) above an anchor target or a
+       focused element; see the scroll-margin rules under Components. Not a
+       scroll-padding: the header itself sits in that band, and focusing one of its
+       controls would then scroll the page. */
+    --header-offset: 104px;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     background: var(--color-ink);
@@ -223,7 +239,7 @@
 
 @utility label-mono {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -231,7 +247,7 @@
 
 @utility label-mono-sm {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -261,11 +277,6 @@
 
 @utility text-pretty {
   text-wrap: pretty;
-}
-
-@utility outline-text {
-  color: transparent;
-  -webkit-text-stroke: 1.2px rgb(var(--paper-rgb) / 0.6);
 }
 
 /* Device frames and project cards: a deep shadow on ink, a soft one on the light page. */
@@ -345,6 +356,32 @@
       translate 0.25s ease,
       visibility 0s 0.25s;
   }
+  /* Focus and anchors never end up under the sticky header (WCAG 2.4.11). Sections
+     land on their content, just under the header, rather than at the top of their
+     padding. Lenis reads these margins for anchor links. */
+  main * {
+    scroll-margin-top: var(--header-offset);
+  }
+  main section[id] {
+    scroll-margin-top: calc(var(--header-offset) - var(--anchor-pad, 0px));
+  }
+  .py-section,
+  .pt-section {
+    --anchor-pad: var(--spacing-section);
+  }
+  .pt-section-sm {
+    --anchor-pad: var(--spacing-section-sm);
+  }
+  /* A larger hit area (WCAG 2.2 target size, 24 px) without moving the text or the
+     `link-u` underline, which is painted at the bottom of the box. */
+  .hit {
+    position: relative;
+  }
+  .hit::before {
+    content: '';
+    position: absolute;
+    inset: -8px -4px;
+  }
   .link-u {
     background-image: linear-gradient(currentColor, currentColor);
     background-size: 0% 1px;
@@ -359,39 +396,28 @@
       background-size: 100% 1px;
     }
   }
-  /* Primary call to action: the glass pill with a uniform orange ring and a faint
-     inner glow; on hover the brand gradient rises and fills the pill. */
+  /* Primary call to action: a solid pill in the brand gradient, ink text (about
+     8:1). On hover it lifts, its shadow deepens and the gradient slides to its
+     brighter end. Every `variant="primary"` button uses it, header included. */
   .btn-primary {
-    border-color: rgb(250 127 19 / 0.55);
-    box-shadow:
-      inset 0 0 0 1px rgb(250 127 19 / 0.1),
-      inset 0 0 22px rgb(250 127 19 / 0.1);
+    color: var(--color-on-accent);
+    border-color: transparent;
+    background: linear-gradient(100deg, #feb613, #fa7f13 45%, #f6601a 80%, #fa7f13) 0 0 / 200% 100%;
+    box-shadow: var(--btn-halo);
+    transition:
+      background-position 0.6s var(--ease-out-expo),
+      transform 0.35s var(--ease-out-expo),
+      box-shadow 0.35s ease;
   }
   .btn-primary svg {
-    color: var(--color-orange-light);
-  }
-  .btn-primary::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    border-radius: inherit;
-    background: linear-gradient(100deg, #feb613, #fa7f13 55%, #f6601a);
-    transform: translateY(102%);
-    transition: transform 0.55s var(--ease-out-expo);
+    color: currentColor;
   }
   @media (hover: hover) {
     .btn-primary:hover {
-      color: var(--color-on-accent);
-      border-color: rgb(250 127 19 / 0.9);
+      border-color: transparent;
+      background-position: 100% 0;
       transform: translateY(-2px);
-      box-shadow: 0 14px 34px -12px rgb(250 127 19 / 0.55);
-    }
-    .btn-primary:hover svg {
-      color: var(--color-on-accent);
-    }
-    .btn-primary:hover::before {
-      transform: translateY(0);
+      box-shadow: var(--btn-halo-hover);
     }
   }
   .btn-primary:active {
@@ -468,6 +494,14 @@
   .menu-dot {
     transition: transform 0.5s var(--ease-out-expo);
   }
+  /* The section the visitor is on: number in full ink, larger dot with a soft ring. */
+  .menu-link[aria-current='location'] .menu-num {
+    color: var(--color-paper);
+  }
+  .menu-link[aria-current='location'] .menu-dot {
+    transform: scale(1.4);
+    box-shadow: 0 0 0 5px rgb(var(--paper-rgb) / 0.08);
+  }
   @media (hover: hover) {
     .menu-link:hover .menu-text {
       transform: translateX(14px);
@@ -480,12 +514,14 @@
   /* Hero ----------------------------------------------------------- */
   /* Pulled up under the sticky header (84px: 52px pill + 2 × 16px) so the
      current fills the whole first screen. */
+  /* The first screen holds the hero and the logo band under it (~190px): trust
+     is visible without scrolling. Short screens let the content set the height. */
   .hero {
     display: grid;
     place-items: center;
-    min-height: 86svh;
+    min-height: calc(100svh - 190px);
     margin-top: -84px;
-    padding: 164px 0 128px;
+    padding: 164px 0 72px;
   }
   /* The current only flows along the edges: the centre is masked out so the
      text sits on plain ink. The veil darkens the middle a little more. Without a
@@ -539,31 +575,47 @@
   .hero-lead {
     text-shadow: 0 1px 12px rgb(var(--ink-rgb) / 0.9);
   }
+  /* About: the founding year, large, then three key facts in a row. The label comes
+     first in the DOM (dt) and is shown under the figure. */
+  .about-facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+  .about-facts > div {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .about-fact-main {
+    grid-column: 1 / -1;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--color-line-2);
+  }
+  .about-fact-main dd {
+    font-size: var(--text-stat);
+  }
+  .about-fact dd {
+    font-size: clamp(34px, 3.2vw, 48px);
+  }
+  .about-fact dt {
+    line-height: 1.4;
+  }
   /* Layout grids --------------------------------------------------- */
   .split {
     display: grid;
     grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
     gap: 48px;
   }
-  .bento {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-  .span-r2 {
-    grid-row: span 2;
-  }
-  .span-c3 {
-    grid-column: span 3;
-  }
   .proj-row {
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
     gap: clamp(32px, 4.5vw, 72px);
     align-items: center;
   }
   .proj-row-rev {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
   }
   .proj-row-rev > :first-child {
     order: 2;
@@ -605,24 +657,6 @@
       color-mix(in srgb, var(--accent) 16%, transparent),
       transparent 70%
     );
-  }
-  .pcard-num {
-    position: absolute;
-    right: clamp(8px, 1.6vw, 24px);
-    bottom: -0.18em;
-    z-index: -1;
-    font-size: clamp(150px, 22vw, 320px);
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: -0.06em;
-    color: var(--color-paper);
-    opacity: 0.04;
-    pointer-events: none;
-    user-select: none;
-  }
-  .pcard-rev .pcard-num {
-    right: auto;
-    left: clamp(8px, 1.6vw, 24px);
   }
   .pcard-bar {
     display: flex;
@@ -685,7 +719,17 @@
   .team-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 24px;
+  }
+  /* Expertises: three offers side by side, roomy cards (spacious density). */
+  .offers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .offer {
+    gap: 26px;
+    padding: clamp(28px, 2.8vw, 40px);
   }
   /* Team profile card: portrait on the left (4:5), role and name, then the text and
      the tags pushed to the bottom. Phones switch to a compact header (see below). */
@@ -696,9 +740,9 @@
     grid-template-areas:
       'photo head'
       'photo body';
-    gap: 22px 28px;
-    padding: clamp(16px, 1.6vw, 20px);
-    padding-right: clamp(20px, 2.2vw, 32px);
+    gap: 24px 32px;
+    padding: clamp(20px, 2vw, 28px);
+    padding-right: clamp(24px, 2.6vw, 40px);
   }
   .tcard-photo {
     grid-area: photo;
@@ -712,16 +756,6 @@
   .tcard-body {
     grid-area: body;
     padding-bottom: clamp(4px, 1vw, 14px);
-  }
-  .edu-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
-  }
-  .mig-steps {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 28px;
   }
   .edu-aud {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -924,39 +958,27 @@
     animation-delay: -3s;
   }
 
-  /* Marquee -------------------------------------------------------- */
-  .marquee {
-    position: relative;
-    overflow: hidden;
+  /* Trust logos: single-tone masks in the text colour, so they follow the colour
+     scheme. `--scale` (TrustBand.tsx) evens out their visual weight. */
+  .logo-row {
+    --logo-h: clamp(30px, 3vw, 42px);
+    gap: clamp(20px, 2.4vw, 32px) clamp(36px, 4.6vw, 68px);
   }
-  .marquee::before,
-  .marquee::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 8%;
-    z-index: 1;
-    pointer-events: none;
+  .logo-row-clients {
+    --logo-h: clamp(32px, 3.2vw, 44px);
   }
-  .marquee::before {
-    left: 0;
-    background: linear-gradient(90deg, var(--color-ink), transparent);
+  .trust-logo {
+    display: block;
+    height: calc(var(--logo-h) * var(--scale));
+    aspect-ratio: var(--ratio);
+    background: currentColor;
+    -webkit-mask: var(--logo) center / contain no-repeat;
+    mask: var(--logo) center / contain no-repeat;
   }
-  .marquee::after {
-    right: 0;
-    background: linear-gradient(270deg, var(--color-ink), transparent);
-  }
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    animation: arz-marquee 42s linear infinite;
-    will-change: transform;
-  }
-  @media (hover: hover) {
-    .marquee:hover .marquee-track {
-      animation-play-state: paused;
-    }
+  .trust-word {
+    font-size: calc(var(--logo-h) * 0.56);
+    line-height: 1;
+    letter-spacing: -0.02em;
   }
 
   /* Team ----------------------------------------------------------- */
@@ -970,6 +992,12 @@
   }
 
   /* Case study ----------------------------------------------------- */
+  /* Challenge / solution / role: three columns, one on phones. */
+  .case-story {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+  }
   .next-link .next-arrow {
     transition: transform 0.35s var(--ease-out-expo);
   }
@@ -986,8 +1014,26 @@
   .intro-1 {
     animation-delay: 0.05s;
   }
+  .intro-3 {
+    animation-delay: 0.42s;
+  }
   .intro-4 {
     animation-delay: 0.58s;
+  }
+  /* Founders' portraits in the hero pill, overlapping, ringed with the page colour. */
+  .hero-face {
+    box-shadow: 0 0 0 2px var(--color-ink);
+  }
+  .hero-team {
+    transition:
+      border-color 0.3s var(--ease-out-expo),
+      background-color 0.3s var(--ease-out-expo);
+  }
+  @media (hover: hover) {
+    .hero-team:hover {
+      border-color: var(--color-line-5);
+      background-color: rgb(var(--paper-rgb) / 0.06);
+    }
   }
   .ln-wrap {
     display: flex;
@@ -1047,37 +1093,6 @@
   .sx-rule {
     transform-origin: 0 50%;
   }
-  .sx-card {
-    --o: 0px;
-  }
-  .sx-d1 {
-    --o: 70px;
-  }
-  .sx-d2 {
-    --o: 140px;
-  }
-  .vn-c {
-    transform-box: view-box;
-    transform-origin: 180px 105px;
-  }
-  .pj-chips li {
-    --i: 0;
-  }
-  .pj-chips li:nth-child(2) {
-    --i: 1;
-  }
-  .pj-chips li:nth-child(3) {
-    --i: 2;
-  }
-  .pj-chips li:nth-child(4) {
-    --i: 3;
-  }
-  .pj-chips li:nth-child(5) {
-    --i: 4;
-  }
-  .pj-chips li:nth-child(6) {
-    --i: 5;
-  }
 }
 
 /* ------------------------------------------------------------------ */
@@ -1097,14 +1112,6 @@
   }
   to {
     opacity: 0;
-  }
-}
-@keyframes arz-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
   }
 }
 @keyframes jk-scroll {
@@ -1237,60 +1244,6 @@
     translate: 0 0;
   }
 }
-@keyframes sx-card {
-  from {
-    opacity: 0;
-    translate: 0 90px;
-    scale: 0.94;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-    scale: 1;
-  }
-}
-@keyframes sx-spill {
-  from {
-    opacity: 0;
-    scale: 1 0.15;
-  }
-  to {
-    opacity: 1;
-    scale: 1 1;
-  }
-}
-@keyframes sx-draw {
-  from {
-    opacity: 0;
-    scale: 0 1;
-  }
-  to {
-    opacity: 1;
-    scale: 1 1;
-  }
-}
-@keyframes sx-ico {
-  from {
-    opacity: 0;
-    scale: 0.3;
-    rotate: -50deg;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
-    rotate: 0deg;
-  }
-}
-@keyframes sx-right {
-  from {
-    opacity: 0;
-    translate: 24px 0;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
 @keyframes sx-left {
   from {
     opacity: 0;
@@ -1299,56 +1252,6 @@
   to {
     opacity: 1;
     translate: 0 0;
-  }
-}
-@keyframes sx-li {
-  from {
-    opacity: 0;
-    translate: -22px 0;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-@keyframes sx-tick {
-  from {
-    stroke-dasharray: 1 2;
-    stroke-dashoffset: 1.05;
-  }
-  to {
-    stroke-dasharray: 1 2;
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes vn-l {
-  from {
-    opacity: 0;
-    translate: -58px 0;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-@keyframes vn-r {
-  from {
-    opacity: 0;
-    translate: 58px 0;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-@keyframes vn-c {
-  from {
-    opacity: 0;
-    scale: 0.4;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
   }
 }
 @keyframes pcard-back {
@@ -1362,76 +1265,13 @@
   }
 }
 @keyframes pj-stage {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 70px, 0) scale(0.96);
-  }
-  35% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-}
-@keyframes pj-desk {
   from {
     opacity: 0;
-    translate: 0 90px;
-    scale: 0.9;
+    translate: 0 56px;
   }
   to {
     opacity: 1;
     translate: 0 0;
-    scale: 1;
-  }
-}
-@keyframes pj-tab-l {
-  from {
-    opacity: 0;
-    translate: -70px 50px;
-    rotate: -8deg;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-    rotate: 0deg;
-  }
-}
-@keyframes pj-tab-r {
-  from {
-    opacity: 0;
-    translate: 70px 50px;
-    rotate: 8deg;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-    rotate: 0deg;
-  }
-}
-@keyframes pj-phone {
-  from {
-    opacity: 0;
-    translate: 0 150px;
-    rotate: 10deg;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-    rotate: 0deg;
-  }
-}
-@keyframes pj-chip {
-  from {
-    opacity: 0;
-    translate: 0 14px;
-    scale: 0.8;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-    scale: 1;
   }
 }
 
@@ -1523,65 +1363,10 @@
     .sx-up.sx-late {
       animation-range: entry 120px entry 400px;
     }
-    .sx-card {
-      view-timeline-name: --cd;
-      animation: sx-card cubic-bezier(0.2, 0.6, 0.25, 1) both;
-      animation-timeline: --cd;
-      animation-range: entry var(--o) entry calc(var(--o) + 360px);
-    }
-    .sx-card .hx {
-      animation: sx-spill var(--ease-out-soft) both;
-      animation-timeline: --cd;
-      animation-range: entry calc(var(--o) + 150px) entry calc(var(--o) + 470px);
-    }
-    .sx-card .hx-line {
-      animation: sx-draw cubic-bezier(0.3, 0.6, 0.2, 1) both;
-      animation-timeline: --cd;
-      animation-range: entry calc(var(--o) + 120px) entry calc(var(--o) + 440px);
-    }
-    .sx-card .ico {
-      animation: sx-ico cubic-bezier(0.2, 0.7, 0.25, 1.25) both;
-      animation-timeline: --cd;
-      animation-range: entry calc(var(--o) + 90px) entry calc(var(--o) + 340px);
-    }
-    .sx-card .hx-tag {
-      animation: sx-right var(--ease-out-soft) both;
-      animation-timeline: --cd;
-      animation-range: entry calc(var(--o) + 150px) entry calc(var(--o) + 400px);
-    }
     .sx-txt {
       animation: arz-up var(--ease-out-soft) both;
       animation-timeline: view();
       animation-range: entry calc(var(--o, 0px) + 30px) entry calc(var(--o, 0px) + 300px);
-    }
-    .sx-li {
-      view-timeline-name: --li;
-      animation: sx-li var(--ease-out-soft) both;
-      animation-timeline: --li;
-      animation-range: entry 0px entry 230px;
-    }
-    .sx-li .ck path {
-      animation: sx-tick cubic-bezier(0.3, 0.6, 0.3, 1) both;
-      animation-timeline: --li;
-      animation-range: entry 80px entry 270px;
-    }
-    .vn {
-      view-timeline-name: --vn;
-    }
-    .vn-l {
-      animation: vn-l var(--ease-out-soft) both;
-      animation-timeline: --vn;
-      animation-range: entry 0px entry 330px;
-    }
-    .vn-r {
-      animation: vn-r var(--ease-out-soft) both;
-      animation-timeline: --vn;
-      animation-range: entry 0px entry 330px;
-    }
-    .vn-c {
-      animation: vn-c cubic-bezier(0.2, 0.7, 0.25, 1.25) both;
-      animation-timeline: --vn;
-      animation-range: entry 230px entry 410px;
     }
     /* The recede: while the next card enters, the one below shrinks and dims. Driven
        by the next card's view timeline (timeline-scope on .stack), so a sticky card's
@@ -1605,37 +1390,12 @@
           calc(100vh - var(--pile-top) - (var(--i) + 1) * var(--pile-step));
       }
     }
+    /* One entrance for the whole device group: the devices used to fly in one by
+       one (four scaled layers per card), the main cost of a scroll frame. */
     .pj-stage {
-      view-timeline-name: --stg;
       animation: pj-stage var(--ease-out-soft) both;
-      animation-timeline: --stg;
-      animation-range: entry 0px entry 420px;
-    }
-    .pj-stage .dev-desk {
-      animation: pj-desk var(--ease-out-soft) both;
-      animation-timeline: --stg;
-      animation-range: entry 110px entry 450px;
-    }
-    .pj-stage .dev-tab {
-      animation: pj-tab-l var(--ease-out-soft) both;
-      animation-timeline: --stg;
-      animation-range: entry 190px entry 520px;
-    }
-    .pj-stage.pj-rev .dev-tab {
-      animation-name: pj-tab-r;
-    }
-    .pj-stage .dev-phone {
-      animation: pj-phone cubic-bezier(0.2, 0.7, 0.25, 1.12) both;
-      animation-timeline: --stg;
-      animation-range: entry 260px entry 590px;
-    }
-    .pj-chips {
-      view-timeline-name: --chips;
-    }
-    .pj-chips li {
-      animation: pj-chip cubic-bezier(0.2, 0.7, 0.25, 1.25) both;
-      animation-timeline: --chips;
-      animation-range: entry calc(var(--i) * 40px + 30px) entry calc(var(--i) * 40px + 210px);
+      animation-timeline: view();
+      animation-range: entry 0px entry 380px;
     }
   }
 }
@@ -1651,29 +1411,13 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 40px;
   }
-  .bento {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .edu-grid,
-  .mig-steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .span-c3 {
-    grid-column: span 2;
-  }
-  .stk-txt {
-    flex-basis: 300px !important;
-  }
-  .vn {
-    flex-basis: 300px !important;
-  }
 }
 @media (max-width: 720px) {
   /* Phone card: visual, title, summary; the case-study link is in the top bar.
      !important: `flex` utilities on the chips and links win over the layer. */
   .pcard-rule,
   .pcard-type,
-  .pcard-hl,
+  .pcard-story,
   .pcard-chips,
   .pcard-links {
     display: none !important;
@@ -1681,6 +1425,25 @@
 }
 /* Tablets: plain list, the case-study link sits in the body. */
 @media (min-width: 721px) and (max-width: 1080px) {
+  /* Full-width offer on tablets: problem → result on the left, services on the
+     right, so lines stay near 70 characters instead of running the whole width. */
+  .offer {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    column-gap: clamp(28px, 4vw, 48px);
+  }
+  .offer > * {
+    grid-column: 1 / -1;
+  }
+  .offer > dl {
+    grid-column: 1;
+  }
+  .offer > ul {
+    grid-column: 2;
+    align-self: start;
+    border-top: 0;
+    padding-top: 0;
+  }
   .pcard-top-link {
     display: none;
   }
@@ -1689,15 +1452,13 @@
   }
 }
 @media (max-width: 1080px) {
-  /* One profile card per row; the portrait keeps a sensible size. */
-  .team-grid {
+  /* One profile card per row; the portrait keeps a sensible size. One offer per row. */
+  .team-grid,
+  .offers {
     grid-template-columns: minmax(0, 1fr);
   }
   .tcard {
     grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
-  }
-  .pcard-num {
-    font-size: clamp(120px, 30vw, 200px);
   }
   .proj-row,
   .proj-row-rev {
@@ -1748,14 +1509,33 @@
     width: 62% !important;
   }
 }
+/* Phones: the language switch moves to the menu; the call to action becomes a round
+   e-mail icon in the header's glass style, the size of the other pills. */
+.hdr-cta-mail {
+  display: none;
+}
 @media (max-width: 720px) {
-  .sx-d1,
-  .sx-d2 {
-    --o: 0px;
-  }
-  .hdr-lang,
-  .hdr-cta {
+  .hdr-lang {
     display: none !important;
+  }
+  .hdr-cta {
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    justify-content: center;
+    color: var(--color-paper);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: none;
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+  }
+  .hdr-cta-label,
+  .hdr-cta-arrow {
+    display: none;
+  }
+  .hdr-cta-mail {
+    display: block;
   }
   .menu-grid {
     padding-top: 100px !important;
@@ -1796,26 +1576,11 @@
   }
   .hero {
     min-height: 78svh;
-    padding: 140px 0 96px;
+    padding: 140px 0 56px;
   }
   .pillars {
     grid-template-columns: minmax(0, 1fr) !important;
     gap: 36px !important;
-  }
-  .bento {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .span-r2 {
-    grid-row: auto;
-  }
-  .span-c3 {
-    grid-column: auto;
-  }
-  .bento article {
-    min-height: 0 !important;
-  }
-  .vn {
-    margin: 0 auto;
   }
   .tcard {
     grid-template-columns: 112px minmax(0, 1fr);
@@ -1842,19 +1607,9 @@
   .tcard-body {
     padding-inline: 4px;
   }
-  .edu-grid,
   .edu-aud,
-  .mig-steps {
+  .case-story {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .mig-band {
-    flex-direction: column;
-  }
-  .mig-arrow {
-    rotate: 90deg;
-  }
-  .edu-grid article {
-    min-height: 0 !important;
   }
   .meta-wide {
     grid-column: 1 / -1;
@@ -1931,11 +1686,9 @@
   }
 }
 @media (max-width: 400px) {
-  .hero-badge {
-    font-size: 11px !important;
-    letter-spacing: 0.04em !important;
+  .hero-team {
+    font-size: 14px !important;
     gap: 10px !important;
-    padding: 8px 14px 8px 12px !important;
   }
 }
 
@@ -1947,7 +1700,7 @@
    cards, re-rasterised the same way. Unlayered so it beats the `glass` utility. */
 @supports (-moz-appearance: none) {
   .glass,
-  .btn-glass {
+  .btn-glass:not(.btn-primary) {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     background: var(--glass-bg-solid);
@@ -1959,11 +1712,9 @@
 html.no-sda.is-scrolling .jk-scroll,
 html.no-sda.is-scrolling .rx-a,
 html.no-sda.is-scrolling .rx-b,
-html.no-sda.is-scrolling .marquee-track,
 .loop-paused .jk-scroll,
 .loop-paused .rx-a,
-.loop-paused .rx-b,
-.loop-paused .marquee-track {
+.loop-paused .rx-b {
   animation-play-state: paused;
 }
 
@@ -1978,7 +1729,7 @@ html.no-sda.is-scrolling .marquee-track,
 
 /* Light reveals for `html.no-sda.sda-light` (small surfaces only, see
    ScrollRevealFallback). Short, compositor-only transitions. */
-html.sda-light :is(.sx-txt, .sx-up, .sx-li, .sx-num, .sx-lab, .rv:not(article):not(.rv-media)) {
+html.sda-light :is(.sx-txt, .sx-up, .sx-num, .sx-lab, .rv:not(article):not(.rv-media)) {
   transition:
     opacity 0.5s ease-out,
     transform 0.5s var(--ease-out-expo);
@@ -1986,10 +1737,6 @@ html.sda-light :is(.sx-txt, .sx-up, .sx-li, .sx-num, .sx-lab, .rv:not(article):n
 html.sda-light :is(.sx-txt, .sx-up, .sx-num, .sx-lab, .rv:not(article):not(.rv-media)):not(.is-in) {
   opacity: 0;
   transform: translate3d(0, 18px, 0);
-}
-html.sda-light .sx-li:not(.is-in) {
-  opacity: 0;
-  transform: translate3d(-16px, 0, 0);
 }
 html.sda-light :is(.rv-bar, .sx-rule) {
   transform-origin: 0 50%;
@@ -2028,7 +1775,6 @@ html.sda-light :is(.rv-d2, .rv-bar.b3) {
   .menu-overlay {
     animation: none;
   }
-  .marquee-track,
   .jk-scroll,
   .rx-a,
   .rx-b {

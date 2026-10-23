@@ -15,6 +15,18 @@ const restomax: Project = {
   demoLabel: 'See a live example',
   accent: 'orange',
   reversed: false,
+  story: {
+    challenge:
+      'Bookings taken over the phone in the middle of service, and tables lost to no-shows.',
+    solution:
+      'A booking website and widget in each restaurant’s colours: guests book online, the team manages every booking from a single tool.',
+    role: 'Fullstack design and development: the widget, the website generated for each restaurant and the booking management module.',
+    results: [
+      { value: 'Up to 2 h', text: 'saved per day for the restaurant team' },
+      { text: 'Online bookings around the clock, without a phone call' },
+      { text: 'Fewer no-shows, thanks to smart booking management' },
+    ],
+  },
   devices: {
     screenBg: '#FFFFFF',
     url: media.restomax.url,
@@ -33,7 +45,7 @@ const restomax: Project = {
     tagline: 'A website and an online booking widget, in each restaurant’s colours.',
     intro:
       'Restomax’s online booking system: a customisable website and widget that simplify reservation management.',
-    stat: { value: '2 h', text: 'Freed up every day for the restaurant team.' },
+    stat: { value: '2 h', text: 'The time the restaurant team can save each day.' },
     heroImage: img(
       media.restomax.desktop1,
       'Restomax Book for Nati Thai: choosing the party size and the service',
@@ -101,8 +113,19 @@ const jkstudio: Project = {
   tags: ['Next.js', 'Supabase'],
   demoUrl: 'https://www.jkstudio.fr/',
   demoLabel: 'Visit the site',
-  accent: 'yellow',
+  accent: 'orange',
   reversed: true,
+  story: {
+    challenge:
+      'A nightlife, wedding and events photographer needed a fast portfolio he could update himself.',
+    solution:
+      'A clean website where each gallery reads like a contact sheet, in a light or dark theme, with a direct quote request.',
+    role: 'Design and development of the website, from the interface to content management.',
+    results: [
+      { text: 'Galleries published by the photographer himself, without a developer' },
+      { text: 'Static pages, fast and well indexed' },
+    ],
+  },
   devices: {
     screenBg: '#EFEAE3',
     url: media.jkstudio.url,
@@ -168,10 +191,10 @@ const jkstudio: Project = {
 export const en: SiteContent = {
   locale: 'en',
   meta: {
-    title: 'Arlioz — Digital development & GDPR consulting in Belgium',
+    title: 'Arlioz — Websites, apps and GDPR compliance · Charleroi, Belgium',
     template: '%s — Arlioz',
     description:
-      'Arlioz brings digital development and data protection together: websites, web and mobile applications, GDPR compliance. One team, based in Belgium, since 2018.',
+      'Your websites, web and mobile apps and business tools, built and GDPR-compliant from day one. A full-stack developer and a GDPR expert, working with you directly, in Charleroi since 2018.',
     keywords: [
       'web development',
       'mobile application',
@@ -184,11 +207,12 @@ export const en: SiteContent = {
       'WebDev migration',
       'WinDev Mobile migration',
       'Belgium',
+      'Charleroi',
       'Next.js',
       'React',
       'Angular',
     ],
-    ogAlt: 'Arlioz — Solid code. Protected data.',
+    ogAlt: 'Arlioz — Your websites and business tools, built and GDPR-compliant from day one.',
     ogTagline: 'Digital development & GDPR consulting · Belgium',
   },
   a11y: {
@@ -207,166 +231,142 @@ export const en: SiteContent = {
     close: 'Close',
     sectionLabel: 'Navigation',
     items: [
-      { label: 'Work', anchor: 'realisations', dot: 'blue' },
-      { label: 'Expertise', anchor: 'expertises', dot: 'orange' },
       { label: 'Team', anchor: 'equipe', dot: 'green' },
-      { label: 'Education', anchor: 'education', dot: 'yellow' },
-      { label: 'Contact', anchor: 'contact', dot: 'blue' },
+      { label: 'Work', anchor: 'realisations', dot: 'orange' },
+      { label: 'Expertise', anchor: 'expertises', dot: 'green' },
+      { label: 'Education', anchor: 'education', dot: 'green' },
+      { label: 'Contact', anchor: 'contact', dot: 'orange' },
     ],
     write: 'Write to us',
     follow: 'Follow',
     language: 'Language',
     tagline: 'Digital development and GDPR compliance, since 2018.',
-    cta: 'Let’s talk about your project',
+    cta: 'Talk about my project',
     linkedin: 'LinkedIn',
   },
   hero: {
-    badge: 'Development & GDPR · Belgium',
     title: [
-      { lead: 'Solid ', em: 'code.' },
-      { lead: 'Protected ', em: 'data.' },
+      { lead: 'Your websites and business tools, ', em: 'built' },
+      { lead: 'and ', em: 'GDPR-compliant', tail: ' from day one.' },
     ],
-    ctaPrimary: 'Let’s talk about your project',
+    lead: 'A full-stack developer and a GDPR expert, working directly with companies and organisations since 2018.',
+    team: 'Guy and Amaury, your contacts',
+    proof: '{count} LinkedIn recommendations',
+    ctaPrimary: 'Talk about my project',
     ctaSecondary: 'See our work',
   },
   about: {
-    index: '02',
+    index: '04',
     label: 'About',
-    year: '2018',
-    yearLabel: 'Founded',
+    facts: [
+      { value: '2018', label: 'Arlioz founded' },
+      { value: '30+', label: 'Years of IT and security experience' },
+      { value: '10+', label: 'Years teaching computer science' },
+      { value: '3', label: 'Products in production' },
+    ],
     title: [
-      { text: 'We bring ' },
-      { text: 'data protection', mark: 'blue' },
+      { text: 'Since 2018, ' },
+      { text: 'a GDPR expert', mark: 'blue' },
       { text: ' and ' },
-      { text: 'digital development', mark: 'orange' },
-      { text: ' together to help your business ' },
-      { text: 'grow', mark: 'green' },
+      { text: 'a full-stack developer', mark: 'orange' },
+      { text: ' have delivered products together, ' },
+      { text: 'compliant by design', mark: 'green' },
       { text: '.' },
     ],
     pillars: [
       {
         title: 'Build',
-        text: 'Websites, web and mobile applications, with proven technologies.',
+        text: 'Websites, web and mobile applications and APIs, in Angular, React, Vue and NestJS.',
       },
       {
         title: 'Protect',
-        text: 'Clear GDPR compliance, built in from the architecture up.',
+        text: 'Audit, record of processing, impact assessments: GDPR compliance you can demonstrate.',
       },
       {
-        title: 'Grow',
-        text: 'Robust solutions that support your growth.',
+        title: 'Pass on',
+        text: 'Over ten years of teaching: we document and train your teams.',
       },
     ],
   },
   expertises: {
     index: '03',
     label: 'Expertise',
-    title: ['Two areas of expertise', 'that complement each other.'],
-    rgpd: {
-      tag: 'Data protection',
-      title: 'GDPR consulting',
-      text: 'Bringing your organisation into compliance, and keeping it there.',
-      items: [
-        'Compliance audit',
-        'Records of processing activities',
-        'Impact assessments (DPIA)',
-        'Privacy and cookie policies',
-        'Data processing agreements',
-        'Team awareness training',
-      ],
-    },
-    cards: [
+    title: ['Three offers,', 'one team.'],
+    intro:
+      'A full-stack developer and a GDPR expert under one roof, since 2018. You pick the offer, we take it from start to finish.',
+    signature:
+      'Privacy by design: every development project builds GDPR in from the architecture, not after going live.',
+    labels: { problem: 'The problem', result: 'The result' },
+    offers: [
       {
-        tag: 'Development',
-        title: 'Web development',
-        text: 'Bespoke websites, platforms and widgets, fast and accessible.',
-        icon: 'code',
+        accent: 'orange',
+        title: 'Websites and applications',
+        problem:
+          'Your website or business tool is slow, hard to change or poorly suited to mobile.',
+        solution:
+          'We design and build websites, web and mobile applications and APIs, on proven technologies.',
+        result: 'A fast, accessible product your teams can keep evolving.',
+        points: [
+          'Custom websites and platforms',
+          'Web and mobile applications',
+          'Frontend architecture and design systems',
+          'Performance, technical SEO, accessibility',
+        ],
+        cta: { label: 'Talk about your project', subject: 'Development project — contact request' },
       },
       {
-        tag: 'Development',
-        title: 'Cross-platform apps',
-        text: 'One code base for web and mobile, in your brand’s colours.',
-        icon: 'devices',
+        accent: 'blue',
+        title: 'GDPR compliance',
+        problem: 'You process personal data without knowing whether you are compliant.',
+        solution: 'We audit your processing, write the required documents and train your teams.',
+        result:
+          'Compliance you can demonstrate to your clients and to the Data Protection Authority.',
+        points: [
+          'Compliance audit',
+          'Record of processing and impact assessments (DPIA)',
+          'Privacy and cookie policies, processing agreements',
+          'Team awareness training',
+        ],
+        cta: { label: 'Talk about your compliance', subject: 'GDPR compliance — contact request' },
       },
       {
-        tag: 'Development',
-        title: 'Frontend architecture',
-        text: 'Monorepo, design system, state management: foundations that last.',
-        icon: 'layout',
-      },
-      {
-        tag: 'Development',
-        title: 'Website optimisation',
-        text: 'Performance, technical SEO, accessibility: a faster, more visible site.',
-        icon: 'gauge',
+        accent: 'orange',
+        title: 'WinDev and WebDev migration',
+        problem:
+          'Your WinDev, WebDev or WinDev Mobile applications are ageing and getting costly to maintain.',
+        solution:
+          'We move them one by one to a modern stack. We run the migration, or we support your teams.',
+        result: 'Your users keep working throughout the migration, with no disruption.',
+        points: [
+          'Map of applications and data',
+          'Old and new side by side, one application at a time',
+          'Interfaces, applications and APIs rebuilt',
+          'Documentation and handover to your teams',
+        ],
+        cta: {
+          label: 'Talk about your migration',
+          subject: 'WinDev / WebDev migration — contact request',
+        },
       },
     ],
-    stack: {
-      tag: 'Dev × GDPR',
-      title: 'Project stack architecture',
-      text: [
-        {
-          text: 'Technologies, hosting, data flows, security: an architecture compliant from day one. ',
-        },
-        { text: 'Privacy by design', strong: true },
-        { text: ', for real.' },
-      ],
-      diagram: {
-        left: 'DEV',
-        right: 'GDPR',
-        center: ['PRIVACY', 'BY DESIGN'],
-        aria: 'Development and GDPR meet: privacy by design',
-      },
-    },
-    migration: {
-      tag: 'Development · Migration',
-      title: 'Migrate your WinDev, WebDev and WinDev Mobile estate',
-      text: 'A progressive and complete migration of your business applications to a modern full-stack: web front-end, mobile and desktop applications, API and back-end. One application at a time, with no disruption for your users.',
-      from: { label: 'Today', items: ['WinDev', 'WebDev', 'WinDev Mobile'] },
-      to: {
-        label: 'Tomorrow',
-        items: ['Web front-end', 'Mobile & desktop apps', 'API & back-end'],
-      },
-      steps: [
-        { title: 'Map', text: 'Applications, data, flows and migration order.' },
-        { title: 'Coexist', text: 'One application at a time: old and new run side by side.' },
-        {
-          title: 'Rebuild',
-          text: 'Interfaces, applications, API; data and business rules carried over.',
-        },
-        { title: 'Hand over', text: 'Documentation and knowledge transfer to your teams.' },
-      ],
-      note: 'Done by us, or led by your teams with our support.',
-    },
   },
   work: {
-    index: '01',
+    index: '02',
     label: 'Work',
     title: ['Real projects,', 'live online.'],
-    clientsLabel: 'In production at',
-    clients: ['Radyo', 'Restomax', 'JK Studio'],
     caseStudy: 'Case study',
     liveExample: 'See a live example',
     viewSite: 'Visit the site',
     clientPrefix: 'Client:',
+    need: 'The need',
+    result: 'The result',
   },
-  stack: {
-    label: 'Technologies',
-    items: [
-      'Angular',
-      'React',
-      'Next.js',
-      'Vue.js',
-      'Nuxt',
-      'NestJS',
-      'TypeScript',
-      'Java',
-      'C#',
-      '.NET',
-    ],
+  trust: { label: 'Experience gained at' },
+  clients: {
+    label: 'In production at',
   },
   team: {
-    index: '04',
+    index: '01',
     label: 'Team',
     title: 'Two experts, directly.',
     members: [
@@ -403,47 +403,55 @@ export const en: SiteContent = {
     label: 'Education',
     brand: 'Arlioz Education',
     title: ['Teaching', 'and guiding.'],
-    text: 'Guy teaches development to future developers and supports companies in the field: architecture, technical choices, quality, upskilling teams. The same standard as on a project: solid code, protected data.',
+    text: 'Guy trains future developers and upskills in-house teams: architecture, quality, GDPR.',
     audiences: [
       {
         title: 'Companies',
-        text: 'Architectural, technical and organisational support: an audit of your codebase, stack choices, code reviews, tailored training for your teams, on site or remote.',
+        text: 'Codebase audits, stack choices, code reviews and tailored training, on site or remote.',
       },
       {
         title: 'Students',
         text: 'Courses and guidance for young developers, from the first project to professional best practices.',
       },
     ],
-    topics: [
-      {
-        icon: 'layout',
-        tag: 'Support',
-        title: 'Architecture and stack',
-        text: 'Audit of the existing, technology choices, foundations for a project built to last.',
-      },
-      {
-        icon: 'gauge',
-        tag: 'Support',
-        title: 'Technique and quality',
-        text: 'Code reviews, best practices, performance and tooling, alongside your developers.',
-      },
-      {
-        icon: 'shield',
-        tag: 'Support',
-        title: 'GDPR and data',
-        text: 'Compliance, privacy by design and security, explained and put in place with your teams.',
-      },
-      {
-        icon: 'code',
-        tag: 'Course',
-        title: 'Web development',
-        text: 'JavaScript and TypeScript, front-end and back-end frameworks, from the basics to a complete project.',
-      },
-    ],
     cta: 'Talk about support',
   },
-  contact: {
+  testimonials: {
     index: '06',
+    label: 'Testimonials',
+    title: ['They worked', 'with one of us.'],
+    translated: 'Translated from French',
+    source: 'LinkedIn recommendation',
+    items: [
+      {
+        quote:
+          'Amaury is exceptionally well experienced in the Angular frontend development. He is motivated and eager to learn business concepts. On a personal level it is very nice to work with him.',
+        name: 'Stefan Casier',
+        role: 'Technical Architect at Samayas',
+      },
+      {
+        quote:
+          'He focused on coaching, writing shared components and deciding on the main architecture. Everyone enjoyed working with Amaury. He has great in-depth knowledge of the Angular framework, is up-to-date and provides you with tons of information. He is able to focus and keep calm during stressful situations.',
+        name: 'Wahid Argandiwall',
+        role: 'Technical architect',
+      },
+      {
+        quote:
+          'Amaury and I worked on the same project for 6 months. This collaboration, and getting to know him, was full of positives! We clearly improved the application’s code quality (always looking for best practices) and its maintainability, which was our priority. But not only that: by working together, we set up a project management methodology that was perfect and well run-in. Amaury also guided me through advanced Angular concepts thanks to his teaching skills. On the human side, Amaury is a friendly person and, above all, truly passionate. I think that is why we got on well straight away. In short: this collaboration was a major asset in my growth as a front-end developer.',
+        name: 'Alexandre Moreaux',
+        role: 'Developer analyst and projects · SBIM',
+        translated: true,
+      },
+      {
+        quote:
+          'Amaury is really an excellent developer. His years of experience don’t reflect all his knowledge and skills. He is a real pillar in a development team. He is team player and reliable.',
+        name: 'Frederique Rensonnet',
+        role: 'Head of IT Corporate functions',
+      },
+    ],
+  },
+  contact: {
+    index: '07',
     label: 'Contact',
     title: 'A project? A GDPR question? Let’s talk.',
     text: 'Tell us where you stand, we come back to you with a first opinion.',
@@ -482,6 +490,10 @@ export const en: SiteContent = {
     demo: 'Live example',
     sections: {
       project: 'The project',
+      challenge: 'The challenge',
+      solution: 'Our solution',
+      role: 'Our role',
+      results: 'Results',
       features: 'Features',
       featuresTitle: 'What the solution brings.',
       stack: 'Tech stack',

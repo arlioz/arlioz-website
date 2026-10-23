@@ -65,10 +65,17 @@ GSAP (+ ScrollTrigger, ≈ 30 kB gzip) n'est **pas** dans le bundle initial : il
    de molette) : repli GSAP ScrollTrigger → 56 à 68 frames > 33 ms sur ~190 ; transitions sur tous les blocs
    → 50 à 62 ; jeu léger → 35 à 39 ; statique → 3 à 5. Lenis n'y est pour rien (désactivé : aucun gain). Le jeu
    léger a été validé fluide par le propriétaire sur Firefox réel (GPU), d'où ce choix par défaut.
+   **Budget** (revue design + skill ui-ux-pro-max, « 1 à 2 éléments animés par écran ») : seuls les titres de
+   section, leur eyebrow et un bloc d'intro sont révélés ; cartes, listes et puces techno restent statiques. La scène
+   d'appareils d'une carte projet entre d'un seul bloc (translation + opacité) au lieu de quatre calques mis à
+   l'échelle. Chromium headless, scroll complet de l'accueil à 1440 px (~400 images) : 28 à 32 images > 33 ms avant,
+   11 à 15 après, p95 33 → 17 ms ; le flou du header et le canvas du hero ne changent rien à la mesure. Le reste
+   vient de la pile de cartes projet, gardée volontairement.
 4. **`content-visibility: auto`** sur les sections basses des études de cas. Pas sur l'accueil : ses sections sont des
    cibles d'ancres (`#contact`, `#equipe`…) et la hauteur estimée faussait la position d'arrivée avec Lenis.
 5. **Hero LCP-safe** : les lignes du H1 sont révélées par masque (`overflow: clip` + `translate`), le texte est du
-   vrai HTML, rien ne démarre à `opacity: 0` dans le bloc LCP. Le hero fait 86 % de l'écran et le bandeau le suit :
+   vrai HTML, rien ne démarre à `opacity: 0` dans le bloc LCP. Sur desktop le hero fait la hauteur de l'écran moins le bandeau de logos (~190 px), pour que les logos soient visibles
+   sans défiler ; logos en masques WebP mono-couche (alpha seul, 2 à 15 kB chacun) :
    aucun reveal à l'opacité (`.rv`, `.sx-*`) n'affleure le pli au chargement, sinon axe signale un contraste
    insuffisant à mi-course (vu avec le titre « À propos », contraste 1,16, quand il était juste sous le hero).
 6. **Hero WebGL « courant chromatique »** (`components/motion/ChromaCurrent.tsx`, 3,8 kB gzip, pas de bibliothèque) :

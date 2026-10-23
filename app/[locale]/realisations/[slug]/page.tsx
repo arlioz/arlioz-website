@@ -4,10 +4,11 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Magnetic } from '@/components/motion/Magnetic';
 import { BrowserBar } from '@/components/ui/BrowserBar';
+import { DeviceFrame } from '@/components/ui/DeviceFrame';
 import { ButtonLink } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Glow } from '@/components/ui/Glow';
-import { ArrowLeft, ArrowRight, ArrowUpRight } from '@/components/ui/Icons';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from '@/components/ui/Icons';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { LineTitle } from '@/components/ui/LineTitle';
 import { LogoMark } from '@/components/ui/LogoMark';
@@ -41,20 +42,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
-const delays = ['', 'rv-d1', 'rv-d2'] as const;
 const dt = 'label-mono-sm text-muted-3';
 const dd = 'm-0 text-base text-paper';
 const caption =
-  'absolute bottom-3.5 left-4 rounded-pill border border-line-3 bg-ink/72 px-2.5 py-1.5 font-mono text-[11px] tracking-[0.06em] uppercase text-paper-3';
+  'absolute bottom-3.5 left-4 rounded-pill border border-line-3 bg-ink/72 px-2.5 py-1.5 font-mono text-xs tracking-[0.06em] uppercase text-paper-3';
 const phoneBg =
   'bg-[radial-gradient(circle_at_50%_42%,rgba(226,194,122,0.16),transparent_62%),var(--color-surface)]';
 
 function GalleryFigure({ item, index }: { item: GalleryItem; index: number }) {
-  const delay = delays[index % 3];
   if (item.kind === 'desktop') {
     return (
       <figure
-        className={`g-wide rv ${delay} relative m-0 overflow-hidden rounded-card-sm border border-line-2 bg-surface`}
+        className={`g-wide relative m-0 overflow-hidden rounded-card-sm border border-line-2 bg-surface`}
       >
         <BrowserBar url="" size="md" />
         <div className="relative aspect-[16/10]">
@@ -73,20 +72,18 @@ function GalleryFigure({ item, index }: { item: GalleryItem; index: number }) {
   if (item.kind === 'tablet') {
     return (
       <figure
-        className={`rv ${delay} relative m-0 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-card-sm border border-line-2 pb-7 ${phoneBg}`}
+        className={`relative m-0 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-card-sm border border-line-2 pb-7 ${phoneBg}`}
       >
-        <div className="g-tab w-[40%] rounded-[18px] border border-line-4 bg-device p-1.5 shadow-device">
-          <div className="relative aspect-[820/1180] overflow-hidden rounded-xl">
-            <Image
-              src={item.image.src}
-              alt={item.image.alt}
-              fill
-              sizes="(max-width: 720px) 62vw, 200px"
-              className="object-cover"
-              style={{ objectPosition: item.position ?? '50% 0%' }}
-            />
-          </div>
-        </div>
+        <DeviceFrame kind="tablet" className="g-tab relative w-[40%]">
+          <Image
+            src={item.image.src}
+            alt={item.image.alt}
+            fill
+            sizes="(max-width: 720px) 62vw, 200px"
+            className="object-cover"
+            style={{ objectPosition: item.position ?? '50% 0%' }}
+          />
+        </DeviceFrame>
         <figcaption className={caption}>{item.caption}</figcaption>
       </figure>
     );
@@ -94,26 +91,23 @@ function GalleryFigure({ item, index }: { item: GalleryItem; index: number }) {
   const tall = index === 1;
   return (
     <figure
-      className={`rv ${delay} relative m-0 flex items-center justify-center overflow-hidden rounded-card-sm border border-line-2 ${phoneBg} ${
+      className={`relative m-0 flex items-center justify-center overflow-hidden rounded-card-sm border border-line-2 ${phoneBg} ${
         tall ? 'px-6 pt-7 pb-14' : 'aspect-[4/3] pb-7'
       }`}
     >
-      <div
-        className={`g-phone rounded-[26px] border border-line-4 bg-device p-1 shadow-device ${
-          tall ? 'w-[min(230px,64%)]' : 'w-[27%]'
-        }`}
+      <DeviceFrame
+        kind="phone"
+        className={`g-phone relative ${tall ? 'w-[min(230px,64%)]' : 'w-[27%]'}`}
       >
-        <div className="relative aspect-[398/852] overflow-hidden rounded-[22px]">
-          <Image
-            src={item.image.src}
-            alt={item.image.alt}
-            fill
-            sizes="(max-width: 720px) 44vw, 230px"
-            className="object-cover"
-            style={{ objectPosition: item.position ?? '50% 0%' }}
-          />
-        </div>
-      </div>
+        <Image
+          src={item.image.src}
+          alt={item.image.alt}
+          fill
+          sizes="(max-width: 720px) 44vw, 230px"
+          className="object-cover"
+          style={{ objectPosition: item.position ?? '50% 0%' }}
+        />
+      </DeviceFrame>
       <figcaption className={caption}>{item.caption}</figcaption>
     </figure>
   );
@@ -254,16 +248,56 @@ export default async function CaseStudyPage({ params }: PageProps) {
               >
                 {study.intro}
               </h2>
-              {study.stat && (
-                <div className="rv rv-d1 flex flex-wrap items-end gap-x-8 gap-y-4 rounded-card border border-line-2 bg-surface px-9 py-8">
-                  <p className="m-0 font-display text-stat-sm leading-[0.85] font-medium tracking-[-0.05em] text-orange-light">
-                    {study.stat.value}
-                  </p>
-                  <p className="m-0 max-w-[420px] pb-1.5 text-[17px] leading-normal text-paper-3">
-                    {study.stat.text}
-                  </p>
-                </div>
-              )}
+              <div className="case-story">
+                {(
+                  [
+                    [cs.sections.challenge, project.story.challenge],
+                    [cs.sections.solution, project.story.solution],
+                    [cs.sections.role, project.story.role],
+                  ] as const
+                ).map(([label, text]) => (
+                  <div
+                    key={label}
+                    className="flex min-w-0 flex-col gap-3 border-t border-line-2 pt-5"
+                  >
+                    <h3 className="label-mono m-0 font-medium text-orange-light">{label}</h3>
+                    <p className="m-0 text-base leading-[1.6] text-paper-2">{text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="rv flex flex-col gap-5">
+                <h3 className="label-mono m-0 font-medium text-orange-light">
+                  {cs.sections.results}
+                </h3>
+                {study.stat && (
+                  <div className="flex flex-wrap items-end gap-x-8 gap-y-4 rounded-card border border-line-2 bg-surface px-9 py-8">
+                    <p className="m-0 font-display text-stat-sm leading-[0.85] font-medium tracking-[-0.05em] text-orange-light">
+                      {study.stat.value}
+                    </p>
+                    <p className="m-0 max-w-[420px] pb-1.5 text-[17px] leading-normal text-paper-3">
+                      {study.stat.text}
+                    </p>
+                  </div>
+                )}
+                <ul className="m-0 grid list-none gap-3 p-0">
+                  {project.story.results
+                    .filter((result) => !(study.stat && result.value))
+                    .map((result) => (
+                      <li
+                        key={result.text}
+                        className="flex items-start gap-3 text-base leading-[1.55] text-paper-2"
+                      >
+                        <Check className="mt-1 flex-none text-orange-light" />
+                        <span>
+                          {result.value && (
+                            <strong className="font-semibold text-paper">{result.value} </strong>
+                          )}
+                          {result.text}
+                        </span>
+                      </li>
+                    ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -285,16 +319,16 @@ export default async function CaseStudyPage({ params }: PageProps) {
             {study.features.map((feature, i) => (
               <article
                 key={feature.title}
-                className={`card-hover rv ${delays[i % 3]} flex min-h-[240px] flex-col gap-10 rounded-card border border-line-2 bg-surface p-8`}
+                className={`card-hover flex min-h-[240px] flex-col gap-10 rounded-card border border-line-2 bg-surface p-8`}
               >
-                <p className="m-0 font-mono text-xs font-medium tracking-[0.08em] text-orange-light">
+                <p className="m-0 font-mono text-[13px] font-medium tracking-[0.08em] text-orange-light">
                   {String(i + 1).padStart(2, '0')}
                 </p>
                 <div className="mt-auto flex flex-col gap-2.5">
                   <h3 className="m-0 font-display text-card leading-[1.1] font-medium tracking-[-0.025em]">
                     {feature.title}
                   </h3>
-                  <p className="m-0 text-[15.5px] leading-[1.6] text-muted">{feature.text}</p>
+                  <p className="m-0 text-base leading-[1.6] text-muted">{feature.text}</p>
                 </div>
               </article>
             ))}
@@ -325,10 +359,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
           <ul
             className={`stack-grid m-0 list-none p-0 ${study.stack.length <= 4 ? 'stack-grid-4' : ''}`}
           >
-            {study.stack.map((item, i) => (
+            {study.stack.map((item) => (
               <li
                 key={item.name}
-                className={`card-hover rv ${delays[i % 3]} flex min-h-[160px] flex-col justify-between gap-8 rounded-card-sm border border-line-2 bg-surface p-6`}
+                className={`card-hover flex min-h-[160px] flex-col justify-between gap-8 rounded-card-sm border border-line-2 bg-surface p-6`}
               >
                 <span className="label-mono-sm text-muted-3">{item.category}</span>
                 <span className="font-display text-[28px] leading-none font-medium tracking-[-0.03em]">
