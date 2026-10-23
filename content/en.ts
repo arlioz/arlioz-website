@@ -231,9 +231,9 @@ export const en: SiteContent = {
     close: 'Close',
     sectionLabel: 'Navigation',
     items: [
+      { label: 'Team', anchor: 'equipe', dot: 'green' },
       { label: 'Work', anchor: 'realisations', dot: 'orange' },
       { label: 'Expertise', anchor: 'expertises', dot: 'green' },
-      { label: 'Team', anchor: 'equipe', dot: 'green' },
       { label: 'Education', anchor: 'education', dot: 'green' },
       { label: 'Contact', anchor: 'contact', dot: 'orange' },
     ],
@@ -289,7 +289,7 @@ export const en: SiteContent = {
     ],
   },
   expertises: {
-    index: '02',
+    index: '03',
     label: 'Expertise',
     title: ['Three offers,', 'one team.'],
     intro:
@@ -355,7 +355,7 @@ export const en: SiteContent = {
     ],
   },
   work: {
-    index: '01',
+    index: '02',
     label: 'Work',
     title: ['Real projects,', 'live online.'],
     caseStudy: 'Case study',
@@ -370,7 +370,7 @@ export const en: SiteContent = {
     label: 'In production at',
   },
   team: {
-    index: '03',
+    index: '01',
     label: 'Team',
     title: 'Two experts, directly.',
     members: [

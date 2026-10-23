@@ -255,9 +255,9 @@ export const fr: SiteContent = {
     close: 'Fermer',
     sectionLabel: 'Navigation',
     items: [
+      { label: 'Équipe', anchor: 'equipe', dot: 'green' },
       { label: 'Réalisations', anchor: 'realisations', dot: 'orange' },
       { label: 'Expertises', anchor: 'expertises', dot: 'green' },
-      { label: 'Équipe', anchor: 'equipe', dot: 'green' },
       { label: 'Éducation', anchor: 'education', dot: 'green' },
       { label: 'Contact', anchor: 'contact', dot: 'orange' },
     ],
@@ -313,7 +313,7 @@ export const fr: SiteContent = {
     ],
   },
   expertises: {
-    index: '02',
+    index: '03',
     label: 'Expertises',
     title: ['Trois offres,', 'une même équipe.'],
     intro:
@@ -386,7 +386,7 @@ export const fr: SiteContent = {
     ],
   },
   work: {
-    index: '01',
+    index: '02',
     label: 'Réalisations',
     title: ['Des projets', 'concrets, en ligne.'],
     caseStudy: 'Étude de cas',
@@ -401,7 +401,7 @@ export const fr: SiteContent = {
   },
   trust: { label: 'Une expérience forgée chez' },
   team: {
-    index: '03',
+    index: '01',
     label: 'Équipe',
     title: 'Deux experts, en direct.',
     members: [
