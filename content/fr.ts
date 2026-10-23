@@ -301,14 +301,14 @@ export const fr: SiteContent = {
   },
   hero: {
     title: [
-      { lead: 'Nous ', em: 'concevons', tail: ' vos logiciels,' },
-      { lead: 'et faisons ', em: 'grandir', tail: ' vos équipes.' },
+      { lead: 'Vos logiciels et SaaS, ', em: 'conçus' },
+      { lead: 'et ', em: 'conformes RGPD', tail: ' dès le premier jour.' },
     ],
-    eyebrow: 'Studio produit & conseil technique · Charleroi',
-    lead: 'Un développeur fullstack et un architecte IT & expert RGPD, en direct, depuis 2018.',
+    lead: 'Un développeur fullstack et un expert RGPD, en direct : nous développons vos logiciels et accompagnons vos équipes, depuis 2018.',
+    team: 'Guy et Amaury, vos interlocuteurs',
+    proof: '{count} recommandations LinkedIn',
     callSubject: 'Appel découverte (30 min) — demande de rendez-vous',
-    visualCaption: 'En production · Restomax Book, SaaS de réservation',
-    ctaPrimary: 'Réserver un appel de 30 min',
+    ctaPrimary: 'Parler de mon projet',
     ctaSecondary: 'Voir nos réalisations',
   },
   expertises: {

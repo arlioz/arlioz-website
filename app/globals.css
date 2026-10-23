@@ -112,10 +112,9 @@
   --shadow-device-lg: 0 30px 60px rgb(0 0 0 / 0.5);
   --glow-k: 1;
   --grid-line: rgb(242 241 238 / 0.055);
-  /* Brand colour code: orange = development (line 1), green = teams, development
-     and GDPR together (line 2). */
   --hero-a: #ffb13d, #ff7c00 55%, #ff5a1f;
-  --hero-c: #8ff0cb, #3ccf9b 50%, #22b08f;
+  /* Brand colour code: orange = development (line 1), blue = GDPR (line 2). */
+  --hero-b: #a9c8ff, #6e9cf0 50%, #4f86f0;
   --btn-halo: 0 10px 26px -14px rgb(246 96 26 / 0.7);
   --btn-halo-hover: 0 16px 34px -12px rgb(246 96 26 / 0.65);
 }
@@ -166,7 +165,7 @@
     --glow-k: 0.55;
     --grid-line: rgb(16 24 40 / 0.06);
     --hero-a: #e8640a, #d14a08 55%, #c23d0c;
-    --hero-c: #0f9a72, #0b8466 55%, #0a7268;
+    --hero-b: #2a6fd6, #1d5bbf 55%, #1a4fa8;
     --color-device-edge: #d9dbdb;
     /* On white the dark-theme halo reads as a smudge: tighter and lighter. */
     --btn-halo: 0 8px 18px -12px rgb(246 96 26 / 0.45);
@@ -508,27 +507,11 @@
   /* The first screen holds the hero and the logo band under it (~190px): trust
      is visible without scrolling. Short screens let the content set the height. */
   .hero {
-    --hero-focus: 30% 50%;
     display: grid;
-    align-items: center;
+    place-items: center;
     min-height: calc(100svh - 190px);
     margin-top: -84px;
-    padding: 148px 0 72px;
-  }
-  /* Promise on the left (7 columns), the product on its devices on the right (5). */
-  .hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    align-items: center;
-    gap: clamp(32px, 4vw, 72px);
-  }
-  .hero-br {
-    display: none;
-  }
-  @media (max-width: 600px) {
-    .hero-br {
-      display: inline;
-    }
+    padding: 164px 0 72px;
   }
   /* The current only flows along the edges: the centre is masked out so the
      text sits on plain ink. The veil darkens the middle a little more. Without a
@@ -539,12 +522,8 @@
     display: block;
     width: 100%;
     height: 100%;
-    mask-image: radial-gradient(ellipse 46% 44% at var(--hero-focus), transparent 38%, #000 100%);
-    -webkit-mask-image: radial-gradient(
-      ellipse 46% 44% at var(--hero-focus),
-      transparent 38%,
-      #000 100%
-    );
+    mask-image: radial-gradient(ellipse 46% 44% at 50% 50%, transparent 38%, #000 100%);
+    -webkit-mask-image: radial-gradient(ellipse 46% 44% at 50% 50%, transparent 38%, #000 100%);
   }
   .hero-veil {
     position: absolute;
@@ -552,7 +531,7 @@
     pointer-events: none;
     background:
       radial-gradient(
-        ellipse 50% 46% at var(--hero-focus),
+        ellipse 50% 46% at 50% 50%,
         rgb(var(--ink-rgb) / 0.92),
         rgb(var(--ink-rgb) / 0.5) 60%,
         transparent 78%
@@ -580,8 +559,8 @@
   .hero-hl-a {
     background-image: linear-gradient(95deg, var(--hero-a));
   }
-  .hero-hl-c {
-    background-image: linear-gradient(95deg, var(--hero-c));
+  .hero-hl-b {
+    background-image: linear-gradient(95deg, var(--hero-b));
   }
   .hero-lead {
     text-shadow: 0 1px 12px rgb(var(--ink-rgb) / 0.9);
@@ -746,34 +725,9 @@
     background-size: 64px 64px;
     background-position: center top;
   }
-  .blueprint-hero {
-    z-index: 1;
-    mask-image: radial-gradient(ellipse 46% 62% at 72% 50%, #000 20%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse 46% 62% at 72% 50%, #000 20%, transparent 80%);
-  }
   .blueprint-method {
     mask-image: linear-gradient(to bottom, transparent, #000 35%, #000 70%, transparent);
     -webkit-mask-image: linear-gradient(to bottom, transparent, #000 35%, #000 70%, transparent);
-  }
-  /* Registration marks: four corner brackets around a figure, as on a drawing. */
-  .reg {
-    position: relative;
-    --reg: var(--color-line-5);
-  }
-  .reg::before {
-    content: '';
-    position: absolute;
-    inset: -14px -14px -10px;
-    pointer-events: none;
-    background:
-      linear-gradient(var(--reg), var(--reg)) top left / 14px 1px no-repeat,
-      linear-gradient(var(--reg), var(--reg)) top left / 1px 14px no-repeat,
-      linear-gradient(var(--reg), var(--reg)) top right / 14px 1px no-repeat,
-      linear-gradient(var(--reg), var(--reg)) top right / 1px 14px no-repeat,
-      linear-gradient(var(--reg), var(--reg)) bottom left / 14px 1px no-repeat,
-      linear-gradient(var(--reg), var(--reg)) bottom left / 1px 14px no-repeat,
-      linear-gradient(var(--reg), var(--reg)) bottom right / 14px 1px no-repeat,
-      linear-gradient(var(--reg), var(--reg)) bottom right / 1px 14px no-repeat;
   }
   /* Expertises: the two specialties, compact, under the pillars. */
   .specialties {
@@ -1177,6 +1131,21 @@
   }
   .intro-4 {
     animation-delay: 0.58s;
+  }
+  /* Founders' portraits in the hero pill, overlapping, ringed with the page colour. */
+  .hero-face {
+    box-shadow: 0 0 0 2px var(--color-ink);
+  }
+  .hero-team {
+    transition:
+      border-color 0.3s var(--ease-out-expo),
+      background-color 0.3s var(--ease-out-expo);
+  }
+  @media (hover: hover) {
+    .hero-team:hover {
+      border-color: var(--color-line-5);
+      background-color: rgb(var(--paper-rgb) / 0.06);
+    }
   }
   .ln-wrap {
     display: flex;
@@ -1653,13 +1622,6 @@
   .method-num {
     top: -34px;
   }
-  /* Hero: the promise, then the product under it at a readable size. */
-  .hero-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .hero-visual {
-    width: min(100%, 640px);
-  }
   /* One profile card per row; the portrait keeps a sensible size. One offer per row. */
   .team-grid,
   .offers {
@@ -1783,9 +1745,8 @@
     background-position: 0 calc(100% - 9px);
   }
   .hero {
-    --hero-focus: 50% 32%;
     min-height: 78svh;
-    padding: 132px 0 56px;
+    padding: 140px 0 56px;
   }
   .pillars {
     grid-template-columns: minmax(0, 1fr) !important;
@@ -1891,6 +1852,13 @@
   .cta-btns > a {
     flex: 1 1 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-team {
+    font-size: 14px !important;
+    gap: 10px !important;
   }
 }
 

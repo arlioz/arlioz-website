@@ -218,14 +218,14 @@ export interface SiteContent {
      * then an optional `tail` back in the display face.
      */
     title: { lead: string; em: string; tail?: string }[];
-    /** Mono line above the title: what Arlioz is, and where. */
-    eyebrow: string;
     /** The line under the title: who you deal with, since when. */
     lead: string;
-    /** Pre-filled subject of the primary button (a discovery call by e-mail). */
+    /** Next to the founders' portraits, above the title; links to the team section. */
+    team: string;
+    /** Under the buttons, links to the testimonials; `{count}` is replaced. */
+    proof: string;
+    /** Pre-filled subject of the discovery-call e-mail (header button, offer pages). */
     callSubject: string;
-    /** Caption of the device stage beside the title. */
-    visualCaption: string;
     ctaPrimary: string;
     ctaSecondary: string;
   };

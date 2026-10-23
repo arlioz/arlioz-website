@@ -282,14 +282,14 @@ export const en: SiteContent = {
   },
   hero: {
     title: [
-      { lead: 'We ', em: 'build', tail: ' your software,' },
-      { lead: 'and ', em: 'grow', tail: ' your teams.' },
+      { lead: 'Your software and SaaS, ', em: 'built' },
+      { lead: 'and ', em: 'GDPR-compliant', tail: ' from day one.' },
     ],
-    eyebrow: 'Product studio & technical consulting · Charleroi',
-    lead: 'A full-stack developer and an IT architect & GDPR expert, working with you directly since 2018.',
+    lead: 'A full-stack developer and a GDPR expert, working with you directly: we build your software and support your teams, since 2018.',
+    team: 'Guy and Amaury, your contacts',
+    proof: '{count} LinkedIn recommendations',
     callSubject: 'Discovery call (30 min) — meeting request',
-    visualCaption: 'In production · Restomax Book, booking SaaS',
-    ctaPrimary: 'Book a 30-min call',
+    ctaPrimary: 'Talk about my project',
     ctaSecondary: 'See our work',
   },
   expertises: {
