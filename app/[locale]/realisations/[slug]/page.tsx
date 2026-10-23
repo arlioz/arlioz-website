@@ -3,8 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Magnetic } from '@/components/motion/Magnetic';
-import { BrowserBar } from '@/components/ui/BrowserBar';
 import { DeviceFrame } from '@/components/ui/DeviceFrame';
+import { DeviceStage } from '@/components/ui/DeviceStage';
 import { ButtonLink } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Glow } from '@/components/ui/Glow';
@@ -42,6 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
+const glow = { orange: '#FA7F13', blue: '#2065CB', green: '#2BBE8D' } as const;
 const dt = 'label-mono-sm text-muted-3';
 const dd = 'm-0 text-base text-paper';
 const caption =
@@ -53,18 +54,17 @@ function GalleryFigure({ item, index }: { item: GalleryItem; index: number }) {
   if (item.kind === 'desktop') {
     return (
       <figure
-        className={`g-wide relative m-0 overflow-hidden rounded-card-sm border border-line-2 bg-surface`}
+        className={`g-wide relative m-0 flex aspect-[16/10] items-center justify-center overflow-hidden rounded-card-sm border border-line-2 pb-7 ${phoneBg}`}
       >
-        <BrowserBar url="" size="md" />
-        <div className="relative aspect-[16/10]">
+        <DeviceFrame kind="laptop" className="relative w-[84%]">
           <Image
             src={item.image.src}
             alt={item.image.alt}
             fill
-            sizes="(max-width: 720px) 100vw, (max-width: 980px) 90vw, 860px"
+            sizes="(max-width: 720px) 84vw, (max-width: 980px) 76vw, 620px"
             className="object-cover object-top"
           />
-        </div>
+        </DeviceFrame>
         <figcaption className={caption}>{item.caption}</figcaption>
       </figure>
     );
@@ -216,22 +216,9 @@ export default async function CaseStudyPage({ params }: PageProps) {
               </dd>
             </div>
           </dl>
-          <div className="intro-media mt-[clamp(40px,5vw,64px)] overflow-hidden rounded-card border border-line-2 bg-surface">
-            <BrowserBar url={project.devices.url} size="lg" />
-            <div
-              className="relative aspect-[16/10]"
-              style={{ backgroundColor: project.devices.screenBg }}
-            >
-              <Image
-                src={study.heroImage.src}
-                alt={study.heroImage.alt}
-                fill
-                priority
-                fetchPriority="high"
-                sizes="(max-width: 1440px) 92vw, 1280px"
-                className="object-cover object-top"
-              />
-            </div>
+          {/* The project on its three devices, as on the home page card. */}
+          <div className="intro-media mx-auto mt-[clamp(40px,5vw,64px)] w-full max-w-[1100px]">
+            <DeviceStage devices={project.devices} glow={glow[project.accent]} hero />
           </div>
         </div>
       </section>

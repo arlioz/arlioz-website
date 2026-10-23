@@ -12,6 +12,8 @@ interface DeviceStageProps {
   glowOpacity?: number;
   href?: string;
   ariaLabel?: string;
+  /** Case-study hero: larger images, and the laptop screen is the page's LCP. */
+  hero?: boolean;
 }
 
 /**
@@ -38,20 +40,31 @@ const frames = {
   },
 } as const;
 
+/** The same frames across the case-study hero (up to 1100 px wide). */
+const heroSizes = {
+  desktop: '(max-width: 1100px) 80vw, 880px',
+  tablet: '(max-width: 600px) 34vw, 264px',
+  phone: '(max-width: 600px) 21vw, 154px',
+} as const;
+
 function Screen({
   image,
   alt,
   frame,
   motion,
   className,
+  hero = false,
 }: {
   image: ProjectImage;
   alt?: ProjectImage;
   frame: keyof typeof frames;
   motion: DeviceSet['motion'];
   className: string;
+  hero?: boolean;
 }) {
   const f = frames[frame];
+  const sizes = hero ? heroSizes[frame] : f.sizes;
+  const lcp = hero && frame === 'desktop';
   const base = 'absolute top-0 left-0 block h-auto w-full';
   const vars = (img: ProjectImage) => ({ '--travel': travel(img, f.w, f.h) }) as CSSProperties;
   return (
@@ -61,7 +74,8 @@ function Screen({
         alt={image.alt}
         width={image.width}
         height={image.height}
-        sizes={f.sizes}
+        sizes={sizes}
+        priority={lcp}
         style={vars(image)}
         className={`${base} ${motion === 'scroll' ? `jk-scroll ${className}` : `rx-a ${className}`}`}
       />
@@ -71,7 +85,7 @@ function Screen({
           alt={alt.alt}
           width={alt.width}
           height={alt.height}
-          sizes={f.sizes}
+          sizes={sizes}
           style={vars(alt)}
           className={`${base} rx-b ${className} opacity-0`}
         />
@@ -93,6 +107,7 @@ export function DeviceStage({
   glowOpacity = 0.16,
   href,
   ariaLabel,
+  hero = false,
 }: DeviceStageProps) {
   const scroll = devices.motion === 'scroll';
   // No frame of its own: the devices sit directly on the project card (one level of
@@ -135,6 +150,7 @@ export function DeviceStage({
           frame="desktop"
           motion={devices.motion}
           className={scroll ? 'jk-scroll-desk' : ''}
+          hero={hero}
         />
       </DeviceFrame>
 
@@ -151,6 +167,7 @@ export function DeviceStage({
           frame="tablet"
           motion={devices.motion}
           className={scroll ? 'jk-scroll-tab' : 'rx-t'}
+          hero={hero}
         />
       </DeviceFrame>
 
@@ -167,6 +184,7 @@ export function DeviceStage({
           frame="phone"
           motion={devices.motion}
           className={scroll ? 'jk-scroll-mob' : 'rx-m'}
+          hero={hero}
         />
       </DeviceFrame>
     </>
