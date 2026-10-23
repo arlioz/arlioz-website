@@ -78,7 +78,7 @@ export function Hero({ locale, content }: { locale: Locale; content: SiteContent
 
           <a
             href={`${home}#temoignages`}
-            className="intro intro-4 link-u label-mono inline-flex items-center gap-2.5 text-muted-2"
+            className="intro intro-4 link-u hit label-mono inline-flex items-center gap-2.5 text-muted-2"
           >
             <span aria-hidden="true" className="inline-flex gap-1">
               <span className="h-1.5 w-1.5 rounded-full bg-orange" />

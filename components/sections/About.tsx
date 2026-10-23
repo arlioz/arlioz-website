@@ -9,8 +9,9 @@ const bars = [
 
 export function About({ content }: { content: SiteContent }) {
   const { about } = content;
+  // No top padding: it follows Expertises on the same background, whose bottom padding is the gap.
   return (
-    <section id="a-propos" aria-labelledby="about-title" className="py-section">
+    <section id="a-propos" aria-labelledby="about-title" className="pb-section">
       <div className="container-site">
         <div className="split">
           <div className="flex flex-col justify-between gap-10">

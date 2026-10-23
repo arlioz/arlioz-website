@@ -92,7 +92,7 @@ export function Testimonials({ content }: { content: SiteContent }) {
               >
                 “
               </span>
-              <p className="m-0 max-w-[62ch] text-[clamp(20px,2vw,26px)] leading-[1.55] tracking-[-0.01em] text-paper text-pretty">
+              <p className="m-0 max-w-[50ch] text-[clamp(20px,2vw,26px)] leading-[1.55] tracking-[-0.01em] text-paper text-pretty">
                 {featured.quote}
               </p>
               {note(featured)}

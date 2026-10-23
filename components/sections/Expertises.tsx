@@ -103,7 +103,7 @@ function OfferCard({
 export function Expertises({ content }: { content: SiteContent }) {
   const { expertises: x } = content;
   return (
-    <section id="expertises" aria-labelledby="services-title" className="pb-section">
+    <section id="expertises" aria-labelledby="services-title" className="py-section">
       <div className="container-site">
         <div className="mb-[clamp(48px,6vw,80px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
           <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
@@ -125,7 +125,7 @@ export function Expertises({ content }: { content: SiteContent }) {
           ))}
         </div>
 
-        <p className="mt-[clamp(28px,3.4vw,44px)] mb-0 flex max-w-[760px] items-start gap-3 text-[17px] leading-[1.6] text-paper-2">
+        <p className="mt-[clamp(28px,3.4vw,44px)] mb-0 flex max-w-[560px] items-start gap-3 text-[17px] leading-[1.6] text-paper-2">
           <span aria-hidden="true" className="mt-2 h-2.5 w-2.5 flex-none rounded-full bg-green" />
           {x.signature}
         </p>

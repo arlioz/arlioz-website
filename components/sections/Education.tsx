@@ -13,7 +13,7 @@ export function Education({ locale, content }: { locale: Locale; content: SiteCo
     <section
       id="education"
       aria-labelledby="education-title"
-      className="relative overflow-clip border-y border-line bg-ink-2 py-[clamp(64px,8vw,120px)]"
+      className="relative overflow-clip border-y border-line bg-ink-2 py-[clamp(64px,8vw,120px)] [--anchor-pad:clamp(64px,8vw,120px)]"
     >
       <Glow
         color="#2BBE8D"

@@ -25,6 +25,8 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
         lerp: 0.1,
         duration: 1.1,
         smoothWheel: true,
+        // Anchor targets honour `scroll-padding-top` (fixed header) and each section's
+        // `scroll-margin-top` (see globals.css), like the native jump.
         anchors: true,
         autoRaf: true,
       }}

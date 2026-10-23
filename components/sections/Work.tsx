@@ -74,7 +74,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                   </p>
                   <Link
                     href={href}
-                    className="link-u pcard-top-link inline-flex items-center gap-2 font-sans text-[15px] font-medium tracking-normal text-paper normal-case"
+                    className="link-u hit pcard-top-link inline-flex items-center gap-2 font-sans text-[15px] font-medium tracking-normal text-paper normal-case"
                   >
                     {work.caseStudy}
                     <ArrowRight size={16} />
@@ -119,7 +119,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                     <div className="pcard-links mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[16px]">
                       <Link
                         href={href}
-                        className="link-u pcard-body-link inline-flex items-center gap-2 font-medium text-paper"
+                        className="link-u hit pcard-body-link inline-flex items-center gap-2 font-medium text-paper"
                       >
                         {work.caseStudy}
                         <ArrowRight size={16} />

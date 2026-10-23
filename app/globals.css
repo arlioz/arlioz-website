@@ -178,6 +178,10 @@
   /* No native `scroll-behavior: smooth`: Lenis animates the scroll, and a native
      smooth hash jump at load raced with it and landed off target. */
   html {
+    /* Room for the fixed header when jumping to an anchor or moving focus (WCAG 2.4.11).
+       SmoothScroll and ScrollRestoration read the same variable for Lenis. */
+    --header-offset: 104px;
+    scroll-padding-top: var(--header-offset);
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     background: var(--color-ink);
@@ -350,6 +354,28 @@
       opacity 0.25s ease,
       translate 0.25s ease,
       visibility 0s 0.25s;
+  }
+  /* A larger hit area (WCAG 2.2 target size, 24 px) without moving the text or the
+     `link-u` underline, which is painted at the bottom of the box. */
+  /* Anchor jumps land on a section's content, just under the fixed header, not at the
+     top of its padding: a negative scroll margin cancels the top padding. */
+  main section[id] {
+    scroll-margin-top: calc(-1 * var(--anchor-pad, 0px));
+  }
+  .py-section,
+  .pt-section {
+    --anchor-pad: var(--spacing-section);
+  }
+  .pt-section-sm {
+    --anchor-pad: var(--spacing-section-sm);
+  }
+  .hit {
+    position: relative;
+  }
+  .hit::before {
+    content: '';
+    position: absolute;
+    inset: -8px -4px;
   }
   .link-u {
     background-image: linear-gradient(currentColor, currentColor);
