@@ -25,9 +25,21 @@ const dotColor = {
   green: 'bg-green',
 } as const;
 
+/** The menu's section under the middle of the screen, read when the menu opens. */
+function sectionInView(anchors: string[]): string | null {
+  const y = window.innerHeight * 0.45;
+  for (const id of anchors) {
+    const rect = document.getElementById(id)?.getBoundingClientRect();
+    if (rect && rect.top <= y && rect.bottom > y) return id;
+  }
+  return null;
+}
+
 export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsProps) {
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);
+  // Where the visitor is, shown in the menu (aria-current="location").
+  const [active, setActive] = useState<string | null>(null);
   const pathname = usePathname();
   const lenis = useLenis();
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -72,6 +84,7 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
   const toggle = () => {
     if (open) close();
     else {
+      setActive(sectionInView(nav.items.map((item) => item.anchor)));
       setOpen(true);
       setClosing(false);
     }
@@ -88,7 +101,7 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
         aria-controls={dialogId}
         className="menu-btn pill glass pointer-events-auto relative z-10 inline-flex h-[52px] cursor-pointer items-center gap-3 rounded-pill px-5 font-sans text-[15px] font-medium text-paper"
       >
-        <span>{open ? nav.close : nav.menu}</span>
+        <span className="menu-btn-label">{open ? nav.close : nav.menu}</span>
         {open ? <Close /> : <Burger />}
       </button>
 
@@ -142,9 +155,10 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
                       ref={i === 0 ? firstLinkRef : undefined}
                       href={`${homeHref}#${item.anchor}`}
                       onClick={close}
+                      aria-current={active === item.anchor ? 'location' : undefined}
                       className="menu-link flex items-center gap-[clamp(16px,3vw,40px)] border-b border-line-2 py-[clamp(14px,1.8vw,22px)] text-paper"
                     >
-                      <span className="min-w-7 font-mono text-[13px] text-muted-3">
+                      <span className="menu-num min-w-7 font-mono text-[13px] text-muted-3">
                         {String(i + 1).padStart(2, '0')}
                       </span>
                       <span className="menu-text font-display text-menu leading-none font-medium tracking-[-0.045em]">

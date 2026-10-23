@@ -178,10 +178,11 @@
   /* No native `scroll-behavior: smooth`: Lenis animates the scroll, and a native
      smooth hash jump at load raced with it and landed off target. */
   html {
-    /* Room for the fixed header when jumping to an anchor or moving focus (WCAG 2.4.11).
-       SmoothScroll and ScrollRestoration read the same variable for Lenis. */
+    /* Room kept for the sticky header (84 px + 20 px) above an anchor target or a
+       focused element; see the scroll-margin rules under Components. Not a
+       scroll-padding: the header itself sits in that band, and focusing one of its
+       controls would then scroll the page. */
     --header-offset: 104px;
-    scroll-padding-top: var(--header-offset);
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     background: var(--color-ink);
@@ -355,12 +356,14 @@
       translate 0.25s ease,
       visibility 0s 0.25s;
   }
-  /* A larger hit area (WCAG 2.2 target size, 24 px) without moving the text or the
-     `link-u` underline, which is painted at the bottom of the box. */
-  /* Anchor jumps land on a section's content, just under the fixed header, not at the
-     top of its padding: a negative scroll margin cancels the top padding. */
+  /* Focus and anchors never end up under the sticky header (WCAG 2.4.11). Sections
+     land on their content, just under the header, rather than at the top of their
+     padding. Lenis reads these margins for anchor links. */
+  main * {
+    scroll-margin-top: var(--header-offset);
+  }
   main section[id] {
-    scroll-margin-top: calc(-1 * var(--anchor-pad, 0px));
+    scroll-margin-top: calc(var(--header-offset) - var(--anchor-pad, 0px));
   }
   .py-section,
   .pt-section {
@@ -369,6 +372,8 @@
   .pt-section-sm {
     --anchor-pad: var(--spacing-section-sm);
   }
+  /* A larger hit area (WCAG 2.2 target size, 24 px) without moving the text or the
+     `link-u` underline, which is painted at the bottom of the box. */
   .hit {
     position: relative;
   }
@@ -488,6 +493,14 @@
   .menu-text,
   .menu-dot {
     transition: transform 0.5s var(--ease-out-expo);
+  }
+  /* The section the visitor is on: number in full ink, larger dot with a soft ring. */
+  .menu-link[aria-current='location'] .menu-num {
+    color: var(--color-paper);
+  }
+  .menu-link[aria-current='location'] .menu-dot {
+    transform: scale(1.4);
+    box-shadow: 0 0 0 5px rgb(var(--paper-rgb) / 0.08);
   }
   @media (hover: hover) {
     .menu-link:hover .menu-text {
@@ -1496,10 +1509,26 @@
     width: 62% !important;
   }
 }
+/* Phones: the language switch moves to the menu; the call to action stays, compact,
+   with its short label (logo + button + Menu fit in 358 px). */
+.hdr-cta-short {
+  display: none;
+}
 @media (max-width: 720px) {
-  .hdr-lang,
-  .hdr-cta {
+  .hdr-lang {
     display: none !important;
+  }
+  .hdr-cta {
+    height: 44px;
+    padding-inline: 16px;
+    gap: 6px;
+    font-size: 14px;
+  }
+  .hdr-cta-long {
+    display: none;
+  }
+  .hdr-cta-short {
+    display: inline;
   }
   .menu-grid {
     padding-top: 100px !important;
@@ -1602,6 +1631,25 @@
   }
   .g-wide {
     grid-column: auto;
+  }
+}
+/* Narrow phones: logo + Contact + Menu must fit in the width minus the 16 px gutters. */
+@media (max-width: 380px) {
+  .hdr-cta {
+    padding-inline: 14px;
+  }
+  .hdr-cta svg {
+    display: none;
+  }
+  .menu-btn {
+    padding-inline: 16px;
+    gap: 8px;
+  }
+}
+@media (max-width: 350px) {
+  /* The button keeps its accessible name (aria-label); only the visible word goes. */
+  .menu-btn-label {
+    display: none;
   }
 }
 @media (max-width: 600px) {

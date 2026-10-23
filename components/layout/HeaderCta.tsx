@@ -8,6 +8,8 @@ import { ArrowRight } from '@/components/ui/Icons';
 interface HeaderCtaProps {
   href: string;
   label: string;
+  /** Shown instead of `label` on phones (globals.css), where the full label does not fit. */
+  shortLabel: string;
   /** id of the hero section: while it is on screen, its own button does the job. */
   heroId: string;
 }
@@ -19,7 +21,7 @@ interface HeaderCtaProps {
  * The initial hidden state is pure CSS (`#top:has(> main .hero)` in globals.css), so
  * nothing flashes before hydration; this only toggles `is-out` from the observer.
  */
-export function HeaderCta({ href, label, heroId }: HeaderCtaProps) {
+export function HeaderCta({ href, label, shortLabel, heroId }: HeaderCtaProps) {
   const ref = useRef<HTMLAnchorElement>(null);
   const pathname = usePathname();
 
@@ -46,7 +48,8 @@ export function HeaderCta({ href, label, heroId }: HeaderCtaProps) {
       href={href}
       className={`${buttonClass('primary', 'md')} hdr-cta pointer-events-auto`}
     >
-      {label}
+      <span className="hdr-cta-long">{label}</span>
+      <span className="hdr-cta-short">{shortLabel}</span>
       <ArrowRight size={18} />
     </a>
   );

@@ -157,6 +157,8 @@ export interface SiteContent {
     language: string;
     tagline: string;
     cta: string;
+    /** The header button's label on phones, where the full one does not fit. */
+    ctaShort: string;
     linkedin: string;
   };
   hero: {
