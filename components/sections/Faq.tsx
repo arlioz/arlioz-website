@@ -18,7 +18,7 @@ export function Faq({ content }: { content: SiteContent }) {
             <LineTitle
               id="faq-title"
               lines={faq.title}
-              className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
+              className="font-display text-h2 leading-none font-medium tracking-[-0.035em]"
             />
           </div>
           <div className="min-w-0 border-t border-line-2">

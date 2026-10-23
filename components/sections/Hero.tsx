@@ -26,6 +26,8 @@ export function Hero({ locale, content }: { locale: Locale; content: SiteContent
       <div className="hero relative">
         <ChromaCurrent className="hero-chroma" lightColors={['#e8640a', '#0a9e8a']} />
         <div aria-hidden="true" className="hero-veil" />
+        {/* Brand signature: the fine grid of a technical drawing, around the product. */}
+        <div aria-hidden="true" className="blueprint blueprint-hero" />
 
         <div className="container-site hero-grid relative z-[2]">
           <div className="flex min-w-0 flex-col items-start gap-[clamp(22px,2.4vw,30px)]">
@@ -112,7 +114,7 @@ export function Hero({ locale, content }: { locale: Locale; content: SiteContent
           </div>
 
           {showcase && (
-            <figure className="intro intro-4 hero-visual m-0 flex min-w-0 flex-col gap-3">
+            <figure className="intro intro-4 hero-visual reg m-0 flex min-w-0 flex-col gap-3">
               <DeviceStage
                 devices={showcase.devices}
                 glow={glow[showcase.accent]}
@@ -121,6 +123,9 @@ export function Hero({ locale, content }: { locale: Locale; content: SiteContent
                 priority
               />
               <figcaption className="label-mono-sm flex items-center gap-2.5 text-muted-3">
+                <span aria-hidden="true" className="text-paper-3">
+                  fig. 01
+                </span>
                 <span aria-hidden="true" className="h-2 w-2 rounded-full bg-orange" />
                 {hero.visualCaption}
               </figcaption>

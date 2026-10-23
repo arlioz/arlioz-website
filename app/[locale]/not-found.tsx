@@ -14,7 +14,7 @@ export default function NotFound() {
         const t = getContent(locale).notFound;
         return (
           <div key={locale} lang={locale} className="flex max-w-[720px] flex-col gap-5">
-            <h1 className="m-0 font-display text-h2 leading-none font-medium tracking-[-0.04em] text-balance">
+            <h1 className="m-0 font-display text-h2 leading-none font-medium tracking-[-0.035em] text-balance">
               {t.title}
             </h1>
             <p className="m-0 text-[17px] leading-[1.6] text-muted">{t.text}</p>

@@ -121,7 +121,7 @@ export function Expertises({ content }: { content: SiteContent }) {
             <LineTitle
               id="services-title"
               lines={x.title}
-              className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
+              className="font-display text-h2 leading-none font-medium tracking-[-0.035em]"
             />
           </div>
           <p className="m-0 max-w-[470px] text-[17px] leading-[1.6] text-muted text-pretty">

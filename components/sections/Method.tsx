@@ -10,15 +10,20 @@ import { LineTitle } from '@/components/ui/LineTitle';
 export function Method({ content }: { content: SiteContent }) {
   const { method: m } = content;
   return (
-    <section id="methode" aria-labelledby="method-title" className="py-section">
-      <div className="container-site">
+    <section
+      id="methode"
+      aria-labelledby="method-title"
+      className="relative overflow-clip py-section"
+    >
+      <div aria-hidden="true" className="blueprint blueprint-method" />
+      <div className="container-site relative">
         <div className="mb-[clamp(48px,6vw,80px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
           <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
             <Eyebrow index={m.index} label={m.label} animated />
             <LineTitle
               id="method-title"
               lines={m.title}
-              className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
+              className="font-display text-h2 leading-none font-medium tracking-[-0.035em]"
             />
           </div>
           <p className="m-0 max-w-[420px] text-[17px] leading-[1.6] text-muted text-pretty">

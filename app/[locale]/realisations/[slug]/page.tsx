@@ -297,7 +297,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <Eyebrow index="02" label={cs.sections.features} />
             <h2
               id="features-title"
-              className="m-0 font-display text-h2 leading-none font-medium tracking-[-0.04em] text-balance"
+              className="m-0 font-display text-h2 leading-none font-medium tracking-[-0.035em] text-balance"
             >
               {cs.sections.featuresTitle}
             </h2>
@@ -334,7 +334,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               <Eyebrow index="03" label={cs.sections.stack} />
               <h2
                 id="stack-title"
-                className="m-0 font-display text-h2 leading-none font-medium tracking-[-0.04em] text-balance"
+                className="m-0 font-display text-h2 leading-none font-medium tracking-[-0.035em] text-balance"
               >
                 {cs.sections.stackTitle}
               </h2>
@@ -368,7 +368,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <Eyebrow index="04" label={cs.sections.gallery} />
             <h2
               id="gallery-title"
-              className="m-0 font-display text-h2 leading-none font-medium tracking-[-0.04em]"
+              className="m-0 font-display text-h2 leading-none font-medium tracking-[-0.035em]"
             >
               {cs.sections.galleryTitle}
             </h2>
@@ -409,7 +409,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
           <LogoMark height={64} />
           <h2
             id="cta-title"
-            className="m-0 max-w-[900px] font-display text-h2 leading-none font-medium tracking-[-0.04em] text-balance"
+            className="m-0 max-w-[900px] font-display text-h2 leading-none font-medium tracking-[-0.035em] text-balance"
           >
             {cs.cta.title}
           </h2>

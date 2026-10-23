@@ -37,7 +37,7 @@ export function Team({ content }: { content: SiteContent }) {
           <Eyebrow index={team.index} label={team.label} />
           <h2
             id="team-title"
-            className="m-0 font-display text-h2 leading-none font-medium tracking-[-0.04em] text-balance"
+            className="m-0 font-display text-h2 leading-none font-medium tracking-[-0.035em] text-balance"
           >
             {team.title}
           </h2>

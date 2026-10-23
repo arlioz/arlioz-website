@@ -111,6 +111,7 @@
   --shadow-device: 0 24px 50px rgb(0 0 0 / 0.55);
   --shadow-device-lg: 0 30px 60px rgb(0 0 0 / 0.5);
   --glow-k: 1;
+  --grid-line: rgb(242 241 238 / 0.055);
   /* Brand colour code: orange = development (line 1), green = teams, development
      and GDPR together (line 2). */
   --hero-a: #ffb13d, #ff7c00 55%, #ff5a1f;
@@ -163,6 +164,7 @@
     --shadow-device: 0 24px 50px rgb(16 24 40 / 0.18);
     --shadow-device-lg: 0 30px 60px rgb(16 24 40 / 0.16);
     --glow-k: 0.55;
+    --grid-line: rgb(16 24 40 / 0.06);
     --hero-a: #e8640a, #d14a08 55%, #c23d0c;
     --hero-c: #0f9a72, #0b8466 55%, #0a7268;
     --color-device-edge: #d9dbdb;
@@ -740,6 +742,47 @@
     gap: 26px;
     padding: clamp(28px, 2.8vw, 40px);
   }
+  /* Brand signature: the fine grid of a technical drawing (Arlioz is an IT architect
+     and a developer). Pure CSS, faded out towards the edges. */
+  .blueprint {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: center top;
+  }
+  .blueprint-hero {
+    z-index: 1;
+    mask-image: radial-gradient(ellipse 46% 62% at 72% 50%, #000 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 46% 62% at 72% 50%, #000 20%, transparent 80%);
+  }
+  .blueprint-method {
+    mask-image: linear-gradient(to bottom, transparent, #000 35%, #000 70%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 35%, #000 70%, transparent);
+  }
+  /* Registration marks: four corner brackets around a figure, as on a drawing. */
+  .reg {
+    position: relative;
+    --reg: var(--color-line-5);
+  }
+  .reg::before {
+    content: '';
+    position: absolute;
+    inset: -14px -14px -10px;
+    pointer-events: none;
+    background:
+      linear-gradient(var(--reg), var(--reg)) top left / 14px 1px no-repeat,
+      linear-gradient(var(--reg), var(--reg)) top left / 1px 14px no-repeat,
+      linear-gradient(var(--reg), var(--reg)) top right / 14px 1px no-repeat,
+      linear-gradient(var(--reg), var(--reg)) top right / 1px 14px no-repeat,
+      linear-gradient(var(--reg), var(--reg)) bottom left / 14px 1px no-repeat,
+      linear-gradient(var(--reg), var(--reg)) bottom left / 1px 14px no-repeat,
+      linear-gradient(var(--reg), var(--reg)) bottom right / 14px 1px no-repeat,
+      linear-gradient(var(--reg), var(--reg)) bottom right / 1px 14px no-repeat;
+  }
   /* Expertises: the two specialties, compact, under the pillars. */
   .specialties {
     display: grid;
@@ -1303,6 +1346,14 @@
     opacity: 0;
   }
 }
+@keyframes arz-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
 @keyframes arz-up {
   from {
     opacity: 0;
@@ -1513,6 +1564,13 @@
           calc(100vh - var(--pile-top) - (var(--i) + 1) * var(--pile-step));
       }
     }
+    /* Method: the dimension line draws itself once, as the steps come into view. */
+    .method-steps::before {
+      transform-origin: 0 50%;
+      animation: arz-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 40%;
+    }
     /* One entrance for the whole device group: the devices used to fly in one by
        one (four scaled layers per card), the main cost of a scroll frame. */
     .pj-stage {
@@ -1575,6 +1633,11 @@
   }
 }
 @media (max-width: 720px) {
+  /* Phones: the eleven employers' logos stay readable without taking a whole screen. */
+  .logo-row-trust {
+    --logo-h: 24px;
+    gap: 18px 28px;
+  }
   .specialties,
   .start-grid {
     grid-template-columns: minmax(0, 1fr);
