@@ -460,9 +460,10 @@ export const fr: SiteContent = {
     items: [
       {
         quote:
-          'Nous avons clairement amélioré la qualité du code de l’application (toujours à la recherche des bonnes pratiques) et sa maintenabilité, qui était notre priorité. Amaury m’a aussi accompagné dans des concepts avancés d’Angular grâce à sa qualité de pédagogue. […] Cette collaboration fut un atout majeur dans mon évolution en tant que développeur front-end.',
-        name: 'Alexandre Moreaux',
-        role: 'Analyste développeur et projets · SBIM',
+          'Amaury a une expérience exceptionnelle du développement frontend Angular. Il est motivé et désireux de comprendre les concepts métier. Sur le plan humain, il est très agréable de travailler avec lui.',
+        name: 'Stefan Casier',
+        role: 'Technical Architect chez Samayas',
+        translated: true,
       },
       {
         quote:
@@ -473,10 +474,9 @@ export const fr: SiteContent = {
       },
       {
         quote:
-          'Amaury a une expérience exceptionnelle du développement frontend Angular. Il est motivé et désireux de comprendre les concepts métier. Sur le plan humain, il est très agréable de travailler avec lui.',
-        name: 'Stefan Casier',
-        role: 'Technical Architect chez Samayas',
-        translated: true,
+          'Amaury et moi, nous avons travaillé sur le même projet durant 6 mois. Cette collaboration et rencontre fut remplie de positif ! Nous avons clairement amélioré la qualité du code de l’application (toujours à la recherche des bonnes pratiques) et sa maintenabilité, qui était notre priorité. Mais pas seulement : en travaillant ensemble, nous avons mis en place une méthodologie de gestion du projet parfaite et bien rodée. Amaury m’a aussi accompagné dans des concepts avancés d’Angular grâce à sa qualité de pédagogue. Au niveau de l’aspect humain, Amaury est quelqu’un de sympathique et surtout un grand passionné. Je pense que c’est pour cela que nous nous sommes bien entendus directement. En résumé : cette collaboration fut un atout majeur dans mon évolution en tant que développeur front-end.',
+        name: 'Alexandre Moreaux',
+        role: 'Analyste développeur et projets · SBIM',
       },
       {
         quote:

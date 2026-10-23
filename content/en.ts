@@ -429,10 +429,9 @@ export const en: SiteContent = {
     items: [
       {
         quote:
-          'We clearly improved the application’s code quality (always looking for best practices) and its maintainability, which was our priority. Amaury also guided me through advanced Angular concepts thanks to his teaching skills. […] This collaboration was a major asset in my growth as a front-end developer.',
-        name: 'Alexandre Moreaux',
-        role: 'Developer analyst and projects · SBIM',
-        translated: true,
+          'Amaury is exceptionally well experienced in the Angular frontend development. He is motivated and eager to learn business concepts. On a personal level it is very nice to work with him.',
+        name: 'Stefan Casier',
+        role: 'Technical Architect at Samayas',
       },
       {
         quote:
@@ -442,9 +441,10 @@ export const en: SiteContent = {
       },
       {
         quote:
-          'Amaury is exceptionally well experienced in the Angular frontend development. He is motivated and eager to learn business concepts. On a personal level it is very nice to work with him.',
-        name: 'Stefan Casier',
-        role: 'Technical Architect at Samayas',
+          'Amaury and I worked on the same project for 6 months. This collaboration, and getting to know him, was full of positives! We clearly improved the application’s code quality (always looking for best practices) and its maintainability, which was our priority. But not only that: by working together, we set up a project management methodology that was perfect and well run-in. Amaury also guided me through advanced Angular concepts thanks to his teaching skills. On the human side, Amaury is a friendly person and, above all, truly passionate. I think that is why we got on well straight away. In short: this collaboration was a major asset in my growth as a front-end developer.',
+        name: 'Alexandre Moreaux',
+        role: 'Developer analyst and projects · SBIM',
+        translated: true,
       },
       {
         quote:
