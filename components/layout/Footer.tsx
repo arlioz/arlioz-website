@@ -35,6 +35,11 @@ export function Footer({ locale, content, year }: FooterProps) {
               </span>
             </Link>
             <p className="m-0 text-base leading-[1.6] text-muted">{f.tagline}</p>
+            {/* Measured proof, re-checked at each release (Lighthouse, privacy policy). */}
+            <p className="label-mono-sm m-0 flex items-center gap-2.5 text-muted-3">
+              <span aria-hidden="true" className="h-2 w-2 flex-none rounded-full bg-green" />
+              {f.siteProof}
+            </p>
           </div>
 
           <nav aria-label={content.a11y.siteMap} className="flex flex-col gap-4">

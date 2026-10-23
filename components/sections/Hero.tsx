@@ -120,7 +120,7 @@ export function Hero({ locale, content }: { locale: Locale; content: SiteContent
                 glow={glow[showcase.accent]}
                 href={localePath(locale, 'work', showcase.slug)}
                 ariaLabel={`${work.caseStudy} : ${showcase.title}`}
-                priority
+                eager
               />
               <figcaption className="label-mono-sm flex items-center gap-2.5 text-muted-3">
                 <span aria-hidden="true" className="text-paper-3">

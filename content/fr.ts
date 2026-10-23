@@ -674,6 +674,7 @@ export const fr: SiteContent = {
   },
   footer: {
     tagline: 'Développement logiciel, accompagnement et protection des données.',
+    siteProof: 'Ce site : accessibilité 100/100 · aucun cookie de suivi',
     navigation: 'Navigation',
     contact: 'Contact',
     legal: 'Légal',

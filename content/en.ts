@@ -631,6 +631,7 @@ export const en: SiteContent = {
   },
   footer: {
     tagline: 'Software development, team support and data protection.',
+    siteProof: 'This site: 100/100 accessibility · no tracking cookies',
     navigation: 'Navigation',
     contact: 'Contact',
     legal: 'Legal',

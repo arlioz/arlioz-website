@@ -349,6 +349,8 @@ export interface SiteContent {
   };
   footer: {
     tagline: string;
+    /** Measured facts about the site itself (Lighthouse accessibility, no tracking cookie). */
+    siteProof: string;
     navigation: string;
     contact: string;
     legal: string;

@@ -16,6 +16,9 @@ interface DeviceStageProps {
   large?: boolean;
   /** Above the fold: the laptop screen is the page's LCP and loads first. */
   priority?: boolean;
+  /** Beside the home hero: load the laptop screen at once, but without the preload
+      (on phones the stage is below the fold; the title is the LCP there). */
+  eager?: boolean;
 }
 
 /**
@@ -57,6 +60,7 @@ function Screen({
   className,
   large = false,
   priority = false,
+  eager = false,
 }: {
   image: ProjectImage;
   alt?: ProjectImage;
@@ -65,6 +69,7 @@ function Screen({
   className: string;
   large?: boolean;
   priority?: boolean;
+  eager?: boolean;
 }) {
   const f = frames[frame];
   const sizes = large ? heroSizes[frame] : f.sizes;
@@ -80,6 +85,7 @@ function Screen({
         height={image.height}
         sizes={sizes}
         priority={lcp}
+        loading={!lcp && eager && frame === 'desktop' ? 'eager' : undefined}
         style={vars(image)}
         className={`${base} ${motion === 'scroll' ? `jk-scroll ${className}` : `rx-a ${className}`}`}
       />
@@ -113,6 +119,7 @@ export function DeviceStage({
   ariaLabel,
   large = false,
   priority = false,
+  eager = false,
 }: DeviceStageProps) {
   const scroll = devices.motion === 'scroll';
   // No frame of its own: the devices sit directly on the project card (one level of
@@ -157,6 +164,7 @@ export function DeviceStage({
           className={scroll ? 'jk-scroll-desk' : ''}
           large={large}
           priority={priority}
+          eager={eager}
         />
       </DeviceFrame>
 
@@ -175,6 +183,7 @@ export function DeviceStage({
           className={scroll ? 'jk-scroll-tab' : 'rx-t'}
           large={large}
           priority={priority}
+          eager={eager}
         />
       </DeviceFrame>
 
@@ -193,6 +202,7 @@ export function DeviceStage({
           className={scroll ? 'jk-scroll-mob' : 'rx-m'}
           large={large}
           priority={priority}
+          eager={eager}
         />
       </DeviceFrame>
     </>
