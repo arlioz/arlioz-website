@@ -75,7 +75,7 @@ Les blocs d'expertise (RGPD, développement, migration) ont chacun leur lien `ma
 - **Réalisations** : chaque projet a une histoire (`story` : besoin, solution, rôle, résultats) affichée sur la
   carte (besoin, résultat) et dans l'étude de cas. Un résultat chiffré (`value`) ne s'écrit que s'il a été mesuré.
 - **À propos** : les chiffres clés (`about.facts`) ne reprennent que des faits vérifiés.
-- **Témoignages** : `testimonials.items` (citation, auteur, fonction, contexte), uniquement des recommandations
+- **Témoignages** : `testimonials.items` (citation, auteur, fonction ; la première est mise en avant), uniquement des recommandations
   LinkedIn publiées, citées avec l'accord de leurs auteurs ; une traduction est signalée comme telle. Pas de
   balisage `Review` / `AggregateRating`.
 - **Logos** : clients sous le hero (`clientLogos`), employeurs passés dans l'Équipe (`trustLogos`,

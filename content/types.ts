@@ -110,8 +110,6 @@ export interface Testimonial {
   name: string;
   /** The author's LinkedIn headline. */
   role: string;
-  /** How they know the person and when they wrote it. */
-  context: string;
   /** True when `quote` is a translation of the original. */
   translated?: boolean;
 }
@@ -235,10 +233,11 @@ export interface SiteContent {
     index: string;
     label: string;
     title: [string, string];
-    text: string;
-    /** Shown on a quote translated from another language. */
+    /** Shown under a quote translated from another language. */
     translated: string;
+    /** Accessible name of the LinkedIn mark on each card. */
     source: string;
+    /** The first one is shown large, across the full width. */
     items: Testimonial[];
   };
   contact: {

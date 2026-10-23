@@ -423,39 +423,34 @@ export const en: SiteContent = {
   testimonials: {
     index: '06',
     label: 'Testimonials',
-    title: ['They worked', 'with Amaury.'],
-    text: 'Recommendations posted on LinkedIn by architects, a direct manager and fellow developers.',
+    title: ['They worked', 'with one of us.'],
     translated: 'Translated from French',
     source: 'LinkedIn recommendation',
     items: [
       {
         quote:
+          'We clearly improved the application’s code quality (always looking for best practices) and its maintainability, which was our priority. Amaury also guided me through advanced Angular concepts thanks to his teaching skills. […] This collaboration was a major asset in my growth as a front-end developer.',
+        name: 'Alexandre Moreaux',
+        role: 'Developer analyst and projects · SBIM',
+        translated: true,
+      },
+      {
+        quote:
           'He focused on coaching, writing shared components and deciding on the main architecture. Everyone enjoyed working with Amaury. He has great in-depth knowledge of the Angular framework, is up-to-date and provides you with tons of information. He is able to focus and keep calm during stressful situations.',
         name: 'Wahid Argandiwall',
         role: 'Technical architect',
-        context: 'Same frontend team at Candriam · February 2022',
       },
       {
         quote:
           'Amaury is exceptionally well experienced in the Angular frontend development. He is motivated and eager to learn business concepts. On a personal level it is very nice to work with him.',
         name: 'Stefan Casier',
         role: 'Technical Architect at Samayas',
-        context: 'Amaury’s direct manager · February 2022',
-      },
-      {
-        quote:
-          'We clearly improved the application’s code quality (always looking for best practices) and its maintainability, which was our priority. Amaury also guided me through advanced Angular concepts thanks to his teaching skills. […] This collaboration was a major asset in my growth as a front-end developer.',
-        name: 'Alexandre Moreaux',
-        role: 'Developer analyst and projects · SBIM',
-        context: 'Same team, 6 months on the same project · August 2021',
-        translated: true,
       },
       {
         quote:
           'Amaury is really an excellent developer. His years of experience don’t reflect all his knowledge and skills. He is a real pillar in a development team. He is team player and reliable.',
         name: 'Frederique Rensonnet',
         role: 'Head of IT Corporate functions',
-        context: 'February 2022',
       },
     ],
   },
