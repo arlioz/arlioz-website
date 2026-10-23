@@ -1,23 +1,54 @@
 import { type SiteContent } from '@/content/types';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import { Check } from '@/components/ui/Icons';
 import { LineTitle } from '@/components/ui/LineTitle';
 
 /**
- * How we work, as a technical drawing: four numbered steps hung on one dimension line
- * (horizontal on wide screens, vertical on phones), each with the deliverable the
- * client gets at the end of it.
+ * The four steps as rows read top to bottom, each one left to right: the numbered
+ * step, what we do, then what the client gets. Wide screens give each its column;
+ * tablets put the title above the other two; phones stack everything.
  */
+export function MethodSteps({ method }: { method: SiteContent['method'] }) {
+  return (
+    <ol className="m-0 list-none border-b border-line-2 p-0">
+      {method.steps.map((step, i) => (
+        <li
+          key={step.title}
+          className="grid gap-5 border-t border-line-2 py-[clamp(28px,3.4vw,44px)] lg:grid-cols-2 lg:gap-x-10 xl:grid-cols-[minmax(0,4fr)_minmax(0,5fr)_minmax(0,3.6fr)] xl:items-start"
+        >
+          <div className="flex items-center gap-4 lg:col-span-2 xl:col-span-1">
+            <span
+              aria-hidden="true"
+              className="label-mono inline-flex h-11 w-11 flex-none items-center justify-center rounded-full border border-green-light/40 text-green-light"
+            >
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h3 className="m-0 font-display text-card leading-[1.1] font-medium tracking-[-0.025em]">
+              {step.title}
+            </h3>
+          </div>
+          <p className="m-0 max-w-[56ch] text-[17px] leading-[1.65] text-paper-2 text-pretty">
+            {step.text}
+          </p>
+          <div className="flex flex-col gap-2 rounded-tile border border-green/20 bg-green/6 p-5">
+            <p className="label-mono-sm m-0 flex items-center gap-2 text-green-light">
+              <Check size={14} />
+              {method.deliverable}
+            </p>
+            <p className="m-0 text-base leading-[1.5] font-medium text-paper">{step.deliverable}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 export function Method({ content }: { content: SiteContent }) {
   const { method: m } = content;
   return (
-    <section
-      id="methode"
-      aria-labelledby="method-title"
-      className="relative overflow-clip py-section"
-    >
-      <div aria-hidden="true" className="blueprint blueprint-method" />
-      <div className="container-site relative">
-        <div className="mb-[clamp(48px,6vw,80px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
+    <section id="methode" aria-labelledby="method-title" className="py-section">
+      <div className="container-site">
+        <div className="mb-[clamp(40px,5vw,64px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
           <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
             <Eyebrow index={m.index} label={m.label} animated />
             <LineTitle
@@ -30,24 +61,7 @@ export function Method({ content }: { content: SiteContent }) {
             {m.intro}
           </p>
         </div>
-
-        <ol className="method-steps m-0 list-none">
-          {m.steps.map((step, i) => (
-            <li key={step.title} className="method-step">
-              <span aria-hidden="true" className="method-num label-mono">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <h3 className="m-0 font-display text-card leading-[1.1] font-medium tracking-[-0.025em]">
-                {step.title}
-              </h3>
-              <p className="m-0 text-base leading-[1.6] text-muted">{step.text}</p>
-              <p className="method-deliv m-0 flex flex-col gap-1.5 border-t border-line-2 pt-4">
-                <span className="label-mono-sm text-muted-3">{m.deliverable}</span>
-                <span className="font-medium text-paper">{step.deliverable}</span>
-              </p>
-            </li>
-          ))}
-        </ol>
+        <MethodSteps method={m} />
       </div>
     </section>
   );

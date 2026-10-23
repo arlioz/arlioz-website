@@ -735,63 +735,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
   }
-  /* Method: four steps hung on one dimension line, like a technical drawing. The
-     line runs along the top; each step has a tick and its number above it. */
-  .method-steps {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(24px, 3vw, 40px);
-    padding-top: 44px;
-  }
-  .method-steps::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--color-line-3);
-  }
-  .method-step {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  /* Phones: what you get closes the step. */
-  .method-deliv {
-    margin-top: auto;
-  }
-  /* Tablets and up: the steps of a row share their rows (title, text, what you
-     get), so the « you get » blocks line up whatever the length of the text above. */
-  @media (min-width: 721px) {
-    .method-step {
-      display: grid;
-      grid-row: span 3;
-      grid-template-rows: subgrid;
-      row-gap: 14px;
-    }
-    .method-deliv {
-      margin-top: 0;
-      align-self: start;
-    }
-  }
-  .method-step::before {
-    content: '';
-    position: absolute;
-    top: -29px;
-    left: 0;
-    width: 1px;
-    height: 18px;
-    background: var(--color-green-light);
-  }
-  .method-num {
-    position: absolute;
-    top: -44px;
-    left: 12px;
-    color: var(--color-green-light);
-  }
   /* Start: the call and the audit side by side. */
   .start-grid {
     display: grid;
@@ -1310,14 +1253,6 @@
     opacity: 0;
   }
 }
-@keyframes arz-draw {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
 @keyframes arz-up {
   from {
     opacity: 0;
@@ -1528,13 +1463,6 @@
           calc(100vh - var(--pile-top) - (var(--i) + 1) * var(--pile-step));
       }
     }
-    /* Method: the dimension line draws itself once, as the steps come into view. */
-    .method-steps::before {
-      transform-origin: 0 50%;
-      animation: arz-draw linear both;
-      animation-timeline: view();
-      animation-range: entry 10% cover 40%;
-    }
     /* One entrance for the whole device group: the devices used to fly in one by
        one (four scaled layers per card), the main cost of a scroll frame. */
     .pj-stage {
@@ -1616,30 +1544,6 @@
   }
 }
 @media (max-width: 1080px) {
-  /* Method: two steps per row on tablets, one on phones (see min-width below). */
-  .method-steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 64px;
-  }
-  @media (max-width: 720px) {
-    .method-steps {
-      grid-template-columns: minmax(0, 1fr);
-      row-gap: 80px;
-    }
-  }
-  .method-steps::before {
-    display: none;
-  }
-  .method-step {
-    padding-top: 20px;
-    border-top: 1px solid var(--color-line-3);
-  }
-  .method-step::before {
-    top: -9px;
-  }
-  .method-num {
-    top: -34px;
-  }
   /* One profile card per row; the portrait keeps a sensible size. One offer per row. */
   .team-grid,
   .offers {

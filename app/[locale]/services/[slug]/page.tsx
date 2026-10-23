@@ -2,6 +2,7 @@ import { type Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { icons, tone } from '@/components/sections/Expertises';
+import { MethodSteps } from '@/components/sections/Method';
 import { ButtonLink } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Glow } from '@/components/ui/Glow';
@@ -184,23 +185,7 @@ export default async function ServicePage({ params }: PageProps) {
               {sv.method}
             </h2>
           </div>
-          <ol className="method-steps m-0 list-none">
-            {method.steps.map((step, i) => (
-              <li key={step.title} className="method-step">
-                <span aria-hidden="true" className="method-num label-mono">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h3 className="m-0 font-display text-card leading-[1.1] font-medium tracking-[-0.025em]">
-                  {step.title}
-                </h3>
-                <p className="m-0 text-base leading-[1.6] text-muted">{step.text}</p>
-                <p className="method-deliv m-0 flex flex-col gap-1.5 border-t border-line-2 pt-4">
-                  <span className="label-mono-sm text-muted-3">{method.deliverable}</span>
-                  <span className="font-medium text-paper">{step.deliverable}</span>
-                </p>
-              </li>
-            ))}
-          </ol>
+          <MethodSteps method={method} />
         </div>
       </section>
 
