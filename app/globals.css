@@ -1509,9 +1509,9 @@
     width: 62% !important;
   }
 }
-/* Phones: the language switch moves to the menu; the call to action stays, compact,
-   with its short label (logo + button + Menu fit in 358 px). */
-.hdr-cta-short {
+/* Phones: the language switch moves to the menu; the call to action becomes a round
+   e-mail icon in the header's glass style, the size of the other pills. */
+.hdr-cta-mail {
   display: none;
 }
 @media (max-width: 720px) {
@@ -1519,16 +1519,23 @@
     display: none !important;
   }
   .hdr-cta {
-    height: 44px;
-    padding-inline: 16px;
-    gap: 6px;
-    font-size: 14px;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    justify-content: center;
+    color: var(--color-paper);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: none;
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
   }
-  .hdr-cta-long {
+  .hdr-cta-label,
+  .hdr-cta-arrow {
     display: none;
   }
-  .hdr-cta-short {
-    display: inline;
+  .hdr-cta-mail {
+    display: block;
   }
   .menu-grid {
     padding-top: 100px !important;
@@ -1631,25 +1638,6 @@
   }
   .g-wide {
     grid-column: auto;
-  }
-}
-/* Narrow phones: logo + Contact + Menu must fit in the width minus the 16 px gutters. */
-@media (max-width: 380px) {
-  .hdr-cta {
-    padding-inline: 14px;
-  }
-  .hdr-cta svg {
-    display: none;
-  }
-  .menu-btn {
-    padding-inline: 16px;
-    gap: 8px;
-  }
-}
-@media (max-width: 350px) {
-  /* The button keeps its accessible name (aria-label); only the visible word goes. */
-  .menu-btn-label {
-    display: none;
   }
 }
 @media (max-width: 600px) {

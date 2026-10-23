@@ -101,7 +101,7 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
         aria-controls={dialogId}
         className="menu-btn pill glass pointer-events-auto relative z-10 inline-flex h-[52px] cursor-pointer items-center gap-3 rounded-pill px-5 font-sans text-[15px] font-medium text-paper"
       >
-        <span className="menu-btn-label">{open ? nav.close : nav.menu}</span>
+        <span>{open ? nav.close : nav.menu}</span>
         {open ? <Close /> : <Burger />}
       </button>
 

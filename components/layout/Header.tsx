@@ -31,12 +31,7 @@ export function Header({ locale, content }: HeaderProps) {
         </Link>
 
         <div className="relative z-10 flex items-center gap-2">
-          <HeaderCta
-            href={`${home}#contact`}
-            label={content.nav.cta}
-            shortLabel={content.nav.ctaShort}
-            heroId={HERO_ID}
-          />
+          <HeaderCta href={`${home}#contact`} label={content.nav.cta} heroId={HERO_ID} />
           <LangSwitch
             locale={locale}
             label={content.a11y.languageGroup}

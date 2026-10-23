@@ -3,13 +3,11 @@
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 import { buttonClass } from '@/components/ui/Button';
-import { ArrowRight } from '@/components/ui/Icons';
+import { ArrowRight, Mail } from '@/components/ui/Icons';
 
 interface HeaderCtaProps {
   href: string;
   label: string;
-  /** Shown instead of `label` on phones (globals.css), where the full label does not fit. */
-  shortLabel: string;
   /** id of the hero section: while it is on screen, its own button does the job. */
   heroId: string;
 }
@@ -21,7 +19,7 @@ interface HeaderCtaProps {
  * The initial hidden state is pure CSS (`#top:has(> main .hero)` in globals.css), so
  * nothing flashes before hydration; this only toggles `is-out` from the observer.
  */
-export function HeaderCta({ href, label, shortLabel, heroId }: HeaderCtaProps) {
+export function HeaderCta({ href, label, heroId }: HeaderCtaProps) {
   const ref = useRef<HTMLAnchorElement>(null);
   const pathname = usePathname();
 
@@ -46,11 +44,14 @@ export function HeaderCta({ href, label, shortLabel, heroId }: HeaderCtaProps) {
     <a
       ref={ref}
       href={href}
+      aria-label={label}
       className={`${buttonClass('primary', 'md')} hdr-cta pointer-events-auto`}
     >
-      <span className="hdr-cta-long">{label}</span>
-      <span className="hdr-cta-short">{shortLabel}</span>
-      <ArrowRight size={18} />
+      {/* Phones show a round e-mail icon instead (globals.css); the label stays the
+          accessible name. */}
+      <span className="hdr-cta-label">{label}</span>
+      <ArrowRight size={18} className="hdr-cta-arrow" />
+      <Mail size={20} className="hdr-cta-mail" />
     </a>
   );
 }

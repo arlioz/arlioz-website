@@ -242,7 +242,6 @@ export const en: SiteContent = {
     language: 'Language',
     tagline: 'Digital development and GDPR compliance, since 2018.',
     cta: 'Talk about my project',
-    ctaShort: 'Contact',
     linkedin: 'LinkedIn',
   },
   hero: {

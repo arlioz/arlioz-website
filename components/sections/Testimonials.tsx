@@ -3,11 +3,6 @@ import { Eyebrow } from '@/components/ui/Eyebrow';
 import { LinkedIn } from '@/components/ui/Icons';
 import { LineTitle } from '@/components/ui/LineTitle';
 
-/** Every recommendation is about development work: orange, per the brand colour code. */
-const avatarTone = 'bg-orange/14 text-orange-light';
-const card =
-  'card-hover hx-orange relative m-0 flex flex-col rounded-card border border-line-2 bg-surface';
-
 function initials(name: string) {
   return name
     .split(/\s+/)
@@ -16,31 +11,25 @@ function initials(name: string) {
     .join('');
 }
 
-/** The LinkedIn mark in the card's corner: where the recommendation comes from. */
-function Source({ label }: { label: string }) {
-  return (
-    <span className="absolute top-[clamp(20px,2.4vw,32px)] right-[clamp(20px,2.4vw,32px)] text-muted-3">
-      <LinkedIn size={18} />
-      <span className="sr-only">{label}</span>
-    </span>
-  );
-}
-
-/** Initials avatar (the portraits are theirs), then « Name — headline » on one line. */
+/**
+ * Initials avatar (the portraits are theirs), then the name with a small LinkedIn
+ * mark for the source (kept next to the name so it never wraps alone), and the headline. Orange: every recommendation is about development
+ * work, per the brand colour code.
+ */
 function Byline({
   item,
+  source,
   large = false,
-  className = '',
 }: {
   item: Testimonial;
+  source: string;
   large?: boolean;
-  className?: string;
 }) {
   return (
-    <figcaption className={`relative flex items-center gap-4 ${className}`}>
+    <figcaption className="flex items-center gap-4">
       <span
         aria-hidden="true"
-        className={`flex flex-none items-center justify-center rounded-full font-display font-medium ${avatarTone} ${
+        className={`flex flex-none items-center justify-center rounded-full bg-orange/14 font-display font-medium text-orange-light ${
           large ? 'h-[52px] w-[52px] text-[17px]' : 'h-11 w-11 text-[15px]'
         }`}
       >
@@ -50,6 +39,8 @@ function Byline({
         <span className="font-display text-[17px] font-medium tracking-[-0.01em] text-paper">
           {item.name}
         </span>
+        <LinkedIn size={14} className="ml-1.5 inline-block align-[-2px] text-muted-3" />
+        <span className="sr-only">{source}</span>
         <span className="text-muted"> — {item.role}</span>
       </p>
     </figcaption>
@@ -57,21 +48,23 @@ function Byline({
 }
 
 /**
- * Recommendations published on LinkedIn: one quoted large, the others in a row of
- * three. Static on purpose (no carousel to pause), no scroll reveal on the cards.
+ * Recommendations published on LinkedIn, laid out like a magazine page: one
+ * recommendation quoted large and set off to the right, then the others in columns
+ * split by hairlines. No cards: each quote takes its own height, so a long one never
+ * leaves empty boxes beside it. Static on purpose (no carousel to pause).
  */
 export function Testimonials({ content }: { content: SiteContent }) {
   const { testimonials } = content;
   const [featured, ...others] = testimonials.items;
   const note = (item: Testimonial) =>
     item.translated ? (
-      <p className="relative m-0 text-[13px] text-muted-3">{testimonials.translated}</p>
+      <p className="m-0 text-[13px] text-muted-3">{testimonials.translated}</p>
     ) : null;
 
   return (
     <section id="temoignages" aria-labelledby="testimonials-title" className="py-section">
       <div className="container-site">
-        <div className="mb-[clamp(40px,5vw,64px)] flex min-w-0 max-w-[780px] flex-col gap-[26px]">
+        <div className="mb-[clamp(36px,4.4vw,64px)] flex min-w-0 max-w-[780px] flex-col gap-[26px]">
           <Eyebrow index={testimonials.index} label={testimonials.label} />
           <LineTitle
             id="testimonials-title"
@@ -80,46 +73,42 @@ export function Testimonials({ content }: { content: SiteContent }) {
           />
         </div>
 
-        {featured && (
-          <figure className={`${card} gap-8 p-[clamp(28px,4.4vw,64px)]`}>
-            <div className="hx" aria-hidden="true" />
-            <div className="hx-line" aria-hidden="true" />
-            <Source label={testimonials.source} />
-            <blockquote className="relative m-0 flex flex-col gap-5">
-              <span
-                aria-hidden="true"
-                className="h-[0.42em] font-serif text-[clamp(80px,8vw,112px)] leading-[0.8] text-orange-light italic"
-              >
-                “
-              </span>
-              <p className="m-0 max-w-[50ch] text-[clamp(20px,2vw,26px)] leading-[1.55] tracking-[-0.01em] text-paper text-pretty">
-                {featured.quote}
-              </p>
-              {note(featured)}
-            </blockquote>
-            <Byline item={featured} large />
-          </figure>
-        )}
-
-        <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-3">
-          {others.map((item) => (
-            <figure key={item.name} className={`${card} gap-6 p-[clamp(24px,2.6vw,36px)]`}>
-              <div className="hx" aria-hidden="true" />
-              <div className="hx-line" aria-hidden="true" />
-              <Source label={testimonials.source} />
-              <blockquote className="relative m-0 flex flex-col gap-4">
+        {/* The featured quote is set off to the right (columns 5–12), magazine style. */}
+        <div className="grid grid-cols-1 2xl:grid-cols-12">
+          {featured && (
+            <figure className="m-0 flex min-w-0 flex-col gap-8 2xl:col-span-8 2xl:col-start-5">
+              <blockquote className="m-0 flex flex-col gap-5">
                 <span
                   aria-hidden="true"
-                  className="h-[0.42em] font-serif text-[64px] leading-[0.8] text-orange-light/70 italic"
+                  className="h-[0.42em] font-serif text-[clamp(88px,8vw,120px)] leading-[0.8] text-orange-light italic"
                 >
                   “
                 </span>
-                <p className="m-0 text-[17px] leading-[1.65] text-paper-2 text-pretty">
+                <p className="m-0 max-w-[32em] text-[clamp(21px,2.1vw,28px)] leading-[1.5] tracking-[-0.012em] text-paper text-pretty">
+                  {featured.quote}
+                </p>
+                {note(featured)}
+              </blockquote>
+              <Byline item={featured} source={testimonials.source} large />
+            </figure>
+          )}
+        </div>
+
+        <div className="mt-[clamp(48px,6vw,88px)] grid grid-cols-1 border-t border-line-2 2xl:grid-cols-3">
+          {others.map((item, i) => (
+            <figure
+              key={item.name}
+              className={`m-0 flex min-w-0 flex-col gap-6 py-[clamp(32px,3.6vw,48px)] 2xl:px-[clamp(24px,2.8vw,44px)] 2xl:first:pl-0 2xl:last:pr-0 ${
+                i > 0 ? 'border-t border-line-2 2xl:border-t-0 2xl:border-l' : ''
+              }`}
+            >
+              <blockquote className="m-0 flex flex-col gap-3">
+                <p className="m-0 max-w-[46ch] text-[17px] leading-[1.65] text-paper-2 text-pretty">
                   {item.quote}
                 </p>
                 {note(item)}
               </blockquote>
-              <Byline item={item} className="mt-auto border-t border-line-2 pt-5" />
+              <Byline item={item} source={testimonials.source} />
             </figure>
           ))}
         </div>

@@ -131,6 +131,15 @@ export function Close(props: IconProps) {
   );
 }
 
+export function Mail(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="3" y="5" width="18" height="14" rx="2.5" />
+      <path d="M3.5 7l8.5 6 8.5-6" />
+    </svg>
+  );
+}
+
 /** LinkedIn mark (filled), for the source of a recommendation. */
 export function LinkedIn({ size = 18, ...rest }: IconProps) {
   return (
