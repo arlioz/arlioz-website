@@ -110,6 +110,10 @@ export interface Mission {
 /** One offer of the Expertises section; `accent` follows the brand colour code
     (orange = development, blue = GDPR, green = both). */
 export interface Offer {
+  /** URL segment of the offer's own page (`/services/<slug>`). */
+  slug: string;
+  /** Pillars are the two main offers (large cards); specialties back them up (compact). */
+  tier: 'pillar' | 'specialty';
   accent: 'orange' | 'blue' | 'green';
   /** The offer's icon (components/sections/Expertises.tsx). */
   icon: 'code' | 'team' | 'shield' | 'layers';
@@ -119,6 +123,8 @@ export interface Offer {
   result: string;
   /** Up to four services. */
   points: string[];
+  /** Optional line under the services (e.g. Arlioz Education on the support offer). */
+  note?: string;
   cta: ContactLink;
 }
 
@@ -147,6 +153,25 @@ export interface TeamMember {
   initials: string;
   photoLabel: string;
   accent: 'blue' | 'orange';
+  /** What the member does today, shown under the text. */
+  now?: string;
+}
+
+/** One step of the working method, with what the client gets at the end of it. */
+export interface MethodStep {
+  title: string;
+  text: string;
+  deliverable: string;
+}
+
+/** A way to start working together (Start section). */
+export interface StartOffer {
+  title: string;
+  /** Short facts next to the title (duration, price). */
+  meta: string;
+  text: string;
+  points: string[];
+  cta: ContactLink;
 }
 
 export interface SiteContent {
@@ -206,12 +231,6 @@ export interface SiteContent {
     ctaPrimary: string;
     ctaSecondary: string;
   };
-  about: {
-    index: string;
-    label: string;
-    title: RichSegment[];
-    pillars: { title: string; text: string }[];
-  };
   /** Four offers, each read as problem → result, then what we do (Expertises section). */
   expertises: {
     index: string;
@@ -221,14 +240,16 @@ export interface SiteContent {
     intro: string;
     /** The development × GDPR line (green), under the offers. */
     signature: string;
-    /** Before → after on each offer, read by screen readers (shown as an arrow). */
-    labels: { problem: string; result: string };
+    /** Before → after on each offer, read by screen readers (shown as an arrow); `more`
+        links to the offer's own page. */
+    labels: { problem: string; result: string; more: string };
     offers: Offer[];
   };
   work: {
     index: string;
     label: string;
     title: [string, string];
+    intro: string;
     caseStudy: string;
     liveExample: string;
     viewSite: string;
@@ -252,17 +273,33 @@ export interface SiteContent {
     index: string;
     label: string;
     title: string;
+    /** Under the title: who they are, with the brand colour marks. */
+    intro: RichSegment[];
     members: TeamMember[];
+    /** Three short lines under the cards: build, protect, pass on. */
+    pillars: { title: string; text: string }[];
   };
-  /** Arlioz Education: training, technical leadership and teaching. */
-  education: {
+  method: {
     index: string;
     label: string;
-    brand: string;
     title: [string, string];
-    text: string;
-    audiences: { title: string; text: string }[];
-    cta: string;
+    intro: string;
+    deliverable: string;
+    steps: MethodStep[];
+  };
+  start: {
+    index: string;
+    label: string;
+    title: [string, string];
+    intro: string;
+    call: StartOffer;
+    audit: StartOffer;
+  };
+  faq: {
+    index: string;
+    label: string;
+    title: [string, string];
+    items: { question: string; answer: string }[];
   };
   /** Recommendations published on LinkedIn, quoted with their author's headline. */
   testimonials: {
@@ -281,9 +318,6 @@ export interface SiteContent {
     label: string;
     title: string;
     text: string;
-    emailLabel: string;
-    linkedinLabel: string;
-    linkedinValue: string;
     direct: {
       title: string;
       text: string;

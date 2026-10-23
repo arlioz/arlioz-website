@@ -69,14 +69,49 @@ function OfferCard({
         ))}
       </ul>
 
+      {offer.note && (
+        <p className="relative m-0 text-sm leading-[1.6] text-muted-3">{offer.note}</p>
+      )}
       <MailLink link={offer.cta} className="relative mt-auto pt-2" />
     </article>
   );
 }
 
-/** Four offers, each read as before → after, with what we do and a contact link. */
+/**
+ * A compact specialty: icon and title, the result in one sentence, the contact link.
+ * The specialties back up the two pillars without competing with them.
+ */
+function SpecialtyCard({ offer }: { offer: Offer }) {
+  const t = tone[offer.accent];
+  const Icon = icons[offer.icon];
+  return (
+    <article
+      className={`card-hover ${t.hx} relative flex flex-col gap-5 rounded-card border border-line-2 bg-surface p-[clamp(24px,2.4vw,32px)]`}
+    >
+      <div className="hx" aria-hidden="true" />
+      <div className="hx-line" aria-hidden="true" />
+      <div className="relative flex items-center gap-4">
+        <span
+          aria-hidden="true"
+          className={`inline-flex h-11 w-11 flex-none items-center justify-center rounded-tile ${t.ico}`}
+        >
+          <Icon />
+        </span>
+        <h3 className="m-0 font-display text-[clamp(21px,1.8vw,24px)] leading-[1.15] font-medium tracking-[-0.02em]">
+          {offer.title}
+        </h3>
+      </div>
+      <p className="relative m-0 text-base leading-[1.6] text-paper-2">{offer.result}</p>
+      <MailLink link={offer.cta} className="relative mt-auto" />
+    </article>
+  );
+}
+
+/** Two pillars read as before → after, then two specialties in compact cards. */
 export function Expertises({ content }: { content: SiteContent }) {
   const { expertises: x } = content;
+  const pillars = x.offers.filter((offer) => offer.tier === 'pillar');
+  const specialties = x.offers.filter((offer) => offer.tier === 'specialty');
   return (
     <section id="expertises" aria-labelledby="services-title" className="py-section">
       <div className="container-site">
@@ -95,8 +130,13 @@ export function Expertises({ content }: { content: SiteContent }) {
         </div>
 
         <div className="offers">
-          {x.offers.map((offer) => (
+          {pillars.map((offer) => (
             <OfferCard key={offer.title} offer={offer} labels={x.labels} />
+          ))}
+        </div>
+        <div className="specialties mt-6">
+          {specialties.map((offer) => (
+            <SpecialtyCard key={offer.title} offer={offer} />
           ))}
         </div>
 

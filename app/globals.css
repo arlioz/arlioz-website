@@ -424,24 +424,12 @@
   .btn-primary:active {
     transform: translateY(0) scale(0.98);
   }
-  .link-u svg,
-  .row-link svg {
+  .link-u svg {
     transition: transform 0.4s var(--ease-out-expo);
   }
   @media (hover: hover) {
     .link-u:hover svg {
       transform: translateX(3px);
-    }
-  }
-  .row-link {
-    transition: padding 0.4s var(--ease-out-expo);
-  }
-  @media (hover: hover) {
-    .row-link:hover {
-      padding-left: 10px;
-    }
-    .row-link:hover svg {
-      transform: translate(4px, -4px);
     }
   }
 
@@ -719,7 +707,7 @@
        the sticky containing block. */
     .stack::after {
       content: '';
-      height: clamp(48px, 8vw, 120px);
+      height: clamp(32px, 5vw, 72px);
     }
     .pcard {
       position: sticky;
@@ -751,6 +739,86 @@
   .offer {
     gap: 26px;
     padding: clamp(28px, 2.8vw, 40px);
+  }
+  /* Expertises: the two specialties, compact, under the pillars. */
+  .specialties {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+  /* Method: four steps hung on one dimension line, like a technical drawing. The
+     line runs along the top; each step has a tick and its number above it. */
+  .method-steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(24px, 3vw, 40px);
+    padding-top: 44px;
+  }
+  .method-steps::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--color-line-3);
+  }
+  .method-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .method-step::before {
+    content: '';
+    position: absolute;
+    top: -29px;
+    left: 0;
+    width: 1px;
+    height: 18px;
+    background: var(--color-green-light);
+  }
+  .method-num {
+    position: absolute;
+    top: -44px;
+    left: 12px;
+    color: var(--color-green-light);
+  }
+  /* Start: the call and the audit side by side. */
+  .start-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+  /* FAQ: a plus that turns into a minus when the answer is open. */
+  .faq-q::-webkit-details-marker {
+    display: none;
+  }
+  .faq-icon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+  }
+  .faq-icon::before,
+  .faq-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 16px;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.3s var(--ease-out-expo);
+  }
+  .faq-icon::after {
+    transform: rotate(90deg);
+  }
+  .faq-item[open] .faq-icon::after {
+    transform: rotate(0deg);
+  }
+  .faq-q:focus-visible {
+    outline-offset: 4px;
   }
   /* Mission card (Work): the visual column is typographic. The client's logo, then
      what we do there as large numbered lines split by hairlines. */
@@ -814,9 +882,6 @@
   .tcard-body {
     grid-area: body;
     padding-bottom: clamp(4px, 1vw, 14px);
-  }
-  .edu-aud {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .contact-grid {
     display: grid;
@@ -1510,6 +1575,10 @@
   }
 }
 @media (max-width: 720px) {
+  .specialties,
+  .start-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
   .stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: 24px;
@@ -1520,6 +1589,30 @@
   }
 }
 @media (max-width: 1080px) {
+  /* Method: two steps per row on tablets, one on phones (see min-width below). */
+  .method-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 64px;
+  }
+  @media (max-width: 720px) {
+    .method-steps {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 56px;
+    }
+  }
+  .method-steps::before {
+    display: none;
+  }
+  .method-step {
+    padding-top: 20px;
+    border-top: 1px solid var(--color-line-3);
+  }
+  .method-step::before {
+    top: -9px;
+  }
+  .method-num {
+    top: -34px;
+  }
   /* Hero: the promise, then the product under it at a readable size. */
   .hero-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -1683,7 +1776,6 @@
   .tcard-body {
     padding-inline: 4px;
   }
-  .edu-aud,
   .case-story {
     grid-template-columns: minmax(0, 1fr);
   }

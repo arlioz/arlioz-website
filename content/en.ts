@@ -266,10 +266,11 @@ export const en: SiteContent = {
     close: 'Close',
     sectionLabel: 'Navigation',
     items: [
-      { label: 'Team', anchor: 'equipe', dot: 'green' },
-      { label: 'Work', anchor: 'realisations', dot: 'orange' },
       { label: 'Expertise', anchor: 'expertises', dot: 'green' },
-      { label: 'Training', anchor: 'education', dot: 'green' },
+      { label: 'Work', anchor: 'realisations', dot: 'orange' },
+      { label: 'Method', anchor: 'methode', dot: 'green' },
+      { label: 'Team', anchor: 'equipe', dot: 'green' },
+      { label: 'Get started', anchor: 'demarrer', dot: 'orange' },
       { label: 'Contact', anchor: 'contact', dot: 'orange' },
     ],
     write: 'Write to us',
@@ -294,44 +295,19 @@ export const en: SiteContent = {
     ctaPrimary: 'Book a 30-min call',
     ctaSecondary: 'See our work',
   },
-  about: {
-    index: '04',
-    label: 'About',
-    title: [
-      { text: 'Since 2018, ' },
-      { text: 'a GDPR expert', mark: 'blue' },
-      { text: ' and ' },
-      { text: 'a full-stack developer', mark: 'orange' },
-      { text: ' have delivered products together, ' },
-      { text: 'compliant by design', mark: 'green' },
-      { text: '.' },
-    ],
-    pillars: [
-      {
-        title: 'Build',
-        text: 'Business applications, SaaS, web and mobile apps and APIs, in Angular, React, Vue and NestJS.',
-      },
-      {
-        title: 'Protect',
-        text: 'Audit, record of processing, impact assessments: GDPR compliance you can demonstrate.',
-      },
-      {
-        title: 'Pass on',
-        text: 'Tech lead, code reviews, training: we help your teams grow.',
-      },
-    ],
-  },
   expertises: {
-    index: '03',
+    index: '01',
     label: 'Expertise',
-    title: ['Four offers,', 'one team.'],
+    title: ['Two crafts,', 'two specialties.'],
     intro:
       'A full-stack developer and a GDPR expert under one roof, since 2018. We build your software and help your teams keep it running.',
     signature:
       'Privacy by design: every development project builds GDPR in from the architecture, not after going live.',
-    labels: { problem: 'The problem', result: 'The result' },
+    labels: { problem: 'The problem', result: 'The result', more: 'Learn more' },
     offers: [
       {
+        slug: 'logiciels-saas',
+        tier: 'pillar',
         accent: 'orange',
         icon: 'code',
         title: 'Custom applications and SaaS',
@@ -349,6 +325,8 @@ export const en: SiteContent = {
         cta: { label: 'Talk about your project', subject: 'Development project — contact request' },
       },
       {
+        slug: 'accompagnement',
+        tier: 'pillar',
         accent: 'green',
         icon: 'team',
         title: 'Team support and training',
@@ -363,9 +341,12 @@ export const en: SiteContent = {
           'Code reviews and developer mentoring',
           'Tailored training, development and GDPR',
         ],
+        note: 'Arlioz Education: Guy also teaches computer science and guides young developers, from the first project to professional best practices.',
         cta: { label: 'Talk about team support', subject: 'Technical support — contact request' },
       },
       {
+        slug: 'rgpd',
+        tier: 'specialty',
         accent: 'blue',
         icon: 'shield',
         title: 'GDPR compliance',
@@ -382,6 +363,8 @@ export const en: SiteContent = {
         cta: { label: 'Talk about your compliance', subject: 'GDPR compliance — contact request' },
       },
       {
+        slug: 'migration-windev',
+        tier: 'specialty',
         accent: 'orange',
         icon: 'layers',
         title: 'WinDev and WebDev migration',
@@ -406,7 +389,8 @@ export const en: SiteContent = {
   work: {
     index: '02',
     label: 'Work',
-    title: ['Products live online,', 'teams supported.'],
+    title: ['Products', 'in production.'],
+    intro: 'Software used every day, and a team we support day to day.',
     caseStudy: 'Case study',
     liveExample: 'See a live example',
     viewSite: 'Visit the site',
@@ -427,14 +411,23 @@ export const en: SiteContent = {
     ],
   },
   team: {
-    index: '01',
+    index: '04',
     label: 'Team',
-    title: 'Two experts, directly.',
+    title: 'Two seniors, directly.',
+    intro: [
+      { text: 'Since 2018, ' },
+      { text: 'a GDPR expert', mark: 'blue' },
+      { text: ' and ' },
+      { text: 'a full-stack developer', mark: 'orange' },
+      { text: ' have delivered products together, ' },
+      { text: 'compliant by design', mark: 'green' },
+      { text: '.' },
+    ],
     members: [
       {
         name: 'Guy Moins',
         role: 'IT architect & GDPR expert',
-        text: 'Over thirty years in IT, from systems security to architecture, in large international companies. He frames your data, makes GDPR concrete for your teams and has over ten years of teaching computer science.',
+        text: 'Over thirty years in IT, from systems security to architecture, in large international companies. He makes GDPR concrete for your teams and has taught computer science for over ten years.',
         tags: ['GDPR consulting', 'IT security', 'IT architecture', 'Teaching'],
         photo: {
           ...media.team.guy,
@@ -447,7 +440,7 @@ export const en: SiteContent = {
       {
         name: 'Amaury Lapaque',
         role: 'Fullstack developer & tech lead',
-        text: 'Fullstack developer since 2019: business applications, SaaS, web and mobile apps, back ends migrated to modern APIs. He builds your products from design system to API, and helps the teams he supports grow as their tech lead.',
+        text: 'Fullstack developer since 2019: business applications, SaaS, web and mobile apps, APIs. He builds your products from design system to API.',
         tags: ['Tech lead', 'Angular', 'React · Next.js', 'Vue', 'NestJS · .NET', 'Mobile apps'],
         photo: {
           ...media.team.amaury,
@@ -456,29 +449,26 @@ export const en: SiteContent = {
         initials: 'AL',
         photoLabel: 'Photo · Amaury Lapaque',
         accent: 'orange',
+        now: 'Today: tech lead at Radyo.',
       },
     ],
-  },
-  education: {
-    index: '05',
-    label: 'Training',
-    brand: 'Arlioz Education',
-    title: ['Teaching', 'and guiding.'],
-    text: 'Guy trains future developers and in-house teams: architecture, quality, GDPR. Amaury supports developers day to day, as tech lead.',
-    audiences: [
+    pillars: [
       {
-        title: 'Companies',
-        text: 'Tech lead, codebase audits, stack choices, code reviews and tailored training, on site or remote.',
+        title: 'Build',
+        text: 'Business applications, SaaS, web and mobile apps and APIs, in Angular, React, Vue and NestJS.',
       },
       {
-        title: 'Students',
-        text: 'Courses and guidance for young developers, from the first project to professional best practices.',
+        title: 'Protect',
+        text: 'Audit, record of processing, impact assessments: GDPR compliance you can demonstrate.',
+      },
+      {
+        title: 'Pass on',
+        text: 'Tech lead, code reviews, training: we help your teams grow.',
       },
     ],
-    cta: 'Talk about support',
   },
   testimonials: {
-    index: '06',
+    index: '05',
     label: 'Testimonials',
     title: ['They worked', 'with one of us.'],
     translated: 'Translated from French',
@@ -511,14 +501,105 @@ export const en: SiteContent = {
       },
     ],
   },
-  contact: {
+  method: {
+    index: '03',
+    label: 'Method',
+    title: ['How', 'we work.'],
+    intro:
+      'Four steps, from the first conversation to the handover. Each one ends with a concrete deliverable.',
+    deliverable: 'Deliverable',
+    steps: [
+      {
+        title: 'Audit',
+        text: 'We assess your code, your architecture and your GDPR compliance.',
+        deliverable: 'A prioritised report',
+      },
+      {
+        title: 'Scoping',
+        text: 'We choose the stack and the architecture with you, and plan the delivery.',
+        deliverable: 'A delivery plan',
+      },
+      {
+        title: 'Delivery',
+        text: 'We deliver in short iterations, with code reviews and regular demos.',
+        deliverable: 'Software in production',
+      },
+      {
+        title: 'Handover',
+        text: 'We document and train your teams, so they can take over.',
+        deliverable: 'An autonomous team',
+      },
+    ],
+  },
+  start: {
+    index: '06',
+    label: 'Get started',
+    title: ['Where', 'to start?'],
+    intro: 'Two ways in, depending on where you stand.',
+    call: {
+      title: 'Discovery call',
+      meta: '30 min · free',
+      text: 'You tell us about your project or your team. We give you a first opinion, and the next steps if they make sense.',
+      points: [
+        'Your needs and constraints',
+        'A first technical opinion',
+        'Next steps, with no commitment',
+      ],
+      cta: { label: 'Book a call', subject: 'Discovery call (30 min) — meeting request' },
+    },
+    audit: {
+      title: 'Technical & GDPR audit',
+      meta: 'Fixed scope · on quote',
+      text: 'An assessment of your application, before deciding what to build, take over or fix.',
+      points: [
+        'Code and architecture',
+        'Security and dependencies',
+        'GDPR compliance',
+        'Prioritised report and debrief',
+      ],
+      cta: { label: 'Request an audit', subject: 'Technical & GDPR audit — quote request' },
+    },
+  },
+  faq: {
     index: '07',
+    label: 'FAQ',
+    title: ['Frequently', 'asked questions.'],
+    items: [
+      {
+        question: 'Where are you based?',
+        answer: 'In Charleroi, Belgium. We work on site or remotely.',
+      },
+      {
+        question: 'Can you join an existing team?',
+        answer:
+          'Yes. We work as tech lead within your team, or in support: code standards, code reviews, mentoring your developers.',
+      },
+      {
+        question: 'Which technologies do you work with?',
+        answer: 'Angular, React and Next.js, Vue, NestJS and .NET, for web, mobile and APIs.',
+      },
+      {
+        question: 'How is GDPR taken into account?',
+        answer:
+          'From the architecture, not after going live: every development project builds GDPR in from the design.',
+      },
+      {
+        question: 'Do you take over WinDev or WebDev applications?',
+        answer:
+          'Yes. We migrate them one application at a time, old and new side by side, without interrupting your users.',
+      },
+      {
+        question: 'How do we get started?',
+        answer:
+          'With a free 30-minute call: you describe your needs, we give you a first opinion and the next steps.',
+      },
+    ],
+  },
+  contact: {
+    index: '08',
     label: 'Contact',
-    title: 'A project, a team to support, a GDPR question? Let’s talk.',
+    title: 'Let’s talk about your project.',
     text: 'Tell us where you stand, we come back to you with a first opinion.',
-    emailLabel: 'E-mail',
-    linkedinLabel: 'LinkedIn',
-    linkedinValue: 'Arlioz',
     direct: {
       title: 'An e-mail or a LinkedIn message is all it takes.',
       text: 'Describe your project in a few lines.',

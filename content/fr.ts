@@ -285,10 +285,11 @@ export const fr: SiteContent = {
     close: 'Fermer',
     sectionLabel: 'Navigation',
     items: [
-      { label: 'Équipe', anchor: 'equipe', dot: 'green' },
-      { label: 'Réalisations', anchor: 'realisations', dot: 'orange' },
       { label: 'Expertises', anchor: 'expertises', dot: 'green' },
-      { label: 'Formation', anchor: 'education', dot: 'green' },
+      { label: 'Réalisations', anchor: 'realisations', dot: 'orange' },
+      { label: 'Méthode', anchor: 'methode', dot: 'green' },
+      { label: 'Équipe', anchor: 'equipe', dot: 'green' },
+      { label: 'Démarrer', anchor: 'demarrer', dot: 'orange' },
       { label: 'Contact', anchor: 'contact', dot: 'orange' },
     ],
     write: 'Nous écrire',
@@ -313,44 +314,19 @@ export const fr: SiteContent = {
     ctaPrimary: 'Réserver un appel de 30 min',
     ctaSecondary: 'Voir nos réalisations',
   },
-  about: {
-    index: '04',
-    label: 'À propos',
-    title: [
-      { text: 'Depuis 2018, ' },
-      { text: 'un expert RGPD', mark: 'blue' },
-      { text: ' et ' },
-      { text: 'un développeur fullstack', mark: 'orange' },
-      { text: ' livrent ensemble des produits ' },
-      { text: 'conformes dès la conception', mark: 'green' },
-      { text: '.' },
-    ],
-    pillars: [
-      {
-        title: 'Développer',
-        text: 'Applications métier, SaaS, apps web et mobiles et API, en Angular, React, Vue et NestJS.',
-      },
-      {
-        title: 'Protéger',
-        text: 'Audit, registre, analyses d’impact : une conformité RGPD que vous pouvez démontrer.',
-      },
-      {
-        title: 'Transmettre',
-        text: 'Lead technique, revues de code, formations : nous faisons progresser vos équipes.',
-      },
-    ],
-  },
   expertises: {
-    index: '03',
+    index: '01',
     label: 'Expertises',
-    title: ['Quatre offres,', 'une même équipe.'],
+    title: ['Deux métiers,', 'deux spécialités.'],
     intro:
       'Un développeur fullstack et un expert RGPD sous le même toit, depuis 2018. Nous construisons vos logiciels et aidons vos équipes à les faire vivre.',
     signature:
       'Privacy by design : chaque projet de développement intègre le RGPD dès l’architecture, pas après la mise en ligne.',
-    labels: { problem: 'Le problème', result: 'Le résultat' },
+    labels: { problem: 'Le problème', result: 'Le résultat', more: 'En savoir plus' },
     offers: [
       {
+        slug: 'logiciels-saas',
+        tier: 'pillar',
         accent: 'orange',
         icon: 'code',
         title: 'Applications et SaaS sur mesure',
@@ -372,6 +348,8 @@ export const fr: SiteContent = {
         },
       },
       {
+        slug: 'accompagnement',
+        tier: 'pillar',
         accent: 'green',
         icon: 'team',
         title: 'Accompagnement et formation',
@@ -386,12 +364,15 @@ export const fr: SiteContent = {
           'Revues de code et suivi des développeurs',
           'Formations sur mesure, développement et RGPD',
         ],
+        note: 'Arlioz Education : Guy enseigne aussi l’informatique et accompagne de jeunes développeurs, du premier projet aux bonnes pratiques professionnelles.',
         cta: {
           label: 'Parler d’un accompagnement',
           subject: 'Accompagnement technique — demande de contact',
         },
       },
       {
+        slug: 'rgpd',
+        tier: 'specialty',
         accent: 'blue',
         icon: 'shield',
         title: 'Conformité RGPD',
@@ -412,6 +393,8 @@ export const fr: SiteContent = {
         },
       },
       {
+        slug: 'migration-windev',
+        tier: 'specialty',
         accent: 'orange',
         icon: 'layers',
         title: 'Migration WinDev et WebDev',
@@ -436,7 +419,8 @@ export const fr: SiteContent = {
   work: {
     index: '02',
     label: 'Réalisations',
-    title: ['Des produits en ligne,', 'des équipes accompagnées.'],
+    title: ['Des produits', 'en production.'],
+    intro: 'Des logiciels utilisés chaque jour, et une équipe que nous accompagnons au quotidien.',
     caseStudy: 'Étude de cas',
     liveExample: 'Voir un exemple en ligne',
     viewSite: 'Voir le site',
@@ -457,14 +441,23 @@ export const fr: SiteContent = {
   },
   trust: { label: 'Une expérience forgée chez' },
   team: {
-    index: '01',
+    index: '04',
     label: 'Équipe',
-    title: 'Deux experts, en direct.',
+    title: 'Deux seniors, en direct.',
+    intro: [
+      { text: 'Depuis 2018, ' },
+      { text: 'un expert RGPD', mark: 'blue' },
+      { text: ' et ' },
+      { text: 'un développeur fullstack', mark: 'orange' },
+      { text: ' livrent ensemble des produits ' },
+      { text: 'conformes dès la conception', mark: 'green' },
+      { text: '.' },
+    ],
     members: [
       {
         name: 'Guy Moins',
         role: 'Architecte IT & expert RGPD',
-        text: 'Plus de trente ans dans l’IT, de la sécurité des systèmes à l’architecture, au sein de grands groupes internationaux. Il cadre vos données, rend le RGPD concret pour vos équipes et compte plus de dix ans d’enseignement en informatique.',
+        text: 'Plus de trente ans dans l’IT, de la sécurité des systèmes à l’architecture, au sein de grands groupes internationaux. Il rend le RGPD concret pour vos équipes et enseigne l’informatique depuis plus de dix ans.',
         tags: ['Conseil RGPD', 'Sécurité IT', 'Architecture IT', 'Enseignement'],
         photo: {
           ...media.team.guy,
@@ -477,7 +470,7 @@ export const fr: SiteContent = {
       {
         name: 'Amaury Lapaque',
         role: 'Développeur fullstack & lead technique',
-        text: 'Développeur fullstack depuis 2019 : applications métier, SaaS, applications web et mobiles, migration de back-ends vers des API modernes. Il construit vos produits du design system à l’API, et fait progresser les équipes qu’il accompagne comme lead technique.',
+        text: 'Développeur fullstack depuis 2019 : applications métier, SaaS, applications web et mobiles, API. Il construit vos produits du design system à l’API.',
         tags: [
           'Lead technique',
           'Angular',
@@ -493,29 +486,26 @@ export const fr: SiteContent = {
         initials: 'AL',
         photoLabel: 'Photo · Amaury Lapaque',
         accent: 'orange',
+        now: 'Aujourd’hui : lead technique chez Radyo.',
       },
     ],
-  },
-  education: {
-    index: '05',
-    label: 'Formation',
-    brand: 'Arlioz Education',
-    title: ['Transmettre', 'et accompagner.'],
-    text: 'Guy forme de futurs développeurs et les équipes en entreprise : architecture, qualité, RGPD. Amaury accompagne les développeurs au quotidien, comme lead technique.',
-    audiences: [
+    pillars: [
       {
-        title: 'Entreprises',
-        text: 'Lead technique, audit de l’existant, choix de stack, revues de code et formations sur mesure, sur site ou à distance.',
+        title: 'Développer',
+        text: 'Applications métier, SaaS, apps web et mobiles et API, en Angular, React, Vue et NestJS.',
       },
       {
-        title: 'Étudiants',
-        text: 'Cours et accompagnement de jeunes développeurs, du premier projet aux bonnes pratiques professionnelles.',
+        title: 'Protéger',
+        text: 'Audit, registre, analyses d’impact : une conformité RGPD que vous pouvez démontrer.',
+      },
+      {
+        title: 'Transmettre',
+        text: 'Lead technique, revues de code, formations : nous faisons progresser vos équipes.',
       },
     ],
-    cta: 'Parler d’un accompagnement',
   },
   testimonials: {
-    index: '06',
+    index: '05',
     label: 'Témoignages',
     title: ['Ils ont travaillé', 'avec l’un de nous.'],
     translated: 'Traduit de l’anglais',
@@ -550,14 +540,109 @@ export const fr: SiteContent = {
       },
     ],
   },
-  contact: {
+  method: {
+    index: '03',
+    label: 'Méthode',
+    title: ['Comment', 'nous travaillons.'],
+    intro:
+      'Quatre étapes, du premier échange à la passation. Chacune se termine par un livrable concret.',
+    deliverable: 'Livrable',
+    steps: [
+      {
+        title: 'Audit',
+        text: 'Nous faisons l’état des lieux de votre code, de votre architecture et de votre conformité RGPD.',
+        deliverable: 'Un rapport priorisé',
+      },
+      {
+        title: 'Cadrage',
+        text: 'Nous choisissons avec vous la stack et l’architecture, et nous planifions la livraison.',
+        deliverable: 'Un plan de livraison',
+      },
+      {
+        title: 'Livraison',
+        text: 'Nous livrons par itérations courtes, avec des revues de code et des démonstrations régulières.',
+        deliverable: 'Un logiciel en production',
+      },
+      {
+        title: 'Transmission',
+        text: 'Nous documentons et formons vos équipes, pour qu’elles reprennent la main.',
+        deliverable: 'Une équipe autonome',
+      },
+    ],
+  },
+  start: {
+    index: '06',
+    label: 'Démarrer',
+    title: ['Par où', 'commencer ?'],
+    intro: 'Deux portes d’entrée, selon où vous en êtes.',
+    call: {
+      title: 'Appel découverte',
+      meta: '30 min · gratuit',
+      text: 'Vous nous décrivez votre projet ou votre équipe. Nous vous donnons un premier avis, et la suite si elle a du sens.',
+      points: [
+        'Votre besoin et vos contraintes',
+        'Un premier avis technique',
+        'Les prochaines étapes, sans engagement',
+      ],
+      cta: {
+        label: 'Réserver un appel',
+        subject: 'Appel découverte (30 min) — demande de rendez-vous',
+      },
+    },
+    audit: {
+      title: 'Audit technique & RGPD',
+      meta: 'Périmètre fixe · sur devis',
+      text: 'Un état des lieux de votre application, avant de décider quoi construire, reprendre ou corriger.',
+      points: [
+        'Code et architecture',
+        'Sécurité et dépendances',
+        'Conformité RGPD',
+        'Rapport priorisé et restitution',
+      ],
+      cta: { label: 'Demander un audit', subject: 'Audit technique & RGPD — demande de devis' },
+    },
+  },
+  faq: {
     index: '07',
+    label: 'FAQ',
+    title: ['Questions', 'fréquentes.'],
+    items: [
+      {
+        question: 'Où êtes-vous basés ?',
+        answer: 'À Charleroi, en Belgique. Nous travaillons sur site ou à distance.',
+      },
+      {
+        question: 'Pouvez-vous rejoindre une équipe existante ?',
+        answer:
+          'Oui. Nous intervenons comme lead technique au sein de votre équipe, ou en appui : standards de code, revues de code, suivi des développeurs.',
+      },
+      {
+        question: 'Avec quelles technologies travaillez-vous ?',
+        answer:
+          'Angular, React et Next.js, Vue, NestJS et .NET, pour le web, le mobile et les API.',
+      },
+      {
+        question: 'Comment le RGPD est-il pris en compte ?',
+        answer:
+          'Dès l’architecture, pas après la mise en ligne : chaque projet de développement intègre le RGPD dès sa conception.',
+      },
+      {
+        question: 'Reprenez-vous des applications WinDev ou WebDev ?',
+        answer:
+          'Oui. Nous les migrons application par application, l’ancien et le nouveau en parallèle, sans interrompre vos utilisateurs.',
+      },
+      {
+        question: 'Comment démarrer ?',
+        answer:
+          'Par un appel de 30 minutes, gratuit : vous nous décrivez votre besoin, nous vous donnons un premier avis et les prochaines étapes.',
+      },
+    ],
+  },
+  contact: {
+    index: '08',
     label: 'Contact',
-    title: 'Un projet, une équipe à accompagner, une question RGPD ? Parlons-en.',
+    title: 'Parlons de votre projet.',
     text: 'Dites-nous où vous en êtes, nous revenons vers vous avec un premier avis.',
-    emailLabel: 'E-mail',
-    linkedinLabel: 'LinkedIn',
-    linkedinValue: 'Arlioz',
     direct: {
       title: 'Un e-mail ou un message LinkedIn suffit.',
       text: 'Décrivez votre projet en quelques lignes.',

@@ -148,6 +148,19 @@ export function servicesJsonLd(locale: Locale, content: SiteContent) {
   };
 }
 
+/** The home page FAQ, as FAQPage structured data (same text as the visible answers). */
+export function faqJsonLd(content: SiteContent) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: content.faq.items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  };
+}
+
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   return {
     '@context': 'https://schema.org',
