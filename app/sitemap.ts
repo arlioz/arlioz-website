@@ -1,5 +1,5 @@
 import { type MetadataRoute } from 'next';
-import { projectSlugs } from '@/content';
+import { offerSlugs, projectSlugs } from '@/content';
 import { alternatePaths, htmlLang, locales, type RouteKey } from '@/lib/i18n';
 import { site } from '@/lib/site';
 
@@ -24,6 +24,7 @@ function entries(key?: RouteKey, slug?: string, priority = 0.8): MetadataRoute.S
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...entries(undefined, undefined, 1),
+    ...offerSlugs.flatMap((slug) => entries('services', slug, 0.9)),
     ...projectSlugs.flatMap((slug) => entries('work', slug, 0.8)),
     ...entries('legal', undefined, 0.3),
     ...entries('privacy', undefined, 0.3),

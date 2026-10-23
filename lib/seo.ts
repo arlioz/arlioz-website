@@ -142,9 +142,24 @@ export function servicesJsonLd(locale: Locale, content: SiteContent) {
         description: offer.solution,
         provider: { '@id': `${site.url}/#organization` },
         areaServed: { '@type': 'Country', name: 'Belgium' },
-        url: `${absolute(localePath(locale))}#expertises`,
+        url: absolute(localePath(locale, 'services', offer.slug)),
       },
     })),
+  };
+}
+
+/** One offer's own page, as Service structured data. */
+export function serviceJsonLd(locale: Locale, content: SiteContent, slug: string) {
+  const offer = content.expertises.offers.find((item) => item.slug === slug);
+  if (!offer) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: offer.title,
+    description: offer.solution,
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: { '@type': 'Country', name: 'Belgium' },
+    url: absolute(localePath(locale, 'services', offer.slug)),
   };
 }
 

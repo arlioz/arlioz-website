@@ -12,6 +12,7 @@ export function isLocale(value: string | undefined): value is Locale {
  */
 export const routeSegments = {
   work: { fr: 'realisations', en: 'work' },
+  services: { fr: 'services', en: 'services' },
   legal: { fr: 'mentions-legales', en: 'legal-notice' },
   privacy: { fr: 'politique-de-confidentialite', en: 'privacy-policy' },
   cookies: { fr: 'gestion-des-cookies', en: 'cookie-settings' },

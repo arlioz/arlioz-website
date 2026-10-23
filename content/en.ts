@@ -307,6 +307,8 @@ export const en: SiteContent = {
     offers: [
       {
         slug: 'logiciels-saas',
+        faq: [2, 5],
+        proof: { kind: 'project', slug: 'restomax-book' },
         tier: 'pillar',
         accent: 'orange',
         icon: 'code',
@@ -326,6 +328,8 @@ export const en: SiteContent = {
       },
       {
         slug: 'accompagnement',
+        faq: [1, 5],
+        proof: { kind: 'mission' },
         tier: 'pillar',
         accent: 'green',
         icon: 'team',
@@ -346,6 +350,7 @@ export const en: SiteContent = {
       },
       {
         slug: 'rgpd',
+        faq: [3, 5],
         tier: 'specialty',
         accent: 'blue',
         icon: 'shield',
@@ -364,6 +369,7 @@ export const en: SiteContent = {
       },
       {
         slug: 'migration-windev',
+        faq: [4, 5],
         tier: 'specialty',
         accent: 'orange',
         icon: 'layers',
@@ -559,6 +565,19 @@ export const en: SiteContent = {
       ],
       cta: { label: 'Request an audit', subject: 'Technical & GDPR audit — quote request' },
     },
+  },
+  services: {
+    back: 'All expertise',
+    label: 'Expertise',
+    whatWeDo: 'What we do',
+    method: 'How we work',
+    proof: 'In production',
+    proofProject: 'See the case study',
+    proofMission: 'See the engagement',
+    faq: 'Frequently asked questions',
+    ctaTitle: 'Let’s talk about your project.',
+    ctaText: 'A free 30-minute call, to find out whether and how we can help.',
+    metaTitle: (title) => `${title} — Expertise`,
   },
   faq: {
     index: '07',

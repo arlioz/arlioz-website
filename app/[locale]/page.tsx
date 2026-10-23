@@ -49,7 +49,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* Promise → proof → offer → method → people → proof → way in → objections → contact. */}
       <Hero locale={locale} content={content} />
       <ClientsBand content={content} />
-      <Expertises content={content} />
+      <Expertises locale={locale} content={content} />
       <Work locale={locale} content={content} />
       <Method content={content} />
       <Team content={content} />

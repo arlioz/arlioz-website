@@ -125,6 +125,10 @@ export interface Offer {
   points: string[];
   /** Optional line under the services (e.g. Arlioz Education on the support offer). */
   note?: string;
+  /** Proof shown on the offer's page: a project's case study, or the Radyo mission. */
+  proof?: { kind: 'project'; slug: string } | { kind: 'mission' };
+  /** Indexes of the home FAQ items repeated on the offer's page. */
+  faq: number[];
   cta: ContactLink;
 }
 
@@ -294,6 +298,20 @@ export interface SiteContent {
     intro: string;
     call: StartOffer;
     audit: StartOffer;
+  };
+  /** Labels of the offers' own pages (`/services/<slug>`). */
+  services: {
+    back: string;
+    label: string;
+    whatWeDo: string;
+    method: string;
+    proof: string;
+    proofProject: string;
+    proofMission: string;
+    faq: string;
+    ctaTitle: string;
+    ctaText: string;
+    metaTitle: (title: string) => string;
   };
   faq: {
     index: string;
