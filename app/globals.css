@@ -435,42 +435,70 @@
   }
 
   /* Menu overlay --------------------------------------------------- */
+  /* Opens as a circle growing from the menu button (top right), then every
+     link rises from under its rule, one after the other (`--i`, set inline).
+     Phones: a column sized in `dvh` so the whole menu fits on one screen. */
+  .menu-overlay {
+    overflow: hidden auto;
+    overscroll-behavior: contain;
+    animation: menu-in 0.75s var(--ease-out-expo) both;
+  }
+  .menu-overlay[data-state='closing'] {
+    animation: menu-out 0.42s cubic-bezier(0.55, 0, 0.8, 0.3) both;
+    pointer-events: none;
+  }
+  .menu-bg {
+    position: absolute;
+    inset: 0;
+    min-height: 100dvh;
+    overflow: clip;
+    pointer-events: none;
+  }
   .menu-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
     gap: 64px;
     align-items: start;
   }
-  .menu-overlay {
-    animation: menu-in 0.35s ease both;
-  }
-  .menu-overlay[data-state='closing'] {
-    animation: menu-out 0.3s ease both;
-    pointer-events: none;
-  }
   .menu-item {
     animation: arz-up 0.8s var(--ease-out-expo) both;
+    animation-delay: calc(0.1s + var(--i, 0) * 0.055s);
   }
-  .mi-1 {
-    animation-delay: 0.06s;
-  }
-  .mi-2 {
-    animation-delay: 0.12s;
-  }
-  .mi-3 {
-    animation-delay: 0.18s;
-  }
-  .mi-4 {
-    animation-delay: 0.24s;
-  }
-  .mi-5 {
-    animation-delay: 0.3s;
-  }
-  .mi-6 {
-    animation-delay: 0.4s;
+  .menu-list {
+    border-top: 1px solid var(--color-line-2);
   }
   .menu-link {
+    padding-block: min(clamp(14px, 1.8vw, 22px), 2dvh);
     transition: opacity 0.3s ease;
+  }
+  /* The rule under each link, drawn from the left as the link appears. */
+  .menu-link::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 1px;
+    background: var(--color-line-2);
+    transform-origin: left;
+    animation: menu-rule 1s var(--ease-out-expo) both;
+    animation-delay: calc(0.08s + var(--i, 0) * 0.055s);
+  }
+  /* Descenders need room under the mask (line-height is 1). */
+  .menu-mask {
+    display: block;
+    min-width: 0;
+    overflow: clip;
+    padding: 0.1em 0.04em 0.16em 0;
+    margin: -0.1em -0.04em -0.16em 0;
+  }
+  .menu-text {
+    display: block;
+    font-size: min(var(--text-menu), 7.6dvh);
+    animation: arz-line 0.9s var(--ease-out-expo) both;
+    animation-delay: calc(0.08s + var(--i, 0) * 0.055s);
+  }
+  .menu-side {
+    animation: menu-fade 0.5s ease both;
+    animation-delay: calc(0.3s + var(--i, 0) * 0.055s);
   }
   @media (hover: hover) {
     .menu-list:hover .menu-link {
@@ -499,6 +527,73 @@
     .menu-link:hover .menu-dot {
       transform: scale(1.6);
     }
+  }
+
+  /* Menu button: "Menu" slides out as "Close" slides in; the three bars fold
+     into a cross. */
+  .menu-lbl {
+    display: grid;
+    overflow: clip;
+    line-height: 1.25;
+  }
+  .menu-lbl > span {
+    grid-area: 1 / 1;
+    text-align: center;
+    transition:
+      translate 0.45s var(--ease-out-expo),
+      opacity 0.3s ease;
+  }
+  .menu-lbl > span:last-child {
+    translate: 0 110%;
+    opacity: 0;
+  }
+  .menu-btn[aria-expanded='true'] .menu-lbl > span:first-child {
+    translate: 0 -110%;
+    opacity: 0;
+  }
+  .menu-btn[aria-expanded='true'] .menu-lbl > span:last-child {
+    translate: 0 0;
+    opacity: 1;
+  }
+  .menu-ico {
+    position: relative;
+    width: 18px;
+    height: 14px;
+    flex: none;
+  }
+  .menu-ico > i {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition:
+      translate 0.4s var(--ease-out-expo),
+      rotate 0.4s var(--ease-out-expo),
+      scale 0.3s var(--ease-out-expo),
+      opacity 0.2s ease;
+  }
+  .menu-ico > i:nth-child(1) {
+    top: 0;
+  }
+  .menu-ico > i:nth-child(2) {
+    top: 6px;
+  }
+  .menu-ico > i:nth-child(3) {
+    top: 12px;
+  }
+  .menu-btn[aria-expanded='true'] .menu-ico > i:nth-child(1) {
+    translate: 0 6px;
+    rotate: 45deg;
+  }
+  .menu-btn[aria-expanded='true'] .menu-ico > i:nth-child(2) {
+    scale: 0 1;
+    opacity: 0;
+  }
+  .menu-btn[aria-expanded='true'] .menu-ico > i:nth-child(3) {
+    translate: 0 -6px;
+    rotate: -45deg;
   }
 
   /* Hero ----------------------------------------------------------- */
@@ -1173,18 +1268,34 @@
 /* ------------------------------------------------------------------ */
 @keyframes menu-in {
   from {
-    opacity: 0;
+    clip-path: circle(0px at var(--menu-x) var(--menu-y));
   }
   to {
-    opacity: 1;
+    clip-path: circle(150% at var(--menu-x) var(--menu-y));
   }
 }
 @keyframes menu-out {
   from {
-    opacity: 1;
+    clip-path: circle(150% at var(--menu-x) var(--menu-y));
   }
   to {
+    clip-path: circle(0px at var(--menu-x) var(--menu-y));
+  }
+}
+@keyframes menu-rule {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes menu-fade {
+  from {
     opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 @keyframes jk-scroll {
@@ -1575,6 +1686,26 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
   }
+  .menu-grid {
+    padding-top: clamp(84px, 10dvh, 128px);
+  }
+  .menu-text {
+    font-size: min(var(--text-menu), 5.6dvh);
+  }
+  .menu-link {
+    padding-block: min(clamp(14px, 1.8vw, 22px), 1.6dvh);
+  }
+  .menu-aside {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px 16px;
+    padding-top: 32px;
+  }
+  .ma-mail,
+  .ma-tag,
+  .ma-cta {
+    grid-column: 1 / -1;
+  }
   .foot-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1629,23 +1760,56 @@
   .hdr-cta-mail {
     display: block;
   }
+  /* The menu as one screen: links at the top, contact block pinned at the
+     bottom, type and rhythm bound by the viewport height. */
   .menu-grid {
-    padding-top: 100px !important;
-    padding-bottom: 40px !important;
-    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 100%;
+    gap: 0;
+    padding-top: 84px;
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+  .menu-grid > nav > .menu-item {
+    margin-bottom: 10px;
+  }
+  .menu-text {
+    font-size: clamp(26px, min(10vw, 4.6dvh), 46px);
+  }
+  .menu-link {
+    gap: 14px;
+    padding-block: clamp(8px, 1.5dvh, 15px);
+  }
+  .menu-num {
+    min-width: 22px;
+    font-size: 12px;
+  }
+  .menu-dot {
+    width: 10px;
+    height: 10px;
   }
   .menu-aside {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 24px 16px !important;
-    padding-top: 24px !important;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 16px;
+    margin-top: auto;
+    padding-top: 20px;
+  }
+  .menu-aside .label-mono,
+  .ma-tag {
+    display: none;
   }
   .ma-mail,
   .ma-cta {
     grid-column: 1 / -1;
   }
-  .ma-tag {
-    display: none !important;
+  .ma-mail a {
+    font-size: 20px;
+  }
+  .ma-lang {
+    justify-self: end;
   }
   .ma-cta {
     justify-content: center;
@@ -1864,7 +2028,10 @@ html.sda-light :is(.rv-d2, .rv-bar.b3) {
   .intro-media,
   .ln-in,
   .menu-item,
-  .menu-overlay {
+  .menu-overlay,
+  .menu-link::after,
+  .menu-text,
+  .menu-side {
     animation: none;
   }
   .jk-scroll,

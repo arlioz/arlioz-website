@@ -3,13 +3,13 @@
 import { useLenis } from 'lenis/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useId, useRef, useState } from 'react';
+import { type CSSProperties, useEffect, useId, useRef, useState } from 'react';
 import { type SiteContent } from '@/content/types';
 import { type Locale } from '@/lib/i18n';
 import { site } from '@/lib/site';
 import { ButtonLink } from '@/components/ui/Button';
 import { Glow } from '@/components/ui/Glow';
-import { ArrowUpRight, Burger, Close } from '@/components/ui/Icons';
+import { ArrowUpRight } from '@/components/ui/Icons';
 import { LangSwitch } from './LangSwitch';
 
 interface HeaderControlsProps {
@@ -35,11 +35,21 @@ function sectionInView(anchors: string[]): string | null {
   return null;
 }
 
+/**
+ * The menu button and its full-screen overlay. Opening is a circular reveal from
+ * the button, then the links rise one after the other from under their rule
+ * (globals.css, "Menu overlay"); the three bars of the button fold into a cross
+ * and its label slides from "Menu" to "Close". The overlay is a column on phones,
+ * sized with `dvh` so the six links and the contact block fit on one screen
+ * without scrolling (it still scrolls on very short screens).
+ */
 export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsProps) {
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);
   // Where the visitor is, shown in the menu (aria-current="location").
   const [active, setActive] = useState<string | null>(null);
+  // Centre of the button, where the overlay's circular reveal starts from.
+  const [origin, setOrigin] = useState({ x: 0, y: 0 });
   const pathname = usePathname();
   const lenis = useLenis();
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -85,6 +95,8 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
     if (open) close();
     else {
       setActive(sectionInView(nav.items.map((item) => item.anchor)));
+      const rect = buttonRef.current?.getBoundingClientRect();
+      if (rect) setOrigin({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
       setOpen(true);
       setClosing(false);
     }
@@ -101,8 +113,16 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
         aria-controls={dialogId}
         className="menu-btn pill glass pointer-events-auto relative z-10 inline-flex h-[52px] cursor-pointer items-center gap-3 rounded-pill px-5 font-sans text-[15px] font-medium text-paper"
       >
-        <span>{open ? nav.close : nav.menu}</span>
-        {open ? <Close /> : <Burger />}
+        {/* Both labels are stacked and slide in place; the accessible name is the aria-label. */}
+        <span aria-hidden="true" className="menu-lbl">
+          <span>{nav.menu}</span>
+          <span>{nav.close}</span>
+        </span>
+        <span aria-hidden="true" className="menu-ico">
+          <i />
+          <i />
+          <i />
+        </span>
       </button>
 
       {(open || closing) && (
@@ -114,59 +134,67 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
           aria-hidden={!open || undefined}
           data-lenis-prevent
           data-state={open ? 'open' : 'closing'}
+          style={{ '--menu-x': `${origin.x}px`, '--menu-y': `${origin.y}px` } as CSSProperties}
           onAnimationEnd={(event) => {
             if (event.animationName === 'menu-out') setClosing(false);
           }}
-          className="menu-overlay pointer-events-auto fixed inset-0 z-0 overflow-y-auto bg-ink"
+          className="menu-overlay pointer-events-auto fixed inset-0 z-0 bg-ink"
         >
-          <Glow
-            color="#FA7F13"
-            opacity={0.16}
-            blur={160}
-            style={{
-              width: '52vw',
-              height: '52vw',
-              maxWidth: 760,
-              maxHeight: 760,
-              right: '-8%',
-              top: '-18%',
-            }}
-          />
-          <Glow
-            color="#2065CB"
-            opacity={0.18}
-            blur={160}
-            style={{
-              width: '46vw',
-              height: '46vw',
-              maxWidth: 680,
-              maxHeight: 680,
-              left: '-10%',
-              top: '40%',
-            }}
-          />
+          {/* The halos are wider than the screen: clipped here so the overlay never scrolls sideways. */}
+          <div aria-hidden="true" className="menu-bg">
+            <Glow
+              color="#FA7F13"
+              opacity={0.16}
+              blur={160}
+              style={{
+                width: '52vw',
+                height: '52vw',
+                maxWidth: 760,
+                maxHeight: 760,
+                right: '-8%',
+                top: '-18%',
+              }}
+            />
+            <Glow
+              color="#2065CB"
+              opacity={0.18}
+              blur={160}
+              style={{
+                width: '46vw',
+                height: '46vw',
+                maxWidth: 680,
+                maxHeight: 680,
+                left: '-10%',
+                top: '40%',
+              }}
+            />
+          </div>
           <div className="menu-grid relative mx-auto w-full max-w-[1440px] px-gutter pt-32 pb-14">
             <nav aria-label={a11y.mainNav}>
-              <p className="menu-item mi-1 label-mono mb-5 text-muted-3">{nav.sectionLabel}</p>
-              <ul className="menu-list m-0 list-none border-t border-line-2 p-0">
+              <p className="menu-item label-mono mb-5 text-muted-3" style={stagger(0)}>
+                {nav.sectionLabel}
+              </p>
+              <ul className="menu-list m-0 list-none p-0">
                 {nav.items.map((item, i) => (
-                  <li key={item.anchor} className={`menu-item mi-${i + 2}`}>
+                  <li key={item.anchor} style={stagger(i + 1)}>
                     <Link
                       ref={i === 0 ? firstLinkRef : undefined}
                       href={`${homeHref}#${item.anchor}`}
                       onClick={close}
                       aria-current={active === item.anchor ? 'location' : undefined}
-                      className="menu-link flex items-center gap-[clamp(16px,3vw,40px)] border-b border-line-2 py-[clamp(14px,1.8vw,22px)] text-paper"
+                      className="menu-link relative flex items-center gap-[clamp(16px,3vw,40px)] py-[clamp(14px,1.8vw,22px)] text-paper"
                     >
-                      <span className="menu-num min-w-7 font-mono text-[13px] text-muted-3">
+                      <span className="menu-num menu-side min-w-7 font-mono text-[13px] text-muted-3">
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      <span className="menu-text font-display text-menu leading-none font-medium tracking-[-0.045em]">
-                        {item.label}
+                      <span className="menu-mask">
+                        <span className="menu-text font-display leading-none font-medium tracking-[-0.045em]">
+                          {item.label}
+                        </span>
                       </span>
                       <span
                         aria-hidden="true"
-                        className={`menu-dot ml-auto h-3.5 w-3.5 flex-none rounded-full ${dotColor[item.dot]}`}
+                        className={`menu-dot menu-side ml-auto h-3.5 w-3.5 flex-none rounded-full ${dotColor[item.dot]}`}
                       />
                     </Link>
                   </li>
@@ -174,7 +202,10 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
               </ul>
             </nav>
 
-            <aside className="menu-item mi-6 menu-aside flex flex-col gap-9 pt-10">
+            <aside
+              className="menu-item menu-aside flex flex-col gap-9 pt-10"
+              style={stagger(nav.items.length + 1)}
+            >
               <div className="ma-mail flex flex-col gap-[10px]">
                 <p className="label-mono m-0 text-muted-3">{nav.write}</p>
                 <a
@@ -221,4 +252,9 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
       )}
     </>
   );
+}
+
+/** Position in the entrance sequence, read by the `--i` delays in globals.css. */
+function stagger(i: number): CSSProperties {
+  return { '--i': i } as CSSProperties;
 }

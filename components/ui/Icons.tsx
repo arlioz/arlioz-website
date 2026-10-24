@@ -102,25 +102,6 @@ export function Team(props: IconProps) {
   );
 }
 
-export function Burger(props: IconProps) {
-  return (
-    <svg {...base({ strokeWidth: 2, ...props })}>
-      <path d="M4 7h16" />
-      <path d="M4 12h16" />
-      <path d="M4 17h16" />
-    </svg>
-  );
-}
-
-export function Close(props: IconProps) {
-  return (
-    <svg {...base({ strokeWidth: 2, ...props })}>
-      <path d="M6 6l12 12" />
-      <path d="M18 6L6 18" />
-    </svg>
-  );
-}
-
 export function Mail(props: IconProps) {
   return (
     <svg {...base(props)}>
