@@ -29,7 +29,7 @@ export function LegalPage({ locale, content, page }: LegalPageProps) {
         </Link>
       </div>
       <header className="mt-[clamp(40px,5vw,72px)] max-w-[880px]">
-        <h1 className="ln-wrap m-0 font-display text-h2 leading-none font-medium tracking-[-0.04em] text-balance">
+        <h1 className="ln-wrap m-0 font-display text-h2 leading-none font-medium tracking-[-0.035em] text-balance">
           <span className="ln">
             <span className="ln-in ln-1">{page.title}</span>
           </span>

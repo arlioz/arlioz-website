@@ -11,10 +11,7 @@ import { LogoMark } from '@/components/ui/LogoMark';
 
 export function Contact({ locale, content }: { locale: Locale; content: SiteContent }) {
   const { contact } = content;
-  const row =
-    'row-link flex items-center justify-between gap-4 border-b border-line-2 py-[22px] text-paper';
-
-  // No top padding: it follows the testimonials on the same background, whose bottom padding is the gap.
+  // No top padding: it follows the FAQ on the same background, whose bottom padding is the gap.
   return (
     <section id="contact" aria-labelledby="contact-title" className="pb-section">
       <div className="container-site">
@@ -44,26 +41,6 @@ export function Contact({ locale, content }: { locale: Locale; content: SiteCont
               <p className="m-0 max-w-[460px] text-[17px] leading-[1.6] text-muted">
                 {contact.text}
               </p>
-              <div className="mt-auto flex flex-col border-t border-line-2">
-                <a href={`mailto:${site.email}`} className={row}>
-                  <span className="flex min-w-0 flex-col gap-1.5">
-                    <span className="label-mono-sm text-muted-3">{contact.emailLabel}</span>
-                    <span className="selectable font-display text-row font-medium tracking-[-0.025em] [overflow-wrap:anywhere]">
-                      {site.email}
-                    </span>
-                  </span>
-                  <ArrowUpRight size={22} strokeWidth={1.7} className="flex-none" />
-                </a>
-                <a href={site.linkedin} target="_blank" rel="noopener" className={row}>
-                  <span className="flex min-w-0 flex-col gap-1.5">
-                    <span className="label-mono-sm text-muted-3">{contact.linkedinLabel}</span>
-                    <span className="font-display text-row font-medium tracking-[-0.025em]">
-                      {contact.linkedinValue}
-                    </span>
-                  </span>
-                  <ArrowUpRight size={22} strokeWidth={1.7} className="flex-none" />
-                </a>
-              </div>
             </div>
 
             <div className="relative flex min-w-0 flex-col justify-center gap-[22px] rounded-card border border-line-2 bg-ink p-[clamp(28px,3.4vw,44px)]">

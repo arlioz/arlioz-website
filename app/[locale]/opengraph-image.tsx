@@ -27,8 +27,8 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
         width: '100%',
         height: '100%',
         display: 'flex',
-        background: '#0A0A0C',
-        color: '#F2F1EE',
+        background: '#FFFFFF',
+        color: '#0B0D12',
         fontFamily: 'Instrument Sans',
         position: 'relative',
         overflow: 'hidden',
@@ -42,9 +42,9 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
           width: 620,
           height: 620,
           borderRadius: 999,
-          background: '#FA7F13',
-          opacity: 0.22,
-          filter: 'blur(140px)',
+          // Soft glow as a radial gradient: a blur filter is clipped to a square by the
+          // image renderer.
+          background: 'radial-gradient(circle, rgba(250, 127, 19, 0.2), rgba(250, 127, 19, 0) 70%)',
         }}
       />
       <div
@@ -55,9 +55,7 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
           width: 620,
           height: 620,
           borderRadius: 999,
-          background: '#2065CB',
-          opacity: 0.26,
-          filter: 'blur(140px)',
+          background: 'radial-gradient(circle, rgba(43, 190, 141, 0.2), rgba(43, 190, 141, 0) 70%)',
         }}
       />
       <div
@@ -89,7 +87,7 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
             {content.hero.title.map((line, i) => (
               <span key={line.em} style={{ display: 'flex', flexWrap: 'wrap', whiteSpace: 'pre' }}>
                 <span>{line.lead}</span>
-                <span style={{ color: i === 0 ? '#FF7C00' : '#00FFCC' }}>{line.em}</span>
+                <span style={{ color: i === 0 ? '#E8640A' : '#1D5BBF' }}>{line.em}</span>
                 {line.tail && <span>{line.tail}</span>}
               </span>
             ))}
@@ -100,7 +98,7 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
               alignItems: 'center',
               gap: 14,
               fontSize: 26,
-              color: '#A3A3AB',
+              color: '#4B5563',
             }}
           >
             <div style={{ display: 'flex', gap: 6 }}>
@@ -109,7 +107,7 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
               <div style={{ width: 12, height: 12, borderRadius: 999, background: '#2BBE8D' }} />
             </div>
             <span>{content.meta.ogTagline}</span>
-            <span style={{ marginLeft: 'auto', color: '#85858E' }}>
+            <span style={{ marginLeft: 'auto', color: '#6B7280' }}>
               {site.url.replace('https://', '')}
             </span>
           </div>

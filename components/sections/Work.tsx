@@ -30,9 +30,12 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
             <LineTitle
               id="work-title"
               lines={work.title}
-              className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
+              className="font-display text-h2 leading-none font-medium tracking-[-0.035em]"
             />
           </div>
+          <p className="m-0 max-w-[420px] text-[17px] leading-[1.6] text-muted text-pretty">
+            {work.intro}
+          </p>
         </div>
 
         {/* Stacked cards: on wide screens each card sticks under the header and the next
@@ -114,18 +117,21 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                     </p>
                     <dl className="pcard-story m-0 grid max-w-[580px] gap-3 border-t border-line-2 pt-4">
                       <div className="grid gap-1">
-                        <dt className="label-mono-sm text-muted-3">{work.need}</dt>
-                        <dd className="m-0 text-base leading-[1.55] text-paper-2">
-                          {project.story.challenge}
+                        <dt className="label-mono-sm text-muted-3">{work.result}</dt>
+                        {/* The measured result first, large: it is the strongest proof. */}
+                        <dd className="m-0 flex flex-col gap-1 text-base leading-[1.55] text-paper-2">
+                          {headline.value && (
+                            <strong className="font-display text-[clamp(28px,2.6vw,36px)] leading-none font-medium tracking-[-0.03em] text-paper">
+                              {headline.value}
+                            </strong>
+                          )}
+                          <span>{headline.text}</span>
                         </dd>
                       </div>
                       <div className="grid gap-1">
-                        <dt className="label-mono-sm text-muted-3">{work.result}</dt>
+                        <dt className="label-mono-sm text-muted-3">{work.need}</dt>
                         <dd className="m-0 text-base leading-[1.55] text-paper-2">
-                          {headline.value && (
-                            <strong className="font-semibold text-paper">{headline.value} </strong>
-                          )}
-                          {headline.text}
+                          {project.story.challenge}
                         </dd>
                       </div>
                     </dl>

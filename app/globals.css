@@ -111,6 +111,7 @@
   --shadow-device: 0 24px 50px rgb(0 0 0 / 0.55);
   --shadow-device-lg: 0 30px 60px rgb(0 0 0 / 0.5);
   --glow-k: 1;
+  --grid-line: rgb(242 241 238 / 0.055);
   --hero-a: #ffb13d, #ff7c00 55%, #ff5a1f;
   /* Brand colour code: orange = development (line 1), blue = GDPR (line 2). */
   --hero-b: #a9c8ff, #6e9cf0 50%, #4f86f0;
@@ -162,6 +163,7 @@
     --shadow-device: 0 24px 50px rgb(16 24 40 / 0.18);
     --shadow-device-lg: 0 30px 60px rgb(16 24 40 / 0.16);
     --glow-k: 0.55;
+    --grid-line: rgb(16 24 40 / 0.06);
     --hero-a: #e8640a, #d14a08 55%, #c23d0c;
     --hero-b: #2a6fd6, #1d5bbf 55%, #1a4fa8;
     --color-device-edge: #d9dbdb;
@@ -423,24 +425,12 @@
   .btn-primary:active {
     transform: translateY(0) scale(0.98);
   }
-  .link-u svg,
-  .row-link svg {
+  .link-u svg {
     transition: transform 0.4s var(--ease-out-expo);
   }
   @media (hover: hover) {
     .link-u:hover svg {
       transform: translateX(3px);
-    }
-  }
-  .row-link {
-    transition: padding 0.4s var(--ease-out-expo);
-  }
-  @media (hover: hover) {
-    .row-link:hover {
-      padding-left: 10px;
-    }
-    .row-link:hover svg {
-      transform: translate(4px, -4px);
     }
   }
 
@@ -575,32 +565,24 @@
   .hero-lead {
     text-shadow: 0 1px 12px rgb(var(--ink-rgb) / 0.9);
   }
-  /* About: the founding year, large, then three key facts in a row. The label comes
+  /* Proof band: four key figures in a row, split by hairlines. The label comes
      first in the DOM (dt) and is shown under the figure. */
-  .about-facts {
+  .stats {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px 20px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-  .about-facts > div {
+  .stat {
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
     gap: 10px;
+    padding: 4px clamp(16px, 2.4vw, 36px);
   }
-  .about-fact-main {
-    grid-column: 1 / -1;
-    padding-bottom: 28px;
-    border-bottom: 1px solid var(--color-line-2);
+  .stat + .stat {
+    border-left: 1px solid var(--color-line);
   }
-  .about-fact-main dd {
-    font-size: var(--text-stat);
-  }
-  .about-fact dd {
-    font-size: clamp(34px, 3.2vw, 48px);
-  }
-  .about-fact dt {
-    line-height: 1.4;
+  .stat:first-child {
+    padding-left: 0;
   }
   /* Layout grids --------------------------------------------------- */
   .split {
@@ -698,7 +680,7 @@
        the sticky containing block. */
     .stack::after {
       content: '';
-      height: clamp(48px, 8vw, 120px);
+      height: clamp(32px, 5vw, 72px);
     }
     .pcard {
       position: sticky;
@@ -730,6 +712,63 @@
   .offer {
     gap: 26px;
     padding: clamp(28px, 2.8vw, 40px);
+  }
+  /* Brand signature: the fine grid of a technical drawing (Arlioz is an IT architect
+     and a developer). Pure CSS, faded out towards the edges. */
+  .blueprint {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: center top;
+  }
+  .blueprint-method {
+    mask-image: linear-gradient(to bottom, transparent, #000 35%, #000 70%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 35%, #000 70%, transparent);
+  }
+  /* Expertises: the two specialties, compact, under the pillars. */
+  .specialties {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+  /* Start: the call and the audit side by side. */
+  .start-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+  /* FAQ: a plus that turns into a minus when the answer is open. */
+  .faq-q::-webkit-details-marker {
+    display: none;
+  }
+  .faq-icon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+  }
+  .faq-icon::before,
+  .faq-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 16px;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.3s var(--ease-out-expo);
+  }
+  .faq-icon::after {
+    transform: rotate(90deg);
+  }
+  .faq-item[open] .faq-icon::after {
+    transform: rotate(0deg);
+  }
+  .faq-q:focus-visible {
+    outline-offset: 4px;
   }
   /* Mission card (Work): the visual column is typographic. The client's logo, then
      what we do there as large numbered lines split by hairlines. */
@@ -793,9 +832,6 @@
   .tcard-body {
     grid-area: body;
     padding-bottom: clamp(4px, 1vw, 14px);
-  }
-  .edu-aud {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .contact-grid {
     display: grid;
@@ -1488,6 +1524,25 @@
     display: inline-flex;
   }
 }
+@media (max-width: 720px) {
+  /* Phones: the eleven employers' logos stay readable without taking a whole screen. */
+  .logo-row-trust {
+    --logo-h: 24px;
+    gap: 18px 28px;
+  }
+  .specialties,
+  .start-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 24px;
+  }
+  .stat:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
 @media (max-width: 1080px) {
   /* One profile card per row; the portrait keeps a sensible size. One offer per row. */
   .team-grid,
@@ -1644,7 +1699,6 @@
   .tcard-body {
     padding-inline: 4px;
   }
-  .edu-aud,
   .case-story {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1722,6 +1776,7 @@
     justify-content: center;
   }
 }
+
 @media (max-width: 400px) {
   .hero-team {
     font-size: 14px !important;

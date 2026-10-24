@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { type SiteContent } from '@/content/types';
 import { type Locale, localePath } from '@/lib/i18n';
 import { LogoMark } from '@/components/ui/LogoMark';
+import { mailto } from '@/components/ui/MailLink';
 import { HeaderControls } from './HeaderControls';
 import { HeaderCta } from './HeaderCta';
 import { LangSwitch } from './LangSwitch';
@@ -31,7 +32,11 @@ export function Header({ locale, content }: HeaderProps) {
         </Link>
 
         <div className="relative z-10 flex items-center gap-2">
-          <HeaderCta href={`${home}#contact`} label={content.nav.cta} heroId={HERO_ID} />
+          <HeaderCta
+            href={mailto(content.hero.callSubject)}
+            label={content.nav.cta}
+            heroId={HERO_ID}
+          />
           <LangSwitch
             locale={locale}
             label={content.a11y.languageGroup}

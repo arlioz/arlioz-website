@@ -286,16 +286,17 @@ export const fr: SiteContent = {
     sectionLabel: 'Navigation',
     items: [
       { label: 'Équipe', anchor: 'equipe', dot: 'green' },
-      { label: 'Réalisations', anchor: 'realisations', dot: 'orange' },
       { label: 'Expertises', anchor: 'expertises', dot: 'green' },
-      { label: 'Formation', anchor: 'education', dot: 'green' },
+      { label: 'Réalisations', anchor: 'realisations', dot: 'orange' },
+      { label: 'Méthodologie', anchor: 'methode', dot: 'green' },
+      { label: 'Démarrer', anchor: 'demarrer', dot: 'orange' },
       { label: 'Contact', anchor: 'contact', dot: 'orange' },
     ],
     write: 'Nous écrire',
     follow: 'Suivre',
     language: 'Langue',
     tagline: 'Applications, accompagnement des équipes et conformité RGPD, depuis 2018.',
-    cta: 'Parler de mon projet',
+    cta: 'Réserver un appel',
     linkedin: 'LinkedIn',
   },
   hero: {
@@ -306,53 +307,25 @@ export const fr: SiteContent = {
     lead: 'Un développeur fullstack et un expert RGPD, en direct : nous développons vos logiciels et accompagnons vos équipes, depuis 2018.',
     team: 'Guy et Amaury, vos interlocuteurs',
     proof: '{count} recommandations LinkedIn',
+    callSubject: 'Appel découverte (30 min) — demande de rendez-vous',
     ctaPrimary: 'Parler de mon projet',
     ctaSecondary: 'Voir nos réalisations',
   },
-  about: {
-    index: '04',
-    label: 'À propos',
-    facts: [
-      { value: '2018', label: 'Création d’Arlioz' },
-      { value: '30+', label: 'Années d’expérience en IT et sécurité' },
-      { value: '10+', label: 'Années d’enseignement en informatique' },
-      { value: '3', label: 'Produits en production' },
-    ],
-    title: [
-      { text: 'Depuis 2018, ' },
-      { text: 'un expert RGPD', mark: 'blue' },
-      { text: ' et ' },
-      { text: 'un développeur fullstack', mark: 'orange' },
-      { text: ' livrent ensemble des produits ' },
-      { text: 'conformes dès la conception', mark: 'green' },
-      { text: '.' },
-    ],
-    pillars: [
-      {
-        title: 'Développer',
-        text: 'Applications métier, SaaS, apps web et mobiles et API, en Angular, React, Vue et NestJS.',
-      },
-      {
-        title: 'Protéger',
-        text: 'Audit, registre, analyses d’impact : une conformité RGPD que vous pouvez démontrer.',
-      },
-      {
-        title: 'Transmettre',
-        text: 'Lead technique, revues de code, formations : nous faisons progresser vos équipes.',
-      },
-    ],
-  },
   expertises: {
-    index: '03',
+    index: '02',
     label: 'Expertises',
-    title: ['Quatre offres,', 'une même équipe.'],
+    title: ['Deux métiers,', 'deux spécialités.'],
     intro:
       'Un développeur fullstack et un expert RGPD sous le même toit, depuis 2018. Nous construisons vos logiciels et aidons vos équipes à les faire vivre.',
     signature:
       'Privacy by design : chaque projet de développement intègre le RGPD dès l’architecture, pas après la mise en ligne.',
-    labels: { problem: 'Le problème', result: 'Le résultat' },
+    labels: { problem: 'Le problème', result: 'Le résultat', more: 'En savoir plus' },
     offers: [
       {
+        slug: 'logiciels-saas',
+        faq: [2, 5],
+        proof: { kind: 'project', slug: 'restomax-book' },
+        tier: 'pillar',
         accent: 'orange',
         icon: 'code',
         title: 'Applications et SaaS sur mesure',
@@ -374,6 +347,10 @@ export const fr: SiteContent = {
         },
       },
       {
+        slug: 'accompagnement',
+        faq: [1, 5],
+        proof: { kind: 'mission' },
+        tier: 'pillar',
         accent: 'green',
         icon: 'team',
         title: 'Accompagnement et formation',
@@ -388,12 +365,16 @@ export const fr: SiteContent = {
           'Revues de code et suivi des développeurs',
           'Formations sur mesure, développement et RGPD',
         ],
+        note: 'Arlioz Education : Guy enseigne aussi l’informatique et accompagne de jeunes développeurs, du premier projet aux bonnes pratiques professionnelles.',
         cta: {
           label: 'Parler d’un accompagnement',
           subject: 'Accompagnement technique — demande de contact',
         },
       },
       {
+        slug: 'rgpd',
+        faq: [3, 5],
+        tier: 'specialty',
         accent: 'blue',
         icon: 'shield',
         title: 'Conformité RGPD',
@@ -414,6 +395,9 @@ export const fr: SiteContent = {
         },
       },
       {
+        slug: 'migration-windev',
+        faq: [4, 5],
+        tier: 'specialty',
         accent: 'orange',
         icon: 'layers',
         title: 'Migration WinDev et WebDev',
@@ -436,9 +420,10 @@ export const fr: SiteContent = {
     ],
   },
   work: {
-    index: '02',
+    index: '03',
     label: 'Réalisations',
-    title: ['Des produits en ligne,', 'des équipes accompagnées.'],
+    title: ['Des produits', 'en production.'],
+    intro: 'Des logiciels utilisés chaque jour, et une équipe que nous accompagnons au quotidien.',
     caseStudy: 'Étude de cas',
     liveExample: 'Voir un exemple en ligne',
     viewSite: 'Voir le site',
@@ -449,17 +434,33 @@ export const fr: SiteContent = {
   },
   clients: {
     label: 'En production chez',
+    statsLabel: 'Arlioz en chiffres',
+    stats: [
+      { value: '2018', label: 'Création d’Arlioz' },
+      { value: '30+', label: 'Années d’expérience en IT et sécurité' },
+      { value: '10+', label: 'Années d’enseignement en informatique' },
+      { value: '3', label: 'Produits en production' },
+    ],
   },
   trust: { label: 'Une expérience forgée chez' },
   team: {
     index: '01',
     label: 'Équipe',
-    title: 'Deux experts, en direct.',
+    title: 'Deux seniors, en direct.',
+    intro: [
+      { text: 'Depuis 2018, ' },
+      { text: 'un expert RGPD', mark: 'blue' },
+      { text: ' et ' },
+      { text: 'un développeur fullstack', mark: 'orange' },
+      { text: ' livrent ensemble des produits ' },
+      { text: 'conformes dès la conception', mark: 'green' },
+      { text: '.' },
+    ],
     members: [
       {
         name: 'Guy Moins',
         role: 'Architecte IT & expert RGPD',
-        text: 'Plus de trente ans dans l’IT, de la sécurité des systèmes à l’architecture, au sein de grands groupes internationaux. Il cadre vos données, rend le RGPD concret pour vos équipes et compte plus de dix ans d’enseignement en informatique.',
+        text: 'Plus de trente ans dans l’IT, de la sécurité des systèmes à l’architecture, au sein de grands groupes internationaux. Il rend le RGPD concret pour vos équipes et enseigne l’informatique depuis plus de dix ans.',
         tags: ['Conseil RGPD', 'Sécurité IT', 'Architecture IT', 'Enseignement'],
         photo: {
           ...media.team.guy,
@@ -472,7 +473,7 @@ export const fr: SiteContent = {
       {
         name: 'Amaury Lapaque',
         role: 'Développeur fullstack & lead technique',
-        text: 'Développeur fullstack depuis 2019 : applications métier, SaaS, applications web et mobiles, migration de back-ends vers des API modernes. Il construit vos produits du design system à l’API, et fait progresser les équipes qu’il accompagne comme lead technique.',
+        text: 'Développeur fullstack depuis 2019 : applications métier, SaaS, applications web et mobiles, API. Il construit vos produits du design system à l’API.',
         tags: [
           'Lead technique',
           'Angular',
@@ -488,29 +489,26 @@ export const fr: SiteContent = {
         initials: 'AL',
         photoLabel: 'Photo · Amaury Lapaque',
         accent: 'orange',
+        now: 'Aujourd’hui : lead technique chez Radyo.',
       },
     ],
-  },
-  education: {
-    index: '05',
-    label: 'Formation',
-    brand: 'Arlioz Education',
-    title: ['Transmettre', 'et accompagner.'],
-    text: 'Guy forme de futurs développeurs et les équipes en entreprise : architecture, qualité, RGPD. Amaury accompagne les développeurs au quotidien, comme lead technique.',
-    audiences: [
+    pillars: [
       {
-        title: 'Entreprises',
-        text: 'Lead technique, audit de l’existant, choix de stack, revues de code et formations sur mesure, sur site ou à distance.',
+        title: 'Développer',
+        text: 'Applications métier, SaaS, apps web et mobiles et API, en Angular, React, Vue et NestJS.',
       },
       {
-        title: 'Étudiants',
-        text: 'Cours et accompagnement de jeunes développeurs, du premier projet aux bonnes pratiques professionnelles.',
+        title: 'Protéger',
+        text: 'Audit, registre, analyses d’impact : une conformité RGPD que vous pouvez démontrer.',
+      },
+      {
+        title: 'Transmettre',
+        text: 'Lead technique, revues de code, formations : nous faisons progresser vos équipes.',
       },
     ],
-    cta: 'Parler d’un accompagnement',
   },
   testimonials: {
-    index: '06',
+    index: '05',
     label: 'Témoignages',
     title: ['Ils ont travaillé', 'avec l’un de nous.'],
     translated: 'Traduit de l’anglais',
@@ -545,14 +543,124 @@ export const fr: SiteContent = {
       },
     ],
   },
-  contact: {
+  method: {
+    index: '04',
+    label: 'Méthodologie',
+    title: ['Pas de boîte noire.', 'Quatre étapes claires.'],
+    intro:
+      'À chaque étape, vous savez ce que nous faisons, pourquoi, et ce que vous recevez à la fin.',
+    deliverable: 'Livrable',
+    steps: [
+      {
+        title: 'Audit',
+        text: 'Nous partons de l’existant : votre code, votre architecture et vos traitements de données, lus avant de proposer quoi que ce soit.',
+        deliverable: 'Un rapport priorisé : ce qui bloque, ce qui coûte, ce qui peut attendre',
+      },
+      {
+        title: 'Cadrage',
+        text: 'Nous fixons avec vous le périmètre, la stack et l’architecture. Le RGPD y entre dès ce moment-là, pas après la mise en ligne.',
+        deliverable: 'Un plan de livraison découpé en étapes',
+      },
+      {
+        title: 'Livraison',
+        text: 'Nous livrons par petites itérations que vous voyez tourner, avec une revue de code à chaque étape.',
+        deliverable: 'Un logiciel en production, documenté au fil de l’eau',
+      },
+      {
+        title: 'Transmission',
+        text: 'Votre équipe reprend la main : documentation, passation et formation si besoin. Vous ne dépendez pas de nous.',
+        deliverable: 'Une équipe autonome sur son propre code',
+      },
+    ],
+  },
+  start: {
+    index: '06',
+    label: 'Démarrer',
+    title: ['Par où', 'commencer ?'],
+    intro: 'Deux portes d’entrée, selon où vous en êtes.',
+    call: {
+      title: 'Appel découverte',
+      meta: '30 min · gratuit',
+      text: 'Vous nous décrivez votre projet ou votre équipe. Nous vous donnons un premier avis, et la suite si elle a du sens.',
+      points: [
+        'Votre besoin et vos contraintes',
+        'Un premier avis technique',
+        'Les prochaines étapes, sans engagement',
+      ],
+      cta: {
+        label: 'Réserver un appel',
+        subject: 'Appel découverte (30 min) — demande de rendez-vous',
+      },
+    },
+    audit: {
+      title: 'Audit technique & RGPD',
+      text: 'Un état des lieux de votre application, avant de décider quoi construire, reprendre ou corriger. Son ampleur dépend de votre parc informatique et de votre projet : nous la définissons ensemble.',
+      points: [
+        'Code et architecture',
+        'Sécurité et dépendances',
+        'Conformité RGPD',
+        'Rapport priorisé et restitution',
+      ],
+      cta: {
+        label: 'Demander un audit',
+        subject: 'Audit technique & RGPD — demande d’information',
+      },
+    },
+  },
+  services: {
+    back: 'Toutes les expertises',
+    label: 'Expertise',
+    whatWeDo: 'Ce que nous faisons',
+    method: 'Notre méthodologie',
+    proof: 'En production',
+    proofProject: 'Voir l’étude de cas',
+    proofMission: 'Voir la mission',
+    faq: 'Questions fréquentes',
+    ctaTitle: 'Parlons de votre projet.',
+    ctaText: 'Un appel de 30 minutes, gratuit, pour savoir si et comment nous pouvons vous aider.',
+    metaTitle: (title) => `${title} — Expertise`,
+  },
+  faq: {
     index: '07',
+    label: 'FAQ',
+    title: ['Questions', 'fréquentes.'],
+    items: [
+      {
+        question: 'Où êtes-vous basés ?',
+        answer: 'À Charleroi, en Belgique. Nous travaillons sur site ou à distance.',
+      },
+      {
+        question: 'Pouvez-vous rejoindre une équipe existante ?',
+        answer:
+          'Oui. Nous intervenons comme lead technique au sein de votre équipe, ou en appui : standards de code, revues de code, suivi des développeurs.',
+      },
+      {
+        question: 'Avec quelles technologies travaillez-vous ?',
+        answer:
+          'Angular, React et Next.js, Vue, NestJS et .NET, pour le web, le mobile et les API.',
+      },
+      {
+        question: 'Comment le RGPD est-il pris en compte ?',
+        answer:
+          'Dès l’architecture, pas après la mise en ligne : chaque projet de développement intègre le RGPD dès sa conception.',
+      },
+      {
+        question: 'Reprenez-vous des applications WinDev ou WebDev ?',
+        answer:
+          'Oui. Nous les migrons application par application, l’ancien et le nouveau en parallèle, sans interrompre vos utilisateurs.',
+      },
+      {
+        question: 'Comment démarrer ?',
+        answer:
+          'Par un appel de 30 minutes, gratuit : vous nous décrivez votre besoin, nous vous donnons un premier avis et les prochaines étapes.',
+      },
+    ],
+  },
+  contact: {
+    index: '08',
     label: 'Contact',
-    title: 'Un projet, une équipe à accompagner, une question RGPD ? Parlons-en.',
+    title: 'Parlons de votre projet.',
     text: 'Dites-nous où vous en êtes, nous revenons vers vous avec un premier avis.',
-    emailLabel: 'E-mail',
-    linkedinLabel: 'LinkedIn',
-    linkedinValue: 'Arlioz',
     direct: {
       title: 'Un e-mail ou un message LinkedIn suffit.',
       text: 'Décrivez votre projet en quelques lignes.',
@@ -565,6 +673,7 @@ export const fr: SiteContent = {
   },
   footer: {
     tagline: 'Développement logiciel, accompagnement et protection des données.',
+    siteProof: 'Ce site : accessibilité 100/100 · aucun cookie de suivi',
     navigation: 'Navigation',
     contact: 'Contact',
     legal: 'Légal',

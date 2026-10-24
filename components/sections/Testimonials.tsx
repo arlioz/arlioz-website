@@ -69,7 +69,7 @@ export function Testimonials({ content }: { content: SiteContent }) {
           <LineTitle
             id="testimonials-title"
             lines={testimonials.title}
-            className="font-display text-h2 leading-none font-medium tracking-[-0.04em]"
+            className="font-display text-h2 leading-none font-medium tracking-[-0.035em]"
           />
         </div>
 
