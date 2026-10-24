@@ -12,11 +12,12 @@ function StartCard({ offer, primary }: { offer: StartOffer; primary: boolean }) 
     >
       <div className="hx" aria-hidden="true" />
       <div className="hx-line" aria-hidden="true" />
+      {/* Title first, so both cards line up whether or not they carry short facts. */}
       <div className="relative flex flex-col gap-3">
-        <p className="label-mono-sm m-0 text-muted-3">{offer.meta}</p>
         <h3 className="m-0 font-display text-[clamp(26px,2.4vw,34px)] leading-[1.05] font-medium tracking-[-0.03em]">
           {offer.title}
         </h3>
+        {offer.meta && <p className="label-mono-sm m-0 text-muted-3">{offer.meta}</p>}
       </div>
       <p className="relative m-0 text-[17px] leading-[1.6] text-paper-2">{offer.text}</p>
       <ul className="relative m-0 flex list-none flex-col gap-2.5 border-t border-line-2 p-0 pt-5">
@@ -39,7 +40,8 @@ function StartCard({ offer, primary }: { offer: StartOffer; primary: boolean }) 
 }
 
 /**
- * The two ways to start: a free discovery call (primary), or a fixed-scope audit.
+ * The two ways to start: a free discovery call (primary), or an audit sized to
+ * the client's IT estate and project.
  * Both open an e-mail with a pre-filled subject; contact stays e-mail and LinkedIn.
  */
 export function Start({ content }: { content: SiteContent }) {

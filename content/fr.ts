@@ -594,15 +594,17 @@ export const fr: SiteContent = {
     },
     audit: {
       title: 'Audit technique & RGPD',
-      meta: 'Périmètre fixe · sur devis',
-      text: 'Un état des lieux de votre application, avant de décider quoi construire, reprendre ou corriger.',
+      text: 'Un état des lieux de votre application, avant de décider quoi construire, reprendre ou corriger. Son ampleur dépend de votre parc informatique et de votre projet : nous la définissons ensemble.',
       points: [
         'Code et architecture',
         'Sécurité et dépendances',
         'Conformité RGPD',
         'Rapport priorisé et restitution',
       ],
-      cta: { label: 'Demander un audit', subject: 'Audit technique & RGPD — demande de devis' },
+      cta: {
+        label: 'Demander un audit',
+        subject: 'Audit technique & RGPD — demande d’information',
+      },
     },
   },
   services: {

@@ -551,15 +551,14 @@ export const en: SiteContent = {
     },
     audit: {
       title: 'Technical & GDPR audit',
-      meta: 'Fixed scope · on quote',
-      text: 'An assessment of your application, before deciding what to build, take over or fix.',
+      text: 'An assessment of your application, before deciding what to build, take over or fix. Its extent depends on your IT estate and your project: we define it together.',
       points: [
         'Code and architecture',
         'Security and dependencies',
         'GDPR compliance',
         'Prioritised report and debrief',
       ],
-      cta: { label: 'Request an audit', subject: 'Technical & GDPR audit — quote request' },
+      cta: { label: 'Request an audit', subject: 'Technical & GDPR audit — information request' },
     },
   },
   services: {

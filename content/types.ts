@@ -171,8 +171,8 @@ export interface MethodStep {
 /** A way to start working together (Start section). */
 export interface StartOffer {
   title: string;
-  /** Short facts next to the title (duration, price). */
-  meta: string;
+  /** Short facts next to the title (duration, price), when they are fixed. */
+  meta?: string;
   text: string;
   points: string[];
   cta: ContactLink;
