@@ -14,7 +14,7 @@ export function Faq({ content }: { content: SiteContent }) {
       <div className="container-site">
         <div className="split">
           <div className="flex min-w-0 flex-col gap-[26px] self-start">
-            <Eyebrow index={faq.index} label={faq.label} />
+            <Eyebrow index={faq.index} label={faq.label} animated />
             <LineTitle
               id="faq-title"
               lines={faq.title}

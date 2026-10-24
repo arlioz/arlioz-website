@@ -25,15 +25,14 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
       <div className="container-site">
         <div className="mb-[clamp(48px,6vw,80px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
           <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
-            {/* First section under the band: no opacity reveal near the fold (axe contrast). */}
-            <Eyebrow index={work.index} label={work.label} />
+            <Eyebrow index={work.index} label={work.label} animated />
             <LineTitle
               id="work-title"
               lines={work.title}
               className="font-display text-h2 leading-none font-medium tracking-[-0.035em]"
             />
           </div>
-          <p className="m-0 max-w-[420px] text-[17px] leading-[1.6] text-muted text-pretty">
+          <p className="sx-txt m-0 max-w-[420px] text-[17px] leading-[1.6] text-muted text-pretty">
             {work.intro}
           </p>
         </div>

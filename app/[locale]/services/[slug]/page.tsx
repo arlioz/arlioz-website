@@ -130,6 +130,7 @@ export default async function ServicePage({ params }: PageProps) {
               index="01"
               label={`${x.labels.problem} → ${x.labels.result}`}
               className="self-start"
+              animated
             />
             <div className="flex min-w-0 flex-col gap-12">
               <dl className="m-0 flex flex-col gap-5">
@@ -139,10 +140,10 @@ export default async function ServicePage({ params }: PageProps) {
                     {offer.problem}
                   </dd>
                 </div>
-                <ArrowDown size={22} className={t.accent} />
+                <ArrowDown size={22} className={`rv-pop ${t.accent}`} />
                 <div>
                   <dt className="sr-only">{x.labels.result}</dt>
-                  <dd className="m-0 font-display text-[clamp(26px,2.8vw,40px)] leading-[1.2] font-medium tracking-[-0.025em] text-paper text-pretty">
+                  <dd className="sx-txt m-0 font-display text-[clamp(26px,2.8vw,40px)] leading-[1.2] font-medium tracking-[-0.025em] text-paper text-pretty">
                     {offer.result}
                   </dd>
                 </div>
@@ -175,7 +176,7 @@ export default async function ServicePage({ params }: PageProps) {
       <section aria-labelledby="service-method" className="relative overflow-clip py-section">
         <div className="container-site relative">
           <div className="mb-[clamp(40px,5vw,64px)] flex flex-col gap-[26px]">
-            <Eyebrow index="02" label={method.label} />
+            <Eyebrow index="02" label={method.label} animated />
             <h2
               id="service-method"
               className="m-0 font-display text-h2-sm leading-[1.1] font-medium tracking-[-0.03em]"

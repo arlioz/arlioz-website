@@ -65,7 +65,7 @@ export function Testimonials({ content }: { content: SiteContent }) {
     <section id="temoignages" aria-labelledby="testimonials-title" className="py-section">
       <div className="container-site">
         <div className="mb-[clamp(36px,4.4vw,64px)] flex min-w-0 max-w-[780px] flex-col gap-[26px]">
-          <Eyebrow index={testimonials.index} label={testimonials.label} />
+          <Eyebrow index={testimonials.index} label={testimonials.label} animated />
           <LineTitle
             id="testimonials-title"
             lines={testimonials.title}
@@ -73,14 +73,15 @@ export function Testimonials({ content }: { content: SiteContent }) {
           />
         </div>
 
-        {/* The featured quote is set off to the right (columns 5–12), magazine style. */}
+        {/* The featured quote is set off to the right (columns 5–12), magazine style;
+            its quote mark pops first, then the quote rises. */}
         <div className="grid grid-cols-1 2xl:grid-cols-12">
           {featured && (
-            <figure className="m-0 flex min-w-0 flex-col gap-8 2xl:col-span-8 2xl:col-start-5">
+            <figure className="rv-q m-0 flex min-w-0 flex-col gap-8 2xl:col-span-8 2xl:col-start-5">
               <blockquote className="m-0 flex flex-col gap-5">
                 <span
                   aria-hidden="true"
-                  className="h-[0.42em] font-serif text-[clamp(88px,8vw,120px)] leading-[0.8] text-orange-light italic"
+                  className="rv-pop h-[0.42em] origin-bottom-left font-serif text-[clamp(88px,8vw,120px)] leading-[0.8] text-orange-light italic"
                 >
                   “
                 </span>

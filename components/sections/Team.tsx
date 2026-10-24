@@ -117,7 +117,10 @@ export function Team({ content }: { content: SiteContent }) {
         <div className="pillars mt-[clamp(40px,5vw,64px)] grid grid-cols-3 gap-10">
           {team.pillars.map((pillar, i) => (
             <div key={pillar.title} className="flex flex-col gap-3">
-              <div aria-hidden="true" className={`h-1 rounded-pill ${bars[i] ?? ''}`} />
+              <div
+                aria-hidden="true"
+                className={`rv-bar h-1 rounded-pill ${['', 'b2', 'b3'][i] ?? ''} ${bars[i] ?? ''}`}
+              />
               <h3 className="m-0 mt-1 font-display text-card leading-[1.1] font-medium tracking-[-0.025em]">
                 {pillar.title}
               </h3>

@@ -6,7 +6,8 @@ import { LineTitle } from '@/components/ui/LineTitle';
 /**
  * The four steps as rows read top to bottom, each one left to right: the numbered
  * step, what we do, then what the client gets. Wide screens give each its column;
- * tablets put the title above the other two; phones stack everything.
+ * tablets put the title above the other two; phones stack everything. As a row comes
+ * in, its rule draws from the left and its number pops: the eye follows the steps.
  */
 export function MethodSteps({ method }: { method: SiteContent['method'] }) {
   return (
@@ -14,12 +15,13 @@ export function MethodSteps({ method }: { method: SiteContent['method'] }) {
       {method.steps.map((step, i) => (
         <li
           key={step.title}
-          className="grid gap-5 border-t border-line-2 py-[clamp(28px,3.4vw,44px)] lg:grid-cols-2 lg:gap-x-10 xl:grid-cols-[minmax(0,4fr)_minmax(0,5fr)_minmax(0,3.6fr)] xl:items-start"
+          className="relative grid gap-5 py-[clamp(28px,3.4vw,44px)] lg:grid-cols-2 lg:gap-x-10 xl:grid-cols-[minmax(0,4fr)_minmax(0,5fr)_minmax(0,3.6fr)] xl:items-start"
         >
+          <span aria-hidden="true" className="rv-bar absolute inset-x-0 top-0 h-px bg-line-2" />
           <div className="flex items-center gap-4 lg:col-span-2 xl:col-span-1">
             <span
               aria-hidden="true"
-              className="label-mono inline-flex h-11 w-11 flex-none items-center justify-center rounded-full border border-green-light/40 text-green-light"
+              className="rv-pop label-mono inline-flex h-11 w-11 flex-none items-center justify-center rounded-full border border-green-light/40 text-green-light"
             >
               {String(i + 1).padStart(2, '0')}
             </span>
@@ -57,7 +59,7 @@ export function Method({ content }: { content: SiteContent }) {
               className="font-display text-h2 leading-none font-medium tracking-[-0.035em]"
             />
           </div>
-          <p className="m-0 max-w-[420px] text-[17px] leading-[1.6] text-muted text-pretty">
+          <p className="sx-txt m-0 max-w-[420px] text-[17px] leading-[1.6] text-muted text-pretty">
             {m.intro}
           </p>
         </div>

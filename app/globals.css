@@ -1410,6 +1410,16 @@
     scale: 1 1;
   }
 }
+@keyframes arz-pop {
+  from {
+    opacity: 0;
+    scale: 0.6;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
 @keyframes arz-mark {
   from {
     background-size: 0% 0.09em;
@@ -1494,6 +1504,25 @@
     }
     .rv-bar.b3 {
       animation-range: cover 20% cover 40%;
+    }
+    /* The accent line along the top of a card draws from its centre as the card
+       comes in (the brand colour of the offer, before anything else). */
+    .hx-line {
+      animation: arz-bar linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 22%;
+    }
+    /* Small marks that pop in place: step numbers, the quote mark, arrows. */
+    .rv-pop {
+      animation: arz-pop var(--ease-out-soft) both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 16%;
+    }
+    /* The featured recommendation rises as one block. */
+    .rv-q {
+      animation: arz-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
     }
     .mk {
       animation: arz-mark linear both;
@@ -1997,6 +2026,15 @@ html.sda-light :is(.sx-txt, .sx-up, .sx-num, .sx-lab, .rv:not(article):not(.rv-m
 html.sda-light :is(.rv-bar, .sx-rule) {
   transform-origin: 0 50%;
   transition: transform 0.6s var(--ease-out-expo);
+}
+html.sda-light .rv-pop {
+  transition:
+    opacity 0.45s ease-out,
+    transform 0.45s var(--ease-out-expo);
+}
+html.sda-light .rv-pop:not(.is-in) {
+  opacity: 0;
+  transform: scale(0.6);
 }
 html.sda-light :is(.rv-bar, .sx-rule):not(.is-in) {
   transform: scaleX(0);

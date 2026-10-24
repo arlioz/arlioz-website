@@ -18,6 +18,7 @@ const TARGETS = [
   '.sx-lab',
   '.sx-rule',
   '.rv-bar',
+  '.rv-pop',
   '.rv:not(article):not(.rv-media)',
 ].join(', ');
 
