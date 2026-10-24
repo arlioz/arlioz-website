@@ -155,7 +155,7 @@ export function Expertises({ locale, content }: { locale: Locale; content: SiteC
               className="font-display text-h2 leading-none font-medium tracking-[-0.035em]"
             />
           </div>
-          <p className="m-0 max-w-[470px] text-[17px] leading-[1.6] text-muted text-pretty">
+          <p className="sx-txt m-0 max-w-[470px] text-[17px] leading-[1.6] text-muted text-pretty">
             {x.intro}
           </p>
         </div>
