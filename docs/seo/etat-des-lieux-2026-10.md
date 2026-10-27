@@ -6,13 +6,15 @@ Projet OpenSEO : <https://app.openseo.so/p/f7f80bc2-ddaf-4231-9065-b7bf59c2808f>
 ## En bref
 
 - La base technique est saine : l'audit de 45 pages ne relève aucune erreur ni aucun avertissement.
-- Un vrai problème de domaine : Vercel redirige `arlioz.be` vers `www.arlioz.be`, alors que le site déclare `arlioz.be` partout. Il se corrige dans Vercel, pas dans le code.
+- Un vrai problème de domaine : Vercel redirigeait `arlioz.be` vers `www.arlioz.be`, alors que le site déclare `arlioz.be` partout. Corrigé dans Vercel le 27 octobre.
 - Le site ne se positionne encore sur aucune requête suivie par DataForSEO en Belgique.
 - Les volumes de recherche belges sur nos offres sont très faibles. Le référencement servira surtout la crédibilité et la longue traîne, pas le volume.
 
-## Action à faire dans Vercel
+## Domaine principal, corrigé dans Vercel
 
-Le canonical, les hreflang, le sitemap, le robots.txt et le JSON-LD pointent vers `https://arlioz.be`. Or cette URL renvoie une 308 vers `https://www.arlioz.be`. Google reçoit donc des canonicals qui redirigent, sur les 20 pages indexables.
+Le canonical, les hreflang, le sitemap, le robots.txt et le JSON-LD pointent vers `https://arlioz.be`. Cette URL renvoyait une 308 vers `https://www.arlioz.be`. Google recevait donc des canonicals qui redirigent, sur les 20 pages indexables.
+
+Corrigé le 27 octobre 2026 : `www.arlioz.be` redirige maintenant en 308 vers `arlioz.be`, et un second audit OpenSEO ne relève plus aucune page « canonicalized ».
 
 Décision : `arlioz.be` sans www reste l'adresse officielle.
 
@@ -29,11 +31,11 @@ curl -sI https://www.arlioz.be/fr | grep -iE "^(HTTP|location)"
 
 ## Audit technique
 
-| Constat                                                      | Pages | Statut                 |
-| ------------------------------------------------------------ | ----- | ---------------------- |
-| Canonical vers une URL redirigée (apex vers www)             | 20    | À corriger dans Vercel |
-| Titre de l'accueil trop long (73 et 71 caractères)           | 2     | Corrigé                |
-| Description de l'accueil trop longue (233 et 227 caractères) | 2     | Corrigé                |
+| Constat                                                      | Pages | Statut              |
+| ------------------------------------------------------------ | ----- | ------------------- |
+| Canonical vers une URL redirigée (apex vers www)             | 20    | Corrigé dans Vercel |
+| Titre de l'accueil trop long (73 et 71 caractères)           | 2     | Corrigé             |
+| Description de l'accueil trop longue (233 et 227 caractères) | 2     | Corrigé             |
 
 Correctifs inclus dans cette branche :
 
@@ -83,9 +85,9 @@ DataForSEO ne renvoie aucun concurrent sur les 12 requêtes commerciales testée
 
 ## Prochaines étapes
 
-1. Faire le changement de domaine dans Vercel, puis relancer un audit OpenSEO pour confirmer qu'il ne reste aucune page « canonicalized ».
+1. Fusionner cette branche, puis relancer un audit OpenSEO pour confirmer que titre et description de l'accueil ne sont plus signalés.
 2. Connecter Google Search Console et Google Analytics au projet OpenSEO, pour avoir les vraies impressions et requêtes.
-3. Soumettre les URL du sitemap via IndexNow une fois le domaine corrigé.
+3. Soumettre les URL du sitemap via IndexNow.
 4. Enrichir les pages services autour des requêtes ciblées, en priorité « logiciel sur mesure » et « migration WinDev ».
 5. Chiffrer un suivi de positions sur la dizaine de mots-clés commerciaux avec l'estimateur d'OpenSEO avant de l'activer.
 
