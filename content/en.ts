@@ -221,10 +221,10 @@ const radyo: Mission = {
 export const en: SiteContent = {
   locale: 'en',
   meta: {
-    title: 'Arlioz — Applications, SaaS, team support and GDPR · Charleroi, Belgium',
+    title: 'Custom software, SaaS and GDPR in Charleroi — Arlioz',
     template: '%s — Arlioz',
     description:
-      'Business applications, SaaS and platforms, built and GDPR-compliant from day one, plus technical support and training for your teams. A full-stack developer and a GDPR expert, working with you directly, in Charleroi since 2018.',
+      'Custom business apps and SaaS, GDPR-compliant from day one. A full-stack developer and a GDPR expert, working with you directly in Charleroi since 2018.',
     keywords: [
       'web development',
       'SaaS development',

@@ -240,10 +240,10 @@ const radyo: Mission = {
 export const fr: SiteContent = {
   locale: 'fr',
   meta: {
-    title: 'Arlioz — Applications, SaaS, accompagnement et RGPD · Charleroi, Belgique',
+    title: 'Logiciels sur mesure, SaaS et RGPD à Charleroi — Arlioz',
     template: '%s — Arlioz',
     description:
-      'Applications métier, SaaS et plateformes conçus et conformes RGPD dès le premier jour, et un accompagnement technique et des formations pour vos équipes. Un développeur fullstack et un expert RGPD, en direct, depuis 2018 à Charleroi.',
+      'Applications métier et SaaS sur mesure, conformes RGPD dès le premier jour. Développeur fullstack et expert RGPD en direct à Charleroi depuis 2018.',
     keywords: [
       'développement web',
       'développement SaaS',
