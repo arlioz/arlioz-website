@@ -3,7 +3,7 @@ import { offerSlugs, projectSlugs } from '@/content';
 import { alternatePaths, htmlLang, locales, type RouteKey } from '@/lib/i18n';
 import { site } from '@/lib/site';
 
-const lastModified = new Date('2026-10-16');
+const lastModified = new Date('2026-10-27');
 
 function entries(key?: RouteKey, slug?: string, priority = 0.8): MetadataRoute.Sitemap {
   const paths = alternatePaths(key, slug);
