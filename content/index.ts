@@ -1,9 +1,10 @@
 import { type Locale } from '@/lib/i18n';
 import { en } from './en';
 import { fr } from './fr';
+import { nl } from './nl';
 import { type Offer, type Project, type SiteContent } from './types';
 
-const content: Record<Locale, SiteContent> = { fr, en };
+const content: Record<Locale, SiteContent> = { fr, en, nl };
 
 export function getContent(locale: Locale): SiteContent {
   return content[locale];

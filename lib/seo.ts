@@ -1,6 +1,15 @@
 import { type Metadata } from 'next';
 import { type SiteContent } from '@/content/types';
-import { alternatePaths, htmlLang, type Locale, localePath, ogLocale, type RouteKey } from './i18n';
+import {
+  alternatePaths,
+  hreflangPaths,
+  htmlLang,
+  type Locale,
+  localePath,
+  locales,
+  ogLocale,
+  type RouteKey,
+} from './i18n';
 import { site } from './site';
 
 interface PageMeta {
@@ -42,17 +51,13 @@ export function buildMetadata({
     applicationName: site.name,
     alternates: {
       canonical,
-      languages: {
-        [htmlLang.fr]: paths.fr,
-        [htmlLang.en]: paths.en,
-        'x-default': paths.fr,
-      },
+      languages: hreflangPaths(key, slug),
     },
     openGraph: {
       type: 'website',
       siteName: site.name,
       locale: ogLocale[locale],
-      alternateLocale: locale === 'fr' ? [ogLocale.en] : [ogLocale.fr],
+      alternateLocale: locales.filter((other) => other !== locale).map((other) => ogLocale[other]),
       url: canonical,
       title: title ? `${title} — ${site.name}` : content.meta.title,
       description: desc,
@@ -112,13 +117,13 @@ export function organizationJsonLd(locale: Locale, content: SiteContent) {
       { '@type': 'AdministrativeArea', name: 'Wallonie' },
       { '@type': 'AdministrativeArea', name: 'Bruxelles-Capitale' },
     ],
-    knowsLanguage: ['fr', 'en'],
+    knowsLanguage: ['fr', 'en', 'nl'],
     image: absolute(site.logo),
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'sales',
       email: site.email,
-      availableLanguage: ['French', 'English'],
+      availableLanguage: ['French', 'English', 'Dutch'],
     },
   };
 }

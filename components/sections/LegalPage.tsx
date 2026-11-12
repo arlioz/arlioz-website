@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { type LegalPage as LegalPageContent } from '@/content/legal';
 import { type SiteContent } from '@/content/types';
-import { type Locale, localePath } from '@/lib/i18n';
+import { dateLocale, type Locale, localePath } from '@/lib/i18n';
 import { ArrowLeft, ArrowUpRight } from '@/components/ui/Icons';
 
 interface LegalPageProps {
@@ -11,7 +11,7 @@ interface LegalPageProps {
 }
 
 export function LegalPage({ locale, content, page }: LegalPageProps) {
-  const date = new Date(page.updated).toLocaleDateString(locale === 'fr' ? 'fr-BE' : 'en-GB', {
+  const date = new Date(page.updated).toLocaleDateString(dateLocale[locale], {
     year: 'numeric',
     month: 'long',
     day: 'numeric',

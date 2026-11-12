@@ -11,7 +11,7 @@ interface LangSwitchProps {
   className?: string;
 }
 
-/** FR / EN links to the same page in the other language. */
+/** FR / EN / NL links to the same page in the other languages. */
 export function LangSwitch({ locale, label, size = 'md', className = '' }: LangSwitchProps) {
   const pathname = usePathname();
   const height = size === 'md' ? 'h-10' : 'h-9';

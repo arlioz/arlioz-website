@@ -1,22 +1,18 @@
 import { type MetadataRoute } from 'next';
 import { offerSlugs, projectSlugs } from '@/content';
-import { alternatePaths, htmlLang, locales, type RouteKey } from '@/lib/i18n';
+import { alternatePaths, defaultLocale, hreflangPaths, locales, type RouteKey } from '@/lib/i18n';
 import { site } from '@/lib/site';
 
-const lastModified = new Date('2026-10-27');
+const lastModified = new Date('2026-11-12');
 
 function entries(key?: RouteKey, slug?: string, priority = 0.8): MetadataRoute.Sitemap {
   const paths = alternatePaths(key, slug);
-  const languages = {
-    [htmlLang.fr]: `${site.url}${paths.fr}`,
-    [htmlLang.en]: `${site.url}${paths.en}`,
-    'x-default': `${site.url}${paths.fr}`,
-  };
+  const languages = hreflangPaths(key, slug, site.url);
   return locales.map((locale) => ({
     url: `${site.url}${paths[locale]}`,
     lastModified,
     changeFrequency: key ? 'monthly' : 'weekly',
-    priority: locale === 'fr' ? priority : priority - 0.1,
+    priority: locale === defaultLocale ? priority : priority - 0.1,
     alternates: { languages },
   }));
 }
