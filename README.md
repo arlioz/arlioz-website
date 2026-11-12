@@ -28,7 +28,7 @@ Rebuild complet (v3) à partir de la maquette Claude Design « Arlioz — Site v
 
 ```bash
 pnpm install
-pnpm dev            # http://localhost:3000 (redirige vers /fr ou /en)
+pnpm dev            # http://localhost:3000 (redirige vers /fr, /en ou /nl)
 pnpm build && pnpm start
 pnpm check          # typecheck + lint + prettier --check
 pnpm analyze        # build avec le bundle analyzer (.next/analyze)
@@ -51,17 +51,22 @@ components/
   layout/                Header (pilules verre : logo, langue, menu, CTA), HeaderCta, HeaderControls (client), Footer
   motion/                SmoothScroll (Lenis), ChromaCurrent (WebGL), MotionGuards, Magnetic
   ui/                    Button, Eyebrow, LineTitle, Chips, DeviceStage, BrowserBar, Glow, Icons, JsonLd, LogoMark
-content/                 textes FR/EN (fr.ts, en.ts), projets, pages légales, médias — aucun texte en dur dans les composants
+content/                 textes FR/EN/NL (fr.ts, en.ts, nl.ts), projets, pages légales, médias — aucun texte en dur dans les composants
 lib/                     i18n.ts (locales, segments d'URL), seo.ts (metadata + JSON-LD), gsap.ts, site.ts
-proxy.ts                 redirection / → /fr|/en (Accept-Language) et alias d'URL anglais (/en/work → realisations)
+proxy.ts                 redirection / → /fr|/en|/nl (Accept-Language) et alias d'URL anglais et néerlandais (/en/work → realisations)
 public/images            logo, captures des projets (WebP ≤ 70 kB)
 ```
 
 ## i18n
 
-Deux langues par segment d'URL : `/fr/...` (défaut, `x-default`) et `/en/...`, avec `hreflang` et canonical sur
-chaque page et dans le sitemap. Les segments publics anglais (`/en/work/...`, `/en/legal-notice`,
-`/en/privacy-policy`) sont réécrits par `proxy.ts` vers les routes du système de fichiers (segments français).
+Trois langues par segment d'URL : `/fr/...` (défaut, `x-default`), `/en/...` et `/nl/...`, avec `hreflang` et
+canonical sur chaque page et dans le sitemap. Les segments publics anglais (`/en/work/...`, `/en/legal-notice`) et
+néerlandais (`/nl/realisaties/...`, `/nl/diensten/...`, `/nl/privacybeleid`) sont réécrits par `proxy.ts` vers les
+routes du système de fichiers (segments français). Ajouter une langue : `locales` et `routeSegments` dans
+`lib/i18n.ts`, un fichier dans `content/`, et ses trois pages dans `content/legal.ts`.
+
+Le néerlandais écrit « GDPR » (l'usage en Flandre) et vouvoie (« u »). Tout changement de texte se fait dans les
+trois fichiers.
 
 ## Contact
 
@@ -69,6 +74,23 @@ Pas de formulaire ni de backend : la section Contact invite à écrire à contac
 pré-rempli) ou à contacter Arlioz sur LinkedIn.
 Les blocs d'expertise (RGPD, développement, migration) ont chacun leur lien `mailto:` avec un objet propre
 (`components/ui/MailLink.tsx`).
+
+Le succès du site se mesure en demandes de contact : chaque clic sur un lien e-mail ou LinkedIn envoie un événement
+`contact` à Vercel Analytics (`components/layout/ContactClicks.tsx`), avec le canal, la page et l'objet pré-rempli
+de l'e-mail, sans rien sur le visiteur. La politique de confidentialité et la page cookies le mentionnent.
+
+## Positionnement
+
+Décisions prises en novembre 2026 ; toute réécriture s'y réfère.
+
+- **Offre** : l'accompagnement des équipes (lead technique, audit, formation) passe en premier, le sur-mesure en
+  second. Le RGPD est l'argument qui distingue Arlioz. La migration WinDev reste sur l'accueil.
+- **Cible** : les grands comptes, en parlant au décideur interne (responsable IT, architecte, DPO), pas aux
+  intermédiaires.
+- **Rôle du site** : rassurer un prospect venu du réseau ou de LinkedIn. Le référencement se limite à une base
+  technique saine.
+- **Disponibilité** : le site dit ce qui est possible aujourd'hui (profil d'Amaury, FAQ). À mettre à jour quand
+  une mission commence ou se termine.
 
 ## Preuves et contenu commercial
 

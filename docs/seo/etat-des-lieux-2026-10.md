@@ -88,8 +88,12 @@ DataForSEO ne renvoie aucun concurrent sur les 12 requêtes commerciales testée
 1. Fusionner cette branche, puis relancer un audit OpenSEO pour confirmer que titre et description de l'accueil ne sont plus signalés.
 2. Connecter Google Search Console et Google Analytics au projet OpenSEO, pour avoir les vraies impressions et requêtes.
 3. Soumettre les URL du sitemap via IndexNow.
-4. Enrichir les pages services autour des requêtes ciblées, en priorité « logiciel sur mesure » et « migration WinDev ».
-5. Chiffrer un suivi de positions sur la dizaine de mots-clés commerciaux avec l'estimateur d'OpenSEO avant de l'activer.
+
+Mise à jour du 12 novembre 2026 : le site est désormais une pièce de crédibilité pour des prospects venus du réseau,
+pas un canal d'acquisition. Les deux étapes prévues ensuite sont abandonnées : enrichir les pages services autour des
+requêtes ciblées, et chiffrer un suivi de positions. L'effort SEO se limite à la base technique. Le titre et la
+description de l'accueil ont été réécrits pour le nouveau positionnement (lead technique, audit et RGPD en Belgique),
+et une version néerlandaise a été ajoutée, avec ses hreflang et ses entrées de sitemap.
 
 ## Crédits OpenSEO
 
