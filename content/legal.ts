@@ -128,7 +128,7 @@ const privacyFr: LegalPage = {
   title: 'Politique de confidentialité',
   description:
     'Comment Arlioz traite les données personnelles collectées sur arlioz.be : finalités, base légale, durées, droits et cookies.',
-  updated: '2026-10-16',
+  updated: '2026-11-12',
   updatedLabel: 'Dernière mise à jour',
   sections: [
     {
@@ -189,7 +189,7 @@ const privacyFr: LegalPage = {
       id: 'cookies',
       title: 'Cookies et mesure d’audience',
       paragraphs: [
-        'Ce site ne dépose aucun cookie de suivi et n’utilise aucun outil publicitaire. La mesure d’audience repose sur Vercel Web Analytics et Vercel Speed Insights, qui fonctionnent sans cookie et sans identifiant persistant : les données sont agrégées et anonymes (pages vues, pays, type d’appareil, métriques de performance). Aucun consentement n’est donc requis et aucune bannière n’est affichée.',
+        'Ce site ne dépose aucun cookie de suivi et n’utilise aucun outil publicitaire. La mesure d’audience repose sur Vercel Web Analytics et Vercel Speed Insights, qui fonctionnent sans cookie et sans identifiant persistant : les données sont agrégées et anonymes (pages vues, pays, type d’appareil, métriques de performance, nombre de clics sur les liens de contact). Aucun consentement n’est donc requis et aucune bannière n’est affichée.',
         'Les seules données stockées dans votre navigateur sont techniques (préférences d’affichage) et ne permettent pas de vous identifier.',
       ],
     },
@@ -206,7 +206,7 @@ const privacyEn: LegalPage = {
   title: 'Privacy policy',
   description:
     'How Arlioz processes personal data collected on arlioz.be: purposes, legal basis, retention, rights and cookies.',
-  updated: '2026-10-16',
+  updated: '2026-11-12',
   updatedLabel: 'Last updated',
   sections: [
     {
@@ -267,7 +267,7 @@ const privacyEn: LegalPage = {
       id: 'cookies',
       title: 'Cookies and analytics',
       paragraphs: [
-        'This site sets no tracking cookies and uses no advertising tools. Audience measurement relies on Vercel Web Analytics and Vercel Speed Insights, which work without cookies or persistent identifiers: data is aggregated and anonymous (page views, country, device type, performance metrics). No consent is therefore required and no banner is shown.',
+        'This site sets no tracking cookies and uses no advertising tools. Audience measurement relies on Vercel Web Analytics and Vercel Speed Insights, which work without cookies or persistent identifiers: data is aggregated and anonymous (page views, country, device type, performance metrics, number of clicks on the contact links). No consent is therefore required and no banner is shown.',
         'The only data stored in your browser is technical (display preferences) and cannot identify you.',
       ],
     },
@@ -294,7 +294,7 @@ const cookiesFr: LegalPage = {
   title: 'Gestion des cookies',
   description:
     'Les cookies et traceurs utilisés sur arlioz.be : aucun cookie de suivi, mesure d’audience sans cookie, et comment gérer vos préférences.',
-  updated: '2026-10-16',
+  updated: '2026-11-12',
   updatedLabel: 'Dernière mise à jour',
   sections: [
     {
@@ -309,7 +309,7 @@ const cookiesFr: LegalPage = {
       list: [
         'aucun cookie de suivi ni cookie publicitaire ;',
         'aucun réseau social ni service tiers embarqué (pas de vidéo, de carte ou de police chargée depuis un domaine externe) ;',
-        'mesure d’audience par Vercel Web Analytics et Vercel Speed Insights, qui fonctionnent sans cookie ni identifiant persistant et ne produisent que des statistiques agrégées et anonymes (pages vues, pays, type d’appareil, métriques de performance) ;',
+        'mesure d’audience par Vercel Web Analytics et Vercel Speed Insights, qui fonctionnent sans cookie ni identifiant persistant et ne produisent que des statistiques agrégées et anonymes (pages vues, pays, type d’appareil, métriques de performance, nombre de clics sur les liens de contact) ;',
         'aucun formulaire : le contact se fait par e-mail ou LinkedIn, aucune donnée n’est saisie sur le site.',
       ],
     },
@@ -343,7 +343,7 @@ const cookiesEn: LegalPage = {
   title: 'Cookie settings',
   description:
     'Cookies and trackers on arlioz.be: no tracking cookies, cookieless analytics, and how to manage your preferences.',
-  updated: '2026-10-16',
+  updated: '2026-11-12',
   updatedLabel: 'Last updated',
   sections: [
     {
@@ -358,7 +358,7 @@ const cookiesEn: LegalPage = {
       list: [
         'no tracking or advertising cookies;',
         'no embedded social network or third-party service (no video, map or font loaded from an external domain);',
-        'audience measurement by Vercel Web Analytics and Vercel Speed Insights, which work without cookies or persistent identifiers and only produce aggregated, anonymous statistics (page views, country, device type, performance metrics);',
+        'audience measurement by Vercel Web Analytics and Vercel Speed Insights, which work without cookies or persistent identifiers and only produce aggregated, anonymous statistics (page views, country, device type, performance metrics, number of clicks on the contact links);',
         'no form: contact happens by e-mail or LinkedIn, no data is entered on the site.',
       ],
     },

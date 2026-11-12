@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { type ReactNode } from 'react';
 import 'lenis/dist/lenis.css';
 import '../globals.css';
+import { ContactClicks } from '@/components/layout/ContactClicks';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { MotionGuards } from '@/components/motion/MotionGuards';
@@ -111,6 +112,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         {onVercel && (
           <>
             <Analytics />
+            <ContactClicks />
             <SpeedInsights />
           </>
         )}
