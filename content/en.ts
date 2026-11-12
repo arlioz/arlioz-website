@@ -221,17 +221,18 @@ const radyo: Mission = {
 export const en: SiteContent = {
   locale: 'en',
   meta: {
-    title: 'Custom software, SaaS and GDPR in Charleroi — Arlioz',
+    title: 'Tech lead, audit and GDPR in Belgium — Arlioz',
     template: '%s — Arlioz',
     description:
-      'Custom business apps and SaaS, GDPR-compliant from day one. A full-stack developer and a GDPR expert, working with you directly in Charleroi since 2018.',
+      'A tech lead and a GDPR expert inside your teams: audit, code standards, training, custom software and WinDev migration. Working with you directly, in Belgium.',
     keywords: [
+      'tech lead',
+      'technical consulting',
+      'technical audit',
+      'developer training',
       'web development',
       'SaaS development',
       'business application',
-      'tech lead',
-      'technical consulting',
-      'developer training',
       'mobile application',
       'GDPR consulting',
       'GDPR compliance',
@@ -247,8 +248,8 @@ export const en: SiteContent = {
       'React',
       'Angular',
     ],
-    ogAlt: 'Arlioz — Your software and SaaS, built and GDPR-compliant from day one.',
-    ogTagline: 'Applications, SaaS, team support & GDPR · Belgium',
+    ogAlt: 'Arlioz — Your teams ship reliable software that is GDPR-compliant from day one.',
+    ogTagline: 'Team support, audit, applications & GDPR · Belgium',
   },
   a11y: {
     skipToContent: 'Skip to content',
@@ -276,16 +277,16 @@ export const en: SiteContent = {
     write: 'Write to us',
     follow: 'Follow',
     language: 'Language',
-    tagline: 'Applications, team support and GDPR compliance, since 2018.',
+    tagline: 'Team support, applications and GDPR compliance.',
     cta: 'Book a call',
     linkedin: 'LinkedIn',
   },
   hero: {
     title: [
-      { lead: 'Your software and SaaS, ', em: 'built' },
-      { lead: 'and ', em: 'GDPR-compliant', tail: ' from day one.' },
+      { lead: 'Your teams ship ', em: 'reliable', tail: ' software' },
+      { lead: 'that is ', em: 'GDPR-compliant', tail: ' from day one.' },
     ],
-    lead: 'A full-stack developer and a GDPR expert, working with you directly: we build your software and support your teams, since 2018.',
+    lead: 'A tech lead and a GDPR expert inside your teams: audit, code standards, reviews and training. Directly, with no intermediary.',
     team: 'Guy and Amaury, your contacts',
     proof: '{count} LinkedIn recommendations',
     callSubject: 'Discovery call (30 min) — meeting request',
@@ -297,11 +298,33 @@ export const en: SiteContent = {
     label: 'Expertise',
     title: ['Two crafts,', 'two specialties.'],
     intro:
-      'A full-stack developer and a GDPR expert under one roof, since 2018. We build your software and help your teams keep it running.',
+      'A full-stack developer and a GDPR expert under one roof. We support your teams and build your software.',
     signature:
       'Privacy by design: every development project builds GDPR in from the architecture, not after going live.',
     labels: { problem: 'The problem', result: 'The result', more: 'Learn more' },
     offers: [
+      {
+        slug: 'accompagnement',
+        faq: [1, 6, 5],
+        proof: { kind: 'mission' },
+        tier: 'pillar',
+        accent: 'green',
+        icon: 'team',
+        title: 'Team support and training',
+        problem:
+          'Your development team is growing, but everyone works their own way and newcomers take time to become autonomous.',
+        solution:
+          'We join your team as tech lead or in support: standards, best practices, code reviews and training, in development as in GDPR.',
+        result: 'A team that works the same way, and developers who keep growing.',
+        points: [
+          'Tech lead within your team',
+          'Code standards and best practices',
+          'Code reviews and developer mentoring',
+          'Tailored training, development and GDPR',
+        ],
+        note: 'Arlioz Education: Guy also teaches computer science and guides young developers, from the first project to professional best practices.',
+        cta: { label: 'Talk about team support', subject: 'Technical support — contact request' },
+      },
       {
         slug: 'logiciels-saas',
         faq: [2, 5],
@@ -322,28 +345,6 @@ export const en: SiteContent = {
           'Fast, accessible websites',
         ],
         cta: { label: 'Talk about your project', subject: 'Development project — contact request' },
-      },
-      {
-        slug: 'accompagnement',
-        faq: [1, 5],
-        proof: { kind: 'mission' },
-        tier: 'pillar',
-        accent: 'green',
-        icon: 'team',
-        title: 'Team support and training',
-        problem:
-          'Your development team is growing, but everyone works their own way and newcomers take time to become autonomous.',
-        solution:
-          'We join your team as tech lead or in support: standards, best practices, code reviews and training, in development as in GDPR.',
-        result: 'A team that works the same way, and developers who keep growing.',
-        points: [
-          'Tech lead within your team',
-          'Code standards and best practices',
-          'Code reviews and developer mentoring',
-          'Tailored training, development and GDPR',
-        ],
-        note: 'Arlioz Education: Guy also teaches computer science and guides young developers, from the first project to professional best practices.',
-        cta: { label: 'Talk about team support', subject: 'Technical support — contact request' },
       },
       {
         slug: 'rgpd',
@@ -393,14 +394,14 @@ export const en: SiteContent = {
     index: '03',
     label: 'Work',
     title: ['Products', 'in production.'],
-    intro: 'Software used every day, and a team we support day to day.',
+    intro: 'A team we support day to day, and software used every day.',
     caseStudy: 'Case study',
     liveExample: 'See a live example',
     viewSite: 'Visit the site',
     clientPrefix: 'Client:',
     need: 'The need',
     result: 'The result',
-    items: [restomax, radyo, jkstudio],
+    items: [radyo, restomax, jkstudio],
   },
   trust: { label: 'Experience gained at' },
   clients: {
@@ -451,7 +452,7 @@ export const en: SiteContent = {
         initials: 'AL',
         photoLabel: 'Photo · Amaury Lapaque',
         accent: 'orange',
-        now: 'Today: tech lead at Radyo.',
+        now: 'Today: tech lead at Radyo. Available for audits, training and code reviews.',
       },
     ],
     pillars: [
@@ -606,6 +607,11 @@ export const en: SiteContent = {
         answer:
           'With a free 30-minute call: you describe your needs, we give you a first opinion and the next steps.',
       },
+      {
+        question: 'Are you available right now?',
+        answer:
+          'Yes for an audit, training or code reviews. Amaury is currently tech lead at Radyo: for a long engagement, write to us and we will tell you the next possible date.',
+      },
     ],
   },
   contact: {
@@ -624,7 +630,7 @@ export const en: SiteContent = {
     },
   },
   footer: {
-    tagline: 'Software development, team support and data protection.',
+    tagline: 'Team support, software development and data protection.',
     siteProof: 'This site: Lighthouse accessibility 100/100 · no tracking cookies',
     navigation: 'Navigation',
     contact: 'Contact',
