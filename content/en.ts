@@ -408,9 +408,9 @@ export const en: SiteContent = {
     statsLabel: 'Arlioz in figures',
     stats: [
       { value: '2018', label: 'Arlioz founded' },
-      { value: '30+', label: 'Years of IT and security experience' },
-      { value: '10+', label: 'Years teaching computer science' },
-      { value: '3', label: 'Products in production' },
+      { value: '30+', label: 'Years of Guy’s IT and security experience' },
+      { value: '10+', label: 'Years Guy has taught computer science' },
+      { value: '3', label: 'Products in production, one on a mission' },
     ],
   },
   team: {
@@ -418,11 +418,10 @@ export const en: SiteContent = {
     label: 'Team',
     title: 'Two seniors, directly.',
     intro: [
-      { text: 'Since 2018, ' },
-      { text: 'a GDPR expert', mark: 'blue' },
+      { text: 'A GDPR expert', mark: 'blue' },
       { text: ' and ' },
       { text: 'a full-stack developer', mark: 'orange' },
-      { text: ' have delivered products together, ' },
+      { text: ' deliver products together, ' },
       { text: 'compliant by design', mark: 'green' },
       { text: '.' },
     ],
@@ -626,7 +625,7 @@ export const en: SiteContent = {
   },
   footer: {
     tagline: 'Software development, team support and data protection.',
-    siteProof: 'This site: 100/100 accessibility · no tracking cookies',
+    siteProof: 'This site: Lighthouse accessibility 100/100 · no tracking cookies',
     navigation: 'Navigation',
     contact: 'Contact',
     legal: 'Legal',

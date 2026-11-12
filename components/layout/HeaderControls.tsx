@@ -210,7 +210,7 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
                 <p className="label-mono m-0 text-muted-3">{nav.write}</p>
                 <a
                   href={`mailto:${site.email}`}
-                  className="link-u selectable self-start font-display text-mail font-medium tracking-[-0.02em] text-paper"
+                  className="link-u self-start font-display text-mail font-medium tracking-[-0.02em] text-paper"
                 >
                   {site.email}
                 </a>

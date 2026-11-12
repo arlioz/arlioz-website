@@ -44,7 +44,7 @@ export function LegalPage({ locale, content, page }: LegalPageProps) {
             key={section.title}
             id={section.id}
             aria-labelledby={`legal-${i}`}
-            className="rv selectable grid gap-4 border-t border-line-2 pt-8"
+            className="rv grid gap-4 border-t border-line-2 pt-8"
           >
             <h2
               id={`legal-${i}`}

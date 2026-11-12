@@ -437,9 +437,9 @@ export const fr: SiteContent = {
     statsLabel: 'Arlioz en chiffres',
     stats: [
       { value: '2018', label: 'Création d’Arlioz' },
-      { value: '30+', label: 'Années d’expérience en IT et sécurité' },
-      { value: '10+', label: 'Années d’enseignement en informatique' },
-      { value: '3', label: 'Produits en production' },
+      { value: '30+', label: 'Années d’expérience de Guy en IT et sécurité' },
+      { value: '10+', label: 'Années d’enseignement de Guy en informatique' },
+      { value: '3', label: 'Produits en production, dont un en mission' },
     ],
   },
   trust: { label: 'Une expérience forgée chez' },
@@ -448,8 +448,7 @@ export const fr: SiteContent = {
     label: 'Équipe',
     title: 'Deux seniors, en direct.',
     intro: [
-      { text: 'Depuis 2018, ' },
-      { text: 'un expert RGPD', mark: 'blue' },
+      { text: 'Un expert RGPD', mark: 'blue' },
       { text: ' et ' },
       { text: 'un développeur fullstack', mark: 'orange' },
       { text: ' livrent ensemble des produits ' },
@@ -673,7 +672,7 @@ export const fr: SiteContent = {
   },
   footer: {
     tagline: 'Développement logiciel, accompagnement et protection des données.',
-    siteProof: 'Ce site : accessibilité 100/100 · aucun cookie de suivi',
+    siteProof: 'Ce site : Lighthouse accessibilité 100/100 · aucun cookie de suivi',
     navigation: 'Navigation',
     contact: 'Contact',
     legal: 'Légal',
