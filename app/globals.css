@@ -189,12 +189,7 @@
     text-size-adjust: 100%;
     background: var(--color-ink);
   }
-  /* No text selection and no image drag or "save image" on the site; the e-mail
-     address and the legal pages opt back in with `.selectable`. */
-  body {
-    -webkit-user-select: none;
-    user-select: none;
-  }
+  /* No image drag or "save image" on the site. Text stays selectable everywhere. */
   img {
     -webkit-user-drag: none;
     pointer-events: none;
@@ -260,17 +255,6 @@
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(18px) saturate(150%);
   -webkit-backdrop-filter: blur(18px) saturate(150%);
-}
-
-/* The site's text and images are not selectable (see `body` in the base layer);
-   this re-enables selection where copying matters (the e-mail address, legal text). */
-@utility selectable {
-  -webkit-user-select: text;
-  user-select: text;
-}
-.selectable * {
-  -webkit-user-select: text;
-  user-select: text;
 }
 
 @utility text-balance {

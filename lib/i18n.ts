@@ -1,4 +1,4 @@
-export const locales = ['fr', 'en'] as const;
+export const locales = ['fr', 'en', 'nl'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'fr';
 
@@ -8,14 +8,15 @@ export function isLocale(value: string | undefined): value is Locale {
 
 /**
  * Public URL segments per locale. The file-system routes use the French segment;
- * `proxy.ts` rewrites the English alias to it, so each language keeps clean URLs.
+ * `proxy.ts` rewrites the English and Dutch aliases to it, so each language keeps
+ * clean URLs.
  */
 export const routeSegments = {
-  work: { fr: 'realisations', en: 'work' },
-  services: { fr: 'services', en: 'services' },
-  legal: { fr: 'mentions-legales', en: 'legal-notice' },
-  privacy: { fr: 'politique-de-confidentialite', en: 'privacy-policy' },
-  cookies: { fr: 'gestion-des-cookies', en: 'cookie-settings' },
+  work: { fr: 'realisations', en: 'work', nl: 'realisaties' },
+  services: { fr: 'services', en: 'services', nl: 'diensten' },
+  legal: { fr: 'mentions-legales', en: 'legal-notice', nl: 'wettelijke-vermeldingen' },
+  privacy: { fr: 'politique-de-confidentialite', en: 'privacy-policy', nl: 'privacybeleid' },
+  cookies: { fr: 'gestion-des-cookies', en: 'cookie-settings', nl: 'cookiebeheer' },
 } as const;
 
 export type RouteKey = keyof typeof routeSegments;
@@ -33,7 +34,20 @@ export function alternatePaths(key?: RouteKey, slug?: string): Record<Locale, st
   return {
     fr: localePath('fr', key, slug),
     en: localePath('en', key, slug),
+    nl: localePath('nl', key, slug),
   };
+}
+
+/**
+ * The hreflang map of a page: one entry per language, plus `x-default` on the French
+ * page. `base` is the site origin where absolute URLs are needed (the sitemap).
+ */
+export function hreflangPaths(key?: RouteKey, slug?: string, base = ''): Record<string, string> {
+  const paths = alternatePaths(key, slug);
+  const languages: Record<string, string> = {};
+  for (const locale of locales) languages[htmlLang[locale]] = `${base}${paths[locale]}`;
+  languages['x-default'] = `${base}${paths[defaultLocale]}`;
+  return languages;
 }
 
 /**
@@ -52,5 +66,7 @@ export function switchLocalePath(pathname: string, target: Locale): string {
   return `/${target}`;
 }
 
-export const ogLocale: Record<Locale, string> = { fr: 'fr_BE', en: 'en_GB' };
-export const htmlLang: Record<Locale, string> = { fr: 'fr-BE', en: 'en' };
+export const ogLocale: Record<Locale, string> = { fr: 'fr_BE', en: 'en_GB', nl: 'nl_BE' };
+export const htmlLang: Record<Locale, string> = { fr: 'fr-BE', en: 'en', nl: 'nl-BE' };
+/** Locale used to write dates (legal pages). */
+export const dateLocale: Record<Locale, string> = { fr: 'fr-BE', en: 'en-GB', nl: 'nl-BE' };

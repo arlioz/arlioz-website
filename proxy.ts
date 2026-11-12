@@ -1,5 +1,5 @@
 import { type NextRequest, NextResponse } from 'next/server';
-import { defaultLocale, isLocale, type Locale, routeSegments } from '@/lib/i18n';
+import { defaultLocale, isLocale, type Locale, locales, routeSegments } from '@/lib/i18n';
 
 function detectLocale(acceptLanguage: string | null): Locale {
   if (!acceptLanguage) return defaultLocale;
@@ -11,8 +11,8 @@ function detectLocale(acceptLanguage: string | null): Locale {
     })
     .sort((a, b) => b.q - a.q);
   for (const { tag } of preferred) {
-    if (tag.startsWith('fr')) return 'fr';
-    if (tag.startsWith('en')) return 'en';
+    const match = locales.find((locale) => tag.startsWith(locale));
+    if (match) return match;
   }
   return defaultLocale;
 }

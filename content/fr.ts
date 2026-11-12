@@ -240,17 +240,18 @@ const radyo: Mission = {
 export const fr: SiteContent = {
   locale: 'fr',
   meta: {
-    title: 'Logiciels sur mesure, SaaS et RGPD à Charleroi — Arlioz',
+    title: 'Lead technique, audit et RGPD en Belgique — Arlioz',
     template: '%s — Arlioz',
     description:
-      'Applications métier et SaaS sur mesure, conformes RGPD dès le premier jour. Développeur fullstack et expert RGPD en direct à Charleroi depuis 2018.',
+      'Un lead technique et un expert RGPD dans vos équipes : audit, standards de code, formations, logiciels sur mesure et migration WinDev. En direct, en Belgique.',
     keywords: [
+      'lead technique',
+      'accompagnement technique',
+      'audit technique',
+      'formation développeurs',
       'développement web',
       'développement SaaS',
       'application métier',
-      'lead technique',
-      'accompagnement technique',
-      'formation développeurs',
       'application mobile',
       'conseil RGPD',
       'conformité RGPD',
@@ -266,8 +267,8 @@ export const fr: SiteContent = {
       'React',
       'Angular',
     ],
-    ogAlt: 'Arlioz — Vos logiciels et SaaS, conçus et conformes RGPD dès le premier jour.',
-    ogTagline: 'Applications, SaaS, accompagnement & RGPD · Belgique',
+    ogAlt: 'Arlioz — Vos équipes livrent du logiciel fiable et conforme RGPD dès le premier jour.',
+    ogTagline: 'Accompagnement, audit, applications & RGPD · Belgique',
   },
   a11y: {
     skipToContent: 'Aller au contenu',
@@ -295,16 +296,16 @@ export const fr: SiteContent = {
     write: 'Nous écrire',
     follow: 'Suivre',
     language: 'Langue',
-    tagline: 'Applications, accompagnement des équipes et conformité RGPD, depuis 2018.',
+    tagline: 'Accompagnement des équipes, applications et conformité RGPD.',
     cta: 'Réserver un appel',
     linkedin: 'LinkedIn',
   },
   hero: {
     title: [
-      { lead: 'Vos logiciels et SaaS, ', em: 'conçus' },
-      { lead: 'et ', em: 'conformes RGPD', tail: ' dès le premier jour.' },
+      { lead: 'Vos équipes livrent du logiciel ', em: 'fiable' },
+      { lead: 'et ', em: 'conforme RGPD', tail: ' dès le premier jour.' },
     ],
-    lead: 'Un développeur fullstack et un expert RGPD, en direct : nous développons vos logiciels et accompagnons vos équipes, depuis 2018.',
+    lead: 'Un lead technique et un expert RGPD au sein de vos équipes : audit, standards de code, revues et formations. En direct, sans intermédiaire.',
     team: 'Guy et Amaury, vos interlocuteurs',
     proof: '{count} recommandations LinkedIn',
     callSubject: 'Appel découverte (30 min) — demande de rendez-vous',
@@ -316,11 +317,36 @@ export const fr: SiteContent = {
     label: 'Expertises',
     title: ['Deux métiers,', 'deux spécialités.'],
     intro:
-      'Un développeur fullstack et un expert RGPD sous le même toit, depuis 2018. Nous construisons vos logiciels et aidons vos équipes à les faire vivre.',
+      'Un développeur fullstack et un expert RGPD sous le même toit. Nous accompagnons vos équipes et construisons vos logiciels.',
     signature:
       'Privacy by design : chaque projet de développement intègre le RGPD dès l’architecture, pas après la mise en ligne.',
     labels: { problem: 'Le problème', result: 'Le résultat', more: 'En savoir plus' },
     offers: [
+      {
+        slug: 'accompagnement',
+        faq: [1, 6, 5],
+        proof: { kind: 'mission' },
+        tier: 'pillar',
+        accent: 'green',
+        icon: 'team',
+        title: 'Accompagnement et formation',
+        problem:
+          'Votre équipe de développement grandit, mais chacun travaille à sa façon et les nouveaux mettent du temps à être autonomes.',
+        solution:
+          'Nous rejoignons votre équipe comme lead technique ou en appui : standards, bonnes pratiques, revues de code et formations, en développement comme en RGPD.',
+        result: 'Une équipe qui travaille de la même façon, et des développeurs qui progressent.',
+        points: [
+          'Lead technique au sein de votre équipe',
+          'Standards de code et bonnes pratiques',
+          'Revues de code et suivi des développeurs',
+          'Formations sur mesure, développement et RGPD',
+        ],
+        note: 'Arlioz Education : Guy enseigne aussi l’informatique et accompagne de jeunes développeurs, du premier projet aux bonnes pratiques professionnelles.',
+        cta: {
+          label: 'Parler d’un accompagnement',
+          subject: 'Accompagnement technique — demande de contact',
+        },
+      },
       {
         slug: 'logiciels-saas',
         faq: [2, 5],
@@ -344,31 +370,6 @@ export const fr: SiteContent = {
         cta: {
           label: 'Parler de votre projet',
           subject: 'Projet de développement — demande de contact',
-        },
-      },
-      {
-        slug: 'accompagnement',
-        faq: [1, 5],
-        proof: { kind: 'mission' },
-        tier: 'pillar',
-        accent: 'green',
-        icon: 'team',
-        title: 'Accompagnement et formation',
-        problem:
-          'Votre équipe de développement grandit, mais chacun travaille à sa façon et les nouveaux mettent du temps à être autonomes.',
-        solution:
-          'Nous rejoignons votre équipe comme lead technique ou en appui : standards, bonnes pratiques, revues de code et formations, en développement comme en RGPD.',
-        result: 'Une équipe qui travaille de la même façon, et des développeurs qui progressent.',
-        points: [
-          'Lead technique au sein de votre équipe',
-          'Standards de code et bonnes pratiques',
-          'Revues de code et suivi des développeurs',
-          'Formations sur mesure, développement et RGPD',
-        ],
-        note: 'Arlioz Education : Guy enseigne aussi l’informatique et accompagne de jeunes développeurs, du premier projet aux bonnes pratiques professionnelles.',
-        cta: {
-          label: 'Parler d’un accompagnement',
-          subject: 'Accompagnement technique — demande de contact',
         },
       },
       {
@@ -423,23 +424,23 @@ export const fr: SiteContent = {
     index: '03',
     label: 'Réalisations',
     title: ['Des produits', 'en production.'],
-    intro: 'Des logiciels utilisés chaque jour, et une équipe que nous accompagnons au quotidien.',
+    intro: 'Une équipe que nous accompagnons au quotidien, et des logiciels utilisés chaque jour.',
     caseStudy: 'Étude de cas',
     liveExample: 'Voir un exemple en ligne',
     viewSite: 'Voir le site',
     clientPrefix: 'Client :',
     need: 'Le besoin',
     result: 'Le résultat',
-    items: [restomax, radyo, jkstudio],
+    items: [radyo, restomax, jkstudio],
   },
   clients: {
     label: 'En production chez',
     statsLabel: 'Arlioz en chiffres',
     stats: [
       { value: '2018', label: 'Création d’Arlioz' },
-      { value: '30+', label: 'Années d’expérience en IT et sécurité' },
-      { value: '10+', label: 'Années d’enseignement en informatique' },
-      { value: '3', label: 'Produits en production' },
+      { value: '30+', label: 'Années d’expérience de Guy en IT et sécurité' },
+      { value: '10+', label: 'Années d’enseignement de Guy en informatique' },
+      { value: '3', label: 'Produits en production, dont un en mission' },
     ],
   },
   trust: { label: 'Une expérience forgée chez' },
@@ -448,8 +449,7 @@ export const fr: SiteContent = {
     label: 'Équipe',
     title: 'Deux seniors, en direct.',
     intro: [
-      { text: 'Depuis 2018, ' },
-      { text: 'un expert RGPD', mark: 'blue' },
+      { text: 'Un expert RGPD', mark: 'blue' },
       { text: ' et ' },
       { text: 'un développeur fullstack', mark: 'orange' },
       { text: ' livrent ensemble des produits ' },
@@ -489,7 +489,7 @@ export const fr: SiteContent = {
         initials: 'AL',
         photoLabel: 'Photo · Amaury Lapaque',
         accent: 'orange',
-        now: 'Aujourd’hui : lead technique chez Radyo.',
+        now: 'Aujourd’hui : lead technique chez Radyo. Disponible pour des audits, des formations et des revues de code.',
       },
     ],
     pillars: [
@@ -654,6 +654,11 @@ export const fr: SiteContent = {
         answer:
           'Par un appel de 30 minutes, gratuit : vous nous décrivez votre besoin, nous vous donnons un premier avis et les prochaines étapes.',
       },
+      {
+        question: 'Êtes-vous disponibles en ce moment ?',
+        answer:
+          'Oui pour un audit, une formation ou des revues de code. Amaury est aujourd’hui lead technique chez Radyo : pour une mission longue, écrivez-nous et nous vous indiquons la prochaine date possible.',
+      },
     ],
   },
   contact: {
@@ -672,8 +677,8 @@ export const fr: SiteContent = {
     },
   },
   footer: {
-    tagline: 'Développement logiciel, accompagnement et protection des données.',
-    siteProof: 'Ce site : accessibilité 100/100 · aucun cookie de suivi',
+    tagline: 'Accompagnement des équipes, développement logiciel et protection des données.',
+    siteProof: 'Ce site : Lighthouse accessibilité 100/100 · aucun cookie de suivi',
     navigation: 'Navigation',
     contact: 'Contact',
     legal: 'Légal',

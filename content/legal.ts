@@ -128,7 +128,7 @@ const privacyFr: LegalPage = {
   title: 'Politique de confidentialité',
   description:
     'Comment Arlioz traite les données personnelles collectées sur arlioz.be : finalités, base légale, durées, droits et cookies.',
-  updated: '2026-10-16',
+  updated: '2026-11-12',
   updatedLabel: 'Dernière mise à jour',
   sections: [
     {
@@ -189,7 +189,7 @@ const privacyFr: LegalPage = {
       id: 'cookies',
       title: 'Cookies et mesure d’audience',
       paragraphs: [
-        'Ce site ne dépose aucun cookie de suivi et n’utilise aucun outil publicitaire. La mesure d’audience repose sur Vercel Web Analytics et Vercel Speed Insights, qui fonctionnent sans cookie et sans identifiant persistant : les données sont agrégées et anonymes (pages vues, pays, type d’appareil, métriques de performance). Aucun consentement n’est donc requis et aucune bannière n’est affichée.',
+        'Ce site ne dépose aucun cookie de suivi et n’utilise aucun outil publicitaire. La mesure d’audience repose sur Vercel Web Analytics et Vercel Speed Insights, qui fonctionnent sans cookie et sans identifiant persistant : les données sont agrégées et anonymes (pages vues, pays, type d’appareil, métriques de performance, nombre de clics sur les liens de contact). Aucun consentement n’est donc requis et aucune bannière n’est affichée.',
         'Les seules données stockées dans votre navigateur sont techniques (préférences d’affichage) et ne permettent pas de vous identifier.',
       ],
     },
@@ -206,7 +206,7 @@ const privacyEn: LegalPage = {
   title: 'Privacy policy',
   description:
     'How Arlioz processes personal data collected on arlioz.be: purposes, legal basis, retention, rights and cookies.',
-  updated: '2026-10-16',
+  updated: '2026-11-12',
   updatedLabel: 'Last updated',
   sections: [
     {
@@ -267,7 +267,7 @@ const privacyEn: LegalPage = {
       id: 'cookies',
       title: 'Cookies and analytics',
       paragraphs: [
-        'This site sets no tracking cookies and uses no advertising tools. Audience measurement relies on Vercel Web Analytics and Vercel Speed Insights, which work without cookies or persistent identifiers: data is aggregated and anonymous (page views, country, device type, performance metrics). No consent is therefore required and no banner is shown.',
+        'This site sets no tracking cookies and uses no advertising tools. Audience measurement relies on Vercel Web Analytics and Vercel Speed Insights, which work without cookies or persistent identifiers: data is aggregated and anonymous (page views, country, device type, performance metrics, number of clicks on the contact links). No consent is therefore required and no banner is shown.',
         'The only data stored in your browser is technical (display preferences) and cannot identify you.',
       ],
     },
@@ -294,7 +294,7 @@ const cookiesFr: LegalPage = {
   title: 'Gestion des cookies',
   description:
     'Les cookies et traceurs utilisés sur arlioz.be : aucun cookie de suivi, mesure d’audience sans cookie, et comment gérer vos préférences.',
-  updated: '2026-10-16',
+  updated: '2026-11-12',
   updatedLabel: 'Dernière mise à jour',
   sections: [
     {
@@ -309,7 +309,7 @@ const cookiesFr: LegalPage = {
       list: [
         'aucun cookie de suivi ni cookie publicitaire ;',
         'aucun réseau social ni service tiers embarqué (pas de vidéo, de carte ou de police chargée depuis un domaine externe) ;',
-        'mesure d’audience par Vercel Web Analytics et Vercel Speed Insights, qui fonctionnent sans cookie ni identifiant persistant et ne produisent que des statistiques agrégées et anonymes (pages vues, pays, type d’appareil, métriques de performance) ;',
+        'mesure d’audience par Vercel Web Analytics et Vercel Speed Insights, qui fonctionnent sans cookie ni identifiant persistant et ne produisent que des statistiques agrégées et anonymes (pages vues, pays, type d’appareil, métriques de performance, nombre de clics sur les liens de contact) ;',
         'aucun formulaire : le contact se fait par e-mail ou LinkedIn, aucune donnée n’est saisie sur le site.',
       ],
     },
@@ -343,7 +343,7 @@ const cookiesEn: LegalPage = {
   title: 'Cookie settings',
   description:
     'Cookies and trackers on arlioz.be: no tracking cookies, cookieless analytics, and how to manage your preferences.',
-  updated: '2026-10-16',
+  updated: '2026-11-12',
   updatedLabel: 'Last updated',
   sections: [
     {
@@ -358,7 +358,7 @@ const cookiesEn: LegalPage = {
       list: [
         'no tracking or advertising cookies;',
         'no embedded social network or third-party service (no video, map or font loaded from an external domain);',
-        'audience measurement by Vercel Web Analytics and Vercel Speed Insights, which work without cookies or persistent identifiers and only produce aggregated, anonymous statistics (page views, country, device type, performance metrics);',
+        'audience measurement by Vercel Web Analytics and Vercel Speed Insights, which work without cookies or persistent identifiers and only produce aggregated, anonymous statistics (page views, country, device type, performance metrics, number of clicks on the contact links);',
         'no form: contact happens by e-mail or LinkedIn, no data is entered on the site.',
       ],
     },
@@ -399,7 +399,201 @@ const cookiesEn: LegalPage = {
   ],
 };
 
+const legalNl: LegalPage = {
+  title: 'Wettelijke vermeldingen',
+  description:
+    'Wettelijke vermeldingen van de website arlioz.be: uitgever, hosting, intellectuele eigendom.',
+  updated: '2026-10-16',
+  updatedLabel: 'Laatst bijgewerkt',
+  sections: [
+    {
+      title: 'Uitgever van de website',
+      paragraphs: [
+        'De website arlioz.be wordt uitgegeven door Arlioz, een in België gevestigde vennootschap, ingeschreven in de Kruispuntbank van Ondernemingen onder het nummer BE 0694.716.176, met maatschappelijke zetel te Rue de la Croix 24, 6042 Lodelinsart (Charleroi), België.',
+        'E-mailadres: contact@arlioz.be. Verantwoordelijke voor de publicatie: Arlioz.',
+      ],
+    },
+    {
+      title: 'Hosting',
+      paragraphs: [
+        'De website wordt gehost door Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, Verenigde Staten (vercel.com). De pagina’s worden geleverd via het distributienetwerk van Vercel, met aanwezigheidspunten in Europa.',
+      ],
+    },
+    {
+      title: 'Intellectuele eigendom',
+      paragraphs: [
+        'Alle inhoud van de website (teksten, logo, beelden, code) is eigendom van Arlioz of van zijn partners en is auteursrechtelijk beschermd. Elke reproductie, zelfs gedeeltelijk, zonder voorafgaande schriftelijke toestemming is verboden.',
+        'De merken, logo’s en schermafbeeldingen van de voorgestelde projecten behoren toe aan hun respectieve eigenaars en worden met hun akkoord weergegeven, ter illustratie van onze realisaties.',
+      ],
+    },
+    {
+      title: 'Persoonsgegevens',
+      paragraphs: [
+        'De verwerking van de persoonsgegevens die via deze website worden verzameld, wordt beschreven in ons privacybeleid.',
+      ],
+    },
+    {
+      title: 'Aansprakelijkheid',
+      paragraphs: [
+        'Arlioz streeft ernaar de informatie op deze website juist en actueel te houden, zonder te kunnen garanderen dat ze vrij is van fouten of weglatingen. De inhoud wordt louter ter informatie verstrekt en vormt geen juridisch advies: enkel een analyse van uw situatie, in het kader van een opdracht, verbindt Arlioz.',
+        'De links naar websites van derden (klanten, sociale netwerken, tools) worden voor uw gemak aangeboden; Arlioz heeft geen controle over de inhoud ervan en wijst elke aansprakelijkheid ervoor af.',
+      ],
+    },
+    {
+      title: 'Toepasselijk recht',
+      paragraphs: [
+        'Deze website en zijn wettelijke vermeldingen vallen onder het Belgisch recht. Bij een geschil, en bij gebrek aan een minnelijke oplossing, zijn enkel de Belgische rechtbanken bevoegd.',
+      ],
+    },
+    {
+      title: 'Credits',
+      paragraphs: [
+        'Ontwerp en ontwikkeling: Arlioz. Lettertypes: Bricolage Grotesque, Instrument Sans en JetBrains Mono (SIL Open Font License).',
+      ],
+    },
+  ],
+};
+
+const privacyNl: LegalPage = {
+  title: 'Privacybeleid',
+  description:
+    'Hoe Arlioz de persoonsgegevens verwerkt die op arlioz.be worden verzameld: doeleinden, rechtsgrond, bewaartermijnen, rechten en cookies.',
+  updated: '2026-11-12',
+  updatedLabel: 'Laatst bijgewerkt',
+  sections: [
+    {
+      title: 'Verwerkingsverantwoordelijke',
+      paragraphs: [
+        'Arlioz, BE 0694.716.176, Rue de la Croix 24, 6042 Lodelinsart, contact@arlioz.be, is de verwerkingsverantwoordelijke voor de persoonsgegevens die op deze website worden verzameld, in de zin van de Algemene Verordening Gegevensbescherming (AVG of GDPR, verordening (EU) 2016/679).',
+      ],
+    },
+    {
+      title: 'Verzamelde gegevens',
+      paragraphs: [
+        'Deze website bevat geen enkel formulier: wij verwerken enkel de gegevens die u ons zelf bezorgt, per e-mail aan contact@arlioz.be of via een bericht op LinkedIn:',
+      ],
+      list: [
+        'uw naam en voornaam, en in voorkomend geval uw bedrijf en uw functie',
+        'uw e-mailadres of uw LinkedIn-profiel',
+        'de inhoud van uw bericht en van de uitwisselingen die erop volgen',
+      ],
+    },
+    {
+      title: 'Doeleinden en rechtsgrond',
+      paragraphs: [
+        'Deze gegevens worden enkel gebruikt om uw aanvraag te beantwoorden en, in voorkomend geval, een voorstel voor te bereiden. De rechtsgrond is de uitvoering van precontractuele maatregelen die op uw verzoek worden genomen (artikel 6.1.b van de GDPR) en ons gerechtvaardigd belang om te antwoorden op de vragen die ons worden gesteld (artikel 6.1.f).',
+        'Geen enkel gegeven wordt zonder uw toestemming gebruikt voor prospectie, noch verkocht of overgedragen aan derden.',
+      ],
+    },
+    {
+      title: 'Ontvangers en verwerkers',
+      paragraphs: [
+        'Uw gegevens zijn toegankelijk voor de leden van Arlioz die uw aanvraag behandelen. De website zelf verzamelt niets; hij wordt gehost door Vercel Inc. E-mails worden verwerkt door onze e-mailprovider, en LinkedIn-berichten door LinkedIn Ireland Unlimited Company volgens haar eigen privacybeleid. Deze dienstverleners zijn gebonden door verwerkersovereenkomsten conform artikel 28 van de GDPR; doorgiften buiten de Europese Unie worden omkaderd door de standaardcontractbepalingen van de Europese Commissie.',
+      ],
+    },
+    {
+      title: 'Bewaartermijn',
+      paragraphs: [
+        'Berichten die per e-mail of via LinkedIn worden ontvangen, worden 12 maanden na de laatste uitwisseling bewaard en daarna verwijderd, tenzij een contractuele relatie is aangegaan.',
+      ],
+    },
+    {
+      title: 'Navigatiegegevens',
+      paragraphs: [
+        'Zoals elke website wordt ook deze geleverd door een hostingprovider die uw IP-adres en de headers van uw browser technisch verwerkt om de pagina’s af te leveren en de dienst te beschermen (veiligheid, opsporing van misbruik). Vercel bewaart deze technische logbestanden gedurende een korte periode, op basis van zijn gerechtvaardigd belang en het onze om de werking en de veiligheid van de website te verzekeren. Op basis van deze gegevens wordt geen profiel opgesteld.',
+      ],
+    },
+    {
+      title: 'Beveiliging',
+      paragraphs: [
+        'De website wordt uitsluitend via HTTPS geleverd, met beveiligingsheaders (content security policy, HSTS, bescherming tegen clickjacking). De e-mails die u ons stuurt, zijn enkel toegankelijk voor de personen van Arlioz die uw aanvraag behandelen.',
+      ],
+    },
+    {
+      title: 'Uw rechten',
+      paragraphs: [
+        'U hebt een recht op inzage, rectificatie, wissing, beperking, bezwaar en overdraagbaarheid van uw gegevens. Om het uit te oefenen, schrijft u ons op contact@arlioz.be. U kunt ook een klacht indienen bij de Gegevensbeschermingsautoriteit (gegevensbeschermingsautoriteit.be).',
+      ],
+    },
+    {
+      id: 'cookies',
+      title: 'Cookies en publieksmeting',
+      paragraphs: [
+        'Deze website plaatst geen trackingcookies en gebruikt geen advertentietools. De publieksmeting gebeurt met Vercel Web Analytics en Vercel Speed Insights, die werken zonder cookie en zonder blijvende identificator: de gegevens zijn geaggregeerd en anoniem (paginaweergaven, land, type toestel, prestatiemetingen, aantal klikken op de contactlinks). Er is dus geen toestemming vereist en er wordt geen banner getoond.',
+        'De enige gegevens die in uw browser worden opgeslagen, zijn technisch (weergavevoorkeuren) en laten niet toe u te identificeren.',
+      ],
+    },
+    {
+      title: 'Bijwerking',
+      paragraphs: [
+        'Dit beleid kan evolueren. De datum van de laatste bijwerking staat bovenaan deze pagina.',
+      ],
+    },
+  ],
+};
+
+const cookiesNl: LegalPage = {
+  title: 'Cookiebeheer',
+  description:
+    'De cookies en trackers op arlioz.be: geen trackingcookies, publieksmeting zonder cookies, en hoe u uw voorkeuren beheert.',
+  updated: '2026-11-12',
+  updatedLabel: 'Laatst bijgewerkt',
+  sections: [
+    {
+      title: 'Wat is een cookie?',
+      paragraphs: [
+        'Een cookie is een klein bestand dat een website in uw browser plaatst. Het kan dienen voor de werking van de website (strikt noodzakelijke cookies), om het bezoek te meten of om u te volgen voor advertentiedoeleinden. Voor de laatste twee categorieën is uw toestemming vereist.',
+      ],
+    },
+    {
+      title: 'Wat deze website gebruikt',
+      paragraphs: ['Deze website is ontworpen om te werken zonder cookies en zonder trackers:'],
+      list: [
+        'geen trackingcookies en geen advertentiecookies;',
+        'geen sociaal netwerk en geen ingebedde dienst van derden (geen video, kaart of lettertype dat van een extern domein wordt geladen);',
+        'publieksmeting met Vercel Web Analytics en Vercel Speed Insights, die werken zonder cookie of blijvende identificator en enkel geaggregeerde en anonieme statistieken opleveren (paginaweergaven, land, type toestel, prestatiemetingen, aantal klikken op de contactlinks);',
+        'geen formulier: het contact verloopt via e-mail of LinkedIn, er worden geen gegevens op de website ingevoerd.',
+      ],
+    },
+    {
+      title: 'Waarom geen banner?',
+      paragraphs: [
+        'De regelgeving (ePrivacy-richtlijn, artikel 129 van de Belgische wet van 13 juni 2005 en de richtlijnen van de Gegevensbeschermingsautoriteit) vereist enkel toestemming voor cookies en trackers die niet strikt noodzakelijk zijn. Deze website gebruikt er geen: er valt dus niets te aanvaarden of te weigeren, en er wordt geen banner getoond.',
+      ],
+    },
+    {
+      title: 'Cookies beheren in uw browser',
+      paragraphs: [
+        'U kunt op elk moment de cookies van alle websites bekijken, blokkeren of verwijderen via de instellingen van uw browser:',
+      ],
+      links: [
+        {
+          label: 'Firefox',
+          href: 'https://support.mozilla.org/nl/kb/clear-cookies-and-site-data-firefox',
+        },
+        { label: 'Chrome', href: 'https://support.google.com/chrome/answer/95647?hl=nl' },
+        { label: 'Safari', href: 'https://support.apple.com/nl-be/guide/safari/sfri11471/mac' },
+        {
+          label: 'Edge',
+          href: 'https://support.microsoft.com/nl-nl/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09',
+        },
+      ],
+    },
+    {
+      title: 'Als dit verandert',
+      paragraphs: [
+        'Als er een dienst zou worden toegevoegd die cookies vereist (bijvoorbeeld een ingebedde video), dan wordt deze pagina bijgewerkt en wordt uw toestemming gevraagd voordat er iets wordt geplaatst. De datum bovenaan de pagina geeft de laatste herziening aan.',
+      ],
+    },
+    {
+      title: 'Vragen',
+      paragraphs: ['Voor elke vraag over cookies of uw gegevens: contact@arlioz.be.'],
+    },
+  ],
+};
+
 export const legal: Record<Locale, { legal: LegalPage; privacy: LegalPage; cookies: LegalPage }> = {
   fr: { legal: legalFr, privacy: privacyFr, cookies: cookiesFr },
   en: { legal: legalEn, privacy: privacyEn, cookies: cookiesEn },
+  nl: { legal: legalNl, privacy: privacyNl, cookies: cookiesNl },
 };
