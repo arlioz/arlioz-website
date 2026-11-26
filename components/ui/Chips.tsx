@@ -9,7 +9,7 @@ export function Chips({ items, className = '' }: ChipsProps) {
       {items.map((item) => (
         <li
           key={item}
-          className="rounded-pill border border-line-3 px-3 py-1.5 font-mono text-[13px] text-paper-3"
+          className="rounded-[6px] border border-line-3 px-3 py-1.5 font-mono text-[13px] text-paper-2"
         >
           {item}
         </li>

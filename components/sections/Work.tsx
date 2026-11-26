@@ -9,7 +9,7 @@ import { ArrowRight, ArrowUpRight } from '@/components/ui/Icons';
 import { LineTitle } from '@/components/ui/LineTitle';
 import { MissionCard } from './MissionCard';
 
-const glow = { orange: '#FA7F13', blue: '#2065CB', green: '#2BBE8D' } as const;
+const accentColor = { orange: '#FA7F13', blue: '#2065CB', green: '#2BBE8D' } as const;
 
 export function Work({ locale, content }: { locale: Locale; content: SiteContent }) {
   const { work } = content;
@@ -25,7 +25,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
       <div className="container-site">
         <div className="mb-[clamp(48px,6vw,80px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
           <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
-            <Eyebrow index={work.index} label={work.label} animated />
+            <Eyebrow index={work.index} label={work.label} />
             <LineTitle
               id="work-title"
               lines={work.title}
@@ -52,7 +52,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
             const vars = {
               '--i': i,
               '--self': `--c${i + 1}`,
-              '--accent': glow[item.accent],
+              '--accent': accentColor[item.accent],
               ...(last ? {} : { '--next': `--c${i + 2}` }),
             } as CSSProperties;
             const number = `${String(i + 1).padStart(2, '0')} / ${total}`;
@@ -76,7 +76,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                 className={`pcard proj-card ${project.reversed ? 'pcard-rev' : ''}`}
                 style={vars}
               >
-                <div className="pcard-bar label-mono text-muted-3">
+                <div className="pcard-bar label-mono text-muted">
                   <p className="m-0 flex flex-wrap items-center gap-x-3.5 gap-y-2 tracking-[0.06em]">
                     <span className="text-paper">{number}</span>
                     <span aria-hidden="true" className="pcard-rule" />
@@ -101,7 +101,6 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                   <DeviceStage
                     devices={project.devices}
                     reversed={project.reversed}
-                    glow={glow[project.accent]}
                     href={href}
                     ariaLabel={`${work.caseStudy} : ${project.title}`}
                   />
@@ -116,7 +115,7 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                     </p>
                     <dl className="pcard-story m-0 grid max-w-[580px] gap-3 border-t border-line-2 pt-4">
                       <div className="grid gap-1">
-                        <dt className="label-mono-sm text-muted-3">{work.result}</dt>
+                        <dt className="label-mono-sm text-muted">{work.result}</dt>
                         {/* The measured result first, large: it is the strongest proof. */}
                         <dd className="m-0 flex flex-col gap-1 text-base leading-[1.55] text-paper-2">
                           {headline.value && (
@@ -128,14 +127,14 @@ export function Work({ locale, content }: { locale: Locale; content: SiteContent
                         </dd>
                       </div>
                       <div className="grid gap-1">
-                        <dt className="label-mono-sm text-muted-3">{work.need}</dt>
+                        <dt className="label-mono-sm text-muted">{work.need}</dt>
                         <dd className="m-0 text-base leading-[1.55] text-paper-2">
                           {project.story.challenge}
                         </dd>
                       </div>
                     </dl>
                     <Chips items={project.tags} className="pcard-chips mt-1" />
-                    <div className="pcard-links mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[16px]">
+                    <div className="pcard-links mt-2 flex flex-wrap gap-x-7 gap-y-3 text-base">
                       <Link
                         href={href}
                         className="link-u hit pcard-body-link inline-flex items-center gap-2 font-medium text-paper"

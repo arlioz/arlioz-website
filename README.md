@@ -11,10 +11,11 @@ Rebuild complet (v3) à partir de la maquette Claude Design « Arlioz — Site v
   sans bouton. Les tokens portent des rôles (`ink` = la page, `paper` = le texte, `line` = les filets…) et sont
   remappés dans un seul bloc `@media (prefers-color-scheme: light)` de `globals.css` ; les composants ne connaissent
   que les tokens. Les accents utilisés comme texte (orange, bleu, vert) y sont assombris pour garder 4,5:1, le hero
-  WebGL change de palette à chaud, les halos sont atténués (`--glow-k`). Chrome headless, donc Lighthouse et
+  WebGL change de palette à chaud. Chrome headless, donc Lighthouse et
   PageSpeed, audite la version claire.
 - **Animations** : CSS scroll-driven (`animation-timeline: view()`) pour tous les reveals, **Lenis** pour le smooth scroll,
   **GSAP ScrollTrigger** chargé à la demande uniquement comme fallback pour les navigateurs sans `animation-timeline`.
+  Aucune boucle ne tourne seule : les captures des réalisations ne défilent qu'au survol (WCAG 2.2.2).
 - **Hero** : « courant chromatique » WebGL maison (`components/motion/ChromaCurrent.tsx`, aucune dépendance, ~4 kB) :
   des courants de lumière orange → turquoise sur une grille de points, agités par la souris, un clic libère une tache.
   Ne tourne que sur GPU (rien en rendu logiciel, une image fixe en `prefers-reduced-motion`), en pause hors écran et
@@ -50,7 +51,7 @@ components/
                          Contact, LegalPage (Server Components)
   layout/                Header (pilules verre : logo, langue, menu, CTA), HeaderCta, HeaderControls (client), Footer
   motion/                SmoothScroll (Lenis), ChromaCurrent (WebGL), MotionGuards, Magnetic
-  ui/                    Button, Eyebrow, LineTitle, Chips, DeviceStage, BrowserBar, Glow, Icons, JsonLd, LogoMark
+  ui/                    Button, Eyebrow, LineTitle, Chips, DeviceStage, BrowserBar, Icons, JsonLd, LogoMark
 content/                 textes FR/EN/NL (fr.ts, en.ts, nl.ts), projets, pages légales, médias — aucun texte en dur dans les composants
 lib/                     i18n.ts (locales, segments d'URL), seo.ts (metadata + JSON-LD), gsap.ts, site.ts
 proxy.ts                 redirection / → /fr|/en|/nl (Accept-Language) et alias d'URL anglais et néerlandais (/en/work → realisations)
@@ -126,13 +127,17 @@ Décisions prises en novembre 2026 ; toute réécriture s'y réfère.
 | Vert    | Les deux      | phrase « Privacy by design », Arlioz Education, « conformes dès la conception » dans À propos                                         |
 
 Une couleur d'accent ne sert jamais de décoration seule : si un élément ne relève d'aucune des trois catégories, il
-reste neutre (`paper`, `muted`). Le jaune n'est qu'une teinte du dégradé orange, pas un accent.
+reste neutre (`paper`, `muted`). Chaque accent est une couleur pleine : ni dégradé, ni halo, ni ombre colorée.
+Trois rôles de texte seulement : `paper` (principal), `paper-2` (secondaire), `muted` (discret).
 
 **Typographie** : Bricolage Grotesque (titres), Instrument Sans (texte), Instrument Serif italique (deux mots du
-titre), JetBrains Mono (étiquettes). Texte courant ≥ 16 px, lignes de 65 à 75 caractères.
+titre), JetBrains Mono (étiquettes). Texte courant ≥ 16 px, lignes de 65 à 75 caractères. Les étiquettes sont en
+casse normale ; seuls les eyebrows numérotés (`Eyebrow`) restent en capitales espacées. Un titre d'une seule phrase
+ne prend pas de point final.
 
 **Mouvement** : un ou deux éléments animés par écran au plus (titres de section, une intro, l'entrée d'une scène
-projet) ; tout se coupe en `prefers-reduced-motion`.
+projet) ; tout se coupe en `prefers-reduced-motion`. Au survol : un changement de couleur ou de surface, jamais un
+déplacement de plus de quelques pixels.
 
 À faire hors code : photos d'équipe homogènes (même fond, même lumière) et validation du logo, de la palette et
 des polices par un designer.

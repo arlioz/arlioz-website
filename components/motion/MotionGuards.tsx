@@ -10,17 +10,9 @@ import { useEffect } from 'react';
  * transitioning block forces a recomposite per scroll frame under software
  * compositing (measured in headless Firefox).
  */
-const TARGETS = [
-  '.lm-in',
-  '.sx-txt',
-  '.sx-up',
-  '.sx-num',
-  '.sx-lab',
-  '.sx-rule',
-  '.rv-bar',
-  '.rv-pop',
-  '.rv:not(article):not(.rv-media)',
-].join(', ');
+const TARGETS = ['.lm-in', '.sx-txt', '.sx-up', '.rv-bar', '.rv:not(article):not(.rv-media)'].join(
+  ', ',
+);
 
 /** Infinite animations: device screenshots and the technologies band. */
 const LOOPS = '.stage';

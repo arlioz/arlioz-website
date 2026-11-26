@@ -5,7 +5,6 @@ import { icons, tone } from '@/components/sections/Expertises';
 import { MethodSteps } from '@/components/sections/Method';
 import { ButtonLink } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { Glow } from '@/components/ui/Glow';
 import { ArrowDown, ArrowLeft, ArrowRight, Check } from '@/components/ui/Icons';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { LineTitle } from '@/components/ui/LineTitle';
@@ -38,8 +37,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     slug,
   });
 }
-
-const glow = { orange: '#FA7F13', blue: '#2065CB', green: '#2BBE8D' } as const;
 
 /**
  * One offer, in depth: what it changes (before → after), what we do, how we work, a
@@ -81,17 +78,11 @@ export default async function ServicePage({ params }: PageProps) {
 
       {/* Hero */}
       <section aria-labelledby="service-title" className="relative overflow-clip">
-        <Glow
-          color={glow[offer.accent]}
-          opacity={0.18}
-          blur={160}
-          style={{ width: 620, height: 620, right: -180, top: -220 }}
-        />
         <div aria-hidden="true" className="blueprint blueprint-method" />
         <div className="container-site relative pt-[clamp(40px,5vw,64px)] pb-[clamp(64px,8vw,120px)]">
           <Link
             href={`${home}#expertises`}
-            className="intro intro-1 link-u inline-flex items-center gap-[10px] text-[15px] text-paper-3"
+            className="intro intro-1 link-u inline-flex items-center gap-[10px] text-[15px] text-paper-2"
           >
             <ArrowLeft size={16} />
             {sv.back}
@@ -103,7 +94,7 @@ export default async function ServicePage({ params }: PageProps) {
             >
               <Icon />
             </span>
-            <p className="label-mono m-0 text-muted-2">{sv.label}</p>
+            <p className="label-mono m-0 text-muted">{sv.label}</p>
           </div>
           <LineTitle
             as="h1"
@@ -112,7 +103,7 @@ export default async function ServicePage({ params }: PageProps) {
             lines={[offer.title]}
             className="mt-7 max-w-[16ch] font-display text-case leading-[0.95] font-medium tracking-[-0.05em]"
           />
-          <p className="intro intro-3 m-0 mt-7 max-w-[820px] font-display text-case-lead leading-[1.3] font-normal tracking-[-0.02em] text-paper-3 text-pretty">
+          <p className="intro intro-3 m-0 mt-7 max-w-[820px] font-display text-case-lead leading-[1.3] font-normal tracking-[-0.02em] text-paper-2 text-pretty">
             {offer.solution}
           </p>
           {/* One action here: the call and the audit come at the end of the page. */}
@@ -130,7 +121,6 @@ export default async function ServicePage({ params }: PageProps) {
               index="01"
               label={`${x.labels.problem} → ${x.labels.result}`}
               className="self-start"
-              animated
             />
             <div className="flex min-w-0 flex-col gap-12">
               <dl className="m-0 flex flex-col gap-5">
@@ -140,7 +130,7 @@ export default async function ServicePage({ params }: PageProps) {
                     {offer.problem}
                   </dd>
                 </div>
-                <ArrowDown size={22} className={`rv-pop ${t.accent}`} />
+                <ArrowDown size={22} className={`${t.accent}`} />
                 <div>
                   <dt className="sr-only">{x.labels.result}</dt>
                   <dd className="sx-txt m-0 font-display text-[clamp(26px,2.8vw,40px)] leading-[1.2] font-medium tracking-[-0.025em] text-paper text-pretty">
@@ -149,7 +139,7 @@ export default async function ServicePage({ params }: PageProps) {
                 </div>
               </dl>
               <div className="flex flex-col gap-5 border-t border-line-2 pt-8">
-                <h2 id="service-what" className="label-mono m-0 text-muted-3">
+                <h2 id="service-what" className="label-mono m-0 text-muted">
                   {sv.whatWeDo}
                 </h2>
                 <ul className="m-0 grid list-none gap-x-10 gap-y-4 p-0 lg:grid-cols-2">
@@ -163,9 +153,7 @@ export default async function ServicePage({ params }: PageProps) {
                     </li>
                   ))}
                 </ul>
-                {offer.note && (
-                  <p className="m-0 text-sm leading-[1.6] text-muted-3">{offer.note}</p>
-                )}
+                {offer.note && <p className="m-0 text-sm leading-[1.6] text-muted">{offer.note}</p>}
               </div>
             </div>
           </div>
@@ -176,7 +164,7 @@ export default async function ServicePage({ params }: PageProps) {
       <section aria-labelledby="service-method" className="relative overflow-clip py-section">
         <div className="container-site relative">
           <div className="mb-[clamp(40px,5vw,64px)] flex flex-col gap-[26px]">
-            <Eyebrow index="02" label={method.label} animated />
+            <Eyebrow index="02" label={method.label} />
             <h2
               id="service-method"
               className="m-0 font-display text-h2-sm leading-[1.1] font-medium tracking-[-0.03em]"
@@ -195,10 +183,9 @@ export default async function ServicePage({ params }: PageProps) {
             <div
               className={`card-hover ${t.hx} relative grid gap-8 rounded-card border border-line-2 bg-surface p-[clamp(28px,4vw,56px)] lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end`}
             >
-              <div className="hx" aria-hidden="true" />
               <div className="hx-line" aria-hidden="true" />
               <div className="relative flex min-w-0 flex-col gap-4">
-                <p className="label-mono-sm m-0 flex items-center gap-2.5 text-muted-3">
+                <p className="label-mono-sm m-0 flex items-center gap-2.5 text-muted">
                   <span aria-hidden="true" className="h-2 w-2 rounded-full bg-orange" />
                   {sv.proof}
                 </p>
@@ -257,12 +244,6 @@ export default async function ServicePage({ params }: PageProps) {
       <section aria-labelledby="service-cta" className="pb-section">
         <div className="container-site">
           <div className="relative overflow-hidden rounded-[32px] border border-line-2 bg-surface p-[clamp(28px,5vw,72px)]">
-            <Glow
-              color={glow[offer.accent]}
-              opacity={0.16}
-              blur={130}
-              style={{ width: 420, height: 420, left: -140, top: -160 }}
-            />
             <div className="relative flex flex-col gap-6">
               <h2
                 id="service-cta"

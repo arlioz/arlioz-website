@@ -22,7 +22,7 @@ export function LegalPage({ locale, content, page }: LegalPageProps) {
       <div className="intro intro-1">
         <Link
           href={localePath(locale)}
-          className="link-u inline-flex items-center gap-[10px] text-[15px] text-paper-3"
+          className="link-u inline-flex items-center gap-[10px] text-[15px] text-paper-2"
         >
           <ArrowLeft size={16} />
           {content.notFound.cta}
@@ -34,7 +34,7 @@ export function LegalPage({ locale, content, page }: LegalPageProps) {
             <span className="ln-in ln-1">{page.title}</span>
           </span>
         </h1>
-        <p className="intro intro-3 label-mono m-0 mt-6 text-muted-3">
+        <p className="intro intro-3 label-mono m-0 mt-6 text-muted">
           {page.updatedLabel} · <time dateTime={page.updated}>{date}</time>
         </p>
       </header>
@@ -55,20 +55,20 @@ export function LegalPage({ locale, content, page }: LegalPageProps) {
             {section.paragraphs.map((paragraph) => (
               <p
                 key={paragraph}
-                className="m-0 max-w-[720px] text-[16.5px] leading-[1.65] text-muted text-pretty"
+                className="m-0 max-w-[720px] text-[17px] leading-[1.65] text-muted text-pretty"
               >
                 {paragraph}
               </p>
             ))}
             {section.links && (
-              <ul className="m-0 grid list-none gap-1.5 p-0 text-[16.5px] leading-[1.65]">
+              <ul className="m-0 grid list-none gap-1.5 p-0 text-[17px] leading-[1.65]">
                 {section.links.map((link) => (
                   <li key={link.href}>
                     <a
                       href={link.href}
                       target="_blank"
                       rel="noopener"
-                      className="link-u inline-flex items-center gap-1.5 text-paper-3"
+                      className="link-u inline-flex items-center gap-1.5 text-paper-2"
                     >
                       {link.label}
                       <ArrowUpRight size={14} />
@@ -78,7 +78,7 @@ export function LegalPage({ locale, content, page }: LegalPageProps) {
               </ul>
             )}
             {section.list && (
-              <ul className="m-0 grid list-disc gap-1.5 pl-5 text-[16.5px] leading-[1.65] text-muted marker:text-orange">
+              <ul className="m-0 grid list-disc gap-1.5 pl-5 text-[17px] leading-[1.65] text-muted marker:text-orange">
                 {section.list.map((item) => (
                   <li key={item}>{item}</li>
                 ))}

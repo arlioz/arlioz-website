@@ -8,7 +8,6 @@ import { type SiteContent } from '@/content/types';
 import { type Locale } from '@/lib/i18n';
 import { site } from '@/lib/site';
 import { ButtonLink } from '@/components/ui/Button';
-import { Glow } from '@/components/ui/Glow';
 import { ArrowUpRight } from '@/components/ui/Icons';
 import { LangSwitch } from './LangSwitch';
 
@@ -140,38 +139,9 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
           }}
           className="menu-overlay pointer-events-auto fixed inset-0 z-0 bg-ink"
         >
-          {/* The halos are wider than the screen: clipped here so the overlay never scrolls sideways. */}
-          <div aria-hidden="true" className="menu-bg">
-            <Glow
-              color="#FA7F13"
-              opacity={0.16}
-              blur={160}
-              style={{
-                width: '52vw',
-                height: '52vw',
-                maxWidth: 760,
-                maxHeight: 760,
-                right: '-8%',
-                top: '-18%',
-              }}
-            />
-            <Glow
-              color="#2065CB"
-              opacity={0.18}
-              blur={160}
-              style={{
-                width: '46vw',
-                height: '46vw',
-                maxWidth: 680,
-                maxHeight: 680,
-                left: '-10%',
-                top: '40%',
-              }}
-            />
-          </div>
           <div className="menu-grid relative mx-auto w-full max-w-[1440px] px-gutter pt-32 pb-14">
             <nav aria-label={a11y.mainNav}>
-              <p className="menu-item label-mono mb-5 text-muted-3" style={stagger(0)}>
+              <p className="menu-item label-mono mb-5 text-muted" style={stagger(0)}>
                 {nav.sectionLabel}
               </p>
               <ul className="menu-list m-0 list-none p-0">
@@ -184,7 +154,7 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
                       aria-current={active === item.anchor ? 'location' : undefined}
                       className="menu-link relative flex items-center gap-[clamp(16px,3vw,40px)] py-[clamp(14px,1.8vw,22px)] text-paper"
                     >
-                      <span className="menu-num menu-side min-w-7 font-mono text-[13px] text-muted-3">
+                      <span className="menu-num menu-side min-w-7 font-mono text-[13px] text-muted">
                         {String(i + 1).padStart(2, '0')}
                       </span>
                       <span className="menu-mask">
@@ -207,7 +177,7 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
               style={stagger(nav.items.length + 1)}
             >
               <div className="ma-mail flex flex-col gap-[10px]">
-                <p className="label-mono m-0 text-muted-3">{nav.write}</p>
+                <p className="label-mono m-0 text-muted">{nav.write}</p>
                 <a
                   href={`mailto:${site.email}`}
                   className="link-u self-start font-display text-mail font-medium tracking-[-0.02em] text-paper"
@@ -216,7 +186,7 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
                 </a>
               </div>
               <div className="ma-soc flex flex-col gap-[10px]">
-                <p className="label-mono m-0 text-muted-3">{nav.follow}</p>
+                <p className="label-mono m-0 text-muted">{nav.follow}</p>
                 <a
                   href={site.linkedin}
                   target="_blank"
@@ -228,7 +198,7 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
                 </a>
               </div>
               <div className="ma-lang flex flex-col gap-[10px]">
-                <p className="label-mono m-0 text-muted-3">{nav.language}</p>
+                <p className="label-mono m-0 text-muted">{nav.language}</p>
                 <LangSwitch
                   locale={locale}
                   label={a11y.languageGroup}
@@ -236,7 +206,7 @@ export function HeaderControls({ locale, homeHref, nav, a11y }: HeaderControlsPr
                   className="self-start rounded-pill border border-line-3 p-[3px]"
                 />
               </div>
-              <p className="ma-tag m-0 max-w-[340px] text-[15px] leading-[1.6] text-muted-3">
+              <p className="ma-tag m-0 max-w-[340px] text-[15px] leading-[1.6] text-muted">
                 {nav.tagline}
               </p>
               <ButtonLink

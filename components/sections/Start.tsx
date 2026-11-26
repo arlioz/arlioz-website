@@ -10,14 +10,13 @@ function StartCard({ offer, primary }: { offer: StartOffer; primary: boolean }) 
     <article
       className={`card-hover ${primary ? 'hx-orange' : 'hx-green'} relative flex flex-col gap-6 rounded-card border border-line-2 bg-surface p-[clamp(28px,3vw,44px)]`}
     >
-      <div className="hx" aria-hidden="true" />
       <div className="hx-line" aria-hidden="true" />
       {/* Title first, so both cards line up whether or not they carry short facts. */}
       <div className="relative flex flex-col gap-3">
         <h3 className="m-0 font-display text-[clamp(26px,2.4vw,34px)] leading-[1.05] font-medium tracking-[-0.03em]">
           {offer.title}
         </h3>
-        {offer.meta && <p className="label-mono-sm m-0 text-muted-3">{offer.meta}</p>}
+        {offer.meta && <p className="label-mono-sm m-0 text-muted">{offer.meta}</p>}
       </div>
       <p className="relative m-0 text-[17px] leading-[1.6] text-paper-2">{offer.text}</p>
       <ul className="relative m-0 flex list-none flex-col gap-2.5 border-t border-line-2 p-0 pt-5">
@@ -55,7 +54,7 @@ export function Start({ content }: { content: SiteContent }) {
       <div className="container-site">
         <div className="mb-[clamp(48px,6vw,80px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
           <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
-            <Eyebrow index={start.index} label={start.label} animated />
+            <Eyebrow index={start.index} label={start.label} />
             <LineTitle
               id="start-title"
               lines={start.title}

@@ -7,7 +7,6 @@ import { DeviceFrame } from '@/components/ui/DeviceFrame';
 import { DeviceStage } from '@/components/ui/DeviceStage';
 import { ButtonLink } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { Glow } from '@/components/ui/Glow';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from '@/components/ui/Icons';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { LineTitle } from '@/components/ui/LineTitle';
@@ -42,13 +41,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
-const glow = { orange: '#FA7F13', blue: '#2065CB', green: '#2BBE8D' } as const;
-const dt = 'label-mono-sm text-muted-3';
+const dt = 'label-mono-sm text-muted';
 const dd = 'm-0 text-base text-paper';
 const caption =
-  'absolute bottom-3.5 left-4 rounded-pill border border-line-3 bg-ink/72 px-2.5 py-1.5 font-mono text-xs tracking-[0.06em] uppercase text-paper-3';
-const phoneBg =
-  'bg-[radial-gradient(circle_at_50%_42%,rgba(226,194,122,0.16),transparent_62%),var(--color-surface)]';
+  'absolute bottom-3.5 left-4 rounded-[6px] border border-line-3 bg-ink/72 px-2.5 py-1.5 font-mono text-xs text-paper-2';
+const phoneBg = 'bg-surface';
 
 function GalleryFigure({ item, index }: { item: GalleryItem; index: number }) {
   if (item.kind === 'desktop') {
@@ -141,22 +138,16 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
       {/* Hero */}
       <section aria-labelledby="case-title" className="relative overflow-clip">
-        <Glow
-          color="#FA7F13"
-          opacity={0.18}
-          blur={160}
-          style={{ width: 620, height: 620, right: -180, top: -220 }}
-        />
         <div className="container-site relative pt-[clamp(40px,5vw,64px)]">
           <div className="intro intro-1 flex flex-wrap items-center justify-between gap-4">
             <Link
               href={`${home}#realisations`}
-              className="link-u inline-flex items-center gap-[10px] text-[15px] text-paper-3"
+              className="link-u inline-flex items-center gap-[10px] text-[15px] text-paper-2"
             >
               <ArrowLeft size={16} />
               {cs.back}
             </Link>
-            <p className="label-mono m-0 text-muted-3">
+            <p className="label-mono m-0 text-muted">
               {cs.counter} <span className="text-paper">{project.index}</span> / {total}
             </p>
           </div>
@@ -167,7 +158,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             lines={[project.title]}
             className="mt-[clamp(48px,6vw,88px)] font-display text-case leading-[0.92] font-medium tracking-[-0.055em]"
           />
-          <p className="intro intro-3 m-0 mt-7 max-w-[880px] font-display text-case-lead leading-[1.25] font-normal tracking-[-0.02em] text-paper-3 text-pretty">
+          <p className="intro intro-3 m-0 mt-7 max-w-[880px] font-display text-case-lead leading-[1.25] font-normal tracking-[-0.02em] text-paper-2 text-pretty">
             {study.tagline}
           </p>
           <dl className="meta-grid intro intro-4 m-0 mt-[clamp(48px,6vw,80px)] border-t border-line-2">
@@ -218,7 +209,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </dl>
           {/* The project on its three devices, as on the home page card. */}
           <div className="intro-media mx-auto mt-[clamp(40px,5vw,64px)] w-full max-w-[1100px]">
-            <DeviceStage devices={project.devices} glow={glow[project.accent]} large priority />
+            <DeviceStage devices={project.devices} large priority />
           </div>
         </div>
       </section>
@@ -261,7 +252,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     <p className="m-0 font-display text-stat-sm leading-[0.85] font-medium tracking-[-0.05em] text-orange-light">
                       {study.stat.value}
                     </p>
-                    <p className="m-0 max-w-[420px] pb-1.5 text-[17px] leading-normal text-paper-3">
+                    <p className="m-0 max-w-[420px] pb-1.5 text-[17px] leading-normal text-paper-2">
                       {study.stat.text}
                     </p>
                   </div>
@@ -351,7 +342,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 key={item.name}
                 className={`card-hover flex min-h-[160px] flex-col justify-between gap-8 rounded-card-sm border border-line-2 bg-surface p-6`}
               >
-                <span className="label-mono-sm text-muted-3">{item.category}</span>
+                <span className="label-mono-sm text-muted">{item.category}</span>
                 <span className="font-display text-[28px] leading-none font-medium tracking-[-0.03em]">
                   {item.name}
                 </span>
@@ -389,7 +380,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             className="next-link rv flex flex-wrap items-center justify-between gap-6 py-[clamp(56px,7vw,96px)] text-paper"
           >
             <span className="flex min-w-0 flex-col gap-[18px]">
-              <span className="label-mono text-muted-3">
+              <span className="label-mono text-muted">
                 {cs.next} · {next.type}
               </span>
               <span className="font-display text-next leading-[0.95] font-medium tracking-[-0.05em]">

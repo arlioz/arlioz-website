@@ -36,14 +36,14 @@ export function Footer({ locale, content, year }: FooterProps) {
             </Link>
             <p className="m-0 text-base leading-[1.6] text-muted">{f.tagline}</p>
             {/* Measured proof, re-checked at each release (Lighthouse, privacy policy). */}
-            <p className="label-mono-sm m-0 flex items-center gap-2.5 text-muted-3">
+            <p className="label-mono-sm m-0 flex items-center gap-2.5 text-muted">
               <span aria-hidden="true" className="h-2 w-2 flex-none rounded-full bg-green" />
               {f.siteProof}
             </p>
           </div>
 
           <nav aria-label={content.a11y.siteMap} className="flex flex-col gap-4">
-            <p className="label-mono-sm m-0 text-muted-3">{f.navigation}</p>
+            <p className="label-mono-sm m-0 text-muted">{f.navigation}</p>
             <ul className="foot-list m-0 flex list-none flex-col gap-[10px] p-0 text-[15px]">
               {content.nav.items.map((item) => (
                 <li key={item.anchor}>
@@ -56,7 +56,7 @@ export function Footer({ locale, content, year }: FooterProps) {
           </nav>
 
           <div className="flex flex-col gap-4">
-            <p className="label-mono-sm m-0 text-muted-3">{f.contact}</p>
+            <p className="label-mono-sm m-0 text-muted">{f.contact}</p>
             <ul className="foot-list m-0 flex list-none flex-col gap-[10px] p-0 text-[15px]">
               <li>
                 <a href={`mailto:${site.email}`} className={linkClass}>
@@ -73,7 +73,7 @@ export function Footer({ locale, content, year }: FooterProps) {
           </div>
 
           <div className="flex flex-col gap-4">
-            <p className="label-mono-sm m-0 text-muted-3">{f.legal}</p>
+            <p className="label-mono-sm m-0 text-muted">{f.legal}</p>
             <ul className="foot-list m-0 flex list-none flex-col gap-[10px] p-0 text-[15px]">
               <li>
                 <Link href={localePath(locale, 'legal')} className={linkClass}>
@@ -101,10 +101,10 @@ export function Footer({ locale, content, year }: FooterProps) {
           arlioz
         </p>
 
-        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-line pt-7 pb-9 text-sm text-muted-3">
+        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-line pt-7 pb-9 text-sm text-muted">
           <p className="m-0">{copyright}</p>
           <p className="m-0">{f.madeIn}</p>
-          <a href="#top" className="link-u hit text-paper-3">
+          <a href="#top" className="link-u hit text-paper-2">
             {f.backToTop}
           </a>
         </div>

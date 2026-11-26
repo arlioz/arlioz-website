@@ -40,7 +40,7 @@ export function Hero({ locale, content }: { locale: Locale; content: SiteContent
                 ) : (
                   <span
                     key={member.name}
-                    className="hero-face flex h-9 w-9 items-center justify-center rounded-full bg-surface-2 font-display text-[13px] text-paper-3"
+                    className="hero-face flex h-9 w-9 items-center justify-center rounded-full bg-surface-2 font-display text-[13px] text-paper-2"
                   >
                     {member.initials}
                   </span>
@@ -78,7 +78,7 @@ export function Hero({ locale, content }: { locale: Locale; content: SiteContent
 
           <a
             href={`${home}#temoignages`}
-            className="intro intro-4 link-u hit label-mono inline-flex items-center gap-2.5 text-muted-2"
+            className="intro intro-4 link-u hit label-mono inline-flex items-center gap-2.5 text-muted"
           >
             <span aria-hidden="true" className="inline-flex gap-1">
               <span className="h-1.5 w-1.5 rounded-full bg-orange" />

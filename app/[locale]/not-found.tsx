@@ -9,7 +9,7 @@ import { localePath, locales } from '@/lib/i18n';
 export default function NotFound() {
   return (
     <section className="container-site flex min-h-[70vh] flex-col justify-center gap-12 py-section">
-      <p className="label-mono m-0 text-muted-3">404</p>
+      <p className="label-mono m-0 text-muted">404</p>
       {locales.map((locale) => {
         const t = getContent(locale).notFound;
         return (

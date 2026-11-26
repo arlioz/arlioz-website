@@ -284,7 +284,7 @@ export const en: SiteContent = {
   hero: {
     title: [
       { lead: 'Your teams ship ', em: 'reliable', tail: ' software' },
-      { lead: 'that is ', em: 'GDPR-compliant', tail: ' from day one.' },
+      { lead: 'that is ', em: 'GDPR-compliant', tail: ' from day one' },
     ],
     lead: 'A tech lead and a GDPR expert inside your teams: audit, code standards, reviews and training. Directly, with no intermediary.',
     team: 'Guy and Amaury, your contacts',
@@ -296,7 +296,7 @@ export const en: SiteContent = {
   expertises: {
     index: '02',
     label: 'Expertise',
-    title: ['Two crafts,', 'two specialties.'],
+    title: ['Two crafts,', 'two specialties'],
     intro:
       'A full-stack developer and a GDPR expert under one roof. We support your teams and build your software.',
     signature:
@@ -393,7 +393,7 @@ export const en: SiteContent = {
   work: {
     index: '03',
     label: 'Work',
-    title: ['Products', 'in production.'],
+    title: ['Products', 'in production'],
     intro: 'A team we support day to day, and software used every day.',
     caseStudy: 'Case study',
     liveExample: 'See a live example',
@@ -417,7 +417,7 @@ export const en: SiteContent = {
   team: {
     index: '01',
     label: 'Team',
-    title: 'Two seniors, directly.',
+    title: 'Two seniors, directly',
     intro: [
       { text: 'A GDPR expert', mark: 'blue' },
       { text: ' and ' },
@@ -473,7 +473,7 @@ export const en: SiteContent = {
   testimonials: {
     index: '05',
     label: 'Testimonials',
-    title: ['They worked', 'with one of us.'],
+    title: ['They worked', 'with one of us'],
     translated: 'Translated from French',
     source: 'LinkedIn recommendation',
     items: [
@@ -570,14 +570,14 @@ export const en: SiteContent = {
     proofProject: 'See the case study',
     proofMission: 'See the engagement',
     faq: 'Frequently asked questions',
-    ctaTitle: 'Let’s talk about your project.',
+    ctaTitle: 'Let’s talk about your project',
     ctaText: 'A free 30-minute call, to find out whether and how we can help.',
     metaTitle: (title) => `${title} — Expertise`,
   },
   faq: {
     index: '07',
     label: 'FAQ',
-    title: ['Frequently', 'asked questions.'],
+    title: ['Frequently', 'asked questions'],
     items: [
       {
         question: 'Where are you based?',
@@ -617,10 +617,10 @@ export const en: SiteContent = {
   contact: {
     index: '08',
     label: 'Contact',
-    title: 'Let’s talk about your project.',
+    title: 'Let’s talk about your project',
     text: 'Tell us where you stand, we come back to you with a first opinion.',
     direct: {
-      title: 'An e-mail or a LinkedIn message is all it takes.',
+      title: 'An e-mail or a LinkedIn message is all it takes',
       text: 'Describe your project in a few lines.',
       email: 'Write to contact@arlioz.be',
       linkedin: 'Contact us on LinkedIn',
@@ -657,12 +657,12 @@ export const en: SiteContent = {
       role: 'Our role',
       results: 'Results',
       features: 'Features',
-      featuresTitle: 'What the solution brings.',
+      featuresTitle: 'What the solution brings',
       stack: 'Tech stack',
-      stackTitle: 'A solid, typed foundation.',
+      stackTitle: 'A solid, typed foundation',
       stackIntro: 'The technologies used for this project.',
       gallery: 'In pictures',
-      galleryTitle: 'The interface, screen by screen.',
+      galleryTitle: 'The interface, screen by screen',
     },
     next: 'Next project',
     nextAria: 'Next project:',
@@ -675,7 +675,7 @@ export const en: SiteContent = {
     metaTitle: (title) => `${title} — Case study`,
   },
   notFound: {
-    title: 'Page not found.',
+    title: 'Page not found',
     text: 'The page you are looking for does not exist or has moved.',
     cta: 'Back to home',
   },

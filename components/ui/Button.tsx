@@ -11,7 +11,7 @@ const sizes: Record<Size, string> = {
   sm: 'h-10 gap-2 px-4 text-sm',
 };
 
-/** `glass` is the header's translucent pill; `primary` is the solid brand-gradient pill (globals.css). */
+/** `glass` is the header's translucent pill; `primary` is the solid brand-orange pill (globals.css). */
 const variants: Record<Variant, string> = {
   primary: 'btn-glass btn-primary font-medium',
   glass: 'btn-glass font-medium',

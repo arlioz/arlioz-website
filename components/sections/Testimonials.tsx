@@ -35,11 +35,11 @@ function Byline({
       >
         {initials(item.name)}
       </span>
-      <p className="m-0 min-w-0 text-[15.5px] leading-snug">
+      <p className="m-0 min-w-0 text-base leading-snug">
         <span className="font-display text-[17px] font-medium tracking-[-0.01em] text-paper">
           {item.name}
         </span>
-        <LinkedIn size={14} className="ml-1.5 inline-block align-[-2px] text-muted-3" />
+        <LinkedIn size={14} className="ml-1.5 inline-block align-[-2px] text-muted" />
         <span className="sr-only">{source}</span>
         <span className="text-muted"> — {item.role}</span>
       </p>
@@ -58,14 +58,14 @@ export function Testimonials({ content }: { content: SiteContent }) {
   const [featured, ...others] = testimonials.items;
   const note = (item: Testimonial) =>
     item.translated ? (
-      <p className="m-0 text-[13px] text-muted-3">{testimonials.translated}</p>
+      <p className="m-0 text-[13px] text-muted">{testimonials.translated}</p>
     ) : null;
 
   return (
     <section id="temoignages" aria-labelledby="testimonials-title" className="py-section">
       <div className="container-site">
         <div className="mb-[clamp(36px,4.4vw,64px)] flex min-w-0 max-w-[780px] flex-col gap-[26px]">
-          <Eyebrow index={testimonials.index} label={testimonials.label} animated />
+          <Eyebrow index={testimonials.index} label={testimonials.label} />
           <LineTitle
             id="testimonials-title"
             lines={testimonials.title}
@@ -81,7 +81,7 @@ export function Testimonials({ content }: { content: SiteContent }) {
               <blockquote className="m-0 flex flex-col gap-5">
                 <span
                   aria-hidden="true"
-                  className="rv-pop h-[0.42em] origin-bottom-left font-serif text-[clamp(88px,8vw,120px)] leading-[0.8] text-orange-light italic"
+                  className="h-[0.42em] origin-bottom-left font-serif text-[clamp(88px,8vw,120px)] leading-[0.8] text-orange-light italic"
                 >
                   “
                 </span>

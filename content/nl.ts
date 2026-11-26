@@ -301,7 +301,7 @@ export const nl: SiteContent = {
   hero: {
     title: [
       { lead: 'Uw teams leveren ', em: 'solide', tail: ' software' },
-      { lead: 'die ', em: 'GDPR-conform', tail: ' is vanaf dag één.' },
+      { lead: 'die ', em: 'GDPR-conform', tail: ' is vanaf dag één' },
     ],
     lead: 'Een tech lead en een GDPR-expert in uw teams: audit, codestandaarden, reviews en opleidingen. Rechtstreeks, zonder tussenpersoon.',
     team: 'Guy en Amaury, uw contactpersonen',
@@ -313,7 +313,7 @@ export const nl: SiteContent = {
   expertises: {
     index: '02',
     label: 'Expertise',
-    title: ['Twee vakgebieden,', 'twee specialiteiten.'],
+    title: ['Twee vakgebieden,', 'twee specialiteiten'],
     intro:
       'Een fullstack ontwikkelaar en een GDPR-expert onder één dak. Wij begeleiden uw teams en bouwen uw software.',
     signature:
@@ -421,7 +421,7 @@ export const nl: SiteContent = {
   work: {
     index: '03',
     label: 'Realisaties',
-    title: ['Producten', 'in productie.'],
+    title: ['Producten', 'in productie'],
     intro: 'Een team dat wij dagelijks begeleiden, en software die elke dag wordt gebruikt.',
     caseStudy: 'Casestudy',
     liveExample: 'Bekijk een live voorbeeld',
@@ -445,7 +445,7 @@ export const nl: SiteContent = {
   team: {
     index: '01',
     label: 'Team',
-    title: 'Twee seniors, rechtstreeks.',
+    title: 'Twee seniors, rechtstreeks',
     intro: [
       { text: 'Een GDPR-expert', mark: 'blue' },
       { text: ' en ' },
@@ -501,7 +501,7 @@ export const nl: SiteContent = {
   testimonials: {
     index: '05',
     label: 'Getuigenissen',
-    title: ['Zij werkten', 'met een van ons.'],
+    title: ['Zij werkten', 'met een van ons'],
     translated: 'Vertaald',
     source: 'LinkedIn-aanbeveling',
     items: [
@@ -607,14 +607,14 @@ export const nl: SiteContent = {
     proofProject: 'Bekijk de casestudy',
     proofMission: 'Bekijk de opdracht',
     faq: 'Veelgestelde vragen',
-    ctaTitle: 'Laten we over uw project praten.',
+    ctaTitle: 'Laten we over uw project praten',
     ctaText: 'Een gesprek van 30 minuten, gratis, om te weten of en hoe wij u kunnen helpen.',
     metaTitle: (title) => `${title} — Expertise`,
   },
   faq: {
     index: '07',
     label: 'FAQ',
-    title: ['Veelgestelde', 'vragen.'],
+    title: ['Veelgestelde', 'vragen'],
     items: [
       {
         question: 'Waar bent u gevestigd?',
@@ -654,10 +654,10 @@ export const nl: SiteContent = {
   contact: {
     index: '08',
     label: 'Contact',
-    title: 'Laten we over uw project praten.',
+    title: 'Laten we over uw project praten',
     text: 'Vertel ons waar u staat, wij komen bij u terug met een eerste advies.',
     direct: {
-      title: 'Een e-mail of een LinkedIn-bericht volstaat.',
+      title: 'Een e-mail of een LinkedIn-bericht volstaat',
       text: 'Beschrijf uw project in enkele regels.',
       email: 'Schrijf naar contact@arlioz.be',
       linkedin: 'Contacteer ons op LinkedIn',
@@ -694,12 +694,12 @@ export const nl: SiteContent = {
       role: 'Onze rol',
       results: 'Resultaten',
       features: 'Functionaliteiten',
-      featuresTitle: 'Wat de oplossing oplevert.',
+      featuresTitle: 'Wat de oplossing oplevert',
       stack: 'Technische stack',
-      stackTitle: 'Een solide, getypeerde basis.',
+      stackTitle: 'Een solide, getypeerde basis',
       stackIntro: 'De technologieën die voor dit project zijn gebruikt.',
       gallery: 'In beeld',
-      galleryTitle: 'De interface, scherm per scherm.',
+      galleryTitle: 'De interface, scherm per scherm',
     },
     next: 'Volgend project',
     nextAria: 'Volgend project:',
@@ -712,7 +712,7 @@ export const nl: SiteContent = {
     metaTitle: (title) => `${title} — Casestudy`,
   },
   notFound: {
-    title: 'Pagina niet gevonden.',
+    title: 'Pagina niet gevonden',
     text: 'De pagina die u zoekt bestaat niet of is verplaatst.',
     cta: 'Terug naar home',
   },

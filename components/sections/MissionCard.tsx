@@ -23,7 +23,7 @@ export function MissionCard({
   const listId = `mission-${mission.client.toLowerCase()}`;
   return (
     <article className="pcard pcard-rev mission-card" style={style}>
-      <div className="pcard-bar label-mono text-muted-3">
+      <div className="pcard-bar label-mono text-muted">
         <p className="m-0 flex flex-wrap items-center gap-x-3.5 gap-y-2 tracking-[0.06em]">
           <span className="text-paper">{number}</span>
           <span aria-hidden="true" className="pcard-rule" />
@@ -46,7 +46,7 @@ export function MissionCard({
           <div className="logo-row mission-logo text-paper">
             <BrandLogo logo={mission.logo} />
           </div>
-          <p id={listId} className="label-mono-sm m-0 text-muted-3">
+          <p id={listId} className="label-mono-sm m-0 text-muted">
             {mission.actionsLabel}
           </p>
           <ol aria-labelledby={listId} className="m-0 list-none p-0">
@@ -72,11 +72,11 @@ export function MissionCard({
           </p>
           <dl className="pcard-story m-0 grid max-w-[580px] gap-3 border-t border-line-2 pt-4">
             <div className="grid gap-1">
-              <dt className="label-mono-sm text-muted-3">{labels.need}</dt>
+              <dt className="label-mono-sm text-muted">{labels.need}</dt>
               <dd className="m-0 text-base leading-[1.55] text-paper-2">{mission.need}</dd>
             </div>
           </dl>
-          <div className="pcard-links mt-2 flex flex-wrap gap-x-7 gap-y-3 text-[16px]">
+          <div className="pcard-links mt-2 flex flex-wrap gap-x-7 gap-y-3 text-base">
             <MailLink link={mission.cta} className="hit" />
           </div>
         </div>

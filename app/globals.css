@@ -17,20 +17,15 @@
   --color-device-edge: #3c3a38;
   --color-dot: #2a2a31;
 
+  /* Three text roles: primary, secondary, muted. */
   --color-paper: #f2f1ee;
-  --color-paper-2: #dedee3;
-  --color-paper-3: #c9c9cf;
-  --color-paper-4: #e4e4e8;
-  --color-muted: #a3a3ab;
-  --color-muted-2: #9a9aa3;
-  --color-muted-3: #8f8f98;
-  --color-muted-4: #6b6b73;
+  --color-paper-2: #c9c9cf;
+  --color-muted: #9a9aa3;
 
   --color-orange: #fa7f13;
   --color-orange-light: #fb9a4b;
   --color-orange-deep: #f6601a;
   --color-red: #e8392b;
-  --color-yellow: #feb613;
   --color-blue: #2065cb;
   --color-blue-light: #6e9cf0;
   --color-blue-deep: #1a55b8;
@@ -44,7 +39,7 @@
   --color-line-3: rgb(255 255 255 / 0.1);
   --color-line-4: rgb(255 255 255 / 0.12);
   --color-line-5: rgb(255 255 255 / 0.18);
-  /* Text on the orange gradient (buttons, selection): ink in both colour schemes. */
+  /* Text on the orange accent (buttons, selection): ink in both colour schemes. */
   --color-on-accent: #0a0a0c;
 
   --radius-card: 24px;
@@ -64,7 +59,7 @@
 
   --spacing-gutter: clamp(20px, 5.6vw, 80px);
   --spacing-gutter-sm: clamp(16px, 4vw, 56px);
-  --spacing-section: clamp(84px, 11.5vw, 168px);
+  --spacing-section: clamp(72px, 8.9vw, 128px);
   --spacing-section-sm: clamp(48px, 5.8vw, 76px);
 
   --ease-out-expo: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -110,13 +105,10 @@
   --shadow-card: 0 40px 80px -40px rgb(0 0 0 / 0.75);
   --shadow-device: 0 24px 50px rgb(0 0 0 / 0.55);
   --shadow-device-lg: 0 30px 60px rgb(0 0 0 / 0.5);
-  --glow-k: 1;
   --grid-line: rgb(242 241 238 / 0.055);
-  --hero-a: #ffb13d, #ff7c00 55%, #ff5a1f;
   /* Brand colour code: orange = development (line 1), blue = GDPR (line 2). */
-  --hero-b: #a9c8ff, #6e9cf0 50%, #4f86f0;
-  --btn-halo: 0 10px 26px -14px rgb(246 96 26 / 0.7);
-  --btn-halo-hover: 0 16px 34px -12px rgb(246 96 26 / 0.65);
+  --hero-a: #ff7c00;
+  --hero-b: #6e9cf0;
 }
 /* Light palette: plain white and cool, slightly blue neutrals (the GDPR blue's
    family), not the warm off-white that reads as a default AI template. White
@@ -132,13 +124,8 @@
     --color-dot: #d5dae2;
 
     --color-paper: #0b0d12;
-    --color-paper-2: #262a33;
-    --color-paper-3: #3c414c;
-    --color-paper-4: #171a20;
-    --color-muted: #505663;
-    --color-muted-2: #575d6a;
-    --color-muted-3: #5f6572;
-    --color-muted-4: #6a707d;
+    --color-paper-2: #3c414c;
+    --color-muted: #575d6a;
 
     /* The accents used as text, darkened to keep 4.5:1 on the light page. */
     --color-orange-light: #b64e06;
@@ -162,14 +149,10 @@
     --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 32px 64px -36px rgb(16 24 40 / 0.2);
     --shadow-device: 0 24px 50px rgb(16 24 40 / 0.18);
     --shadow-device-lg: 0 30px 60px rgb(16 24 40 / 0.16);
-    --glow-k: 0.55;
     --grid-line: rgb(16 24 40 / 0.06);
-    --hero-a: #e8640a, #d14a08 55%, #c23d0c;
-    --hero-b: #2a6fd6, #1d5bbf 55%, #1a4fa8;
+    --hero-a: #d14a08;
+    --hero-b: #1d5bbf;
     --color-device-edge: #d9dbdb;
-    /* On white the dark-theme halo reads as a smudge: tighter and lighter. */
-    --btn-halo: 0 8px 18px -12px rgb(246 96 26 / 0.45);
-    --btn-halo-hover: 0 12px 24px -12px rgb(246 96 26 / 0.45);
   }
 }
 
@@ -238,16 +221,14 @@
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
 @utility label-mono-sm {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
 @utility glass {
@@ -382,18 +363,16 @@
       background-size: 100% 1px;
     }
   }
-  /* Primary call to action: a solid pill in the brand gradient, ink text (about
-     8:1). On hover it lifts, its shadow deepens and the gradient slides to its
-     brighter end. Every `variant="primary"` button uses it, header included. */
+  /* Primary call to action: a solid pill in the brand orange, ink text (about
+     8:1). Hover is a step deeper in the same orange, press a slight scale down.
+     Every `variant="primary"` button uses it, header included. */
   .btn-primary {
     color: var(--color-on-accent);
     border-color: transparent;
-    background: linear-gradient(100deg, #feb613, #fa7f13 45%, #f6601a 80%, #fa7f13) 0 0 / 200% 100%;
-    box-shadow: var(--btn-halo);
+    background: var(--color-orange);
     transition:
-      background-position 0.6s var(--ease-out-expo),
-      transform 0.35s var(--ease-out-expo),
-      box-shadow 0.35s ease;
+      background-color 0.2s ease,
+      transform 0.2s var(--ease-out-expo);
   }
   .btn-primary svg {
     color: currentColor;
@@ -401,13 +380,11 @@
   @media (hover: hover) {
     .btn-primary:hover {
       border-color: transparent;
-      background-position: 100% 0;
-      transform: translateY(-2px);
-      box-shadow: var(--btn-halo-hover);
+      background: var(--color-orange-deep);
     }
   }
   .btn-primary:active {
-    transform: translateY(0) scale(0.98);
+    transform: scale(0.98);
   }
   .link-u svg {
     transition: transform 0.4s var(--ease-out-expo);
@@ -429,13 +406,6 @@
   }
   .menu-overlay[data-state='closing'] {
     animation: menu-out 0.42s cubic-bezier(0.55, 0, 0.8, 0.3) both;
-    pointer-events: none;
-  }
-  .menu-bg {
-    position: absolute;
-    inset: 0;
-    min-height: 100dvh;
-    overflow: clip;
     pointer-events: none;
   }
   .menu-grid {
@@ -506,7 +476,7 @@
   }
   @media (hover: hover) {
     .menu-link:hover .menu-text {
-      transform: translateX(14px);
+      transform: translateX(6px);
     }
     .menu-link:hover .menu-dot {
       transform: scale(1.6);
@@ -625,21 +595,18 @@
   .hero-title {
     text-shadow: 0 2px 24px rgb(var(--ink-rgb) / 0.8);
   }
-  /* The two promises: italic serif, each with the gradient of "its" current. */
+  /* The two promises: italic serif, each in the colour of "its" current. */
   .hero-hl {
     font: italic 400 1.08em/1 var(--font-serif);
     letter-spacing: -0.02em;
     padding-right: 0.06em;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
     text-shadow: none;
   }
   .hero-hl-a {
-    background-image: linear-gradient(95deg, var(--hero-a));
+    color: var(--hero-a);
   }
   .hero-hl-b {
-    background-image: linear-gradient(95deg, var(--hero-b));
+    color: var(--hero-b);
   }
   .hero-lead {
     text-shadow: 0 1px 12px rgb(var(--ink-rgb) / 0.9);
@@ -681,8 +648,8 @@
   .proj-row-rev > :first-child {
     order: 2;
   }
-  /* Project cards: a pile of folders. Each card is a surface with a lit top edge, the
-     project's accent glowing from one corner and its index as a watermark. */
+  /* Project cards: a pile of folders. Each card is a plain surface with a lit top
+     edge; the project's accent only draws the short rule in its top bar. */
   .stack {
     display: grid;
     gap: clamp(24px, 3vw, 40px);
@@ -699,25 +666,6 @@
       inset 0 1px 0 var(--color-line-2),
       var(--shadow-card);
     transform-origin: 50% 0;
-  }
-  .pcard::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background: radial-gradient(
-      ellipse 46% 52% at 0% 0%,
-      color-mix(in srgb, var(--accent) 16%, transparent),
-      transparent 70%
-    );
-  }
-  .pcard-rev::before {
-    background: radial-gradient(
-      ellipse 46% 52% at 100% 0%,
-      color-mix(in srgb, var(--accent) 16%, transparent),
-      transparent 70%
-    );
   }
   .pcard-bar {
     display: flex;
@@ -963,14 +911,6 @@
       transform: translateY(-4px);
     }
   }
-  .ico {
-    transition: transform 0.5s var(--ease-out-expo);
-  }
-  @media (hover: hover) {
-    .card-hover:hover .ico {
-      transform: translateY(-2px) rotate(-6deg) scale(1.06);
-    }
-  }
   .hx-blue {
     --hc: 110, 156, 240;
   }
@@ -979,30 +919,6 @@
   }
   .hx-green {
     --hc: 43, 190, 141;
-  }
-  .hx {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 220px;
-    pointer-events: none;
-    border-radius: 24px 24px 0 0;
-    overflow: clip;
-    transform-origin: 50% 0;
-  }
-  .hx::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(70% 100% at 50% 0%, rgba(var(--hc), 0.2), rgba(var(--hc), 0) 72%);
-    opacity: 0.45;
-    transition: opacity 0.6s ease;
-  }
-  @media (hover: hover) {
-    .card-hover:hover .hx::before {
-      opacity: 1;
-    }
   }
   .hx-line {
     position: absolute;
@@ -1019,27 +935,6 @@
       rgba(var(--hc), 0)
     );
   }
-  .hx-line::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 30%;
-    background: linear-gradient(
-      90deg,
-      rgb(var(--paper-rgb) / 0),
-      rgb(var(--paper-rgb)) 50%,
-      rgb(var(--paper-rgb) / 0)
-    );
-    opacity: 0;
-    translate: -100% 0;
-  }
-  @media (hover: hover) {
-    .card-hover:hover .hx-line::after {
-      animation: hx-sweep 1.3s cubic-bezier(0.35, 0.1, 0.25, 1) both;
-    }
-  }
   .hx-tag {
     transition:
       background-color 0.45s ease,
@@ -1053,28 +948,6 @@
   }
 
   /* Project device stage ------------------------------------------- */
-  .proj-visual {
-    transition: transform 0.6s var(--ease-out-expo);
-  }
-  @media (hover: hover) {
-    .proj-card:hover .proj-visual {
-      transform: scale(1.025);
-    }
-  }
-  .stage .dev {
-    transition: transform 0.8s var(--ease-out-expo);
-  }
-  @media (hover: hover) {
-    .stage:hover .dev-desk {
-      transform: translateY(-8px);
-    }
-    .stage:hover .dev-tab {
-      transform: translateY(-14px) rotate(1.5deg);
-    }
-    .stage:hover .dev-phone {
-      transform: translateY(-22px) rotate(-2.5deg);
-    }
-  }
   .jk-scroll,
   .rx-a,
   .rx-b {
@@ -1109,6 +982,17 @@
   .rx-m {
     animation-delay: -3s;
   }
+  /* The captures only move while the pointer is on the stage: nothing loops on its
+     own (WCAG 2.2.2), and touch screens show the first capture. After the `animation`
+     shorthands above, which would reset the play state. */
+  .stage :is(.jk-scroll, .rx-a, .rx-b) {
+    animation-play-state: paused;
+  }
+  @media (hover: hover) {
+    .stage:hover :is(.jk-scroll, .rx-a, .rx-b) {
+      animation-play-state: running;
+    }
+  }
 
   /* Trust logos: single-tone masks in the text colour, so they follow the colour
      scheme. `--scale` (TrustBand.tsx) evens out their visual weight. */
@@ -1131,16 +1015,6 @@
     font-size: calc(var(--logo-h) * 0.56);
     line-height: 1;
     letter-spacing: -0.02em;
-  }
-
-  /* Team ----------------------------------------------------------- */
-  .photo-zoom {
-    transition: transform 0.9s var(--ease-out-expo);
-  }
-  @media (hover: hover) {
-    article:hover .photo-zoom {
-      transform: scale(1.04);
-    }
   }
 
   /* Case study ----------------------------------------------------- */
@@ -1242,9 +1116,6 @@
   .lm-in {
     display: inline-block;
   }
-  .sx-rule {
-    transform-origin: 0 50%;
-  }
 }
 
 /* ------------------------------------------------------------------ */
@@ -1332,22 +1203,6 @@
     opacity: 0;
   }
 }
-@keyframes hx-sweep {
-  0% {
-    translate: -100% 0;
-    opacity: 0;
-  }
-  12% {
-    opacity: 1;
-  }
-  82% {
-    opacity: 1;
-  }
-  100% {
-    translate: 340% 0;
-    opacity: 0;
-  }
-}
 @keyframes arz-up {
   from {
     opacity: 0;
@@ -1394,16 +1249,6 @@
     scale: 1 1;
   }
 }
-@keyframes arz-pop {
-  from {
-    opacity: 0;
-    scale: 0.6;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
-  }
-}
 @keyframes arz-mark {
   from {
     background-size: 0% 0.09em;
@@ -1416,16 +1261,6 @@
   from {
     opacity: 0;
     translate: 0 30%;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-@keyframes sx-left {
-  from {
-    opacity: 0;
-    translate: -14px 0;
   }
   to {
     opacity: 1;
@@ -1489,19 +1324,6 @@
     .rv-bar.b3 {
       animation-range: cover 20% cover 40%;
     }
-    /* The accent line along the top of a card draws from its centre as the card
-       comes in (the brand colour of the offer, before anything else). */
-    .hx-line {
-      animation: arz-bar linear both;
-      animation-timeline: view();
-      animation-range: cover 0% cover 22%;
-    }
-    /* Small marks that pop in place: step numbers, the quote mark, arrows. */
-    .rv-pop {
-      animation: arz-pop var(--ease-out-soft) both;
-      animation-timeline: view();
-      animation-range: cover 0% cover 16%;
-    }
     /* The featured recommendation rises as one block. */
     .rv-q {
       animation: arz-up linear both;
@@ -1524,21 +1346,6 @@
       animation-timeline: view();
       animation-range: entry 0% entry 90%;
       will-change: transform, opacity;
-    }
-    .sx-num {
-      animation: arz-up var(--ease-out-soft) both;
-      animation-timeline: view();
-      animation-range: entry 0px entry 220px;
-    }
-    .sx-rule {
-      animation: arz-bar var(--ease-out-soft) both;
-      animation-timeline: view();
-      animation-range: entry 40px entry 290px;
-    }
-    .sx-lab {
-      animation: sx-left var(--ease-out-soft) both;
-      animation-timeline: view();
-      animation-range: entry 80px entry 330px;
     }
     .lm {
       view-timeline-name: --lm;
@@ -1998,29 +1805,20 @@ html.no-sda.is-scrolling .rx-b,
 
 /* Light reveals for `html.no-sda.sda-light` (small surfaces only, see
    ScrollRevealFallback). Short, compositor-only transitions. */
-html.sda-light :is(.sx-txt, .sx-up, .sx-num, .sx-lab, .rv:not(article):not(.rv-media)) {
+html.sda-light :is(.sx-txt, .sx-up, .rv:not(article):not(.rv-media)) {
   transition:
     opacity 0.5s ease-out,
     transform 0.5s var(--ease-out-expo);
 }
-html.sda-light :is(.sx-txt, .sx-up, .sx-num, .sx-lab, .rv:not(article):not(.rv-media)):not(.is-in) {
+html.sda-light :is(.sx-txt, .sx-up, .rv:not(article):not(.rv-media)):not(.is-in) {
   opacity: 0;
   transform: translate3d(0, 18px, 0);
 }
-html.sda-light :is(.rv-bar, .sx-rule) {
+html.sda-light .rv-bar {
   transform-origin: 0 50%;
   transition: transform 0.6s var(--ease-out-expo);
 }
-html.sda-light .rv-pop {
-  transition:
-    opacity 0.45s ease-out,
-    transform 0.45s var(--ease-out-expo);
-}
-html.sda-light .rv-pop:not(.is-in) {
-  opacity: 0;
-  transform: scale(0.6);
-}
-html.sda-light :is(.rv-bar, .sx-rule):not(.is-in) {
+html.sda-light .rv-bar:not(.is-in) {
   transform: scaleX(0);
 }
 html.sda-light .lm-in {
@@ -2043,9 +1841,6 @@ html.sda-light :is(.rv-d2, .rv-bar.b3) {
 /* Reduced motion                                                      */
 /* ------------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
-  .card-hover:hover .hx-line::after {
-    animation: none;
-  }
   .intro,
   .intro-media,
   .ln-in,

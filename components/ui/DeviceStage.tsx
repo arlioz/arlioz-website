@@ -3,13 +3,10 @@ import Link from 'next/link';
 import { type CSSProperties } from 'react';
 import { type DeviceSet, type ProjectImage } from '@/content/types';
 import { DeviceFrame, deviceScreens } from './DeviceFrame';
-import { Glow } from './Glow';
 
 interface DeviceStageProps {
   devices: DeviceSet;
   reversed?: boolean;
-  glow: string;
-  glowOpacity?: number;
   href?: string;
   ariaLabel?: string;
   /** Case-study hero: the stage spans up to 1100 px, so the images load larger. */
@@ -107,8 +104,6 @@ function Screen({
 export function DeviceStage({
   devices,
   reversed = false,
-  glow,
-  glowOpacity = 0.16,
   href,
   ariaLabel,
   large = false,
@@ -130,18 +125,6 @@ export function DeviceStage({
     />
   ) : (
     <>
-      <Glow
-        color={glow}
-        opacity={glowOpacity}
-        blur={120}
-        style={{
-          width: '60%',
-          aspectRatio: '1 / 1',
-          left: reversed ? '28%' : '12%',
-          top: reversed ? '22%' : '20%',
-        }}
-      />
-
       {/* Desktop */}
       <DeviceFrame
         kind="laptop"

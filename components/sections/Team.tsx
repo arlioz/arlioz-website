@@ -6,11 +6,7 @@ import { LogoRow } from '@/components/ui/BrandLogo';
 import { trustLogos } from '@/content/media';
 
 /** Brand colour code on the three pillars: build (orange), protect (blue), pass on (green). */
-const bars = [
-  'bg-[linear-gradient(90deg,#FEB613,#FA7F13_55%,#E8392B)]',
-  'bg-[linear-gradient(90deg,#1A55B8,#2065CB_55%,#3D80E0)]',
-  'bg-[linear-gradient(90deg,#1E92A0,#2BBE8D_60%,#4FD6A4)]',
-] as const;
+const bars = ['bg-orange', 'bg-blue', 'bg-green'] as const;
 
 const accent = {
   blue: { hx: 'hx-blue', text: 'text-blue-light', border: 'border-blue-light/32' },
@@ -62,7 +58,6 @@ export function Team({ content }: { content: SiteContent }) {
                 key={member.name}
                 className={`tcard card-hover ${a.hx} relative rounded-card border border-line-2 bg-surface`}
               >
-                <div className="hx" aria-hidden="true" />
                 <div className="hx-line" aria-hidden="true" />
 
                 <div className="tcard-photo relative overflow-hidden rounded-[18px] bg-surface-2">
@@ -73,7 +68,7 @@ export function Team({ content }: { content: SiteContent }) {
                       fill
                       sizes="(max-width: 720px) 112px, (max-width: 1080px) 240px, 300px"
                       quality={85}
-                      className="photo-zoom object-cover"
+                      className="object-cover"
                     />
                   ) : (
                     <span
@@ -87,7 +82,7 @@ export function Team({ content }: { content: SiteContent }) {
 
                 <div className="tcard-head relative flex min-w-0 flex-col gap-2.5">
                   <p
-                    className={`tcard-role hx-tag label-mono-sm m-0 w-fit rounded-pill border px-3 py-1.5 ${a.border} ${a.text}`}
+                    className={`tcard-role hx-tag label-mono-sm m-0 w-fit rounded-[6px] border px-3 py-1.5 ${a.border} ${a.text}`}
                   >
                     {member.role}
                   </p>
@@ -97,7 +92,7 @@ export function Team({ content }: { content: SiteContent }) {
                 </div>
 
                 <div className="tcard-body relative flex min-w-0 flex-col gap-5">
-                  <p className="m-0 text-[16.5px] leading-[1.6] text-muted">{member.text}</p>
+                  <p className="m-0 text-[17px] leading-[1.6] text-muted">{member.text}</p>
                   {member.now && (
                     <p className="m-0 flex items-center gap-2.5 text-[15px] font-medium text-paper-2">
                       <span
@@ -130,8 +125,8 @@ export function Team({ content }: { content: SiteContent }) {
         </div>
 
         <div className="mt-[clamp(56px,7vw,96px)] flex flex-col items-center gap-[clamp(24px,3vw,36px)] border-t border-line pt-[clamp(40px,5vw,64px)]">
-          <p className="label-mono m-0 text-center text-muted-3">{content.trust.label}</p>
-          <LogoRow logos={trustLogos} className="logo-row-trust max-w-[1100px] text-muted-2" />
+          <p className="label-mono m-0 text-center text-muted">{content.trust.label}</p>
+          <LogoRow logos={trustLogos} className="logo-row-trust max-w-[1100px] text-muted" />
         </div>
       </div>
     </section>

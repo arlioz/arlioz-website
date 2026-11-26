@@ -303,7 +303,7 @@ export const fr: SiteContent = {
   hero: {
     title: [
       { lead: 'Vos équipes livrent du logiciel ', em: 'fiable' },
-      { lead: 'et ', em: 'conforme RGPD', tail: ' dès le premier jour.' },
+      { lead: 'et ', em: 'conforme RGPD', tail: ' dès le premier jour' },
     ],
     lead: 'Un lead technique et un expert RGPD au sein de vos équipes : audit, standards de code, revues et formations. En direct, sans intermédiaire.',
     team: 'Guy et Amaury, vos interlocuteurs',
@@ -315,7 +315,7 @@ export const fr: SiteContent = {
   expertises: {
     index: '02',
     label: 'Expertises',
-    title: ['Deux métiers,', 'deux spécialités.'],
+    title: ['Deux métiers,', 'deux spécialités'],
     intro:
       'Un développeur fullstack et un expert RGPD sous le même toit. Nous accompagnons vos équipes et construisons vos logiciels.',
     signature:
@@ -423,7 +423,7 @@ export const fr: SiteContent = {
   work: {
     index: '03',
     label: 'Réalisations',
-    title: ['Des produits', 'en production.'],
+    title: ['Des produits', 'en production'],
     intro: 'Une équipe que nous accompagnons au quotidien, et des logiciels utilisés chaque jour.',
     caseStudy: 'Étude de cas',
     liveExample: 'Voir un exemple en ligne',
@@ -447,7 +447,7 @@ export const fr: SiteContent = {
   team: {
     index: '01',
     label: 'Équipe',
-    title: 'Deux seniors, en direct.',
+    title: 'Deux seniors, en direct',
     intro: [
       { text: 'Un expert RGPD', mark: 'blue' },
       { text: ' et ' },
@@ -510,7 +510,7 @@ export const fr: SiteContent = {
   testimonials: {
     index: '05',
     label: 'Témoignages',
-    title: ['Ils ont travaillé', 'avec l’un de nous.'],
+    title: ['Ils ont travaillé', 'avec l’un de nous'],
     translated: 'Traduit de l’anglais',
     source: 'Recommandation LinkedIn',
     items: [
@@ -616,14 +616,14 @@ export const fr: SiteContent = {
     proofProject: 'Voir l’étude de cas',
     proofMission: 'Voir la mission',
     faq: 'Questions fréquentes',
-    ctaTitle: 'Parlons de votre projet.',
+    ctaTitle: 'Parlons de votre projet',
     ctaText: 'Un appel de 30 minutes, gratuit, pour savoir si et comment nous pouvons vous aider.',
     metaTitle: (title) => `${title} — Expertise`,
   },
   faq: {
     index: '07',
     label: 'FAQ',
-    title: ['Questions', 'fréquentes.'],
+    title: ['Questions', 'fréquentes'],
     items: [
       {
         question: 'Où êtes-vous basés ?',
@@ -664,10 +664,10 @@ export const fr: SiteContent = {
   contact: {
     index: '08',
     label: 'Contact',
-    title: 'Parlons de votre projet.',
+    title: 'Parlons de votre projet',
     text: 'Dites-nous où vous en êtes, nous revenons vers vous avec un premier avis.',
     direct: {
-      title: 'Un e-mail ou un message LinkedIn suffit.',
+      title: 'Un e-mail ou un message LinkedIn suffit',
       text: 'Décrivez votre projet en quelques lignes.',
       email: 'Écrire à contact@arlioz.be',
       linkedin: 'Nous contacter sur LinkedIn',
@@ -704,12 +704,12 @@ export const fr: SiteContent = {
       role: 'Notre rôle',
       results: 'Résultats',
       features: 'Fonctionnalités',
-      featuresTitle: 'Ce que la solution apporte.',
+      featuresTitle: 'Ce que la solution apporte',
       stack: 'Stack technique',
-      stackTitle: 'Une base solide et typée.',
+      stackTitle: 'Une base solide et typée',
       stackIntro: 'Les technologies utilisées pour ce projet.',
       gallery: 'En images',
-      galleryTitle: 'L’interface, écran par écran.',
+      galleryTitle: 'L’interface, écran par écran',
     },
     next: 'Projet suivant',
     nextAria: 'Projet suivant :',
@@ -722,7 +722,7 @@ export const fr: SiteContent = {
     metaTitle: (title) => `${title} — Étude de cas`,
   },
   notFound: {
-    title: 'Page introuvable.',
+    title: 'Page introuvable',
     text: 'La page que vous cherchez n’existe pas ou a été déplacée.',
     cta: 'Retour à l’accueil',
   },

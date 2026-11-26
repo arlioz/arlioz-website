@@ -35,7 +35,6 @@ function OfferCard({
     <article
       className={`offer card-hover ${t.hx} relative flex flex-col rounded-card border border-line-2 bg-surface`}
     >
-      <div className="hx" aria-hidden="true" />
       <div className="hx-line" aria-hidden="true" />
 
       <div className="relative flex items-center gap-4">
@@ -73,9 +72,7 @@ function OfferCard({
         ))}
       </ul>
 
-      {offer.note && (
-        <p className="relative m-0 text-sm leading-[1.6] text-muted-3">{offer.note}</p>
-      )}
+      {offer.note && <p className="relative m-0 text-sm leading-[1.6] text-muted">{offer.note}</p>}
       <OfferLinks offer={offer} more={labels.more} locale={locale} className="pt-2" />
     </article>
   );
@@ -119,7 +116,6 @@ function SpecialtyCard({ offer, more, locale }: { offer: Offer; more: string; lo
     <article
       className={`card-hover ${t.hx} relative flex flex-col gap-5 rounded-card border border-line-2 bg-surface p-[clamp(24px,2.4vw,32px)]`}
     >
-      <div className="hx" aria-hidden="true" />
       <div className="hx-line" aria-hidden="true" />
       <div className="relative flex items-center gap-4">
         <span
@@ -148,7 +144,7 @@ export function Expertises({ locale, content }: { locale: Locale; content: SiteC
       <div className="container-site">
         <div className="mb-[clamp(48px,6vw,80px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
           <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
-            <Eyebrow index={x.index} label={x.label} animated />
+            <Eyebrow index={x.index} label={x.label} />
             <LineTitle
               id="services-title"
               lines={x.title}

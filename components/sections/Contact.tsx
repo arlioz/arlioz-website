@@ -2,7 +2,6 @@ import { type SiteContent } from '@/content/types';
 import { type Locale, localePath } from '@/lib/i18n';
 import { site } from '@/lib/site';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { Glow } from '@/components/ui/Glow';
 import Link from 'next/link';
 import { Magnetic } from '@/components/motion/Magnetic';
 import { ButtonLink } from '@/components/ui/Button';
@@ -16,19 +15,6 @@ export function Contact({ locale, content }: { locale: Locale; content: SiteCont
     <section id="contact" aria-labelledby="contact-title" className="pb-section">
       <div className="container-site">
         <div className="rv-media relative overflow-hidden rounded-[32px] border border-line-2 bg-surface p-[clamp(28px,5vw,72px)]">
-          <Glow
-            color="#FA7F13"
-            opacity={0.16}
-            blur={130}
-            style={{ width: 420, height: 420, left: -140, top: -160 }}
-          />
-          <Glow
-            color="#2065CB"
-            opacity={0.22}
-            blur={130}
-            style={{ width: 460, height: 460, right: -160, bottom: -180 }}
-          />
-
           <div className="contact-grid relative">
             <div className="flex min-w-0 flex-col gap-7">
               <Eyebrow index={contact.index} label={contact.label} />
@@ -62,11 +48,11 @@ export function Contact({ locale, content }: { locale: Locale; content: SiteCont
                   <ArrowUpRight size={16} />
                 </ButtonLink>
               </div>
-              <p className="m-0 flex items-start gap-[10px] text-sm leading-[1.55] text-muted-3">
+              <p className="m-0 flex items-start gap-[10px] text-sm leading-[1.55] text-muted">
                 <Shield size={18} strokeWidth={1.7} className="mt-px flex-none text-blue-light" />
                 <span>
                   {contact.direct.privacy}{' '}
-                  <Link href={localePath(locale, 'privacy')} className="link-u hit text-paper-3">
+                  <Link href={localePath(locale, 'privacy')} className="link-u hit text-paper-2">
                     {contact.direct.privacyLink}
                   </Link>
                 </span>

@@ -21,7 +21,7 @@ export function MethodSteps({ method }: { method: SiteContent['method'] }) {
           <div className="flex items-center gap-4 lg:col-span-2 xl:col-span-1">
             <span
               aria-hidden="true"
-              className="rv-pop label-mono inline-flex h-11 w-11 flex-none items-center justify-center rounded-full border border-green-light/40 text-green-light"
+              className="label-mono inline-flex h-11 w-11 flex-none items-center justify-center rounded-full border border-green-light/40 text-green-light"
             >
               {String(i + 1).padStart(2, '0')}
             </span>
@@ -52,7 +52,7 @@ export function Method({ content }: { content: SiteContent }) {
       <div className="container-site">
         <div className="mb-[clamp(40px,5vw,64px)] flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
           <div className="flex min-w-0 max-w-[780px] flex-col gap-[26px]">
-            <Eyebrow index={m.index} label={m.label} animated />
+            <Eyebrow index={m.index} label={m.label} />
             <LineTitle
               id="method-title"
               lines={m.title}

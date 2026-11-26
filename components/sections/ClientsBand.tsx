@@ -19,7 +19,7 @@ export function ClientsBand({ content }: { content: SiteContent }) {
     >
       <div className="container-site flex flex-col gap-[clamp(24px,2.8vw,36px)]">
         <div className="flex flex-wrap items-center justify-center gap-x-[clamp(32px,4.4vw,64px)] gap-y-5">
-          <p id="clients-label" className="label-mono m-0 text-muted-3">
+          <p id="clients-label" className="label-mono m-0 text-muted">
             {clients.label}
           </p>
           <LogoRow logos={clientLogos} className="logo-row-clients text-paper-2" />
@@ -29,7 +29,7 @@ export function ClientsBand({ content }: { content: SiteContent }) {
           <dl aria-label={clients.statsLabel} className="stats m-0">
             {clients.stats.map((stat, i) => (
               <div key={stat.label} className="stat">
-                <dt className="label-mono-sm text-muted-3">{stat.label}</dt>
+                <dt className="label-mono-sm text-muted">{stat.label}</dt>
                 <dd className="m-0 font-display text-[clamp(36px,3.6vw,56px)] leading-none font-medium tracking-[-0.04em] text-paper">
                   <span className="lm" style={{ '--lo': `${i * 40}px` } as CSSProperties}>
                     <span className="lm-in">{stat.value}</span>
